@@ -1,6 +1,10 @@
+#See prob2.f90 for the data generation
+#Our data file has 3 columns J, f(J) at 300K and f(J) at 1000K
+# We want to make 2 plots to compare the distributions 
+
+#======================Tell Python to let us make a Graph======================!
 import matplotlib.pyplot as plt        
 
-# This script plots x,y data in a file seperated by a space
 
 with open('data.dat') as f:             #open data file to plot
     lines = f.readlines()               # read in line by line
