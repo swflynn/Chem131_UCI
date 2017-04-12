@@ -1,0 +1,199 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Chem131C-Lecture-4-3-17}
+\author{Shane (swflynn@uci.edu) }
+\date{April 2017}
+
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{braket}
+\usepackage{amsmath}
+\usepackage[margin=0.7in]{geometry}
+
+\begin{document}
+
+\maketitle
+
+\section{Lecture 1; 4-3-17}
+\subsection*{Course Overview}
+The course will be using the big red book, McQuarrie and Simon Physical Chemistry. A Molecular Approach. 
+The intention is to cover some basic statistical mechanics, thermodynamics, and a small amount of kinetics and transport (in my experience no undergraduate class ever has time for kinetics and transport). 
+This first week will briefly review statistical mechanics covered in Chem131B at UCI. 
+After that we will jump into the bulk of the class, Thermodynamics. 
+
+\subsection*{The Laws of Thermodynamics (McQuarrie Ch.19)}
+
+\subsubsection*{The First Law}
+In general we think of the first law as the conservation of energy.
+\begin{equation}
+    \Delta U = q + w
+\end{equation}
+Here U is the internal energy of our system (a number we care about).
+q and w refer to heat and work respectively. 
+This is covered in chapter 19 and we will spend a will be discussed during Week 2. 
+
+\subsubsection*{The Second Law}
+The second law is interested in the directionality of entropy production.
+The law itself can be written in various forms and will be a large portion of our adventure in thermodynamics. 
+One statement of the law would be: The entropy (S) of an isolated system increases in the cause of a spontaneous process. 
+Where the entropy of the universe is strictly greater than 0 during any process, the entropy of a spontaneous process is greater than or equal to 0. 
+
+Consider a toy system as a box with a partition down the middle.
+The temperature of one half of the box will be larger than the other.
+When we allow heat to be transferred over the partition (nothing else is occurring in our simple system just let the temperatures equilibrate).
+Our system has clearly changed once we remove the partition, so we can calculate the internal energy change. 
+
+If we consider our whole system to be the entire box, all we did was remove the partition, therefore the total energy of the system could not have changed (conservation of energy), so $\Delta$U = 0.
+\begin{equation}
+    \Delta U = \Delta U_1 + \Delta U_2 = -q + q = 0 
+\end{equation}
+But we do know our system has changed, it is 'mixed' now, so how do we account for that?
+This is the domain of the Second Law.
+\begin{equation}
+\begin{split}
+      S &= S_1 + S_2 \\
+      \Delta S &= \Delta S_1 + \Delta S_2 = \frac{-Q}{T_H} + \frac{Q}{T_C} = Q\left( \frac{1}{T_C} - \frac{1}{T_H} \right )
+\end{split}
+\end{equation}
+
+\section{Lecture 2; 4-5-17}
+The Midterm will be May 12 (Friday), week 6 of the class. 
+
+\subsection*{Review of Chapter 17; Partition Functions}
+Recall, the Hamiltonian is important and you should remember what letter we use to denote it!
+$\hat{H}$ = Hamiltonian, and we can write down a famous equation using it. 
+\begin{equation}
+\hat{H}\psi_i = E_i\psi_i
+\end{equation}
+We know from quantum mechanics that this eigen-value problem can be solved to find physical observables, namely the energy.
+For every energy state we have an associated probability of finding a particle there, lets call it P. 
+\begin{equation}
+P_i = \frac{e^{-E_i/kT}}{Q}
+\end{equation}
+Because our system of interest must exist (or else why bother doing all this work), therefore the sum of the probabilities must be 1.
+Q is the partition function, that thing we obsess over in statistical mechanics, and for good reason. 
+An important note: we can take derivatives of the partition function to calculate thermodynamic properties like the energy or pressure. 
+\begin{equation}
+Q = \sum_i e^{-\beta E_i}
+\end{equation}
+
+\subsubsection*{Interpreting the Partition Function}
+One way to think about the partition function is  as the effective number of states available to the system. 
+For example consider:
+\begin{equation}
+\hat{H} = \begin{bmatrix} E_1 & 0 \\ 0 & E_2 \end{bmatrix}
+\end{equation}
+This simple matrix requires 2 vectors to span the basis set. 
+$\psi_1 = \left[ \begin{array}{c} 0 \\ 1 \end{array} \right ]$ and $\psi_2 = \left[ \begin{array}{c} 1 \\ 0 \end{array} \right ]$. 
+We can then write Q as the summation of our energy states. 
+\begin{equation}
+Q = e^{-\beta E_1} + e^{-\beta E_2}
+\end{equation}
+Now we have all the information to determine our probability of being in either energy state 1 or energy state 2. 
+\begin{equation}
+P_1 = \frac{e^{-\beta E_1}}{Q} \quad P_2 = \frac{e^{-\beta E_2}}{Q}
+\end{equation}
+Remember, we don't really ever care about the actual energy of a system, we care about differences in the energy when we perturb the system.
+So we can define the energy in any way that is convenient. 
+Consider the first state to be 0  and the second some $\Delta$ E, then our system becomes.
+\begin{equation}
+    \begin{split}
+        Q &= 1 + e^{-\beta \Delta E} \\
+        P_1 &= \frac{1}{1+e^{-\beta \Delta E}}\\
+        P_2 &= \frac{e^{-\beta \Delta E}}{1+e^{-\beta \Delta E}}
+    \end{split}
+\end{equation}
+
+And looking at the limits for this case if the temperature is very large (remember $\beta = \frac{1}{kT}$), each state occurs with equal probability.
+Physically this makes sense with a high temperature we have alot of energy, therefore we can reach either quantum state with ease.
+When the temperature is very low the system collapses to only the first state being populated, physically we don't have enough energy to leave the ground quantum state. 
+
+\subsubsection*{Expectation Values}
+Remember, we can calculate properties that people care about by taking derivatives of the partition function (I mean it, why bother measuring stuff when you have a computer! And no I am not bias or anything). 
+Consider some general property $\Omega$ this could be energy, temperature, etc. 
+We can calculate the expectation value (average value) of this property as $\langle \Omega \rangle = \Sigma_i \Omega_i P_i$. 
+For example let's calculate the energy of a system:
+\begin{equation}
+\begin{split}
+\langle E \rangle &= \frac{\Sigma_i E_i e^{-\beta E_i}}{Q} \\ 
+&= \frac{d}{d\beta} \ln Q
+\end{split}
+\end{equation}
+This second line is a little math trick used in Stat. Mech. to make our lives easier.
+Knowing a derivative and a sum are both linear operators we can exchange the order in which we apply them (this is the beginning to many examples where I will be very 'hand-waving' about my math proofs, I have no shame). 
+\begin{equation}
+\begin{split}
+    \langle E \rangle &\equiv \sum_i E_i P_i\\
+    &= \frac{1}{Q}\sum_i E_ie^{-\beta E_i}\\
+    &= -\frac{1}{Q}\sum_i\frac{d}{d\beta}e^{-\beta E_i} \\
+    &= -\frac{1}{Q}\frac{d}{d\beta}Q\\
+    &= -\frac{d}{d\beta} \ln(Q)
+\end{split}
+\end{equation}
+\textbf{Hint}: If the above derivation is confusing try working it backwards, the substitutions will make more sense if you start from the final answer. 
+
+Now consider the chain rule (remember $\beta = \frac{1}{kT}$)
+\begin{equation}
+\begin{split}
+\frac{d}{d\beta} & \\
+&= \frac{dT}{d\beta}\frac{d}{dT} \\
+&= \frac{d}{d\beta}\left [ \frac{1}{k\beta} \right ]\frac{d}{dT}\\
+&= -kT^2\frac{d}{dT}
+\end{split}
+\end{equation}
+So we can use this to solve for the energy expectation value above.
+\begin{equation}
+\langle E \rangle = kT^2 \left [\frac{d}{dT} \ln Q\right ]_{V,N}
+\end{equation}
+
+In a similar manner other thermodynamic properties can be constructed from the partition function and appropriate substitutions, such as:
+\begin{equation}
+\langle P \rangle = kT \left [ \frac{d}{dV} \ln Q \right ]_{T,N}
+\end{equation}
+
+\subsubsection*{Single Particle Partition Functions}
+Another Example consider 2 particles a and b with position vectors $\vec{r}$. 
+We can write our usual Eigen-Value Problem as  $\hat{H}\psi_i(r_A,r_B) = E_i \psi_i(r_A,r_B)$. 
+This Hamiltonian is broken into 3 parts, the individual terms and then a potential between the two particles:
+\begin{equation}
+\hat{H} = H_A(r_A) + H_B(r_B) + V(r_A,r_B)
+\end{equation}
+Take the potential between them to be 0, then our Hamiltonian is just a sum of the individual atoms and the wavefunction will simply be a product (this is the definition of independent probability distributions).
+$\psi_i(r_A,r_B) = \psi_{i,a}(r_A) \psi_{i,B}(r_B)$
+Subsequently our total energy would just be a sum of the atoms energies $E_i = E_{i,A} + E_{i,B}$.
+
+Consider now N particles, the Hamiltonian will again be a sum of the individual particles in the system E(N,V). 
+Assume no potential and we again have a simple sum over the particles. 
+Let's think about a partition function to describe this system. 
+We would need to sum over all the particles, and over all of the spatial dimensions for each particle. 
+For distinguishable particles this gives us a product over each particles specific partition function, call these particle partition functions q. 
+
+\section{Lecture 3; 4-7-17}
+The course will be 15\% homework (online electronic homework), 30\% Midterm, and 50\% final. 
+
+\subsubsection*{Particle Partition Functions}
+At the end of last class we began discussing the partition function for distinguishable particles as a product of the individual partition functions (Q = q$^N$).
+If the particles are indistinguishable (when we talk about particles we usually mean indistinguishable) then we need to consider a summation. 
+\begin{equation}
+Q = \sum_i \sum_j \sum_k \cdots  e^{-\beta (E_i^a + E_i^b + E_i^c + \cdots)}
+\end{equation}
+
+\subsubsection*{Boltzman Statistics}
+Another important concept that comes out of these counting particles is \textbf{Boltzmann Statistics}, which is an approximate description of probability distributions. \textbf{IF} the number of states in your system is much much larger than the number of particles in your system then life is good. 
+\begin{equation}
+Q \approx \frac{q^N}{N!}
+\end{equation}
+The single particle partition function, q, is the effective number of states in your system. 
+Consider now a mono-atomic gas in the ground electronic state. 
+Our q would describe the translations of the atom (there are no other degrees of freedom to consider). 
+But now consider a complicated polyatomic gas (we will ignore coupling).
+\begin{equation}
+\begin{split}
+\hat{H} &= \hat{H}_{translations} + \hat{H}_{vibrations} + \hat{H}_{rotations} + \hat{H}_{electronic}\\
+q_{molecule} &= q_{tans} \cdot q_{rot} \cdot q_{vib} \cdot q_{elec}
+\end{split}
+\end{equation}
+Here in the polyatomic picture the molecule partition functions will be a product of each of these component partition functions. 
+
+\end{document}
