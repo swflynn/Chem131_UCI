@@ -1,0 +1,254 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Chem131C-Lecture-4-10-17}
+\author{swflynn }
+\date{April 2017}
+
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{braket}
+\usepackage{amsmath}
+\usepackage[margin=0.7in]{geometry}
+
+\begin{document}
+
+\maketitle
+
+\section*{Lecture 4; 4-10-17}
+ Professor Martens will hold office hours the hour before lecture (MWF 10-10:50 am; BC’s Cavern on the Green the food court near Bio Sci with the Subway sandwich shop).
+ Note there is electronic homework for the class that is taken from McQuarrie and Simon, you have a week to complete each assignment (assigned each week). 
+ 
+ \subsection*{Partition Function}
+ We should all know that an ideal gas refers to particles in a 3D box that are non-interacting, the EOS (equation of state) for this model is given by the famous 
+ \begin{equation}
+     PV = nRT
+ \end{equation}
+ We briefly mentioned Boltzman Statistics last class, when valid (number of states $>>$ number of particles) we can write the partition function (Q) for the whole system in terms of the number of particles (N) and the individual particles partition function (q). 
+ \begin{equation}
+ \begin{split}
+     Q &= \frac{q^N}{N!} \\
+     q &= \sum_i e^{-\beta E_i}
+     \end{split}
+ \end{equation}
+ 
+ So we should think of q as the partition function for a single atom within our box, and Q as the partition function for all of the atoms within our box.
+ For the ideal gas we are probably assuming some mono-atomic elements, however, we could write partition functions for larger units if we wanted (i.e make q for a single molecule or protein, any unit of interest).
+
+\subsection*{Particle in a Box; Statistical Mechanics Approach}
+ Let's consider a particle in a box (we know what the energy states for a particle in a box are from quantum mechanics, these are what go into the q definition). 
+ In general the spatial dimensions are independent, therefore we can break up any linear operator such as the summation operator over each of these dimensions. 
+ \begin{equation}
+ \begin{split}
+     q &= \sum_i e^{-\beta E_i} \\
+     q &= \sum_{n_x = 1}^\infty  \sum_{n_y = 1}^\infty  \sum_{n_z = 1}^\infty e^{-\beta \left ( \frac{h^2n_x^2}{8mL_x^2} + \frac{h^2n_y^2}{8mL_y^2} + \frac{h^2n_z^2}{8mL_z^2} \right )} \\
+     \text{Recall}& \quad  e^{a+b} = e^ae^b \quad \text{Distribute terms and factor} \\
+     q &= \left ( \sum_{n_x=1}^\infty e^{-\beta \frac{h^2 n_x^2}{8mL_x^2}} \right ) \cdot \left ( \sum_{n_y=1}^\infty e^{-\beta \frac{h^2 n_y^2}{8mL_y^2}} \right ) \cdot \left ( \sum_{n_z=1}^\infty e^{-\beta \frac{h^2 n_y^2}{8mL_z^2}} \right ) \\
+     q &\equiv q_x \cdot q_y \cdot q_z
+     \end{split}
+ \end{equation}
+ The energy states are in parenthesis and they are the well known solution to the particle in a box equations. 
+ By construction our summation occurs over independent spatial dimensions and we can factor our summation into a product of 3 individual summations over each dimension. 
+ This should not come as a surprise, in Quantum mechanics we saw that the Hamiltonian (The linear operator that is used to calculate energy) is also able to factor in this way. 
+ 
+To save time we will just consider one of these dimensions to solve for (because the distributions are independent we can simply multiply by 3 at the end to get our answer). \\
+So let's consider 
+\begin{equation}
+    q_x =  \sum_{n_x=1}^\infty e^{-\beta \frac{h^2 n_x^2}{8mL_x^2}} 
+\end{equation}
+ What do we do from here?
+ Unfortunately this discrete sum does not have a simple solution (blame the n$^2$ exponent).
+ Remember this is just the particle in a box, it is a very simple model (usually the first model you encounter in QM) we have got to do something....
+ So let's start making some approximations. \\
+ A sum is kind of like an integral, and we took a year of calculus so let's start there. 
+ Because we evaluate integrals at the boundaries let's make life easier on ourselves (we are already doing approximations why stop now) and start at 0 not 1. 
+ We can hand-wave this by noting that between 0 and 1 our box is very large still and we are at decent temperature, therefore the value of the summand (is that a word? like an integrand but for the sum...) is going to be very small so the over-estimation of our summation by changing the bounds will not be that bad. 
+ \begin{equation}
+     q_x = \sum_{n_x=1}^\infty e^{-\beta \frac{h^2 n_x^2}{8mL_x^2}}  \approx \int_0^\infty e^{-\beta \frac{h^2 n_x^2}{8mL_x^2}} dn_x
+ \end{equation}
+ If we look up a similar integral on Google we can find a solution that we can use.
+ \begin{equation}
+     \int_{-\infty}^\infty e^{-ax^2}dx = \sqrt{\frac{\pi}{a}}
+ \end{equation}
+
+Because this is an even function when we change the bounds we can simply divide by 2. 
+Substituting our specific integral into this form we find the following result. 
+\begin{equation}
+    q_x \approx \int_0^\infty e^{-\beta \frac{h^2 n_x^2}{8mL_x^2}} dn_x = \sqrt{\frac{2\pi mkT}{h^2}}L_x
+\end{equation}
+ So if we take into account there are 3 of these being multiplied we find our answer. 
+ \begin{equation}
+     q_x\cdot q_y \cdot q_z \approx \left (\frac{2\pi mkT}{h^2} \right )^{\frac{3}{2}} L_xL_yL_z
+ \end{equation}
+ But if we are thinking particle in a box the product of three length scales would be the volume (V). 
+ 
+ \subsubsection*{Louis de Broglie}
+ Let's now define a new term $\Lambda \equiv \frac{h}{2\pi mkT}$ which is know as the \textbf{Thermal de Broglie Wavelength}. 
+ Recall the de Broglie wavelength is given by $\lambda = \frac{h}{p}$ where h is Planck's constant and p is the momentum. 
+ Basically if we have a particle moving at some momentum, there is also an associated wavelength to consider.
+ 
+ We should think of $\Lambda$ as the amount of 'space' a particle takes up (wave description), as the particle gets larger its 'space' decreases (less quantum character), and if the temperature increases it gets smaller too (remember the uncertainty principle, as we start to know the spatial dimension we lose track of our momentum). 
+  \begin{equation}
+  \begin{split}
+     q_x\cdot q_y \cdot q_z &\approx \left (\frac{2\pi mkT}{h^2} \right )^{\frac{3}{2}} L_xL_yL_z \\
+     q &= \frac{V}{\Lambda^3}
+       \end{split}
+ \end{equation}
+ So here we see something interesting, we have a simple ratio of the whole volume of our box, and the volume of wave description of a single atom!
+ The ratio of 2 volumes should be though of as the number of states available in the system (if you have a parking lot and divide by the size of a car, you learn how many cars you can park). 
+ 
+ So this should give some intuition, our individual particle partition function (q) measures the number of states you have available (how many ways you can fit a single particle into your system). 
+ This should help with the additional homework problem (problem set 2), we can calculate the number of particles within a gas at 10atm using an EOS (ideal gas hint hint), and now we can calculate q with this formula (remember we assumed Boltzmann Statistics at the beginning of our problem, that is an important assumption to remember).  
+ 
+ \subsection*{Average Energy}
+ During the first week we used the chain rule and expectation values to determine the average energy as 
+ \begin{equation}
+      \langle E \rangle = kT^2 \frac{d}{dT} \ln q
+ \end{equation}
+  Everyone should be familiar with the kinetic energy formula, we will use the 'physics form' which is much more useful in classical mechanics. 
+\begin{equation}
+     KE = \frac{p^2}{2m} = \frac{3}{2}kT\\
+ \end{equation}
+ 
+ We now have a form for q for a single particle as the ratio of volumes, we know the average energy is a derivative wrt. T therefore we can group terms together to get the T dependence of q. 
+ \begin{equation}
+      q = \frac{V}{\Lambda^3} = f(V) \cdot T^{\frac{3}{2}}\\
+      \end{equation}
+So we can take the natural log of this function and we see that the dependence goes as 3/2 ln(t) + terms (not a function of T). 
+\begin{equation}
+\begin{split}
+     \langle E \rangle &= kT^2 \frac{3}{2} \frac{d}{dT} \ln T\\
+     \langle E \rangle &= \frac{3}{2} kT
+        \end{split}
+\end{equation}
+
+ So here we see a very similar relationship which should give us some confidence that our degree in chemistry has some meaning!
+ The average energy of the whole system will simple be multiplied by N (our derivation was for a single particle q). 
+ 
+ \subsection*{Stirling's Factorial Approximation}
+ (Note: Next Lecture we will investigate Stirling's Approximation, stay tuned!).\\
+ Consider our Boltzmann statistics expression for Q. 
+ The factorial makes it hard to determine how this function actually scales with N, so let's do some approximations to get a feeling. 
+ A well known approximation that will be used through Statistical Mechanics is Stirling's Approximation which is good for analyzing the natural log or a factorial and is valid if N is large. 
+ \begin{equation}
+ \begin{split}
+      ln N! &\approx N ln N - N + \cdots \\
+      &= N(ln N -1)\\
+      &= N\left[ln\frac{N}{e}\right] \\
+      &= ln \left(\frac{N}{e}\right)^N
+ \end{split}
+ \end{equation}
+Assuming Stirling's approximation and Boltzmann statistics apply we can look at our partition function again. 
+\begin{equation}
+ Q \approx \frac{q^N}{N!} \approx \left (\frac{eq}{N}\right )^N = \left (\frac{eV}{N\Lambda^3}\right )^N
+\end{equation}
+ 
+ \subsection*{More Complicated Systems}
+ Let's say we want to look at systems other than a mono-atomic atoms.
+ Our Hamiltonian accounts for the energy of our system, and must be more complicated. 
+ \begin{equation}
+  \hat{H}_{molecule} = \hat{H}_{translations} + \hat{H}_{vibrations} + \hat{H}_{rotations} + \hat{H}_{electronic}
+ \end{equation}
+ 
+ If we are a non-linear molecule there will be 3N-6 vibrations as we know. 
+Assume a simple system (Harmonic Oscillator) we know the energy states for the vibrations are 
+\begin{equation}
+ \hat{H}_{vib} = E_n = \left(n+\frac{1}{2}\right)hv
+\end{equation}
+ We can take a rigid rotor model for the rotations  
+ \begin{equation}
+  \hat{H}_{rot} = \frac{\hbar^3 j(j+1)}{2I}
+ \end{equation}
+ Finally the translations are given in terms of the total mass (M=$\sum_i m_i$). 
+ \begin{equation}
+  \hat{H}_{tran} = \frac{\hat{p}^2}{2M}
+ \end{equation}
+ 
+ The single molecule partition function now becomes a product with more terms. 
+ \begin{equation}
+  q_{molecule} = q_{trans}\cdot q_{vib} \cdot q_{rot} \cdot q_{elec}
+ \end{equation}
+ Using the above models for each term, we can evaluate the individual molecules partition functions for each component of the Hamiltonian. 
+ For example, the vibrations are solved using a geometric series. 
+ \begin{equation}
+  q_{vib} = \sum_{n=1}^\infty e^{-\beta(n+1/2)hv} = e^{-\beta hv/2} \sum_{n=0}^\infty e^{-n\beta hv} = \frac{e^{-\beta hv/2}}{1-e^{-\beta hv}}
+ \end{equation}
+ 
+ The rotations also have a know solution of the form 
+ \begin{equation}
+  q_{rot} = \frac{T}{\sigma \Theta_{rot}}
+ \end{equation}
+ Where the sigma is a symmetry term to account for similar/different molecules during the rotation, and our substitution is. 
+ \begin{equation}
+  \Theta_{rot} = \frac{\hbar^2}{2Ik}
+ \end{equation}
+ Not that we see a linear relationship with T in this expression for the rotations. 
+ 
+ It should be clear that the partition function becomes very difficult to solve for in complicated systems. 
+ 
+ \section{Supplemental Notes}
+ \subsection*{Integration of e$^{-ax^2}$dx}
+The integral of a Gaussian is very common in physics (and therefore chemistry) and has a fun solution, if you stare at it for a bit you will see that u substitution will get you nowhere. 
+The solution requires taking a square of the integral and then taking the square root at the end. 
+\begin{equation}
+ S \equiv \int_{-\infty}^\infty e^{-ax^2}dx
+\end{equation}
+The math trick is to consider the next dimension of the integral (in general when you have an integral you can't solve it is useful to try changing dimensions, evaluate, and then return to your dimensions, where the higher dimension 'smooths out' some of the complexity. 
+\begin{equation}
+ S^2 = \int_{-\infty}^\infty e^{-ax^2}dx \cdot \int_{-\infty}^\infty e^{-ay^2}dy
+\end{equation}
+Here x and y are dummy variables, they represent the higher dimension we are entering nothing more. 
+We can now combine the separate integrals into a double integral, where the sum of an exponential is equal to the product. 
+\begin{equation}
+ S^2 = \int_{-\infty}^\infty \int_{-\infty}^\infty e^{-a(x^2+y^2)}dxdy
+\end{equation}
+Now if we have taken multi-variable calculus we should recognize that this can be solved with polar coordinates. 
+Let r$^2$ = x$^2$+y$^2$, the Jacobian for this transformation is simply rdrd$\theta$ and our integral is over all space, therefore 0$\rightarrow 2\pi$ and 0$\rightarrow \infty$. 
+\begin{equation}
+ S^2 = \int_{0}^\infty \int_{0}^{2\pi} e^{-a(r^2)}rdrd\theta
+\end{equation}
+Now we have an integral we can solve, there is no $\theta$ dependence so we get a factor of 2$\pi$ from the first integral. 
+\begin{equation}
+ S^2 = 2\pi\int_{0}^\infty e^{-a(r^2)}rdr
+\end{equation}
+Next we can finally use u-substitution!
+Let u = r$^2$ therefore $\frac{du}{dr} = 2r$ and $dr = \frac{du}{2r}$.
+\begin{equation}
+ S^2 = 2\pi\int_{0}^\infty e^{-a(u)}r \frac{du}{2r} = \pi\int_{0}^\infty e^{-a(u)} du =\pi \frac{-e^{-au}}{a} \Big|_0^\infty
+\end{equation}
+We can easily evaluate our bounds $\frac{\pi}{a}\left ( -e^{-\infty} - -e^0 \right )$ = $\frac{\pi}{a}$. 
+Therefore we simply take our square root and we find that
+\begin{equation}
+ S = \sqrt{\frac{\pi}{a}}
+\end{equation}
+
+ \subsection*{Geometric Series}
+ A geometric series is simply a series that 'grows' by a multiplication of some term r (a is just a coefficient).
+ \begin{equation}
+  S = \sum_{i=0}^n ar^i = ar^0 + ar^1 + ar^2 \cdots + ar^n
+ \end{equation}
+So solve this series we know the only 'length' in tehe system is a multiplication by r, therefore let's shift the whole system (hopefully the intuition will make sense once you see the answer, follow along for now). 
+\begin{equation}
+   rS = \sum_{i=0}^n ar^i+1 = ar^1 + ar^2 + \cdots + ar^n + ar^{n+1}
+\end{equation}
+The whole problem here is that we can't deal with an $\infty$ amount of terms, if we subtract our two expression we get something much nicer. 
+ \begin{equation}
+ \begin{split}
+  S - rS &= S(1-r) =   ar^0 - ar^{n+1} \\
+  S &= \frac{a - ar^{n+1}}{1-r}
+  \end{split}
+ \end{equation}
+ Now if r is between 0 and 1 (if large the sum diverges) then we can take a limit of n $\rightarrow \infty$, which is the usual case for a quantum system (recall quantum states span to infinity). 
+ \begin{equation}
+    \text{lim}_{n\rightarrow \infty} \frac{a - ar^{n+1}}{1-r} = \frac{a}{1-r}
+ \end{equation}
+If we wanted the sum from 1 to infinity instead we can do a simple algebraic manipulation. 
+\begin{equation} 
+\begin{split}
+    \text{lim}_{n\rightarrow \infty} \sum_{i=0}^n ar^i &= \frac{a}{1-r}\\
+     \text{lim}_{n\rightarrow \infty} \sum_{i=0}^n ar^i = ar^0 + \sum_{i=1}^n ar^i = \frac{a}{1-r} \implies \\
+     \sum_{i=1}^n ar^i = \frac{a}{1-r}  - a \\
+      \text{lim}_{n\rightarrow \infty} \sum_{i=1}^n ar^i &= a \left[ \frac{r}{1-r} \right]
+    \end{split}
+\end{equation}
+\end{document}
