@@ -2,7 +2,7 @@ PROGRAM integrand
 
   IMPLICIT NONE
   REAL, Parameter :: increment=0.001
-  Integer, Parameter :: n = (1.1 - 0)/increment
+  Integer, Parameter :: n = (1.3 - 0)/increment
   REAL, DIMENSION(1:n) :: x, f, g, h
   INTEGER :: i
 
