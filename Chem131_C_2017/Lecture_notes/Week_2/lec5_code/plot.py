@@ -11,7 +11,7 @@ with open('data.dat') as f:             #open data file to plot
 
     plt.plot(x,y, label='e^-x')                       # plot it
     plt.plot(x,z, label='x^10')                       
-    plt.plot(x,a, label='e^-x * x^10')                       
+    plt.plot(x,a, label='(e^-x)(x^10)')                       
     plt.xlabel('x')
     plt.ylabel('f(x)')
     plt.title ('Integrand Gamma Function')
