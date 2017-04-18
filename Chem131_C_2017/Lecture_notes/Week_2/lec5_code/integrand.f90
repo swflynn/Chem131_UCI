@@ -1,8 +1,8 @@
 PROGRAM integrand
 
   IMPLICIT NONE
-  Real, Parameter :: increment=0.01
-  Integer, Parameter :: n = (1.5-0)/increment
+  REAL, Parameter :: increment=0.01
+  Integer, Parameter :: n = 150
   REAL, DIMENSION(1:n) :: x, f, g
   INTEGER :: i
 
