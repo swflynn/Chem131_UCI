@@ -3,7 +3,7 @@ PROGRAM integrand
   IMPLICIT NONE
   REAL, Parameter :: increment=0.001
   Integer, Parameter :: n = (1.1 - 0)/increment
-  REAL, DIMENSION(1:n) :: x, f, g
+  REAL, DIMENSION(1:n) :: x, f, g, h
   INTEGER :: i
 
 !============integrand of gamma function scaling====================!
@@ -14,6 +14,7 @@ PROGRAM integrand
 x = 0
 f = 0
 g = 0
+h = 0
 
   x(1) = 0.
   DO i =2,n
@@ -28,9 +29,11 @@ g = 0
     g(i) = poly(x(i))
   END DO
 
+  h = f*g
+
   OPEN (UNIT =1, FILE='data.dat')
   DO i=1,n
-    WRITE(1,*) x(i), f(i), g(i)
+    WRITE(1,*) x(i), f(i), g(i), h(i)
   END DO
   CLOSE (UNIT=1)
 
