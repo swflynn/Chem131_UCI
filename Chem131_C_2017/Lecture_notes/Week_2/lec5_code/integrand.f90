@@ -2,10 +2,11 @@ PROGRAM integrand
 
   IMPLICIT NONE
   REAL, Parameter :: increment=0.001
-  Integer, Parameter :: n = (1.3 - 0)/increment
+  Integer, Parameter :: n = (1.2 - 0)/increment
   REAL, DIMENSION(1:n) :: x, f, g, h
   INTEGER :: i
 
+!======= Program to demonstrate stirling's approximation=============!
 !============integrand of gamma function scaling====================!
 !============ e^-x * x^n for large n ===============================!
 
