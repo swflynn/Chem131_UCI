@@ -1,8 +1,8 @@
 PROGRAM integrand
 
   IMPLICIT NONE
-  REAL, Parameter :: increment=0.001
-  Integer, Parameter :: n = (1.3- 0)/increment
+  REAL, Parameter :: increment=0.01
+  Integer, Parameter :: n = (25- 0)/increment
   REAL, DIMENSION(1:n) :: x, f, g, h
   INTEGER :: i
 
@@ -32,9 +32,9 @@ h = 0
 
   h = f*g
 
-  OPEN (UNIT =1, FILE='data.dat')
+  OPEN (UNIT =1, FILE='data2.dat')
   DO i=1,n
-    WRITE(1,*) x(i), f(i), g(i), h(i)
+    WRITE(1,*) x(i), h(i)
   END DO
   CLOSE (UNIT=1)
 
