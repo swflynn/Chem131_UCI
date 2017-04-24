@@ -1,0 +1,262 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Chem-131C-Lec8}
+
+\author{swflynn }
+\date{April 2017}
+
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{braket}
+\usepackage{amsmath}
+\usepackage[margin=0.7in]{geometry}
+\usepackage{subfigure}
+\usepackage{tikz}
+
+\begin{document}
+
+\maketitle
+
+\section*{Lecture 8; 4/19/17}
+Moving on to chapter 20 now, the main topic is entropy. 
+Entropy really needs statistical mechanics for a proper explanation, we will revisit this topic throughout the course. 
+
+\subsection*{Entropy}
+You are told in previous courses that entropy (S, our newest sate function) is the measurement of disorder in the universe. 
+A more trendy definition would be that entropy measures the likelihood of a particular state occurring in your system. 
+
+Every problem now should be broken into two parts, the energy (first law) and the entropy (the second law). 
+We are familiar with needing enough energy in a system for something to happen (which quantum states are populated, activation energy, etc.), but we also need to consider the driving force behind entropy. 
+There are many examples in life that are energetically driven, and many others that are entropically driven. 
+
+An aside that we may explore at some points are the connections between entropy and information theory. 
+This is a very deep and interesting topic, recall from Additional Problem Set 2
+\begin{equation}
+    S = -k\sum_i P_i \ln P_i
+\end{equation}
+This definition of entropy is actually the \textbf{Shannon Entropy}, named after Claude Shannon (the father of information theory).
+From first principles of information theory you can actually derive this formula for the entropy!
+
+Back to entropy in the context of thermodynamics, it is a state function, so we need to find dS. 
+
+Consider the first law for an ideal gas in a reversible process (remember state functions are path independent if we can prove something for a specific case of a state function, it can then be generalized to other cases). 
+Let's make life easy and consider an ideal monoatomic gas (equipartition theorem tells us U=$\frac{3}{2}$kT = $\frac{3}{2}$nRT). 
+Ideal gas says (assume only PV work as chemist) $\delta w=-P_{ext}dV \rightarrow \delta w_r = PV=nRT$.
+\begin{equation}
+    \begin{split}
+        dU &= \delta q + \delta w \rightarrow  \\
+        \delta q_r &=  dU - \delta w_r  \\
+         \delta q_r &=  \frac{3}{2}nRdT + \frac{nRT}{V}dV  \\
+    \end{split}
+\end{equation}
+Recall, state function have total differentials, which allows us to write an equation taking derivatives over each variable the function depends on. 
+\begin{equation}
+    U(T,V,\cdots) = \left(\frac{\partial U}{\partial T}\right)_{V,\cdots}dT + \left(\frac{\partial U}{\partial V}\right)_{T,\cdots}dV + \cdots
+\end{equation}
+These are useful because partial derivative can be manipulated to calculate useful thermodynamic quantities (recall the definition of constant volume heat capacity came from the first partial derivative in the internal energy total differential above).
+
+With that recap we now need to note q is NOT a state function, therefore we cannot just write a total differential. 
+But it turns out we really like total differentials, and we can use some mathematics to alter q such that we can write a total differential. 
+Something called an \textbf{integrating factor} can be used to make a total differential for q, and that integrating factor turns out to be $\frac{1}{T}$. 
+So, if we consider $\frac{\delta q}{T}$ we will be able to write a total differential using heat. 
+\begin{equation}
+\begin{split}
+    \frac{\delta q_r}{T} &=  \frac{3}{2}\frac{nR}{T}dT + \frac{nR}{V}dV \\
+    \frac{\delta q_r}{T} &=  d \left( nR\ln[T^{3/2}V] + c \right)
+    \end{split}
+\end{equation}
+Let's look at this derivative specifically to see why we can substitute it above.
+\begin{equation}
+\begin{split}
+     d \left(\ln[T^{3/2}V] \right) &= d\left(\frac{3}{2}\ln[T] + \ln[V] \right) \\
+    &= \frac{3}{2} \frac{dT}{T} + \frac{dV}{V}
+    \end{split}
+\end{equation}
+
+This has been a bit of math magic, all we are really saying is that dq$_r$/T can be written as a total differential, and we will call it the entropy!
+\begin{equation}
+\frac{dq_r}{T} = dS
+\end{equation}
+So plugging in our algebra above (with some normalization terms) we find. 
+\begin{equation}
+S = nR\ln\left[ \left(\frac{T}{T_0} \right)^{3/2} \left(\frac{V}{V_0} \right) \right ] + n\bar{S_0}
+\end{equation}
+
+ A quick comment on units, we divide the term within our logarithm by a reference temperature and volume to make it dimensionless, and the factor we add on at the end is a type of initial condition. 
+ The entropy is an extensive property just like the thermodynamic energy (the value is larger with the more stuff you have). 
+ 
+ So now we have a derivation for entropy, it was done assuming a monoatomic ideal gas (that 3/2 factor) and more importantly through a reversible process!
+ 
+ \subsection*{Heat Capacity Example}
+ Consider 2 different blocks of material, m$_1$,C$_1$,T$_1$ and m$_2$,C$_2$,T$_2$ respectively (mass, heat capacity, and temperature). 
+Let's consider T$_1 > $ T$_2$, when we bring the two blocks into contact there will be heat transfer from 1 to 2, until thermal equilibrium is achieved and both are at T$_f$. 
+Can this be a reversible process?
+The answer is no, you cannot spontaneously have the temperature gradient separate back out (the heat will not spontaneously transfer back into the two objects. 
+This irreversible dissipation of heat transfer necessarily means we generated some entropy. 
+
+Let's consider a bunch of properties for our system, what is the internal energy of each component, and the universe, what are the entropy's, and the final temperature?
+
+To find the final temperature we know we will need heat capacity (it is defined as how much temperate change do you get by inputting energy). 
+Assuming the heat capacity does not vary over our integral we find.
+\begin{equation}
+\begin{split}
+    dU_1 = C_1dT &\qquad dU_2 = C_2dT \\
+    \int dU_1 = \int_{T1}^{Tf} C_1dT &\qquad \int dU_2 = \int_{T2}^{Tf} C_2dT \\
+    \Delta U_1 = C_1(T_f-T_1) &\qquad \Delta U_2 = C_2  (T_f-T_2) \\
+    \end{split}
+\end{equation}
+Because of conservation of energy we can immediately write down the energy of the universe as a whole. 
+\begin{equation}
+    dU_{univ} = dU_1 + dU_2 = 0
+\end{equation}
+ We do not create or destroy energy or mass in standard chemistry, we simply rearrange it, therefore the energy of the universe cannot change with our process. 
+ Knowing this we can rearrange our relationship for the two materials to solve for the final temperature. 
+ \begin{equation}
+     \begin{split}
+         C_1(T_f-T_1) =  C_2 (T_f-T_2) \\
+         T_f = \frac{C_1T_1 + C_2T_2}{C_1+C_2}
+     \end{split}
+ \end{equation}
+ This expression should not be a surprise, it is the form of a weighted average (a more general average than simply adding up and dividing we give some weight to each term). 
+ It is very common to see probabilities or natural logarithms of probabilities as the weights in statistical mechanics. 
+ If we set our weights to be equal you get the standard average (C$_1$ = C$_2$). 
+ \begin{equation}
+     T_f = \frac{T_1+T_2}{2}
+ \end{equation}
+ If we make the heat capacity of one object much larger than the other (C$_1$ $<<$ C$_2$) we find exactly what we expect. 
+ \begin{equation}
+     T_f \approx \frac{C_2T_2}{C_2} = T_2
+ \end{equation}
+ Consider now the entropy, we assume no work is being done during this process therefore. 
+ \begin{equation}
+ \begin{split}
+     dS_1 = \frac{dq_1}{T} = \frac{C_1dT}{T} &\qquad dS_2 = \frac{dq_2}{T} = \frac{C_2dT}{T} \\
+       \Delta S_1 = \int_{T1}^{Tf} \frac{C_1dT}{T} &\qquad \Delta S_2 = \int_{T2}^{Tf}\frac{C_2dT}{T} \\
+       \Delta S_1 = C_1\ln \left(\frac{T_f}{T_1}\right) &\qquad \Delta S_2 = C_2\ln \left(\frac{T_f}{T_2}\right)
+     \end{split}
+ \end{equation}
+ The entropy of the universe is simply the sum of our two processes occurring (remember entropy is extensive). 
+ \begin{equation}
+     \Delta S_{univ} = \Delta S_1 + \Delta S_2 = C_1\ln \left(\frac{T_f}{T_1}\right) + C_2\ln \left(\frac{T_f}{T_2}\right)
+ \end{equation}
+ To show explicitly that the entropy for this process is greater than 0, let's take the easy case of C$_1$ = C$_2$ = C, therefore we can substitute the final temperature into our expression for the entropy of the universe. 
+  \begin{equation}
+     \Delta S_{univ} = C\ln \left(\frac{T_f^2}{T_1T_2}\right) 
+ \end{equation}
+ We know our systems are connected, the heat lost from the hotter temperature system flows into the colder system upon contact, therefore we can relate the temperatures (assume T$_1 <$ T$_2$). 
+ And because our heat capacities are exactly the same the amount of heat transfer will directly change the temperature in both materials.
+ \begin{equation}
+ T_1 = T_f + \delta \qquad T_2 = T_f - \delta 
+ \end{equation}
+   \begin{equation}
+     \Delta S_{univ} = C\ln \left(\frac{T_f^2}{T_1T_2}\right) = C\ln \left(\frac{T_f^2}{(T_f + \delta) (T_f-\delta)}\right) =  C\ln \left(\frac{T_f^2}{(T_f^2 - \delta^2)}\right) 
+     =  C\ln \left(\frac{1}{1-(\frac{\delta}{T_f})^2}\right)
+ \end{equation}
+ 
+ \subsection*{Reversible Isothermal Expansion for an Ideal Gas}
+ Consider a perfect (ideal) gas within a volume V$_1$ that expands into 2V$_1$ reversibly and isothermally. 
+ By definition our $\Delta$T is 0 (U=0) for an isothermal process (meaning the temperature of the system and surroundings is the same). 
+ If we do the expansion reversibly we can set the external pressure equal to the pressure of the gas during the process and calculate the work from the EOS. 
+ \begin{equation}
+     w = \int -P_{ext}dV = \int -nRT \frac{dV}{V} = -nRT \ln\left(\frac{2V_0}{V_0} \right) = -nRT\ln(2)
+ \end{equation}
+ Using the first law we can write down our expression for entropy. 
+ \begin{equation}
+     \Delta S = \frac{q_r}{T} = \frac{-w}{T} = nR\ln 2
+ \end{equation}
+ However, let's use the formula we just derived for entropy using our ideal gas assumption to do the calculation again (this formula is good for an ideal gas where we know the initial and final temperature and volume). 
+ \begin{equation}
+ \begin{split}
+S &= nR\ln\left[ \left(\frac{T}{T_0} \right)^{3/2} \left(\frac{V}{V_0} \right) \right ] + n\bar{S_0} \\
+\Delta S &= nR\ln\left[ \left(\frac{T}{T_0} \right)^{3/2} \left(\frac{2V_1}{V_0} \right) \right ] + n\bar{S_0} - \left (nR\ln\left[ \left(\frac{T}{T_0} \right)^{3/2} \left(\frac{V_1}{V_0} \right) \right ] + n\bar{S_0} \right)\\
+\Delta S &= nR\ln\left[ \left(\frac{T\cdot T_0}{T_0\cdot T} \right)^{3/2} \left(\frac{2V_1 \cdot V_0}{V_0 \cdot V_1} \right) \right ] + n\bar{S_0} - n\bar{S_0} \\
+\Delta S &= nR \ln(2)
+ \end{split}
+\end{equation}
+ So again we put our trust in thermodynamics, and if the same assumptions are made about a system we find the same result!
+ Because the process was done reversibly there is no entropy generated for the universe as a whole. 
+ 
+ \subsection*{Isothermal Free Expansion of a Gas}
+ Here, by definition, the PV work for the expansion is 0, $\Delta$T is 0, subsequently $\Delta$U must also be 0. 
+ So what about the entropy?
+ With only the first law it would seem like nothing has happened during this expansion, but the gas expanded it must be different somehow, and that difference appears in the entropy. 
+ We just found the entropy for an expansion into twice the volume is nRln(2), this result is true for an ideal gas expanding isothermally.
+ But in the free expansion case there is no work being done, therefore the environment does not need to provide and heat and the entropy of the universe would be $\Delta$S = nRln(2) + 0 $\neq$ 0.
+ 
+\section{Supplemental Notes}
+During this lecture we postulated a new state function S, and found a functional form for S through q. 
+Because the entropy is a state function we need a total differential to describe it, and q, by definition, does not have a total differential. 
+We therefore multiplied q by $\frac{1}{T}$, called this factor the integrating factor, and magically we got a total differential.
+Here I will briefly review what and where an integrating factor comes from.
+
+\subsection{Differential Equations; Integrating Factor}
+To understand what an integrating factor is, we should get familiar with the problem, so what and why are differential equations a thing?
+The short version is that we need to solve an equation containing a function and a derivative of that function, we are solving for the actual function itself.
+If this sounds confusing, think of the exponential function, it has a derivative that also gives the exponential function, this property is what we are looking for.
+
+\subsubsection{Differential Equations}
+The integrating factor technique is a method introduced in differential equations for solving a particular type of systems.
+Most of you will be unfamiliar with differential equations, to briefly summarize a differential equation essentially tries to predict the future based on the systems behavior in the past. 
+So we are basically interested in seeing how some function changes, and derivatives tell us how a function changes in mathematics.
+So we now have an equation where there is a function, and the derivative of the function, and we need to solve for that function explicitly.
+In algebra you wrote very similar equations, before you would solve for x and it would be a number or expression, now 'x' is actually a function.
+
+Solving for a function is a much more complicated problem than solving for just a number, it turns out there are not many systems for which we can analytically solve for the differential equation. 
+The integrating factor method will allow us to solve a specific type of differential equation. 
+A final note, differential equations are usually very sensitive to the initial conditions of the system, physically that would be the starting values for the system of interest (T,P,n, etc), they can actually change how your system behaves. 
+
+\subsubsection{Integrating Factor Method}
+We are now in the realm of ordinary linear differential equations, sounds scary, but these are the easiest problems to solve actually. 
+Integrating factors are a systematic way of solving these differential equations, unfortunately we will need to take 2 different integrals, and you may or may not be able to solve the integrals.
+
+Consider 
+\begin{equation}
+    \frac{d}{dt} y(t) = a(t) y(t) + b(t)
+\end{equation}
+Let's rewrite the equation getting both the derivative of y and the function y together (I will define g(t) $\equiv$ -a(t) y(t) so I don't lose the minus sign). 
+\begin{equation}
+    \frac{d}{dt} y(t) + g(t)y(t) = b(t)
+\end{equation}
+So we now have an equation that has a function y(t) and it's derivative, and we want to know what function y(t) is explicitly.
+The trick is to realize that the LHS looks like a product rule, so let's guess it is!
+We will propose some function u(t) exists such that
+\begin{equation}
+    \frac{d}{dt}\left[ u(t)y(t) \right] = u(t)\frac{d}{dt}y(t) + y(t)\frac{d}{dt}u(t)
+\end{equation}
+Now let's take our original equation and multiply by u(t). 
+\begin{equation}
+\begin{split}
+    &u(t) \cdot \left[\frac{d}{dt} y(t) + g(t)y(t) = b(t)\right] \rightarrow\\
+    &u(t)\frac{d}{dt} y(t) + u(t)g(t)y(t) = u(t)b(t)\\
+    &\text{Now we assume the LHS is a product rule, meaning we write} \\
+    &\frac{d}{dt}[u(t)y(t)] = u(t)b(t) \\
+    &\text{Now let's integrate the equation} \\
+    &\int \frac{d}{dt}u(t)y(t)dt = \int u(t)b(t)dt \rightarrow u(t)y(t) = \int u(t)b(t)dt \implies \\
+    &y(t) = \frac{1}{u(t)} \int u(t)b(t)dt
+    \end{split}
+\end{equation}
+So we have done alot of guessing and algebra to get an equation for y(t). 
+But all of this hinges on one assumption. 
+\begin{equation}
+\begin{split}
+&\frac{d}{dt}[u(t)y(t)] = u(t) \frac{d}{dt}y(t) + u(t)g(t)y(t)\\
+&\text{Let's write out things explicitly and see what we find} \\
+&u(t)\frac{d}{dt}y(t) + y(t)\frac{d}{dt}u(t) = u(t)\frac{d}{dt}y(t) + u(t)g(t)y(t) \rightarrow \\
+&y(t)\frac{d}{dt}u(t) = u(t)g(t)y(t) \rightarrow \\
+&\frac{d}{dt}u(t) = u(t)g(t)
+\end{split}
+\end{equation}
+So all this work... but this last equation is easy to solve, if  we just guess our function is an exponential we can solve it (this is a first order homogeneous equation for the math people). 
+\begin{equation}
+u(t) = e^{\int g(t)dt}
+\end{equation}
+And this is the mysterious \textbf{integrating factor} = u(t).
+So to solve our original equation, we first solve for the integrating factor [u(t)], and then we solve for our function  [y(t)].
+If you are lucky and you can solve both of those integrals, you are able to solve the problem!
+
+So big picture, q is not a state function, therefore we can not write a total differential for it. 
+If we get lucky however, we can find a new function, there-by showing it has a total differential.
+In this case we were able to take q$\cdot \frac{1}{T}$ and find a solution, showing it has a total differential! 
+
+\end{document}
