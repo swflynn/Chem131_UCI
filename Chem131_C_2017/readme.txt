@@ -4,7 +4,8 @@ The instructor for the course is Craig Martens (cmartens@uci.edu)
 
 Teaching Assistants :
 Krista Parry (parryk@uci.edu), 
-Shane Flynn (swflynn@uci.edu)
+Shane Flynn (swflynn@uci.edu), Office: NS2 2208
+Discussion Sections: Thur: 12-1pm MSTB 114, Thurs 4-5 PSCB 240, Fri 1-2 PSCB 240 
 
 The suggested text for the class is Physical Chemistry, a Molecular Approach, by McQuarrie and Simon. 
 
