@@ -1,0 +1,187 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Chem-131C-Lec7}
+
+\author{swflynn }
+\date{April 2017}
+
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{braket}
+\usepackage{amsmath}
+\usepackage[margin=0.7in]{geometry}
+\usepackage{subfigure}
+
+\begin{document}
+
+\maketitle
+
+\section*{Lecture 7; 4/17/17}
+The exams will be roughly 50\% easy questions everyone should be able to answer, then there will be some harder problems, and the last question will be much more difficult than the remainder of the exam. 
+The last question is to see how creative some people can be in solving problems, remember to optimize your grade wrt time.
+There will be some basic equations on the front of the exam, however, they will probably not be labeled or in order of the course, you will need to know which is which!
+Also, do not assume all the information given to you in each problem or the equations on the front of the exam are necessary to solve the problems, use only what you need.
+
+\subsection*{Entropy of the Universe}
+When considering a gas being compressed in a piston, we can only replace the external pressure with the pressure of the gas when the process is done reversibly. 
+A reversible process has an entropy change of S$\geq$0 (you can run the process forward and backward).
+\begin{equation}
+    \Delta S + \Delta S_{sur} = \Delta S_{univ} \geq 0
+\end{equation}
+We know that $\Delta$U$_{univ}$=0 for all processes due to conservation of energy.
+Consider an ideal gas, we showed last lecture that U = $\frac{3}{2}nRT$ and is therefore not a function of V. 
+If this is true than compressing or expanding an ideal gas isothermally will not change the internal energy. 
+
+If we consider an irreversible compression now done isothermally, we must have P$_{ext} >$P$_{gas}$. 
+Again if the gas is ideal there is no change in internal energy, however we have done more work on the gas, and introduced more heat into the environment. 
+This difference is captured in the entropy!
+For an irreversible process the entropy of the universe is strictly greater than 0, S$_{univ}>$0. 
+
+\subsection*{Adiabatic Process} 
+An adiabatic process is one for which no heat can be transferred between the system and surroundings 
+\begin{equation}
+    \Delta U_{ad} = w
+\end{equation}
+It can be used to approximate a systems behavior when there is a well insulated material, or the process is done so fast that heat does not have enough time to transfer. 
+If we compress a gas adiabatically we must do work on the gas, therefore its temperature will increase. 
+ As you compress an adiabatic gas, it will become more and more difficult.
+Because heat cannot leave the system, when we compress the gas, the internal energy of the gas increases, making the atoms move faster and exert a larger pressure outward 
+If the compression is done reversibly, the final temperature will be less than that of the irreversible case because we are being more efficient with the amount of work required for the compression. 
+
+Consider an ideal being compressed both reversibly and adiabatically.
+\begin{equation}
+        dU = -P_{ext}dV = -P_{gas}dV = -\frac{nRT}{V}dV
+\end{equation}
+For the ideal gas we know U = $\frac{3}{2}nRT$ so we could write dU=$\frac{3}{2}nRdT$ as well. 
+Let's now equate our expressions for dU. 
+\begin{equation}
+    \frac{-nRT}{V}dV = \frac{3}{2}nRdT
+\end{equation}
+To solve this we are going to do two separate integrals, this is another standard method from ordinary differential equations. 
+We notice that we can get terms related to each differential separated on each side of the equation.
+\begin{equation}
+\begin{split}
+     \frac{-nRT}{V}dV &= \frac{3}{2}nRdT \implies \\
+      -\frac{dV}{V} &= \frac{3}{2}\frac{dT}{T} \implies \\
+      \int_{V1}^{V2}-\frac{dv}{V} &= \int_{T1}^{T2} \frac{3}{2}\frac{dT}{T} \implies \\
+      -\ln\left(\frac{V_2}{V_1}\right) &= \frac{3}{2}\ln\left(\frac{T_2}{T_1}\right) \implies \\
+      -\ln\left(\frac{V_2}{V_1}\right) &=\ln\left(\frac{T_2}{T_1}\right)^{\frac{3}{2}} \implies \\
+      T_2^{\frac{3}{2}}V_2 &= T_1^{\frac{3}{2}}V_1 \implies \\
+      T_2 &= \left ( \frac{T_1^{\frac{3}{2}} V_1}{V_2} \right )^{\frac{2}{3}}
+\end{split}
+\end{equation}
+So this relationship tells us that the smaller V will generate a larger temperature which is consistent with our intuition of gases. 
+
+Remember, this relationship between the temperature and volume assumed a monoatomic ideal gas for our internal energy expression.
+Therefore, this equation is only valid for the monoatomic ideal gas, if you use a different ideal gas you get a different factor, if a real gas, a different expression completely. 
+
+As an aside, chemists interested in electronic structure calculations will recall the Born-Oppenheimer approximation.
+This approximation says the motion of nuclei and electrons can be decoupled, the nuclei are so large that it looks like they are not moving, and the electrons are so small and fast that they are completely delocalized.
+This approximation is ultimately an adiabatic approximation and can be related to entropy.
+It is adiabatic because you assume no energy from the moving electrons transfers over to the nuclei (we are completely decoupled).
+Entropically speaking, if the electronic states are not excited then there are no new states accessible to the system, and therefore the change in entropy is 0. 
+ 
+\subsection*{Adiabatic Compression Example}
+So consider compressing a monoatomic ideal gas from some initial volume V$_0$ to $\frac{1}{2}$V$_0$ adiabatically and reversibly. 
+We know the ideal gas law, and we also just found $ T_2^{\frac{3}{2}}V_2 = T_1^{\frac{3}{2}}V_1$. 
+\begin{equation}
+\begin{split}
+    \Delta U &= -\int_{V_0}^V P(V)dV =  -\int_{V_0}^V \frac{nR}{V}T_0\left( \frac{V_0}{V} \right)^{\frac{2}{3}} dV = -\int_{V_0}^V nRT_0 \frac{V_0^{\frac{2}{3}}}{V^{\frac{5}{3}}}  dV \\
+    &= -nRT_0V_0^{\frac{2}{3}}\int_{V_0}^V V^{\frac{-5}{3}}dV = \frac{3}{2}nRT_0 V_0^{\frac{-2}{3}}\Big|_{V_0}^{\frac{V_0}{2}} = \frac{3}{2}nRT_0 V_0^{\frac{-2}{3}} \left [\left ( \frac{V_0}{2} \right)^{-2/3} - V_0^{-2/3}\right] \\
+    &= \frac{3}{2}nRT_0\left[ 2^{\frac{2}{3}} - 1 \right]
+    \end{split}
+\end{equation}
+Remember V$_0$ is just a number, it is a constant and we can treat it as such, and although much more difficult we are able to get back to our same relationship of T$_F$ = 2$^{\frac{2}{3}}$T$_0$. 
+
+\subsection*{Other State Functions}
+When we met the first law, we were introduced to our first state function U.
+There are other state functions that you have met in your study of science, the main one used in biology for example is the Gibbs Free Energy (G). 
+Another very common one in general chemistry is the enthalpy (H). 
+Enthalpy turns out to be very useful for constant pressure calculations, and every measurement you take on a lab bench can be approximates as constant pressure. 
+\begin{equation}
+    H = U + PV
+\end{equation}
+We will explore the other state function later in the course, it terms out there exists some math magic, that can be used to may any state function you want.
+The ones that proved to be useful to scientists got names and you use them in the various problems you do in thermodynamics. 
+
+\section{Supplemental Information}
+In this lecture we briefly mention the enthalpy as a new state function. 
+I am going to give a brief summary of some other thermodynamic potentials, there definitions, and their differential equations. 
+All of these are ultimately derived using Legendre Transforms, a topic we may or may not visit, and would be covered early in a graduate course in thermodynamics. 
+
+\subsection{Fundamental Equations in Thermodynamics}
+Using a combined form of the first and second laws of thermodynamics we are now able to derive other state functions through various partial derivatives.
+Arguably one of the most important equations in thermodynamics is the combined first and second law, known as the \textbf{Fundamental Equation}. 
+It is fundamental, because we can derive all the other potentials using it.
+
+Consider a reversible expansion process. 
+$dS =\frac{\delta q_r}{t} \rightarrow TdS = \delta q_r$ , likewise we will only consider PV work ad we can write our work as $\delta w = -PdV$. 
+\begin{equation}
+    \begin{split}
+        dU &= \delta q + \delta w \\
+        dU &= TdS - PdV \\
+    \end{split}
+\end{equation}
+This is a general expression combining the laws of thermodynamics (it can be generalized to other work and more complications but ignore all that). 
+It tells us that when we are interested in changing the internal energy we 'naturally' make changes in the entropy and volume. 
+
+Notice this equation only contains state functions as variables (the things that are changing).
+This is very important, although we derived the relationship for a reversible process, all the variables changing are state functions, and therefore are path independent. 
+This is a long way of saying that this relationship is valid for any process (assuming a closed system). 
+So we could write U $\rightarrow$ U(S,V). 
+This is an extremely useful form of the internal energy because we can take partial derivatives and make relationships. 
+As a warning I am going to treat operators algebraically here.
+As I have said before this is convenient and true for linear operators (this is not a math course).
+\begin{equation}
+\begin{split}
+    dU = TdS - PdV &\implies \left( \frac{\partial U}{\partial S}  \right)_V = T \\
+       &\implies \left( \frac{\partial U}{\partial V}  \right)_S = -P
+\end{split}
+\end{equation}
+
+At the current time I will just give some of the other important potentials that can be defined in terms of other state functions. 
+
+\textbf{Enthalpy} (H)
+\begin{equation}
+H \equiv U + PV \implies H(S,P)
+\end{equation}
+
+\textbf{Helmholtz Free Energy} (A)
+\begin{equation}
+A \equiv U - TS \implies A(T,V)
+\end{equation}
+
+\textbf{Gibbs Free Energy} (G)
+\begin{equation}
+G \equiv A + PV \implies G(T,P)
+\end{equation}
+
+\textbf{Grand Potential} (W)
+\begin{equation}
+W \equiv A - G = PV \implies W(T,V)
+\end{equation}
+
+As a final note, when we start considering mixing, you can use the chemical potential ($\mu$) and make all of these a function of N as well.
+If this does not make any sense now, just remove the last term for your derivatives (the term with N), or assume you have a closed system therefore a derivative wrt N is 0. 
+\begin{equation}
+\begin{split}
+    dU &= TdS - PdV + \mu dN \implies U\rightarrow U(S,V,N) \\
+    dH &= TdS + VdP + \mu dN \implies H\rightarrow H(S,P,N)\\
+    dA &= -SdT - PdV + \mu dN \implies U\rightarrow A(T,V,N)\\
+    dG &= -SdT + VdP + \mu dN \implies G\rightarrow G(T,P,N)\\
+    dW &= -SdT - PdV - Nd\mu \implies W\rightarrow W(T,V,\mu)
+\end{split}
+\end{equation}
+
+As a quick example consider the enthalpy and the fundamental equation. 
+\begin{equation}
+    \begin{split}
+        H &= U + PV \\
+        dH &= dU + d(PV) = dU + PdV + VdP \\
+        dH &= TdS - PdV + PdV + VdP \\
+        dH &= TdS + VdP
+    \end{split}
+\end{equation}
+
+\end{document}
