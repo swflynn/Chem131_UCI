@@ -1,0 +1,176 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Chem-131C-Lec11}
+
+\author{swflynn }
+\date{April 2017}
+
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{braket}
+\usepackage{amsmath}
+\usepackage[margin=0.7in]{geometry}
+\usepackage{subfigure}
+\usepackage{url}
+
+\begin{document}
+
+\maketitle
+
+\section*{Lecture 11; 4/26/17}
+At the end of last lecture we found that our thermodynamic entropy equations for an ideal monoatomic gas had the same volume and temperature dependence as the entropy definition from statistical thermodynamics. 
+\begin{equation}
+\begin{split}
+S &= Nk \ln \left( \frac{e^{\frac{5}{2}}V}{N\Lambda^3} \right) \\
+S &= NR\ln \left \{ \left(\frac{T}{T_0}\right)^{\frac{3}{2}} \left(\frac{V}{V_0}\right) \right \}+n\bar{S}_0
+\end{split}
+\end{equation}
+This equation is called the Sackur-Tetrude equation for an ideal gas. 
+
+\subsection*{Exam Soon}
+The first exam for the course will occur on Friday May 12. 
+The front page of the exam will have a bunch of information/equations.
+That being said not all of the information there will be necessary for the exam, you will be required to know all of the symbol conventions used in this course and their meanings to make use of these equations. 
+
+\subsection*{Internal Energy Microscopic/Macroscopic Connections}
+Consider the microscopic definition of internal energy 
+\begin{equation}
+\begin{split}
+U &= \sum_j P_jE_j \\
+dU &= d \left[\sum_j P_jE_j \right] \\
+dU &= \sum_j [ P_jdE_j + E_j dP_j ]
+\end{split}
+\end{equation}
+
+\subsubsection*{Derive a relationship for work from statistical thermodynamics and show it is -PdV}
+
+We know that the internal energy from the first law is broken into a sum for the heat and work, so we suspect we can relate these two terms from each equation.
+\begin{equation}
+dU = \delta q + \delta w
+\end{equation}
+If you were to make an energy versus probability graph you would have discrete lines at each energy level (remember systems energy is quantized) with the probability for each energy state given by 
+\begin{equation}
+P_i = \frac{1}{Q}e^{-\beta E_i}
+\end{equation}
+To solve this let's recall the macroscopic definition of entropy. 
+\begin{equation}
+S = -k\sum_j P_j \ln P_j
+\end{equation}
+If we hold the probability constant than the associated change in entropy would have to be 0. 
+Now consider a reversible adiabatic compression of an ideal gas, q = 0 and therefore $\Delta$ U = w. 
+In this type of scenario we know that the entropy would have to be 0 $dS = \frac{\delta q}{T}$.
+From this logic we conclude that a process without any change in entropy (constant P$_i$) can only give work, therefore a changing entropy process should be related to q. 
+So we will make the following mapping
+\begin{equation}
+\begin{split}
+dU &= \sum_j [ P_jdE_j + E_j dP_j ] \\ 
+dU &= \sum_j [\delta w + \delta q ] \\
+\sum_j E_j dP_j \equiv \delta q, &\qquad \sum_j P_jdE_j \equiv \delta w
+\end{split}
+\end{equation}
+
+%In future do the general particle in a box energy states derivation
+
+Let's now consider a particle in a box for our energy states. 
+If we consider a cubic box than the energy states are well known.
+\begin{equation}
+E_j = \frac{h^2}{8mL^2}(n_x^2+n_y^2+n_z^2)
+\end{equation}
+We can just define a generic variable j which will loop over each spatial dimension of interest (j = n$_x$,n$_y$,n$_z$).
+We are trying to determine the work as -PdV, so let's write our energy expression in terms of the volume, recall L$^2$ = V$^{\frac{2}{3}}$ from basic geometry. 
+We can therefore write our energy expression in terms of some function f that doesn't depend on volume, and our volume dependence. 
+\begin{equation}
+\begin{split}
+E_j &= \frac{f_j}{V^{\frac{2}{3}}} \\
+dE_j &= \frac{\partial }{\partial V}E_j dV = -\frac{2}{3}\frac{f_j}{V^{\frac{5}{3}}}dV = -\frac{2}{3}\frac{E_j}{V}dV
+\end{split}
+\end{equation}
+Finally let's return to the microscopic work definition we defined and substitute in our results. 
+We will also use the internal energy definition (lecture 2) $\displaystyle\sum_iP_iE_i = \braket{E} = U$ and the internal energy of an ideal gas from equipartition theorem is U(t) = $\frac{3}{2}nRT$. 
+\begin{equation}
+\begin{split}
+    dw &= \sum_j P_jdE_j \\
+    &= -\frac{2}{3} \sum_j P_j\frac{E_j}{V}dV = -\frac{2}{3} \sum_j (P_jE_j) \frac{dV}{V}  \\
+    &= -\frac{2}{3} U\frac{dV}{V} = -\frac{2}{3}\frac{3}{2}\frac{nRT}{V}dV \\
+    dw &= -PdV
+\end{split}
+\end{equation}
+
+\subsubsection*{Prove the following $\delta q = \displaystyle\sum_iE_idP_i$}
+Again we are considering heat transfer so let's start with the macroscopic definition of entropy.
+We will substitute in the partition function definition of the probability $P_j = \frac{1}{Q}e^{-\beta E_j}$ and subsequently $\ln P_j = -\beta E_j -\ln Q$ (remember that Q is just a number, it is a weight!
+\begin{equation}
+\begin{split}
+\frac{\partial}{\partial P_i}S &= -k\frac{\partial}{\partial P_i}\sum_j P_j \ln P_j = -k\sum_j ( 1+\ln P_i)dP_j \\
+ &= -k\sum_j \ln P_j dP_j + d \sum_j P_j \\
+ &= -k\sum_j\ln P_j dP_j = -k\sum_j (-\beta E_j - \ln Q) dP_j \\
+ dS &= k\beta \sum_j E_jdP_j = \frac{1}{T}\sum_jE_jdP_j
+\end{split}
+\end{equation}
+Finally we know that thermodynamics tells us the numerator is $\delta$q, therefore 
+\begin{equation}
+\delta q = \sum_j E_j dP_j
+\end{equation}
+
+\subsection*{Fundamental Equations}
+We know that we can combine the first and second laws of thermodynamics to write the fundamental equation (see lecture 7 Supplemental Information). 
+\begin{equation}
+\begin{split}
+    dU &= \delta q + \delta w \qquad U(T,V) \\
+    dU &= TdS - PdV \qquad U(S,V)
+\end{split}
+\end{equation}
+And through the fundamental equation we see that the internal energy has 'natural' variables of S and V. 
+We can construct other thermodynamic potentials with different natural variables such as the Gibbs Free Energy G(T,P). 
+In equilibrium conditions these different potentials all give the same 'correct' results, but some are easier to work with depending on your experiment. 
+
+\subsection*{Irreversible, Isothermal Free Expansion of an Ideal Gas}
+Note for Chem 131C at UCI a change in entropy of the surroundings will only occur if the surroundings have some type of heat transfer. 
+This is an assumption we are going to make, it is not true in general, however, it is good enough for us!
+
+Because this expansion is done irreversibly we know entropy should be greater than 0. 
+Because we are doing a free expansion there will be no useful work generated from this process. 
+Therefore we can write $\Delta S > 0$, w=0, $\Delta$T = 0, and finally $\Delta$U = 0. 
+We know that our gas has expanded during this process, from our analysis there is no change in the internal energy, so the first law does not capture how our system changes. 
+This means we must see a change in the second law. 
+Because there is no work and no change in internal energy we must conclude that the change in heat is also 0 for this specific system.
+Because that is true we can calculate the entropy using our adiabatic equation for a change in entropy (note this is a very special case this is not true in general). 
+Let's consider the expansion into twice the original volume. 
+\begin{equation}
+\begin{split}
+S &= nR\ln\left[ \left(\frac{T}{T_0} \right)^{3/2} \left(\frac{V}{V_0} \right) \right ] + n\bar{S_0} =\\
+\Delta S &= nR\ln \left (\frac{V_f}{V_i} \right) = nR\ln 2
+\end{split}
+\end{equation}
+Because no heat left the system, the entropy of the surroundings will not change, and we see the the entropy of the universe increases by nRln2 due to the free expansion of the ideal gas.  
+
+\subsection*{Maxwell's Dude!}
+We are now going to discuss an interesting topic that was proposed by James Clerk Maxwell (a very famous physicist know for many accomplishments such as the Maxwell equations). 
+He proposed a thought experiment that seemingly violates the second law of thermodynamics, and it took over 100 years for people to sufficiently disprove it. 
+This thought experiment is known as a Maxwell's Demon, and still appear as a model in physics publications today.
+
+Consider a box containing a single atom, if we let it expand to the full volume of the box we just showed above that the entropy change of the universe would be kln2. 
+So we can reversibly place a partition into our system, and we have a 3 state system the particle is either on the left or right side of the box, we remove the partition and it fills the entire volume. 
+We could also imagine having a bunch of gas molecules within our box, the molecules are moving around (for now think classical, atoms are spheres). 
+Lets pick a direction, every time an atom will pass through the partition in that direction we allow it, if they try to pass back we reversibly close the partition. 
+Lets keep doing this until eventually all of our particles are on one side of the partition, and the other side is evacuated. 
+This concept is the Maxwell Demon, it sits watching the molecules and only allows them to pass in one direction until we make the vacuum on one side of the container. 
+So ultimately we are using the thermal motion of the molecules to make a more organized system!
+This sounds both interesting, and inconsistent with our understanding of entropy. 
+
+If this works we essentially make a perpetual motion machine (replace the demon with a super-computer and make it an engineering problem). 
+\textbf{Szilard's Engine} uses the evacuated half of the box, attaches a piston, and then does an expansion to get useful work. 
+As you can imagine we are using the thermal motion of the atoms to spontaneously make a gradient by simply having the demon separate them. 
+
+The solution to this problem will be discussed next class and ultimately comes from information theory. 
+As a bit of foreshadowing, think about the demon.
+There must be something about the demon we are not accounting for in our picture that will take energy, or maybe generate entropy?
+In other words, what do we need to pay the demon to sit there and watch our atoms for all eternity?
+
+If you are bored, and want a quick summary/solution to the problem and what we will discuss next lecture watch this video (about 5 minutes long). 
+She makes some very interesting/simple videos about theoretical physics topics that are worth watching. 
+
+\url{https://www.youtube.com/watch?v=ULbHW5yiDwk}
+
+\end{document}
