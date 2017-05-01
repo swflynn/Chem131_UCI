@@ -1,0 +1,182 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Chem-131C-Lec10}
+
+\author{swflynn }
+\date{April 2017}
+
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{braket}
+\usepackage{amsmath}
+\usepackage[margin=0.7in]{geometry}
+\usepackage{subfigure}
+
+\begin{document}
+
+\maketitle
+
+\section*{Lecture 10; 4/24/17}
+Consider some general system of N particles and S states.
+We would write the configuration as a set of \{N$_1$, N$_2$, N$_3$, $\cdots$, N$_S$\} states, where we have N$_1$ particles is state 1 and so on.
+We must account for all of the particles in our system this way and can therefore write $\displaystyle\sum_{j=1}^S N_j = N$.
+We should then interpret the entropy as a likelihood of being in a particular state. 
+\begin{equation}
+    W = \frac{N!}{N_1!N_2!\cdots N_S!}
+\end{equation}
+Here W tells us the number of ways of getting a configuration (with equal probability for each state, $P_j \equiv \frac{N_j}{N}$). 
+Through the power of magic (and mostly Boltzmann) it turns out that the entropy is extensive and can be written as (see his tombstone). 
+\begin{equation}
+    S = k\ln(W)
+\end{equation}
+Now W is going to be an incredibly large number for even small numbers of particles and states, so we usually consider the natural logarithm of W. 
+We can also use the properties of logarithms to simplify this expression. 
+\begin{equation}
+\begin{split}
+    \ln(W) &= \ln \left ( \frac{N!}{N_1!N_2!\cdots N_S!} \right ) =  \ln \left ( \frac{N!}{\displaystyle\prod_{j=1}^s N_j!} \right ) \\
+    &= \ln N! - \sum_{j=1}^S \ln N_j! \rightarrow \text{Now assume Sterling's}\approx \\
+    &= N\ln N - N - \sum_{j=1}^S (N_j \ln N_j - N_j) = N\ln N - N - \left (\sum_{j=1}^S (N_j \ln N_j - \sum_{j=1}^S N_j)\right) \\
+    &=  N\ln N - \sum_{j=1}^S (N_j \ln N_j) \rightarrow \text{combine terms (rewrite N)} \\
+    &= \sum_{j=1}^S \left( N_j\ln N - N_j\ln N_j \right) = -\sum_{j=1}^S \left( N_j\ln N_j - N_j\ln N \right) \\
+    &= -\sum_{j=1}^S \left( N_j\ln \frac{N_j}{N}  \right) = -N\sum_{j=1}^S \left( \frac{N_j}{N}\ln \frac{N_j}{N}  \right) \\
+    \ln (W) &= -N\sum_{j=1}^S \left( P_j\ln P_j  \right) 
+\end{split}
+\end{equation}
+If we combine this with the Boltzmann equation for entropy we find that. 
+\begin{equation}
+     S = -k\sum_{j=1}^S \left( P_j\ln P_j  \right) 
+\end{equation}
+
+\subsection*{Microscopic Definitions}
+We now have a microscopic definition for the entropy, and we can use this with our microscopic definition of internal energy to describe our system. 
+\begin{equation}
+\begin{split}
+    U &= \sum_{j=1}^SE_jP_j \\
+    P_j &= \frac{1}{Q}e^{-\beta E_j} \\
+    S &= -k\sum_{j=1}^S \left( P_j\ln P_j  \right) 
+    \end{split}
+\end{equation}
+
+If we are interested in determining the most likely arrangement of our systems particles over the various states, we need to maximize our entropy (that is how the world works, a spontaneous process is one that maximizes the entropy of the universe).  
+
+\subsection*{Lagrange Multipliers}
+We have covered quite a bit of material that is too complicated to be expected on an undergraduate exam. 
+That being said this information is good to see, and will be covered in any introductory statistical mechanics course.
+The next topic, Lagrange Multipliers, will probably not appear on an exam, however, it is a common mathematical method used heavily in Statistical Mechanics when dealing with the various 'ensembles'.
+For Statistical Thermodynamics (equilibrium statistical mechanics), each ensemble simply differs by the type of constraints you place on the system, i.e. is energy held constant or number of particles held constant and etc.  
+
+Lagrange Multipliers are useful for maximizing certain parameters wrt. various constraints you place on the system.
+Let's consider two constraints, first we want to maximize the entropy of the universe, and second all probabilities must sum to 1 (we know every state available to our system). 
+Consider a system with S states and N particles. 
+We will argue from intuition that apriori each state in the system has an equal probability of being populated (we are trying to make as few assumptions as possible, without knowing better assume a fair coin). 
+
+From calculus we can optimize this system by setting the derivative to 0. 
+\begin{equation}
+    \frac{\partial}{\partial P_i}S = 0
+\end{equation}
+Unlike basic calculus we need to account for our constraints on the system, this is easily done using Lagrange Multipliers. 
+Essentially we add in extra terms for each constrain and then optimize the system using these extra parameter's (dividing by k will cancel out units, and $\alpha$ is our Lagrange multiplier). 
+\begin{equation}
+\begin{split}
+    0 &= \frac{\partial}{\partial P_i} \left( \frac{S}{k} + \alpha\sum_{j=1}^S P_j \right) =
+     \frac{\partial}{\partial P_i} \left( -\sum_{j=1}^S \left( P_j\ln P_j  \right) + \alpha\sum_{j=1}^S P_j \right) \\
+     0 &= \sum_{j=1}^S \left (\frac{\partial}{\partial P_i}   P_j\ln P_j  + \frac{\partial}{\partial P_i}  \alpha\sum_{j=1}^S P_j \right) = -1 -\ln P_j +\alpha \\
+     \implies & \ln P_i = \alpha -1 \implies P_i = e^{\alpha - 1}
+    \end{split}
+\end{equation}
+We can now invoke that the sum over all the probabilities must add to 1
+\begin{equation}
+\begin{split}
+1 &= \sum_{j=1}^S P_j = \sum_{j=1}^Se^{\alpha - 1} = S e^{\alpha - 1} \\
+P_i &= \frac{1}{S}e^{\alpha -1}
+\end{split}
+\end{equation}
+
+\subsection*{Lagrange Multiplier for Constant Energy}
+Above we calculated an entropy maximization using Lagrange Multipliers considering 2 constraints, that entropy must be maximized, and that the sum over our probabilities must be 1. 
+We can now begin to add more constraints such as the internal energy being a constant in our system (if the system is closed than the internal energy must be constant). 
+To include more constraints you simply include another Lagrange Multiplier and work through the exact same algebra. 
+\begin{equation}
+\begin{split}
+    0 &= \frac{\partial}{\partial P_i} \left( -\frac{S}{k} + \alpha\sum_{j=1}^S P_j - \beta \sum_{j=1}^S E_jP_j \right) =
+     \frac{\partial}{\partial P_i} \left( -\sum_{j=1}^S \left( P_j\ln P_j  \right) + \alpha\sum_{j=1}^S P_j - \beta \sum_{j=1}^S E_jP_j \right) \\
+     0 &= -1 -\ln P_j + \alpha -\beta E_j \\
+     P_j &= e^{\alpha -1}e^{-\beta E_i} \\
+     P_i &= \frac{1}{S}e^{-\beta E_i}
+\end{split}
+\end{equation}
+As we have seen we call this term, S, the partition function in statistical mechanics and can simply rename it to Q instead. 
+So here we have 2 different Lagrangian multipliers to account for more constraints in our system, if we also wanted to hold the number of particles constant we would add in another multiplier and get another exponential dependence in our probability expression. 
+
+\subsection*{Entropy and the Partition Function}
+As we have discussed, Q is the partition function in statistical mechanics.
+It can be thought of as a probability and its derivatives can be used to determine various thermodynamic properties such as energy and temperature. 
+\begin{equation}
+\begin{split}
+    Q &= \sum_j e^{-\beta E_j} \\
+    P_j &= \frac{1}{Q}e^{-\beta E_j} \\
+    S &= -k \sum_j P_j\ln P_j
+\end{split}
+\end{equation}
+Let's start combining equations and see where we end up. 
+Recall that an energy weighted by a probability and summed over all states is the definition of the average value of energy (see Lecture 2 notes): $\displaystyle \sum_i P_iE_i = \braket{E}$ = U.
+\begin{equation}
+\begin{split}
+    S &= -k \sum_j P_j (-\beta E_j - \ln Q ) = k\beta \sum_j P_j E_j + k\ln Q \\ 
+    S &= \frac{U}{T} + k\ln Q \\ 
+    \end{split}
+\end{equation}
+From statistical mechanics we know that (See Lecture 2 notes).
+\begin{equation}
+    U = kT^2 \frac{d}{dT}\ln Q
+\end{equation}
+So we can combine equations again to get S(Q).
+\begin{equation}
+    S(Q) = kT \frac{d}{dT}\ln Q + k\ln Q
+\end{equation}
+
+\subsection*{Macroscopic and Microscopic}
+Previously in thermodynamics land we derived (Lecture 8) the entropy of a monoatomic ideal gas
+\begin{equation}
+    S = nR\ln\left[ \left(\frac{T}{T_0} \right)^{3/2} \left(\frac{V}{V_0} \right) \right ] + n\bar{S_0}
+\end{equation}
+And we just found another expression for entropy in the land of statistical mechanics, wouldn't it be great if we could somehow connect the two...
+Recall the Boltzman Statistics approximation for the partition function (Lecture 4)
+\begin{equation}
+\begin{split}
+    Q &= \frac{q^N}{N!} = \frac{1}{N!} \left (\frac{2\pi mkT}{h^2}\right)^{\frac{3N}{2}} \approx \frac{eV}{N\Lambda^3}\\
+    q &= \frac{V}{\Lambda^3} \\
+    \Lambda &= \frac{h}{\sqrt{2\pi mkT}}
+    \end{split}
+\end{equation}
+Consider now our ideal gas entropy (U = $\frac{3}{2}kT$). 
+\begin{equation}
+\begin{split}
+    S &= \frac{U}{T} + k\ln Q \\ 
+    S &= \frac{3}{2}Nk + k\ln Q \\
+    S &= \frac{3}{2}Nk + k\ln \left(\frac{V^N}{\Lambda^{3N}}\right) \\
+    S &= \frac{3}{2}Nk + k\ln \left(\frac{eV}{N\Lambda^{3}}\right)^N \\
+    S &= \frac{3}{2}Nk + Nk\ln \left(\frac{eV}{N\Lambda^{3}}\right)
+\end{split}
+\end{equation}
+We can simplify this last line by realizing ln(e) = 1 and pulling it out. 
+We can then use the same property to combine the Nk terms into a power of e 
+\begin{equation}
+\begin{split}
+S &= \frac{3}{2}Nk + Nk + NK\ln \left(\frac{V}{N\Lambda^{3}}\right) \\ 
+S &= Nk\ln \left(\frac{e^{\frac{5}{2}}V}{N\Lambda^{3}}\right) \\ 
+\end{split}
+\end{equation}
+And here we have a very compacted form of the entropy for an ideal gas. 
+Is this useful?
+Well let's group terms into a generic function (F) so we can see the Temperature dependence better, recall $\frac{1}{\Lambda^3} = T^{\frac{3}{2}}(F)$. 
+So just as in our thermodynamic picture we have the same temperature and volume dependence for the ideal gas!
+\begin{equation}
+\begin{split}
+    S &= nR\ln\left[ \left(\frac{T}{T_0} \right)^{3/2} \left(\frac{V}{V_0} \right) \right ] + n\bar{S_0} \\
+    S &= Nk\ln \left( T^{\frac{3}{2}}V \times F \right)
+\end{split}
+\end{equation}
+
+\end{document}
