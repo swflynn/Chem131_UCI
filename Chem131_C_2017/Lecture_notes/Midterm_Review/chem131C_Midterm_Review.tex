@@ -1,0 +1,280 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Chem-131C-Midterm-Review}
+
+\author{swflynn }
+\date{May 2017}
+
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{braket}
+\usepackage{amsmath}
+\usepackage[margin=0.7in]{geometry}
+\usepackage{subfigure}
+\usepackage{url}
+\usepackage{float}
+
+\begin{document}
+
+\maketitle
+
+\section*{Midterm Review; 5-10-17}
+Here are the notes for my discussion section the week of the midterm (5-8-17). 
+I am going to do my best to briefly summarize the major topics that have been covered during the course thus far. 
+This review will NOT contain any example problems, you have spent the last few months (and I will assume this week) doing problems on your own, I am just trying to get some of the conceptual points across in 1 hour. 
+I will roughly break the review into statistical mechanics, quantum mechanics and thermodynamics. 
+This is essentially a condensed form of all of the lecture notes I have made until now, everything on here I think you should be able to reproduce.
+This review is in no way representative of what will be covered in the exam (I do not know what the exam will have on it), but I think all of this material should be second nature to you.
+
+\section{Thermodynamics}
+Thermodynamics is interested in the properties of equilibrium systems such as the temperature, pressure, energy, entropy, etc. 
+Thermodynamics says nothing about time, this is a topic left to chemical kinetics (time is weird in quantum mechanics there was no time operator, you never calculated the expectation value of time..... time is dealt with in quantum field theory when you are a physics graduate student). 
+
+For our course we will consider work done on the system as (+) and work done by the system as (-), likewise heat entering the system will be (+) and heat leaving the system will be (-). 
+
+\subsection{The First Law of Thermodynamics}
+Generally thought of as conservation of energy, we are not creating or destroying 'mass' we simply rearrange energy. 
+The internal energy change of the entire universe must be 0 for all processes. 
+One way to state the first law is that the internal energy change for an isolated system is 0.
+\begin{equation}
+    U = q + w
+\end{equation}
+Here the internal energy is equal to any heat and work occurring in your system. 
+In chemistry thermodynamics we usually restrict the discussion to PV work only (no shaft work or magnetic work etc), therefore we define the work in this course to be (unless otherwise specified in a problem). 
+\begin{equation}
+    w \equiv -\int_V^{V_f} P_{ext}dV
+\end{equation}
+
+For this course we are generally interested in ideal gases, this is the simplest Equation of State in chemistry
+\begin{equation}
+    PV = nRT
+\end{equation}
+The ideal gas is unique in that the internal energy only depends on the temperature U $\rightarrow$ U(T).
+The internal energy can be predicted using the equipartition theorem, which states each DOF (degree of freedom) contributes $\frac{1}{2}$kT = $\frac{1}{2}$nRT. 
+So a monoatomic ideal gas has U(T) = $\frac{3}{2}$kT and the diatomic has U(T) = $\frac{5}{2}$kT. 
+
+The most common real gas equation used in chemistry and chemical engineering is the van der walls gas, which accounts for the volume of the atoms, and the potential energy between the atoms. 
+\begin{equation}
+    \left( {P + \frac{{an^2 }}{{V^2 }}} \right)\left( {V - nb} \right) = nRT
+\end{equation}
+
+\subsection{The Second Law of Thermodynamics}
+There are many ways in which the second law is introduced.
+One statement would be that the entropy of an isolated system increases during a spontaneous event. 
+The entropy change of the universe is strictly greater than 0 for an irreversible process. 
+Entropy can really be thought of as a measurement of the likelihood of a particular state occurring in your system. 
+Entropy is related to heat, and it can be shown that the proper 'equation' for entropy is 
+\begin{equation}
+\begin{split}
+    S &\equiv \frac{\delta q_{r}}{T} \\
+    S &= nR\ln\left[ \left(\frac{T}{T_0} \right)^{3/2} \left(\frac{V}{V_0} \right) \right ] + n\bar{S_0}
+    \end{split}
+\end{equation}
+
+Note the change in entropy of the surroundings will always be the heat that enters the surroundings divided by the temperature for this class (this is not true in general but take it as a valid assumption for all problems). 
+
+ Finally we can combine our two laws of thermodynamics to get the Fundamental Equation. 
+ \begin{equation}
+\begin{split}
+    dU &= \delta q + \delta w \qquad U(T,V) \\
+    dU &= TdS - PdV \qquad U(S,V)
+\end{split}
+\end{equation}
+
+ \subsection{State Functions}
+ A state function does not depend on the path taken, it only depends on the final state of the system.
+ Therefore, calculations interested in changes of state functions only depend on the initial and final states of the system. 
+ The internal energy, entropy, enthalpy, and any other thermodynamic potential area all state functions. 
+ 
+ \subsection{Reversible Process}
+ In the context of expanding/compressing a gas, a reversible process is the most efficient method. 
+ Meaning, at every instance of the volume change we exactly match the external pressure and the internal pressure of the gas. 
+ This allows us to simplify our work expression, if we assume an ideal gas EOS we find
+ \begin{equation}
+\begin{split}
+    P(V) &= \frac{nRT}{V} \\
+    w_{r} &= -\int_{V1}^{V2} P_{ext}dV = -\int_{V1}^{V2} P(V)dV = -\int_{V1}^{V2} \frac{nRT}{V} dV \\
+    w_{r} &= -nRT\ln \left[\frac{V_2}{V_1}\right]
+\end{split}
+\end{equation} 
+
+A reversible process is the only way in which an entropy change of the universe can be 0.
+A reversible process can usually be assumed with some accuracy if something is done in a very large number of steps, or if the process is done very slowly in time.
+ 
+ \subsection{Irreversible Process}
+ If we do an irreversible expansion/compression on a system we simply use the definition of PV work for our calculation. 
+ We would need an expression for the external pressure, if it is constant (as usually is for simplicity) than we simply do the calculation
+ \begin{equation}
+\begin{split}
+        \int \delta w = \int_{V1}^{V2} -P_{ext}dV \\
+        w = -P_{ext}(V_2-V_1)
+\end{split}
+\end{equation}
+
+An irreversible process must increase the entropy of the universe.
+There is always excess heat being generated which will eventually reach the environment and increase its entropy. 
+All real processes are irreversible, a reversible process would require an infinite amount of time to complete. 
+ 
+ \subsection{Isothermal Expansion/Compression}
+ By definition an \textbf{Isothermal} process is one where the temperature of the system does not change during the process. 
+ If the gas is ideal then we know $\Delta$U $\propto$ $\Delta$T, therefore any isothermal ideal gas process must not have a change in internal energy, and q = -w. 
+ During an expansion the gas molecules would be forced to travel farther, to keep the temperature constant heat would need to enter the gas (or else the temperature would decrease). 
+ 
+ If the process is done reversibly we can calculate the entropy using the first law as 
+ \begin{equation}
+     \Delta S = \frac{q_r}{T} = \frac{-w}{T}
+ \end{equation}
+
+  \subsection{Adiabatic Expansion/Compression}
+ In the adiabatic process there is no heat transfer between the system and surroundings, therefore the temperate must change during an expansion (-) or compression (+). 
+ With a temperature change we have a subsequent change in internal energy. 
+ 
+ An adiabatic process is usually more involved during calculations because the temperature and volume are both changing, and the temperature is innately a function of volume. 
+ To solve this we equated the change in internal energy and work (first law) using the ideal gas internal energy equation, and the general definition of work. 
+ In this way we can solve for the final temperature while simultaneously accounting for the temperature volume dependencies, which gave us the following relationship.
+ \begin{equation}
+     T^{\frac{3}{2}}V = \text{constant}
+ \end{equation}
+ Here the $\frac{3}{2}$ dependence comes from assuming a monoatomic ideal gas, the number would be different for a diatomic, and the relationship is only true for ideal gases. 
+ 
+ \subsection{Free Expansion Ideal Gas}
+In this case the expansion cannot be reversible (you cannot play the movie backward). 
+There is no work done during this expansion, if you move into vacuum you are not pushing against anything (there is nothing there) therefore you do no work. 
+If the container was adiabatic than there would be no heat entering the system during the expansion and the internal energy change would be 0.
+There are more conformations available to the system therefore the entropy must increase, because this is not reversible we do not expect the change for the universe to be 0. 
+
+The entropy change is a little  more complicated, entropy is a state function so you can take and reversible process with the same initial and final state to calculate a reversible entropy to use in the definition. 
+But the entropy of the surroundings needs to be calculated using the heat given off to the environment by the irreversible process. 
+
+ \subsection{Heat Capacity}
+ The heat capacity C(T,V) is a function that measures how much energy is required to change the temperature of a material. 
+ Although this is a function that depends on volume and temperature, it is often convenient to assume that it is simply a constant for a specific material. 
+ If the material is a liquid or solid the volume does not effect the heat capacity very much, this is not as good of an assumption for a real gas. 
+ 
+If we consider a constant volume process the heat capacity can be written as 
+\begin{equation}
+C_v(T) \equiv \left(\frac{\partial U}{\partial T}\right)_V \implies \Delta U = C_v\Delta T
+\end{equation}
+ We have also used a simplified heat capacity equation, if you can assume the change in temperature does not change the heat capacity itself (Assume heat capacity is temperature independent) than you can write a generic heat capacity C as
+ \begin{equation}
+     C = \frac{q}{\Delta T}
+ \end{equation}
+ 
+ 
+ \subsection{Enthalpy}
+ Up until now the only other thermodynamic potential we have mentioned besides internal energy is the Enthalpy (H). 
+ \begin{equation}
+     H = U + PV 
+ \end{equation}
+ 
+ \subsection{Heat Engines}
+A heat engine uses the spontaneous transfer of heat between a temperature gradient to harness some useful work. 
+It is not possible to completely convert heat into useful work because it would violate the second law. 
+If we are considering a heat engine the first law could be written as 
+\begin{equation}
+    Q_H = W_{out} + Q_C
+\end{equation}
+ We write the thermodynamic efficiency for a process as 
+ \begin{equation}
+     \eta = \left( 1 - \frac{T_C}{T_H} \right)
+ \end{equation}
+ 
+ The Carnot cycle is a heat engine where the 'engine' is a Carnot engine. 
+ We take the Carnot engine to contain 4 steps, an isothermal expansion, adiabatic expansion, isothermal compression, and an adiabatic compression.
+ Because this is a cycle the change in our state functions is simply 0, and we assume each step in the process is reversible. 
+ The path dependent functions (w and q) will not be 0, we take heat from the higher temperature, extract some useful work, use some work to reset the system (do the compression) and finally dump excess heat into the cold reservoir to satisfy the second law. 
+ 
+\section{Statistical Mechanics}
+From quantum mechanics we can calculate things like the energy, and we say there are various energy states available to a system. 
+Each of these states has some probability of being occupied.
+If we are interested in the energy states we could write. 
+\begin{equation}
+    P_i = \frac{e^{-\beta E_i}}{Q}
+\end{equation}
+Here the factor Q is a normalization over all of our states, it is called the partition function. 
+\begin{equation}
+    Q = \sum_ie^{-\beta E_i}
+\end{equation}
+The partition function is simply a normalization, it turns out that derivatives of the partition function can be used to determine thermodynamic variables (energy pressure, entropy etc) in statistical mechanics. 
+One important example using the partition function is for the energy. 
+\begin{equation}
+    \begin{split}
+        \braket{E} &\equiv \sum_i P_iE_i \\
+        &= -\frac{d}{d\beta}\ln(Q) \\
+        &= kT^2\left[\frac{d}{dT}\ln(Q)\right]_{V,N}
+    \end{split}
+\end{equation}
+Statistical mechanics develops a large amount of mathematics to calculate properties of interest using derivatives such as the energy example shown above. 
+
+The partition function Q, is for the entire system of interest. 
+While this is general, it can be a bit difficult to work with.
+One simplification is to instead work with single particle partition functions, where we are assuming \textbf{Boltzmann Statistics} describe our system. 
+This approximation essentially assumes all of the particles in your system are independent (good for a system with a few atoms and a large number of potential states) therefore the probabilities for each particle can be multiplied. 
+\begin{equation}
+\begin{split}
+    Q &= \sum_i \sum_j \sum_k \cdots  e^{-\beta (E_i^a + E_i^b + E_i^c + \cdots)} \\
+    &\approx \frac{q^N}{N!}
+\end{split}
+\end{equation}
+The N! factor comes from indistinguishably of particles and is common when you do combinatorics problems in quantum mechanics. 
+
+If we are interested in a chemical system we may further assume that the individual particles partition function is a product of terms in the Hamiltonian for each atom. 
+\begin{equation}
+    q_{molecule} = q_{tans} \cdot q_{rot} \cdot q_{vib} \cdot q_{elec}
+\end{equation}
+
+We can start actually calculating expressions if we have an equation for the energy levels of the system. 
+If we assume particle in a box energy levels, and that the spatial dimensions (x,y,z) are independent, and Boltzmann Statistics apply we can determine the individual atom partition functions. 
+\begin{equation}
+      q = q_x\cdot q_y \cdot q_z \approx \left (\frac{2\pi mkT}{h^2} \right )^{\frac{3}{2}} L_xL_yL_z = \frac{V}{\Lambda^3}
+\end{equation}
+We see that the individual atom partition function using particle in a box energy levels generates the \textbf{Thermal de Broglie Wavelength}. 
+We interpret this equation as such, the single atom partition function represents the 'size' an individual particle takes up in space (during its wave description). 
+
+\subsection{Stirling's Approximation}
+Because quantum mechanics deals with indistinguishable particles we generate N! terms during combinatorics calculations. 
+A very useful approximation for simplifying a factorial is Stirling's Approximation
+\begin{equation}
+    \ln N! \approx N\ln N - N
+\end{equation}
+If we have a system of N particles and S states we can write the Boltzmann Entropy in terms of states W, or through some manipulation the Gibbs Entropy in terms of probability. 
+\begin{equation}
+    \begin{split}
+             S &= k\ln(W) \\
+              W &= \frac{N!}{N_1!N_2!\cdots N_S!} \\
+               S &= -k\sum_i P_i \ln P_i
+    \end{split}
+\end{equation}
+
+\subsection{Maxwell}
+We spent a few lectures discussing Maxwell's Demon. 
+I am honestly not sure how much of this material could be expected on an exam. 
+Please review the lecture where the concept, and specifically the memory solution was introduced. 
+I would be able to at-least explain the paradox and solution (maybe not with equations but conceptually) at a minimum. 
+
+\section{Quantum Mechanics}
+In quantum mechanics we spend a large amount of time generating a mathematical framework to understand the physical world. 
+Note that all of the 'operators' in quantum mechanics are linear operators, this property is very useful and allows us to do things like interchange derivatives and summations (these tricks are periodically used in statistical mechanics).
+
+The energy of a quantum system is determined through the Hamiltonian ($\hat{H}$). 
+\begin{equation}
+    \hat{H}\psi_i = E_i \psi_i
+\end{equation}
+Where this is a standard eigenvalue problem from linear algebra. 
+We interpret the eigenvalues as the physical values you system of interest can take on.
+We interpret the physical world as a probability distribution with various states containing these eigenvalues. 
+
+The Hamiltonian is a linear operator, we generally assume that it can be decomposed into a summation of various terms in chemical systems
+\begin{equation}
+    \hat{H} = \hat{H}_{translations} + \hat{H}_{vibrations} + \hat{H}_{rotations} + \hat{H}_{electronic}
+\end{equation}
+
+One of the first quantum mechanical models used to calculate energy levels is the particle in a box. 
+The energy of a particle in a box is given by  
+\begin{equation}
+    E_n = \frac{h^2n_x^2}{8mL_x^2}+ \frac{h^2n_y^2}{8mL_y^2}+ \frac{h^2n_z^2}{8mL_z^2}
+\end{equation}
+These energy levels can be used in our statistical mechanics equations ($E_i$). 
+
+\end{document}
