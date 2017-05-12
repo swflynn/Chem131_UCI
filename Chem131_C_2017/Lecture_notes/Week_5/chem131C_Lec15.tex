@@ -1,0 +1,64 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Chem-131C-Lec15}
+
+\author{swflynn }
+\date{May 2017}
+
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{braket}
+\usepackage{amsmath}
+\usepackage[margin=0.7in]{geometry}
+\usepackage{subfigure}
+\usepackage{url}
+\usepackage{float}
+
+\begin{document}
+
+\maketitle
+
+\section*{Lecture 15; 5/5/17}
+This lecture (and all subsequent lectures) will not be on the midterm, but will appear on the final.
+
+\subsection*{Free Energy Thermodynamic Potentials}
+As we have mentioned previously, other Thermodynamic Potentials besides the Potential Energy and Enthalpy exist. 
+The \textbf{Helmholtz} Free Energy A(T,V), is given the symbol A from German for 'arbeit' meaning work. 
+The \textbf{Gibbs} Free Energy G(T,P), is no surprise named after the man. 
+
+The reason we have different thermodynamic potentials is convenience. 
+Physical processes are usually done under different conditions (constant Pressure or Temperature, or Volume, etc). 
+It turns out that the variables we need to consider for these different conditions can be easily manipulated using  different Thermodynamic Potentials.
+
+Recall from previous courses that we can write the change in Gibbs Energy (see Lecture 7 for Thermodynamic Potential Definitions) as
+\begin{equation}
+    \Delta G = \Delta H - T\Delta S
+\end{equation}
+As you can guess, this is already assuming a constant Temperature process. 
+\begin{equation}
+    \begin{split}
+        G &\equiv A + PV \\
+        &= U - TS + PV = U + PV - TS \\
+        &= H - TS \\
+        \Delta G &= \Delta H - \Delta(TS) \xrightarrow{\text{$\Delta$T=0}} \\
+        \Delta G &= \Delta H -T\Delta S
+    \end{split}
+\end{equation}
+If we further assume that $\Delta$H = 0 we see that 
+\begin{equation}
+    \Delta G = - T\Delta S
+\end{equation}
+From here we know that a spontaneous process must have an increase in entropy from the second law, therefore the Gibbs Free Energy must be negative during a spontaneous process (Given $\Delta$T and $\Delta$H  = 0). 
+This limiting case suggests the sign of $\Delta$G must be negative for any process to be spontaneous (due to the exact differentials of state functions), therefore a process that decreases entropy can be spontaneous, only if the Enthalpy compensates. 
+
+We now recall some terms from general chemistry \textbf{Exothermic} and \textbf{Endothermic}.
+An exothermic process is one where heat is released (-$\Delta$H), and the endothermic is the opposite. 
+We can use the enthalpy to keep track of the environments entropy (recall the entropy of the environment only depends on heat transfer and the temperature). 
+So if we have a -$\Delta$G we have already accounted for the second law and subsequently have a spontaneous process!
+
+\subsubsection*{}
+Note this Lecture is extremely short because the beginning discussed the Carnot Engine. 
+I compressed these notes into the previous lecture for midterm studying convenience. 
+
+\end{document}
