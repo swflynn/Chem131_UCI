@@ -1,0 +1,205 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Chem-131C-Lec17}
+
+\author{swflynn}
+\date{May 2017}
+
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{braket}
+\usepackage{amsmath}
+\usepackage[margin=0.7in]{geometry}
+\usepackage{subfigure}
+\usepackage{url}
+\usepackage{float}
+
+\begin{document}
+
+\maketitle
+
+\section*{Lecture 17; 5/15/17}
+Last lecture we considered Legendre Transforms of the Internal Energy, to determine new (potentially useful) Thermodynamic Potentials.
+We found some useful new friends in the Helmholtz Free Energy, The Gibbs Free Energy, and the Enthalpy (with their associated characteristic variables).
+We then wrote down total differentials for these functions and found new partial derivative definitions for some thermodynamic properties. 
+
+\subsection*{Find the Thermodynamic Potential}
+Now that we have a bunch of new equations, lets start using them!
+Consider a monoatomic ideal gas, therefore U(T) = $\frac{3}{2}$nRT and the EOS is PV=nRT.
+
+\subsubsection*{Determine the Enthalpy}
+\begin{equation}
+    \begin{split}
+        H &\equiv  U + PV \qquad \xrightarrow{IG} \\
+        &= \frac{3}{2}nRT + nRT \\
+        H &= \frac{5}{2}nRT
+    \end{split}
+\end{equation}
+
+\subsubsection*{Determine the Constant Pressure Heat Capacity}
+\begin{equation}
+    C_P \equiv \left(\frac{\partial H}{\partial T}\right)_P = \frac{5}{2}nR = \frac{3}{2}nR + R
+\end{equation}
+The last line comes from the relationship proven during the final question of the midterm.
+For an Ideal Gas we can write 
+\begin{equation}
+    C_P = C_V + R
+\end{equation}
+Where the constant pressure heat capacity is expected to be larger than the constant volume heat capacity because energy goes into both changing the temperature and expanding the volume of the container for the constant pressure case. 
+
+\subsubsection*{Determine the Helmholtz Free Energy}
+\begin{equation}
+    \begin{split}
+        A &\equiv U - TS \\
+        &= \frac{3}{2}nRT - T \left(nR\ln\left[ \left(\frac{T}{T_0} \right)^{3/2} \left(\frac{V}{V_0} \right) \right ] + n\bar{S_0}\right)
+    \end{split}
+\end{equation}
+This is not a pretty relationship, however we can define an arbitrary reference term to lump various constants together. 
+\begin{equation}
+    \begin{split}
+        A_0 &\equiv \frac{3}{2}nRT_0 - nT_0\bar{S_0} \\
+        A &= -nRT \ln\left[ \left(\frac{T}{T_0} \right)^{3/2} \left(\frac{V}{V_0} \right) \right ] + A_0
+    \end{split}
+\end{equation}
+This result is an answer, but we may be able to take a different approach for a 'prettier' answer.
+After-all this is just the ideal gas, the simplest model we have. 
+
+\subsubsection*{Statistical Mechanics Approach}
+Recall the Boltzmann Statistics simplification for the partition function (see Lecture 4). 
+\begin{equation}
+    Q \approx \frac{q^N}{N!} \approx \left(\frac{eV}{N\Lambda^3}\right)^N
+\end{equation}
+
+It may seem like we are digressing, however recall (see Lecture 10) we can write an equation for entropy in terms of the partition function.
+\begin{equation}
+    S = \frac{U}{T} + nR\ln(Q)
+\end{equation}
+Using this simple expression we can immediately write down an answer for the Helmholtz Free Energy 
+\begin{equation}
+    A \equiv U - TS = U - T \left(\frac{U}{T} + nR \ln(Q) \right) = -nR\ln(Q)
+\end{equation}
+This answer is much more satisfying (granted Q can become very complicated but shhhhhhh). 
+
+\subsubsection*{The Gibbs Free Energy}
+We know that G $\rightarrow$G(T,P), so we will want to write it in terms of T and P variables only. 
+\begin{equation}
+    \begin{split}
+        G &= U + PV - TS \\
+        &= \frac{3}{2}nRT + PV - T \left(nR\ln\left[ \left(\frac{T}{T_0} \right)^{3/2} \left(\frac{V}{V_0} \right) \right ] + n\bar{S_0}\right) \qquad \xrightarrow{IG}\\
+        &= \frac{5}{2}nRT - \left(nRT\ln\left[ \left(\frac{T}{T_0} \right)^{3/2} \left(\frac{T P_0}{T_0 P} \right) \right ] + nT\bar{S_0}\right) \\
+        G &= \frac{5}{2}nRT -nRT\ln\left[ \left(\frac{T}{T_0} \right)^{5/2} \left(\frac{ P_0}{P} \right) \right ] - nT\bar{S_0} \\
+    \end{split}
+\end{equation}
+If we now assume a constant temperature process we can write a very common formula. 
+G $\rightarrow$G(P) and set T = T$_0$ for convenience, then
+\begin{equation}
+    G(P) = G_0 + nRT_0\ln\left(\frac{P}{P_0}\right)
+\end{equation}
+Here G$_0$ is a convenient dummy variable to hold all of the other constants in the formula. 
+So this formula tells us that a constant Temperature process has an increase in the Gibbs Free Energy if we increase the pressure. 
+This makes sense, consider the opposite example, double the volume, the pressure must decrease and the Gibbs Free energy is negative, therefore the process is spontaneous and the gas expands into the larger volume. 
+
+\subsubsection*{Gibbs Free Energy Fundamental Equation}
+Again the beauty of Thermodynamics comes from the many paths you can take to get the correct final answer. 
+Consider a constant temperature process again, but let's start from the Fundamental Equation for the Gibbs Free Energy. 
+\begin{equation}
+    \begin{split}
+        dG = -SdT + VdP = VdP \\
+        G(P) = G_0 + \int_{P_0}^P V(P)dP \\
+        = G_0 + nRT\ln\left(\frac{P}{P_0}\right)
+    \end{split}
+\end{equation}
+So again we see that we can derive the same result from a different starting point. 
+
+\subsection*{Maxwell Relations}
+Maxwell relations use the fact that exact differentials are by definition interchangeable in the order you take your partial derivatives.
+This will allow us to equate different sets of partial derivatives in Thermodynamics. 
+Consider some generic function f(x,y), assume the function is exact and we can write down a total differential for f. 
+\begin{equation}
+    df = \left(\frac{\partial f}{\partial x}\right)_y dx + \left(\frac{\partial f}{\partial y}\right)_x dy
+\end{equation}
+By definition however we can equate the two expressions interchanging the order of these partials. 
+\begin{equation}
+    \frac{\partial}{\partial y} \left[\left(\frac{\partial f}{\partial x}\right)_y \right]_x =  \frac{\partial}{\partial x} \left[\left(\frac{\partial f}{\partial y}\right)_x \right]_y
+\end{equation}
+
+\subsubsection*{Exact Differential Example}
+As a quick example consider f(x,y) = x$^2$y$^3$, this is a 'seperable' function and the second order derivitives will be exact. 
+Let's just plug this into our definition above and show this relationship is true. 
+\begin{equation}
+\begin{split}
+    \left(\frac{\partial f}{\partial x}\right)_y = 2xy^3 \\
+    \left(\frac{\partial}{\partial y}\right)\left[ \left(\frac{\partial f}{\partial x}\right)_y\right]_x = 6xy^2
+    \end{split}
+\end{equation}
+Now consider the reverse order of the partials
+\begin{equation}
+\begin{split}
+    \left(\frac{\partial f}{\partial y}\right)_x = 3x^2y^2 \\
+    \left(\frac{\partial}{\partial x}\right)\left[ \left(\frac{\partial f}{\partial y}\right)_x\right]_y = 6xy^2
+    \end{split}
+\end{equation}
+So we see for this specific f(x,y) our property works (this is only true for exact differentials, it is not true in general!). 
+But we can assume (and can prove at a graduate level) that all Thermodynamic Potentials are exact differentials!
+
+\subsubsection*{Internal Energy Maxwell Relations}
+Recall the Fundamental Equation tells us that U(S,V), knowing it is an exact differential we can write the following
+\begin{equation}
+\begin{split}
+\frac{\partial ^2 U}{\partial S \partial V} &= \frac{\partial ^2 U}{\partial V \partial S} \\
+\frac{\partial }{\partial S}\left[\left(\frac{\partial U}{\partial V}\right)_S\right]_V &= \frac{\partial}{\partial V}\left[\left(\frac{\partial U }{\partial S}\right)_V\right]_S \\
+-\left(\frac{\partial P}{\partial S}\right)_V &= \left(\frac{\partial T}{\partial V}\right)_S
+\end{split}
+\end{equation}
+And this result is the magical Maxwell Relation for Internal Energy (we have simply substituted in our partial derivative definitions from the fundamental equations). 
+
+As you can guess we can write down the equivalent for our 3 other (and any exact differential we care about) in a similar manner. 
+There is no reason to memorize these results, you could place them on a note-card for an exam, or better yet just remember that Thermodynamic Potentials are Exact Differentials!
+
+\subsubsection*{Enthalpy Maxwell Relations}
+Enthalpy has characteristic variables of H(S,P)
+\begin{equation}
+\begin{split}
+\frac{\partial ^2 H}{\partial S \partial P} &= \frac{\partial ^2 H}{\partial P \partial S} \\
+\frac{\partial }{\partial S}\left[\left(\frac{\partial H}{\partial P}\right)_S\right]_P &= \frac{\partial}{\partial P}\left[\left(\frac{\partial H }{\partial S}\right)_P\right]_S \\
+ \left(\frac{\partial V}{\partial S}\right)_P &=
+\left(\frac{\partial T}{\partial P}\right)_S
+\end{split}
+\end{equation}
+
+\subsubsection*{Helmholtz Free Energy Maxwell Relations}
+Helmholtz has characteristic variables of A(T,V)
+\begin{equation}
+\begin{split}
+\frac{\partial ^2 A}{\partial T \partial V} &= \frac{\partial ^2 A}{\partial V \partial T} \\
+\frac{\partial }{\partial T}\left[\left(\frac{\partial A}{\partial V}\right)_T\right]_V &= \frac{\partial}{\partial V}\left[\left(\frac{\partial A }{\partial T}\right)_V\right]_T \\
+\left(\frac{\partial P}{\partial T}\right)_V &= \left(\frac{\partial S}{\partial V}\right)_T
+\end{split}
+\end{equation}
+
+\subsubsection*{Gibbs Free Energy Maxwell Relations}
+Gibbs has characteristic variables of G(T,P)
+\begin{equation}
+\begin{split}
+\frac{\partial ^2 G}{\partial T \partial P} &= \frac{\partial ^2 G}{\partial P \partial T} \\
+\frac{\partial }{\partial T}\left[\left(\frac{\partial G}{\partial P}\right)_T\right]_P &= \frac{\partial}{\partial P}\left[\left(\frac{\partial G }{\partial T}\right)_P\right]_T \\
+\left(\frac{\partial V}{\partial T}\right)_P &= -\left(\frac{\partial S}{\partial P}\right)_T
+\end{split}
+\end{equation}
+
+\subsection*{Start Ch.23; Phase Equilibrium}
+With all of that math aside we can start to look at Chapter 23, which is interested in Phase Equilibrium. 
+Phase transitions are of current interest to theorists today (defining quantum phase transition within materials for example). 
+We can think of a solid going to a liquid as a phase transition, and we will begin to discuss how to classify these types of behaviors. 
+
+At the end of the midterm we realized that there are 2 important heat capacities to consider, the constant volume and constant pressure heat capacities respectively. 
+\begin{equation}
+\begin{split}
+\delta Q_V &= dU = \left(\frac{\partial U}{\partial T}\right)_VdT = C_VdT \\
+\delta Q_P &= dH = \left(\frac{\partial H}{\partial T}\right)_PdT = C_PdT \\
+\end{split} 
+\end{equation}
+Next lecture we will begin to explore phase transitions as functions of heat and temperature. 
+
+\end{document}
