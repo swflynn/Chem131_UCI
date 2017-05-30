@@ -1,0 +1,225 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Chem-131C-Lec22}
+
+\author{swflynn}
+\date{May 2017}
+
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{braket}
+\usepackage{amsmath}
+\usepackage[margin=0.7in]{geometry}
+\usepackage{subfigure}
+\usepackage{url}
+\usepackage{float}
+\usepackage[version=3]{mhchem}
+
+\begin{document}
+
+\maketitle
+
+\section*{Lecture 22 ; 5/26/17}
+Note: There will be no lecture on 5/29/17 Due to Memorial Day.
+
+Previously in Thermodynamics, we entered the fascinating world of Chemistry with the reaction 
+\begin{equation}
+    A \rightleftharpoons B 
+\end{equation}
+Because we are working in closed systems and assume conservation of mass and energy we concluded that any change in n$_A$ was directly proportional to n$_B$ and we subsequently defined the extent of reaction ($\xi$). 
+\begin{equation}
+dn_B = d\xi \qquad dn_A = -d\xi
+\end{equation}
+If we assumed our process to occur at constant Temperature and constant Pressure we wrote down the change in the Gibbs Free Energy due to the reaction as 
+\begin{equation}
+\Delta_rG \equiv \left(\frac{\partial G}{\partial \xi}\right)_{T,P}
+\end{equation}
+Which takes a very simple form in this chemical reaction as 
+\begin{equation}
+    \begin{split}
+        \Delta_rG &= \mu_B - \mu_A = \mu_B^0 - \mu_A^0 + RT\ln\left(Q\right) \\
+        Q &\equiv \frac{P_B}{P_A}
+    \end{split}
+\end{equation}
+Here we defined a new Q the Reaction Quotient. 
+
+\subsection*{Equilibrium}
+At equilibrium there is no net change in the free energy occurring (all equilibrium are dynamic, the net change is what we consider). 
+Therefore we expect $\Delta_rG = 0$ at equilibrium only. 
+Because equilibrium is special we will define the \textbf{Equilibrium Constant} K.
+\begin{equation}
+    K_{equ} = Q_{equ} = \frac{P_B^{eq}}{P_A^{eq}}
+\end{equation}
+
+Yet again we have reference terms that we need to care about. 
+We can just define a  reference Gibbs reaction energy, which occurs at our reference pressures; P$_A$ = P$^0$ and  P$_B$ = P$^0$, $\Delta_rG^0$. 
+Recall our sign convention, we defined the extent of reaction to be positive for making product:  $dn_B = d\xi$ and $dn_A = -d\xi$. 
+
+To understand which way the reaction is going consider 
+\begin{equation}
+    \Delta_rG = \Delta_rG^0 + RT\ln(Q)
+\end{equation}
+The reference is just some number so look at the pressure ratio to determine which direction the reaction will spontaneously travel to reach equilibrium. 
+% 
+$\Delta_rG < 0 \implies A \rightarrow B$
+%
+
+At equilibrium we know there is no change in the free energy occurring
+\begin{equation}
+\begin{split}
+    \Delta_rG = 0 &= \Delta_rG^0 + RT\ln(K)\\
+    K = e^{\frac{-\Delta_rG^0}{RT}}
+    \end{split}
+\end{equation}
+So at equilibrium we can write the equilibrium coefficient in terms of the standard state Gibbs Free Energy. 
+
+\subsection*{Generalization}
+We now want to generalize this strategy to an arbitrary reaction
+\begin{equation}
+aA + bB + \cdots \rightleftharpoons cC + dD + \cdots
+\end{equation}
+In compressed notation we could write this same statement as 
+\begin{equation}
+\sum_i \gamma_iJ_i = 0
+\end{equation}
+Where we arbitrarily choose to set the $\gamma$ of reactants to be negative. 
+
+\subsubsection*{Example}
+\begin{equation}
+\begin{split}
+2A + 3B &\rightleftharpoons C + 2D \\
+C + 2D - &2A + 3B = 0 \\
+\gamma_c = 1 \quad \gamma_D = 2 \quad &\gamma_A = -2 \quad \gamma_B = -3
+\end{split}
+\end{equation}
+
+\subsection*{Constraints}
+If we consider this reaction occurring at constant T and P we can write our total differential as
+\begin{equation}
+dG = \sum_i \mu_idn_i
+\end{equation}
+But just as before the total number of moles for each species is not needed (it is more information than we need in a closed system). 
+We say the moles of each species are not independent, and we again invoke the extent of reaction.  
+\begin{equation}
+dn_i = \gamma_id\xi
+\end{equation}
+We can combine these two equations to write our change in G wrt $\xi$. 
+\begin{equation}
+\begin{split}
+dG &= \left(\sum_i\mu_i\gamma_i\right)d\xi \\
+\Delta_rG &= \left(\frac{\partial G}{\partial \xi}
+\right)_{T,P} \\
+&= \sum_i \gamma_i \mu_i
+\end{split}
+\end{equation}
+So again we just define the slope of the G, $\xi$ curve to be the change in the Gibbs Free Energy due to the reaction, and we must sum over all of our species, weighted by their stoichometry. 
+
+\subsubsection*{Example Again}
+\begin{equation}
+\begin{split}
+    \Delta_rG &= \sum_i \gamma_i \mu_i = \sum_i \left[\mu_i^0 + RT \ln(\frac{P_i}{P^0})\right] \quad \xrightarrow{P^0 = 1}\\
+    &= \Delta_rG^0 + \sum_i \gamma_iRT\ln(P_i) \mid \Delta_rG^0 = \sum_i \gamma_i\mu_i^0\\
+    &= \Delta_rG^0 + RT\ln(Q) \mid Q = \prod_i P_i^{\gamma_i}\\
+   & \xrightarrow{2A + 3B \rightleftharpoons C + 2D}\\
+   \Delta_rG &= \Delta_rG^0 + RT\ln(P_c) + 2RT\ln(P_D) - 2RT\ln(P_A) - 3RT\ln(P_B) \\
+   &= \Delta_rG^0 + RT \ln\left(\frac{P_CP_D^2}{P_A^2P_B^3}\right)
+\end{split}
+\end{equation}
+This result should look somewhat familiar, again at equilibrium we know the following is true
+\begin{equation}
+\Delta_rG = 0 = \Delta_rG^0 + RT\ln(K) \mid K = \frac{P_{C,eq}P_{D,eq}^{2}}{P_{A,eq}^{2}P_{B,eq}^{3}}
+\end{equation}
+And again at equilibrium we can replace the Reaction Quotient with the equilibrium values (while maintaining the stoichometry relationships). 
+
+\subsection*{Activity Generalization}
+This derivation uses the Partial Pressure of the gases during the reaction. 
+This is ultimately an ideal gas assumption, a more general approach would need to use a different 'weight' for  the calculation. 
+The ideal gas approximation is good for dilute gases, or weakly interacting gases, however, stronger interactions and higher concentrations will quickly deviate from ideal. 
+
+Note a very similar derivation (and assumption) is made for liquid mixtures too (giving things like Henry's Law and Rault's Law). 
+
+In the case of gases we would define something called \textbf{fugacity}, to capture the deviations of reality from ideality.
+In the case of a liquid we would define an \textbf{activity} (a$_i$). 
+So you would write down all of the same equations as before, replacing the partial pressures with a (whatever a is..) or with f (whatever fugacity is...). 
+\begin{equation}
+\mu_i = \mu_i^0 + RT \ln(a_i)
+\end{equation}
+
+We are probably not going to discuss any specific activity models in this course.
+If you are interested the simplest model for an activity coefficient theoretically would probably be the 1 parameter Margules Equation.
+Ionic liquid solutions (highly non-ideal) can use a Debye-Huckel equation to model the activity coefficient of an ion in ionic solution.
+ 
+\subsection*{Example Problems}
+Here are some example problems for working with the concepts of the last few lectures. 
+
+\subsubsection*{Calculate the Standard Gibbs Energy of Reaction}
+Consider the following chemical reaction at 298K.
+\begin{equation}
+    \ce{CO_{(g)} + CH3OH_{(l)} -> CH3COOH_{(l)}}
+\end{equation}
+To solve this problem we are asked about the standard Gibbs Energy of reaction (these are values you look up in a table to solve). 
+We can break up the problem into products - reactants (based on our sign convention). 
+\begin{equation}
+\begin{split}
+    \Delta_{rxn}G^0 &= \sum_{products} \gamma_i\Delta_fG^0 - \sum_{reactants}\gamma_i\Delta_fG^0\\
+    & = \Delta_fG^0(\ce{CH3COOH_{(l)}}) - \Delta_fG^0(\ce{CO_{(g)}}) - \Delta_fG^0(\ce{CH3OH_{(l)}}) \\
+    &= -389.9 (kJ/mol) - (-137.17) (kJ/mol) - (-166.27) (kJ/mol) \\
+    \Delta_{rxn}G^0 &= -86.46 (kJ/mol)
+    \end{split}
+\end{equation}
+To determine the standard Gibbs Free Energy of reaction we simply determine the Gibbs Free Energy of Formation for each component. 
+This reaction is spontaneous because or Gibbs Free Energy of Reaction is negative. 
+
+\subsubsection*{Equilibrium Coefficients}
+Consider Hemoglobin, and its binding to both oxygen and carbon monoxide. 
+Determine which pathway is chemically favored. 
+\begin{equation}
+\begin{split}
+\ce{Heme + O2 <=> Heme-O2} \qquad K \approx 9\times 10^{18}\\
+\ce{Heme + CO <=> Heme-CO} \qquad K \approx 2\times 10^{23}
+\end{split}
+\end{equation}
+If we consider a simple ration of the two reactions equilibrium coefficients we find that the CO complex is highly favored at these conditions. 
+\begin{equation}
+K_r \approx \frac{2\times 10^{23}}{9\times 10^{18}} \approx 3\times10^4
+\end{equation}
+
+\subsubsection*{ICE Table}
+Consider the reaction
+\begin{equation}
+\ce{Z_{(l)} + B_{(l)} <=> C_{(l)} + D_{(l)} }
+\end{equation}
+At 300K the equilibrium coefficient for this reaction is 10. 
+\begin{enumerate}
+    \item Determine the reaction quotient for this reaction with [Z] = 0.5M, [B] = 5.0M, [C] = 2.0M, [D] = 0.2M.
+    \item How many moles of each gas will be present at equilibrium?
+\end{enumerate}
+We note that these are all liquid species, therefore our reaction quotient should be written in terms of activity coefficients.
+If we assume the solution is ideal we can approximate the activity coefficients as the concentration of the chemical species, and we simply plug in values. 
+\begin{equation}
+Q = \frac{a_Da_C}{a_Ba_Z} \approx \frac{[D][C]}{]B][Z]} = \frac{(2.0) (0.2)}{(5.0)(0.5)} = 0.16
+\end{equation}
+Because this value is less than 10, we would need to generate more products to reach equilibrium (the product concentration must increase at equilibrium). 
+
+To determine the equilibrium concentrations we can use an ICE Table (look back on your general chemistry notes). 
+\begin{center}
+  \begin{tabular}{ | l | c | r | c | c | }
+    \hline
+    ICE & Z & B & C & D \\ \hline
+    I & 0.5 & 5.0 & 2.0 & 0.2 \\ \hline
+    C & -x & -x & +x & +x \\ \hline
+    E & 0.5-x & 5.0-x & 2.0+x & 0.2+x \\ \hline
+  \end{tabular}
+\end{center}
+Using our equilibrium coefficient we can then determine the equilibrium amounts of reactants and products with the quadratic formula. 
+\begin{equation}
+\begin{split}
+    K &= 10 = \frac{(2+x)(2+x)}{(5-x)(5-x)} = \frac{x^2+2.2x+.4}{x^2 - 5.5x +2.5} \\
+    0 &= 9x^2 - 7.2x + 24.6 \\ 
+    & x = 0.47, \qquad x = 5.89
+\end{split}
+\end{equation}
+Given the 5.89 root is not physical (we do not have enough concentrations for this result) we know the other root must show the change in x necessary for the reaction to reach equilibrium. 
+
+\end{document}
