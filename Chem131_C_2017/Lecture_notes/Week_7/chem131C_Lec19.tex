@@ -1,0 +1,133 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Chem-131C-Lec19}
+
+\author{swflynn}
+\date{May 2017}
+
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{braket}
+\usepackage{amsmath}
+\usepackage[margin=0.7in]{geometry}
+\usepackage{subfigure}
+\usepackage{url}
+\usepackage{float}
+\usepackage[version=3]{mhchem}
+
+\begin{document}
+
+\maketitle
+
+\section*{Lecture 19 ; 5/19/17}
+If we want to characterize a phase transition we could look at the sharp spikes in heat capacity that occur during the transition (the temperature does not change so our heat capacity becomes $\infty$ during the process).
+When you look at a phase diagram, the lines refer to two phases in equilibrium.
+This equilibrium is characterized by their chemical potentials being equal ($\mu_\alpha = \mu_\beta$). 
+If  you are not in equilibrium, whatever phase dominates has the lower chemical potential. 
+If $\mu_{\alpha} < \mu_{\beta}$ then $\beta$ will spontaneously become $\alpha$. 
+
+If we are working with transitions between only two phases than the change of phase 1 must become phase 2, they are linked. 
+In this scenario it is useful to define molar quantities where we divide by n (if there are more than 2 phases it is not clear what you would divide by). 
+\begin{equation}
+    \begin{split}
+        d\mu_\alpha &= d\mu_\beta \\
+        d\mu &= -SdT + VdP \xrightarrow{equilibrium}\\
+        \mu_\alpha &= \mu_\beta \implies -S_\alpha dT + \bar{V}_\alpha dP =  -S_\beta dT + \bar{V}_\beta dP \implies \\
+        \frac{dP}{dT} &= \frac{\Delta \bar{S}}{\Delta \bar{V}}
+    \end{split}
+\end{equation}
+This last equation is the slope of a line on a P, T phase diagram (along this line your chemical potentials are equal). 
+
+\subsection*{Chapter 24; Mixtures}
+We want to start considering c-component chemical systems. 
+Our thermodynamic potentials will need to account for all of these chemical species now. 
+\begin{equation}
+    \begin{split}
+        U(S,V,n_1,n_2,...n_c)\\
+        A(S,V,n_1,n_2,...n_c)\\
+        G(S,V,n_1,n_2,...n_c)\\
+        \cdots
+    \end{split}
+\end{equation}
+A chemical reaction is at equilibrium when the total Gibbs Energy is at a minimum wrt n$_i$. 
+
+\subsection*{Extensive Quantities}
+A \textbf{Homogeneous Equation} can be written mathematically as a function that obeys
+\begin{equation}
+    U(\lambda S, \lambda V, \lambda n_1, ..., \lambda n_c) = \lambda U(S,V,n_1,....,n_c)
+\end{equation}
+In fact this is a degree = 1 Homogeneous Equation.
+All of our functions are factorable wrt $\lambda$. 
+Some explicit examples of Homogeneous Equations would be
+f(x,y) = ax + by: degree 1. f(x,y) = ax$^2$ + bxy + cy$^2$; degree 2 (the total order of variables defines the degree in this context). 
+Consider a derivative of our homogeneous equation (I am being lazy, all other variables are held constant during the partial derivatives). 
+\begin{equation}
+    \begin{split}
+        \frac{d}{d\lambda} U(\lambda S, \lambda V, \lambda n_1, ..., \lambda n_c) &=  \frac{d}{d\lambda} \lambda U(S,V,n_1,....,n_c) \\
+        \frac{\partial U}{\partial \lambda S }\frac{\partial \lambda S}{\partial \lambda} +  \frac{\partial U}{\partial \lambda V }\frac{\partial \lambda V}{\partial \lambda} +  \sum_{i=1}^c\frac{\partial U}{\partial \lambda n_i }\frac{\partial \lambda n_i}{\partial \lambda} &= U(S,V,n_1,....,n_c)\\
+        S \frac{\partial U}{\partial \lambda S } +  V \frac{\partial U}{\partial \lambda V } +  n_i \sum_{i=1}^c\frac{\partial U}{\partial \lambda n_i } &= U(S,V,n_1,....,n_c) \xrightarrow{\lambda \equiv 1}\\
+         S \frac{\partial U}{\partial S } +  V \frac{\partial U}{\partial V } +  n_i \sum_{i=1}^c\frac{\partial U}{\partial n_i } &= U(S,V,n_1,....,n_c)\\
+         S(T) + V(-P) +\sum_{i=1}^c (n_i)\mu_i &= U \\
+         U = TS - PV + \sum_i\mu_in_i
+    \end{split}
+\end{equation}
+This last line is a very famous equation known as the \textbf{Euler Equation}. 
+We also know that G = U + PV - TS, from our Fundamental Equations.
+To be consistent it must be true that 
+\begin{equation}
+    G = \sum_{i=1}^c\mu_in_i
+\end{equation}
+Consider 
+\begin{equation}
+    dU = TdS + SdT -PdV - VdP +\sum_i(n_id\mu_i + \mu_idn_i)
+\end{equation}
+Before we found the fundamental equation for U to be
+\begin{equation}
+    dU = TdS - PdV + \sum_i\mu_idn_i
+\end{equation}
+Thermodynamics must be consistent, therefore
+\begin{equation}
+    0 = SdT -VdP \sum_{i=1}^cn_id\mu_i
+\end{equation}
+And this realization is known as the \textbf{Gibbs Duhem Equation}.
+
+The Gibbs Duhem Equation tells us for a constant T,P process $\sum n_id\mu_i$ = 0.
+If we had a 2-component system we can use this equation as a constraint. 
+\begin{equation}
+    n_1d\mu_1 + n_2 d\mu_2 = 0
+\end{equation}
+
+\subsection*{Pressure Dependence}
+If we are interested in the pressure dependence of G and $\mu$. 
+\begin{equation}
+    \begin{split}
+        dG &= -SdT + VdP \\
+        dG(P) &= VdP \xrightarrow{I.G.} \\
+        dG &= \frac{nRT}{P}dP \\
+        G &= G_0 + nRT\ln\left(\frac{P}{P_0}\right) \\
+        \mu &= \mu_0 + RT\ln\left(\frac{P}{P_0}\right)
+    \end{split}
+\end{equation}
+The last line follows if we assume a 1-component system; the Euler Equation would read (G=n$\mu$). 
+
+\subsection*{Free Expansion; Again}
+If we consider a free expansion into vacuum (double the volume) for an ideal gas we know there is no Temperature change. 
+If we have a 1 component system (n=1) then 
+\begin{equation}
+\begin{split}
+    \mu_i &= \mu_0 +RT \ln\frac{P_i}{P_0} \\
+    \mu_f &= \mu_0 +RT \ln\frac{P_f}{P_0} \\
+    P_f (2V_0) &= RT_0 \implies P_f = \frac{1}{2}P_i\\
+    \Delta\mu &= -RT\ln(2)
+    \end{split}
+\end{equation}
+We could also get this same result from a Fundamental Equation, we know the entropy change for this process is Rln(2). 
+\begin{equation}
+    \begin{split}
+        \Delta \mu = \Delta H - T\Delta S \\
+        \Delta \mu = -R\ln(2)
+    \end{split}
+\end{equation}
+
+\end{document}
