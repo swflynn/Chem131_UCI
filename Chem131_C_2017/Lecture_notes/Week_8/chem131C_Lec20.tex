@@ -1,0 +1,158 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Chem-131C-Lec20}
+
+\author{swflynn}
+\date{May 2017}
+
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{braket}
+\usepackage{amsmath}
+\usepackage[margin=0.7in]{geometry}
+\usepackage{subfigure}
+\usepackage{url}
+\usepackage{float}
+\usepackage[version=3]{mhchem}
+
+\begin{document}
+
+\maketitle
+
+\section*{Lecture 20; 5/22/17}
+On Wednesday and Friday we will look at Chapter 26 (due to Dr. Martens Traveling), so we will start this lecture material, and re-visit it in a week. 
+
+\subsection*{Mixing Gases}
+Consider mixing gas A and gas B, both at T$_0$ and P$_0$, $\frac{V_0}{2}$. 
+If we consider the gases to be ideal, there is no pressure gradient that occurs during the mixing process. 
+If we take n$_A$ moles of A and $n_B$ moles of B we would find. 
+\begin{equation}
+    \begin{split}
+        \mu_A &= \mu_A^0 + RT \ln\left(\frac{P_A}{P_A^0}\right)\\
+         \mu_B &= \mu_B^0 + RT \ln\left(\frac{P_B}{P_B^0}\right)\\
+    \end{split}
+\end{equation}
+Do not be confused by the reference states!
+If P$_A$ = P$_A^0$ then $\mu_A = \mu_A^0$ (references can be chosen for convenience). 
+For convenience let's let P$_A^0$ = P$_B^0$ = P$_0$, which is just the pressure of our system (there is no pressure change associated with mixing ideal gases). 
+Therefore $\mu_A = \mu_A^0$ and $\mu_B = \mu_B^0$.
+
+When we mix we expect there to be a decrease in the overall chemical potential.
+We know these two gases will mix spontaneously (because why wouldn't they?), and we know we want to minimize chemical potential at equilibrium. 
+
+\begin{equation}
+    G = \sum_i \mu_i n_i = n_A\mu_A + n_B \mu_B
+\end{equation}
+We know that the final pressure will depend on how much of each atom type is in the gas phase (relative to the other components in the mixture).
+\begin{equation}
+    \begin{split}
+        P_A^f &= \frac{n_A}{n_A+n_B}P_0 \equiv x_AP_0\\
+        P_B^f &= \frac{n_B}{n_A+n_B}P_0 \equiv x_BP_0\\
+    \end{split}
+\end{equation}
+Here x is the \textbf{mole fraction} and P$_0$ is our total pressure.
+According to \textbf{Dalton's Law} our total pressure will just be the sum of our partial pressures (for ideal gases).
+Using Dalton's Law we can write our standard Ideal Gas EOS as
+\begin{equation}
+    P_0V = (n_A+n_B)RT
+\end{equation}
+We can now solve for the chemical potential of the final states, after mixing as:
+\begin{equation}
+    \begin{split}
+        \mu_A^f = \mu_A^0 + RT\ln(x_A)\\
+        \mu_B^f = \mu_B^0 + RT\ln(x_B)\\
+    \end{split}
+\end{equation}
+Now that we have the chemical potential we can calculate the Gibbs Free Energy.
+\begin{equation}
+    \begin{split}
+        \Delta G = n_ART\ln(x_A) + n_BRT\ln(x_B) \\
+        \Delta G = nRT\left[x_A\ln(x_A) + x_B\ln(x_B)\right]
+    \end{split}
+\end{equation}
+Where I have made the substitution n$_A$ = x$_A$n and n$_B$ = x$_B$n (n refers to the total number of moles in the system). 
+
+Because the mole fractions must be less than one we find that each component has a lower chemical potential due to mixing when compared to the un-mixed substances. 
+This is consistent with our initial hypothesis, the mixing process is spontaneous because it lowers the Gibbs Free Energy!
+
+Consider the Gibbs Free Energy of the mixing. 
+\begin{equation}
+    \begin{split}
+        \Delta G &= \Delta H - T\Delta S \xrightarrow{\Delta H = 0 \text{mix}}\\
+        &= -T\Delta S \implies \\
+        \Delta S &= -nR\left[x_A\ln(x_A) + x_B\ln(x_B)\right]
+    \end{split}
+\end{equation}
+It is interesting to note that the mixing entropy we found is very similar to our statistical mechanics mixing equation from before.
+\begin{equation}
+    S = -k\sum_iP_i\ln(P_i)
+\end{equation}
+This implies that the mixing process is entropically driven.
+This should make sense, when you mix the two gases you increase the number of combinations available to all the atoms in the system. 
+
+\subsection*{Statistical Mechanics}
+Let's consider this mixing problem from the angle of Statistical Mechanics and make sure it is consistent with our thermodynamics results. 
+In the land of Stat. Mech. we found that the energy expressions (A and G are energies) take the form
+\begin{equation}
+    E = -kT\ln(Q)
+\end{equation}
+Remember A(T,V) and shows what the maximum amount of work you can get out of a system. 
+In our statistical mechanics lectures we used the Boltzmann Statistics approximation to say (q is the number of states, N the number of particles, valid if q 
+$>>$N).
+\begin{equation}
+    Q \approx \frac{q^N}{N!}
+\end{equation}
+We then used Stirling's Approximation to write
+\begin{equation}
+    Q = \left(\frac{eq}{N}\right)^N
+\end{equation}
+We can use these same approximation to evaluate the Helmholtz Free Energy (or any Free Energy). 
+\begin{equation}
+\begin{split}
+    A &= -kT \ln\left(\frac{eq}{N}\right)^N \\
+    &= -NkT \ln\left(\frac{eq}{N}\right) = -NkT \ln\left(\frac{q}{N}\right) - NkT \\
+    A &= -nRT \ln\frac{q}{N} - nRT
+\end{split}
+\end{equation}
+If we are assuming an ideal gas, 1 component mixture, we can write G = A + PV = A + nRT, and simplify the above expression. 
+\begin{equation}
+G = -nRT\ln\left(\frac{q}{N}\right)
+\end{equation}
+We know that the Hamiltonian is separable from Quantum Mechanics.
+Because the Hamiltonian is separable our Partition function will become a product of the two components (Boltzmann Statistics approximates the distributions as independent). 
+\begin{equation}
+    \begin{split}
+        \hat{H} &= \hat{H}_A + \hat{H}_B \\
+        Q &= Q_A + Q_B = \frac{q_A^{N_A}}{N_A!}\frac{q_B^{N_B}}{N_B!} = \frac{V_A}{\Lambda^3}\frac{V_B}{\Lambda^3}
+    \end{split}
+\end{equation}
+If we have a 1-component system we can write 
+\begin{equation}
+    \mu = \frac{G}{n} = \frac{RT\ln(Q)}{n}
+\end{equation}
+The free energy is extensive, therefore the total will just be the sum of our mixture components.
+\begin{equation}
+    \begin{split}
+        G &= G_A + G_B = n_A\mu_A + n_B\mu_B \\
+        &= -n_ART\ln\left(\frac{q_A}{N_A}\right) + -n_BRT\ln\left(\frac{q_B}{N_B}\right)
+    \end{split}
+\end{equation}
+If we now want to calculate the change in Gibbs due to mixing, we simple construct the initial and final states and take their difference. 
+\begin{equation}
+    \begin{split}
+        G_i &= -n_ART\ln\left(\frac{V_0/2}{N_A\Lambda^3}\right) - n_BRT\ln\left(\frac{V_0/2}{N_B\Lambda^3}\right) \\
+         G_f &= -n_ART\ln\left(\frac{V_0}{N_A\Lambda^3}\right) - n_BRT\ln\left(\frac{V_0}{N_B\Lambda^3}\right) \\
+         \Delta G &= -n_ART\ln(2) - n_BRT\ln(2)
+    \end{split}
+\end{equation}
+And we again get the same result as before. 
+
+\subsection*{Gibbs Paradox}
+A slight aside, the \textbf{Gibbs Paradox} is essentially a seeming paradox that occurs when you consider mixing.
+If you do not account for the indistinguishable nature of the mixing process when considering atoms it can seem like you violate the second law. 
+Essentially when you mix two of the same gases (exactly the same, temperature atoms, etc) you cannot identify which atom is which.
+This distinguishable versus indistinguishable factor is crucial in statistical mechanics!
+As far as we know the Laws of Thermodynamics (they are still only laws though) are not violated!
+
+\end{document}
