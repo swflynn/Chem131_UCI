@@ -1,0 +1,206 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Chem-131C-Lec23}
+
+\author{swflynn}
+\date{May 2017}
+
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{braket}
+\usepackage{amsmath}
+\usepackage[margin=0.7in]{geometry}
+\usepackage{subfigure}
+\usepackage{url}
+\usepackage{float}
+\usepackage[version=3]{mhchem}
+
+\begin{document}
+
+\maketitle
+
+\section*{Lecture 23; 5/31/17}
+In Chapter 26 we discussed a chemical reaction, the spark notes go something like....
+\begin{equation}
+aA + bB  \rightleftharpoons cC + dD 
+\end{equation}
+During a constant Temperature and Pressure process we found
+\begin{equation}
+    dG = \sum_i \nu_i\mu_id\xi
+\end{equation}
+We know that the Gibbs Free energy is minimized at Equilibrium, therefore
+\begin{equation}
+    dG = 0 = \sum_i\nu_i\mu_i
+\end{equation}
+Finally we found reference states entering into all of our equations (to make sure our logarithms don't have units).
+These references are just numbers and should be chosen to make life easy!
+
+We then wrote the chemical potential as
+\begin{equation}
+    \mu_i = \mu_i^0 + RT \ln\left(\frac{P_i}{P_i^0}\right)
+\end{equation}
+If we are interested in an ideal gas, P$_i^0$ = 1atm (the standard reference state for a gas). 
+
+To discuss a reaction we are interested in the equilibrium coefficient K 
+\begin{equation}
+    K_{eq} =\prod_i P_{i,eq}^{\nu_i}
+\end{equation}
+For our chemical reaction above we can write. 
+\begin{equation}
+    K = \frac{P_c^cP_D^d}{P_A^aP_B^b} = e^{-\frac{\Delta G^0}{RT}}
+\end{equation}
+Looking at this we realize that an equilibrium constant greater than 1 must favor formation of products. 
+
+\subsection*{Chemical Potential}
+We started the course discussing the internal energy U(S,V), and now we have been discussing Gibbs, G(T,P). 
+Think back to a particle in a box, we were considering a constant T and V process in this context, so we would want to use Helmholtz A(T,V,n). 
+All of the equations will look similar to those found working with Gibbs, after-all this is just another type of thermodynamic energy. 
+\begin{equation}
+    dA = \sum_i\mu_udn_i = \sum_i \mu_i\nu_id\xi
+\end{equation}
+And at equilibrium the energy will again be minimized (dA = 0 at equilibrium). 
+
+Note we previously defined 
+\begin{equation}
+    \mu_i \equiv \left(\frac{\partial G}{\partial n_i}\right)_{T,P,n_j}
+\end{equation}
+But it actually turns out that we can write the chemical potential for any of the thermodynamics potentials in exactly the same way (holding the proper variables constant). 
+\begin{equation}
+     \mu_i = \left(\frac{\partial A}{\partial n_i}\right)_{T,V,n_j}, \qquad  \mu_i = \left(\frac{\partial U}{\partial n_i}\right)_{S,V,n_j}
+\end{equation}
+This result is not magic, simply write down the total differential for each of these thermodynamic potentials. 
+The term you generate to account for different species is the same in each expression. 
+
+\subsection*{Quantum Statistical Mechanics}
+Let's start connecting back to statistical mechanics (see Lecture 4). 
+We can cast our Chemical Potential and Free Energies in terms of the partition function. 
+\begin{equation}
+     \mu_i = -RT \ln\left(\frac{q_i}{N!}\right)
+\end{equation}
+Here q$_i$ refers to a molecules individual partition function and is a function of T and V. 
+If we think way back, we started writing the partition function as a sum over energy states. 
+\begin{equation}
+\begin{split}
+     q &= \sum_i e^{-\beta E_i}\\
+     q &= q_{trans}q_{rot}q_{vib}q_{ele}
+     \end{split}
+\end{equation}
+We can also write this partition function as a product over the individual degrees of freedom for an atom (the second line).
+These 'Internal' degrees of freedom hold all of the chemistry that differentiates elements from one-another. 
+
+These two statements are not consistent, the first line does not account for the chemical nature of the different atoms. 
+Every atom type will have a different Zero-Point energy that we need to account for.
+The equation above just sets this zero-point to 0, therefore the term would be 1 and we could just ignore it, but if we have different elements we need to start tracking them.
+A more general statement would be (the last term accounts for the zero-point) 
+\begin{equation}
+    q = \sum_i e^{-\beta E_i}e^{-\beta E_{0,i}}
+\end{equation}
+We could then write our individual atoms partition function for 3-Dimensional space as
+\begin{equation}
+    q_i = \frac{V}{\Lambda^3}q_{trans}q_{rot}q_{vib}q_{ele}e^{-\beta E_{0,i}}
+\end{equation}
+With this generalized molecule partition function we can now calculate all of our variables. 
+\begin{equation}
+    \mu_i = -RT\ln\left(\frac{q_i}{N_i}\right)
+\end{equation}
+We then know at equilibrium we can constrain our reaction (dG=0).
+\begin{equation}
+    \begin{split}
+        0 &= \sum_i\nu_i\mu_i\\
+        0 &= -aRT\ln\left(\frac{q_A}{N_A}\right) + -bRT\ln\left(\frac{q_B}{N_B}\right) + cRT\ln\left(\frac{q_C}{N_C}\right) + dRT\ln\left(\frac{q_D}{N_D}\right) \implies \\
+        0 &= \ln\left[\frac{\left(\frac{q_C}{N_C}\right)^c\left(\frac{q_D}{N_D}\right)^d}{\left(\frac{q_A}{N_A}\right)^a\left(\frac{q_B}{N_B}\right)^b}\right] \\
+        1 &= \frac{\left(\frac{q_C}{N_C}\right)^c\left(\frac{q_D}{N_D}\right)^d}{\left(\frac{q_A}{N_A}\right)^a\left(\frac{q_B}{N_B}\right)^b} \\
+        & \frac{N_C^c N_D^d}{N_A^a N_B^b} = \frac{q_C^c q_D^d}{q_A^a q_B^b}
+    \end{split}
+\end{equation}
+So at equilibrium we can relate the partition functions of the individual atoms or molecules to their amounts. 
+
+If we convert our number of particles (N) to concentrations (by dividing by V) we find
+\begin{equation}
+    \frac{\left(\frac{N_C}{V}\right)^c \left(\frac{N_D}{V}\right)^d}{
+    \left(\frac{N_A}{V}\right)^a \left(\frac{N_B}{V}\right)^b} = \frac{\left(\frac{q_C}{V}\right)^c \left(\frac{q_D}{V}\right)^d}{\left(\frac{q_A}{V}\right)^a \left(\frac{q_B}{V}\right)^b} \equiv K(T)
+\end{equation}
+In statistical mechanics this expression is what we define to be the equilibrium coefficient. 
+It is a function of Temperature (the partition function is a sum over energy, which is proportional to temperature). 
+For our sample chemical reaction we could write
+\begin{equation}
+    \begin{split}
+        K_{eq}(T) &= (\text{stuff})e^{-\beta(cE_{0,c} + dE_{0,d} - aE_{0,a} - bE_{0,b})}\\
+        &= (\text{stuff}) e^{-\beta \Delta E_0}\\
+        &\text{Graduate Stat. Mech.} \implies\\
+        K_{eq}(T) &= e^{\Delta S_0 / R} \cdot e^{-\Delta E_0/RT}
+    \end{split}
+\end{equation}
+ This result is somewhat interesting, recall A = U - TS from our fundamental equations. 
+ This implies that 
+ \begin{equation}
+     K = e^{-\Delta A/RT}
+ \end{equation}
+ This is the end of Chapter 26 material, we are now going to return to the concept of mixing liquids. 
+ 
+ \subsection*{Mixing Liquids}
+ Think about space exploration, if you put liquid A in contact with a vacuum what happens?
+ The liquid will boil... immediately.
+ The molecules do not like beings super close, if there is no pressure pushing on them, they just spread out. 
+ So take a container and place pure liquid A into it, evacuate the top and let the system then reach equilibrium. 
+ At equilibrium our pure liquid and pure gas (after boiling) will obey 
+ \begin{equation}
+     \mu_L = \mu_g
+ \end{equation}
+We also know we can write the chemical potential as 
+\begin{equation}
+    \mu = \mu^0 + RT \ln\left(\frac{P}{P^0}\right)
+\end{equation}
+A natural question would be what reference should we use. 
+If we chose the pure liquid for our reference we would have $\mu_l = \mu_l^*$ and $\mu_g = \mu_l +RT\ln\frac{P}{P*}$. 
+At equilibrium the pressure would have to be equal to the pure for our example, (we have nothing else in the container except pure liquid A). 
+Now consider two separate systems with two separate liquids A and B, each are placed in a container at vacuum, and then reach equilibrium making one container of pure A in both liquid and gas state, and the same for B. 
+Now we take these two pure systems and mix them. 
+We will assume both A and B are ideal, therefore the total pressure for the gas phase would follow Dalton's Law
+\begin{equation}
+    P_{tot} = P_A + P_B
+\end{equation}
+We can also use Rault's Law for the ideal solution. 
+\begin{equation}
+    P = x_AP_A^* + x_BP_B^* = x_AP_A^* + (1-x_A)P_B^*
+\end{equation}
+
+\section{Supplemental Notes}
+Whenever we deal with mixtures, there are a few relationships we can use to determine things like pressure or concentration. 
+It is important to realize that these relationships depend on the physical state of your systems (gases and liquids behave differently). 
+This is a brief review of general chemistry topics that can be useful for actually solving problems. 
+
+\subsection*{Dalton's Law of Partial Pressures}
+When you have a mixture of gases within a container, we define the \textbf{Partial Pressure} of each gas within the mixture to be the pressure of the individual gas as if it were alone in the container.
+From experiment Dalton concluded that the total pressure of a gas mixture is simply the sum of the partial pressures composing the mixture.
+This is an approximation, it will be valid for moderate pressures and high temperatures. 
+Consider an ideal gas
+\begin{equation}
+    P_{tot} = P_A + P_B + P_C + \cdots = (n_A + n_B + n_C + \cdots)\frac{RT}{V } = n_{tot}\frac{RT}{V}
+\end{equation}
+If we are only interested in a single component of the system we would write
+\begin{equation}
+    \frac{P_A}{P_{tot}} = \frac{n_A}{n_{tot}} \implies P_A = \frac{n_A}{n_{tot}}P_{tot} \implies P_A \equiv x_A P_{tot}
+\end{equation}
+Where we define the \textbf{Mole Fraction} x as the ratio of an individual atoms moles to the sum of the total moles in the system. 
+
+\subsection*{Henry's Law}
+When we have a mixture of a gas within a liquid it is not a surprise that the amount of gas that dissolves into the liquid depends on the pressure of the gas. 
+Here the gas and liquid are different chemical species, the gas molecules buzz around the container, and eventually run into the liquid and enter the liquid phase.
+The gas molecules are not technically becoming a liquid, but they interact with the liquid particles and dissolve into the liquid. 
+So Henry's Law predicts the concentration of gas molecules that dissolve into a liquid, by making a linear approximation (valid for low concentrations or small mole fractions). 
+\begin{equation}
+    P_a = k x_a
+\end{equation}
+It simply says the partial pressure of gas a is proportional to the mole fraction of the gas, with some constant k.
+The constant k will depend on both the solute and solvent (it captures the interactions occurring between the gas molecules and liquid molecules). 
+
+\subsection*{Rault's Law}
+Rault's Law is another linear relationship this time for solutions, telling us the vapor pressure of a solution is equal to the mole fraction times the pure component vapor pressure. 
+\begin{equation}
+    P_A = x_AP_A^0
+\end{equation}
+A solution that obeys Rault's law is called an \textbf{Ideal Solution}. 
+
+\end{document}
