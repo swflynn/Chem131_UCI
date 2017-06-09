@@ -1,0 +1,143 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Chem-131C-Lec24}
+
+\author{swflynn}
+\date{June 2017}
+
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{braket}
+\usepackage{amsmath}
+\usepackage[margin=0.7in]{geometry}
+\usepackage{subfigure}
+\usepackage{url}
+\usepackage{float}
+\usepackage[version=3]{mhchem}
+
+\begin{document}
+
+\maketitle
+
+\section*{Lecture 24; 6/2/17}
+Consider a container with pure A in both the liquid and vapour state. 
+At equilibrium the chemical potential of the liquid and gas must be equal.
+Our system only contains A (no other chemical species) so the chemical potential of A must be the pure state, $\mu_A^*$. 
+If you were to open the container some of the liquid would evaporate because the partial pressure of the gas would decrease. 
+Therefore $P_A < P_A^*$, the gas is at a lower pressure than the liquid, and therefore a lower chemical potential which would favor making more gas. 
+
+\subsection*{Gibbs Free Energy of Mixing}
+If we want to mix two different chemicals A and B, we will probably do it at constant temperature and pressure, therefore we are interested in the Gibbs Free Energy of Mixing. 
+Imagine preparing two separate systems, one with pure A at equilibrium with its gas and liquid state, and the same for B. 
+We know from previous lectures that we can write:
+\begin{equation}
+\begin{split}
+    G &= \sum_i n_i \mu_i = n_A \mu_A + n_B \mu_B \\
+    \mu_A &= \mu_A^* + RT \ln\left(\frac{P_A}{P_A^*}\right)
+    \end{split}
+\end{equation}
+Initially we have two pure systems therefore 
+\begin{equation}
+    G_i = n_A\mu_A^* + n_B\mu_B^*
+\end{equation}
+After the two systems mix  we can write the pressure for the total system assuming ideal gases and solutions as 
+\begin{equation}
+P_{tot} = P_A + P_B = x_AP_A^* + x_BP_B^*
+\end{equation}
+The chemical potentials will no longer be that of the pure after mixing. 
+\begin{equation}
+\begin{split}
+    G_f &= n_A\mu_A + n_B\mu_B \\
+    &= n_A\left[\mu_A^* + RT \ln\left(\frac{P_A}{P_A^*}\right)\right] + n_B \left[\mu_B^* + RT \ln\left(\frac{P_B}{P_B^*}\right)\right] \\
+    G_f &= n_A\mu_A^* + n_B\mu_B^* + n_ART\ln(x_A) + n_bRT\ln(x_B)
+    \end{split}
+    \end{equation}
+    Taking the difference we find an expression for the change in Gibbs Free Energy due to mixing. 
+\begin{equation}
+\Delta_{mix}G = G_f - G_i = n_ART\ln(x_A) + n_BRT\ln(x_B)
+\end{equation}
+
+\subsection*{Ideal Solutions}
+We just found the change in Gibbs Free Energy for mixing an ideal two component system. 
+We can also write for constant temperature
+\begin{equation}
+\begin{split}
+    G &= H - TS \\
+    \Delta_{mix}G &=  \Delta_{mix}H - T\ \Delta_{mix}S
+\end{split}
+\end{equation}
+For an ideal solution the enthalpy of mixing must be 0 (this is the definition of an ideal solution).
+Therefore 
+\begin{equation}
+\Delta_{mix}S = -nR\left[x_A\ln(X_A) + X_B \ln(x_B)\right]
+\end{equation}
+
+An ideal solution assumes the interactions of A-A, B-B, and A-B are all equal in magnitude and nature. 
+This is an approximation, it is not true in general (think of oil and water).
+Engineering thermodynamics develops various models for these interactions in non-ideal cases. 
+But for us we consider only ideal solutions, the mixing of which is entropically driven. 
+
+\subsection*{Kinetic Theory of Gases}
+The final topic in the course will be Chapter 27 of McQuarrie. 
+Most all of the Statistical Mechanics we have discussed has been quantum statistical mechanics, relating distributions to the atomic partition functions. 
+However, most statistical mechanics used in the chemistry community is Classical Statistical Mechanics. 
+These methods use Newton's Equations to treat atoms like spheres during computer simulations.
+These types of models can be used on large systems such as proteins and polymers (quantum mechanics calculations can only be done on $\approx$ 200 atoms, microsecond timescales). 
+These simulations look at both the positions and velocities of the particles, therefore the \textbf{Phase Space} describing these systems must be 6-dimensional. 
+This means our probability distribution in phase space is a function of six variables; P(x,y,x,p$_x$,p$_y$,p$_z$).
+Here P is the probability distribution and p is the momentum. 
+We can write our probability in a general manner in terms of the Hamiltonian (H) and a normalization q (this q is the classical statistical mechanical partition function). 
+\begin{equation}
+    P(x,y,z,p_x,p_y,p_z) = \frac{1}{q}e^{-\beta H(x,y,z,p_x,p_y,p_z)}
+\end{equation}
+We know the Hamiltonian can be broken into a sum over kinetic and potential energy, where the potential energy U is a function of space only U(x,y,z). 
+For the particle in a box we defined the potential to be 0 within the box and infinite outside the box. 
+Making the potential outside the box infinite makes the system classical stat. mech., if the energy is infinite there is no way for quantum tunneling to occur.
+
+Recall the partition function is just a normalization, so we must integrate over our space (a 6-dimensional integral). 
+\begin{equation}
+    q = \idotsint dxdydzdp_xdpydp_z e^{\frac{1}{2\pi mkT}(p_x^2+p_y^2+p_z^2)}
+\end{equation}
+Here the exponential term is just the classical kinetic energy. 
+Now recall from out quantum stat mech that q = $\frac{V}{\Lambda^3}$ which is dimensionless. 
+We need to make our classical expression dimensionless too. 
+To do this we will need to divide by a factor of h. 
+I will not prove this here, but h is roughly the size of a quantum state (this of the uncertainty principle $\Delta x \Delta p \propto h$, and it turns out that $\frac{dxdp}{h}$ is dimensionless. 
+Therefore the normalized integral generating our classical partition function needs a factor of $\frac{1}{h^3}$. 
+\begin{equation}
+    q = \idotsint \frac{dxdydzdp_xdpydp_z}{h^3} e^{\frac{1}{2\pi mkT}(p_x^2+p_y^2+p_z^2)}
+\end{equation}
+So this integral is a dimensionless quantity that gives the normalization over our classical statistical mechanical system.
+We can note that 3 of the integrals run from 0 to $\infty$ and the other 3 run over the dimensions of our box; L$_x$, L$_y$, L$_z$. 
+These integrals are separable, you will break them up over the spatial dimensions, and they can be evaluated as Gaussian integrals. 
+I will not do the math here, but the final answer will be something like 
+\begin{equation}
+    \idotsint = \frac{V}{\left(\frac{h}{2\pi m kT}\right)^3} \propto \frac{V}{\Lambda^3}
+\end{equation}
+So that classical partition function is of the same dimensions as the quantum statistical mechanics partition function. 
+
+\subsection*{Velocity Distribution}
+We can also discuss the velocity distribution within our system. 
+Notation is always a problem, I will remain with the notation Craig uses, now U$_x$ is the velocity in the x direction, do not confuse it with the potential energy. 
+The velocity distribution depends on the 3 spacial dimensions velocities 
+\begin{equation}
+    F(U_x,U_y,U_z) = \left(\frac{m}{2\pi kT}\right)^{\frac{3}{2}}e^{\frac{m}{2kT}(U_x^2+U_y^2+U_z^2)}
+\end{equation}
+This integral is normalized therefore 
+\begin{equation}
+    \iiint F(U_x,U_y,U_z)dU_xdU_ydU_z = 1
+\end{equation}
+If we wanted to calculate the average value of the velocity in the x direction we would write down the standard integral. 
+\begin{equation}
+    \braket{U_x} = \iiint U_x \cdot F(U_x,U_y,U_z)dU_xdU_ydU_z
+\end{equation}
+If we then separate the function out we find that the integral of interest is really just 
+\begin{equation}
+    \int_{-\infty}^\infty U_x e^{-aU_x^2}dU_x = 0
+\end{equation}
+We know this integral is just 0 because the function is odd and we are integrating over all of space.
+This answer should be intuitive, if the gas is sitting in a box, the box is not moving. 
+Therefore the average velocity in any spatial direction has to be 0!
+
+\end{document}
