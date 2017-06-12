@@ -1,0 +1,144 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Chem-131C-Lec25}
+
+\author{swflynn}
+\date{June 2017}
+
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{braket}
+\usepackage{amsmath}
+\usepackage[margin=0.7in]{geometry}
+\usepackage{subfigure}
+\usepackage{url}
+\usepackage{float}
+\usepackage[version=3]{mhchem}
+
+\begin{document}
+
+\maketitle
+
+\section*{Lecture 25; 6/5/17}
+\subsection*{Congratulations}
+This is the last lecture for the course!
+The exam will cover all of the material discussed throughout the course. 
+It will be 2 hours, and 3 standard note cards (the same dimensions as the midterm) will be allowed. 
+
+\subsection*{Kinetic Theory of Gases} 
+Recall the Probability Distribution F(U$_x$, U$_y$, U$_z$) where U specifies the velocity.
+\begin{equation}
+    F(U_x,U_y,U_z) = \left(\frac{m}{2\pi kT}\right)^{\frac{3}{2}}e^{-\frac{m}{2kT}(U_x^2+U_y^2+U_z^2)}
+\end{equation}
+Last lecture we found the average velocity for any single spacial dimension was 0.
+This result is consistent with a gas contained inside a box, and the box itself is not moving. 
+If we were interested in the average velocity squared (we will not evaluate the integral here) we would find
+\begin{equation}
+    \braket{U_x^2} = \iiint U_x^2 \cdot F(U_x,U_y,U_z)dU_xdU_ydU_z = \frac{kT}{m}
+\end{equation}
+This result ultimately gives us a very familiar relationship
+\begin{equation}
+    KE = \frac{1}{2}mU^2 = \frac{1}{2}m \left( \frac{kT}{m} +  \frac{kT}{m} +  \frac{kT}{m} \right) = \frac{3}{2}kT
+\end{equation}
+
+\subsection*{Speed}
+We know velocity is a vector, if we wanted to make life simple we could consider the speed (the length of the velocity vector).
+\begin{equation}
+    \text{speed} = \sqrt{U_x^2 + U_y^2 + U_z^2}
+\end{equation}
+We are talking about a vector in 3D space, we could just as easily switch over to spherical polar coordinates and construct our U vector with the length and 2 angles. 
+\begin{equation}
+    \begin{split}
+        U_x &= U \sin\theta\cos\phi \\
+        U_y &= U\sin\theta\sin\phi\\
+        U_z &=\cos\theta
+    \end{split}
+\end{equation}
+We could then write down the Jacobian for this transformation as 
+\begin{equation}
+        F(U_x,U_y,U_z)dxdydx \implies F(U)U^2\sin\theta dUd\theta d\phi
+\end{equation}
+If we only care about the speed and not the direction we can then write 
+\begin{equation}
+\begin{split}
+    P(U) &= \int_0^\pi d\theta\int_0^{2\pi}d\phi \sin\theta \left[U^2F(U)\right]\\
+    P(U) &\approx 4\pi U^2 F(U)dU \\
+    P(U) &\approx 4\pi U^2 e^{\frac{-mU^2}{2kT}}\\
+    P(U) &= 4\pi U^2 \left(\frac{m}{2\pi kT}\right)^{\frac{3}{2}} e^{\frac{-mU^2}{2kT}}
+    \end{split}
+\end{equation}
+The first few lines evaluate the integral of a Gaussian form and taking the spatial components of the integral independent of the speed. 
+The actual terms (the details we do not care about) for the distribution are written on the last line. 
+
+\subsection*{Speed Distribution}
+If we calculate the average value for the speed (not the velocity) we will expect it to be some positive number. 
+\begin{equation}
+\braket{U} = \int_0^\infty U P(U) dU = \left(\frac{8kT}{m\pi}\right)^{\frac{3}{2}}
+\end{equation}
+Likewise we find 
+\begin{equation}
+\braket{U_x^2} = \int_0^\infty U^2 P(U) dU = \frac{3kT}{m} \implies \frac{1}{2}m\braket{U^2} = \frac{3}{2}kT
+\end{equation}
+We can also characterize a distribution with the root mean square speed, and the most probable value. 
+All of these are slightly different evaluations that give slightly different numbers, and if you are interested go take a probability course!
+
+\subsection*{THIS IS IT}
+The final topic for this course will bring us back to an old friend, The Ideal Gas Law. 
+Consider a particle within a box, we can describe this particle classically with Newton's Equations. 
+\begin{equation}
+\begin{split}
+    p_x &= mU_x \\
+    F &= \frac{dp}{dt}
+\end{split}
+\end{equation}
+The particle will hit the wall, and the wall will exert an equal and opposite force back on the particle. 
+We can calculate the average force on a side of the wall as 
+\begin{equation}
+F \approx \frac{\Delta p}{\Delta t} = \frac{2mU_x}{2L_x/U_x} = \frac{mU_x^2}{L_x}
+\end{equation}
+Where we have arbitrarily chosen the left side of the box, and the factor of 2 comes from the momentum of each side of the collision. 
+\begin{equation}
+\Delta t = \frac{\text{distance}}{\text{time}} = \frac{2L_x}{U_x}
+\end{equation}
+We can next determine the pressure
+\begin{equation}
+P = \frac{F}{A} = \frac{F}{L_xL_y} = \frac{mU_x^2}{L_xL_yL_z} = \frac{mU_x^2}{V}
+\end{equation}
+We need an average value to discuss thermodynamics, therefore we can substitute in our $\braket{U_x^2}$ from before into this expression and find
+\begin{equation}
+P = \frac{kT}{V}
+\end{equation}
+This result is for a single atom, if we want to convert to larger numbers we just need to include the amount of atoms. 
+\begin{equation}
+P = \frac{NkT}{V} = \frac{nRT}{V} \implies PV = nRT
+\end{equation}
+So from considering average values of particles within a box and Newtonian mechanics you can derive the ideal gas law. 
+
+\subsection*{Kinematics}
+To derive the ideal gas law we were really studying \textbf{Kinematics}. 
+If we consider elastic collisions between two particles A and B we can look at the energy as a function of reaction coordinate. 
+If you make a plot you should expect the products to have a lower total energy, and the reactants to have a higher total energy. 
+The transition between these two states will have an energy barrier $\epsilon$ which if overcome takes you from the less stable reactants to the more stable products. 
+We know that the molecules are smashing into each other, so this should be related to kinetic energy. 
+Consider the relative distance ($\vec{r}$) between A and B molecules. 
+We know velocity is just the time derivative of position $\vec{U} = \frac{d}{dt}\vec{r}$. 
+We can use some basic kinematic equations to write 
+\begin{equation}
+\begin{split}
+    \vec{r} &= \vec{r}_B - \vec{r}_A\\
+    \vec{R} &= \frac{m_A\vec{r}_A + m_B\vec{r}_B}{m_A + m_B}\\
+    \epsilon &= \frac{1}{2}\mu U^2
+\end{split}
+\end{equation}
+Where $\mu$ represents the reduced mass of the two particles. 
+Remember $\epsilon$ is an energy, we can write down a probability distribution for the energy as 
+\begin{equation}
+P(\epsilon)d\epsilon = \left(\frac{2\pi}{(mkT)^{3/2}}\right) \epsilon^{1/2} e^{\frac{-\epsilon}{kT}}d\epsilon
+\end{equation}
+
+So if we want to know what probability we have to get over the barrier we would integrate from the height of the barrier to infinity and any particles within that tail of the distribution would be able to react. 
+
+Congratulations, you have hopefully survived your introduction to Thermodynamics. 
+Stay tuned for a course on Statistical Mechanics!
+\end{document}
