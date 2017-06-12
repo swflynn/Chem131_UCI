@@ -1,0 +1,252 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Chem-131C-Final-Review}
+
+\author{swflynn }
+\date{June 2017}
+
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{braket}
+\usepackage{amsmath}
+\usepackage[margin=0.7in]{geometry}
+\usepackage{subfigure}
+\usepackage{url}
+\usepackage{float}
+
+\begin{document}
+
+\maketitle
+
+\section*{Final Review; 6-7-17}
+Here are the notes from my discussion section for the last week of the course (6-8-17). 
+I am going to do my best to briefly summarize the major topics that have been covered during the course between the midterm and final. 
+This review will not explicitly contain material from before the midterm. 
+This exam will necessarily be cumulative so please review all of the material in the course on your own. 
+This review will NOT contain any example problems, you have spent the last few months (and I will assume this week) doing problems on your own.
+I am just trying to get some of the conceptual points across in 1 hour. 
+This is essentially a condensed form of all of the lecture notes I have made starting at Lecture 15.
+This review is in not representative of what will be on the actual exam (I do not know what the exam will have on it), but I think all of this material should be familiar to you.
+
+\section{Thermodynamics}
+During the midterm we essentially studied the first and second laws of Thermodynamics, heat transfer and heat capacity.
+The remainder of the course focused on new Thermodynamic Potentials, their mathematical derivation, and their applications to chemistry problems. 
+
+\subsection{Thermodynamic Potentials}
+The motivation for defining new Thermodynamic Potentials is simply convenience. 
+Some equations are better suited for understanding different physical conditions of a system.
+We found from the combined First and Second law a fundamental equation
+\begin{equation}
+    dU = TdS - PdV \implies U(S,V)
+\end{equation}
+So we see that the Internal Energy is naturally a function of S and V.
+This means if we have a system where the entropy and volume are changing or held constant (or can be easily controlled by the user) than the internal energy is the variable we should use. 
+We then developed other potentials for other variables. 
+For this course we defined the following potentials\\
+
+\textbf{Enthalpy} (H)
+\begin{equation}
+H \equiv U + PV \implies H(S,P)
+\end{equation}
+
+\textbf{Helmholtz Free Energy} (A)
+\begin{equation}
+A \equiv U - TS \implies A(T,V)
+\end{equation}
+
+\textbf{Gibbs Free Energy} (G)
+\begin{equation}
+G \equiv A + PV \implies G(T,P)
+\end{equation}
+
+From these definitions we can do some math and we find the associated Fundamental Equation for each potential (this is how we determine the characteristic variables for each potential). 
+\begin{equation}
+\begin{split}
+    dU &= TdS - PdV + \mu dN \implies U\rightarrow U(S,V,N) \\
+    dH &= TdS + VdP + \mu dN \implies H\rightarrow H(S,P,N)\\
+    dA &= -SdT - PdV + \mu dN \implies U\rightarrow A(T,V,N)\\
+    dG &= -SdT + VdP + \mu dN \implies G\rightarrow G(T,P,N)
+\end{split}
+\end{equation}
+
+A negative Helmholtz Free Energy implies a spontaneous process, a negative Gibbs Free Energy also implies a spontaneous process. 
+
+\subsection{Legendre Transforms}
+Using our fundamental equations and total differentials of our Thermodynamic Potentials we were able to write some interesting partial derivative relationships. 
+The Legendre Transforms let us redefine the various variables in thermodynamics as derivatives.
+These derivatives are not as intuitive to us, however, they are true none the less!
+\begin{equation}
+    U(S,V) \implies  T = \left(\frac{\partial U}{\partial S}\right)_V \quad \text{and} \quad -P = \left(\frac{\partial U}{\partial V}\right)_S
+\end{equation}
+\begin{equation}
+H(S,P) \implies T= \left(\frac{\partial H}{\partial S}\right)_P \quad \text{and} \quad  V= \left(\frac{\partial H}{\partial P}\right)_S
+\end{equation}
+\begin{equation}
+A(T,V) \implies   -P = \left(\frac{\partial A}{\partial V}\right)_T \quad \text{and} \quad  -S= \left(\frac{\partial A}{\partial T}\right)_V
+\end{equation}
+\begin{equation}
+G(T,P) \implies -S= \left(\frac{\partial G}{\partial T}\right)_P \quad \text{and} \quad V = \left(\frac{\partial G}{\partial P}\right)_T
+\end{equation}
+
+\subsection{Maxwell Relationships}
+The final set of partial derivatives we derived were the Maxwell relationships. 
+These were derived by writing the exact differential second order derivatives for our thermodynamic potentials and then substituting in our Legendre Transform Results into each expression. 
+The Maxwell Relationships let us equate various derivatives to each other. 
+\begin{equation}
+U \implies 
+-\left(\frac{\partial P}{\partial S}\right)_V = \left(\frac{\partial T}{\partial V}\right)_S
+\end{equation}
+\begin{equation}
+    H \implies  \left(\frac{\partial V}{\partial S}\right)_P =
+\left(\frac{\partial T}{\partial P}\right)_S
+\end{equation}
+\begin{equation}
+    A \implies \left(\frac{\partial P}{\partial T}\right)_V = \left(\frac{\partial S}{\partial V}\right)_T
+\end{equation}
+\begin{equation}
+    G \implies \left(\frac{\partial V}{\partial T}\right)_P = -\left(\frac{\partial S}{\partial P}\right)_T
+\end{equation}
+Usually if you are asked to calculate some derivative you can manipulate it in various ways until a Maxwell Relationship can be substituted to solve a different derivative. 
+
+\subsection{Ideal Gas Evaluations}
+We found for even an ideal gas evaluating all of our potentials can be quite difficult. 
+We were able to write down some equations which may be useful in solving problems. 
+Remember all of these equations are found from the definition of the thermodynamic potential and algebra. 
+\begin{equation}
+    A = -nRT \ln\left[ \left(\frac{T}{T_0} \right)^{3/2} \left(\frac{V}{V_0} \right) \right ] + A_0
+\end{equation}
+If we assumed a constant Temperature process for the Gibbs Free Energy we were able to determine G(P) as a nice formula.
+This can be proven in a couple of lines by starting with the fundamental equations for Gibbs. 
+\begin{equation}
+     G(P) = G_0 + nRT_0\ln\left(\frac{P}{P_0}\right)
+\end{equation}
+
+\subsection{Heat Capacity}
+The heat capacity is a concept that measures how much heat is required to change the temperature of a material. 
+The definitions for the heat capacities are 
+\begin{equation}
+    C_V = \left(\frac{\partial U}{\partial T}\right)_V \qquad   C_P = \left(\frac{\partial H}{\partial T}\right)_P
+\end{equation}
+For an ideal gas we were able to show (on the midterm) that 
+\begin{equation}
+\begin{split}
+       C_v &= \frac{3}{2}R \qquad C_p = \frac{5}{2}R \\
+       C_P &= C_V + R
+       \end{split}
+\end{equation}
+Intuitively the constant pressure heat capacity must be larger than the constant volume heat capacity, when the volume can change some of the energy entering your system goes into changing the volume, therefore more heat is required to get the same change in temperature. 
+
+\subsection{Phase Diagrams and Phase Transitions}
+If we take a solid material and heat it we know quantitatively what happens. 
+The atoms in the solid get more energy and start to vibrate at a faster rate. 
+Eventually they get enough energy to cause a phase transition into the liquid phase, during the phase transition all the energy entering the system goes into the transition therefore no temperature change occurs during the transition. 
+On a phase diagram the coexistence lines indicate an equilibrium between the two phases. 
+At these equilibrium the Gibbs Free Energies are equal $G_\alpha = G_\beta$. 
+If we are not on a phase line than the physical state that dominates is the state with the lowest Gibbs Free Energy (remember we minimize Gibbs at equilibrium). 
+If $\mu_A < \mu_B$ then B will spontaneously convert into A. 
+
+\subsection{Chemical Potential}
+Please review the various graphs found in Lecture 18. 
+We introduced the chemical potential to start tracking the amounts and types of different chemical species in our fundamental equations. 
+
+\begin{equation}
+    \mu_i \equiv \left(\frac{\partial G}{\partial n_i}\right)_{T,P,n_j}, \qquad \mu_i = \left(\frac{\partial A}{\partial n_i}\right)_{T,V,n_j}, \qquad  \mu_i = \left(\frac{\partial U}{\partial n_i}\right)_{S,V,n_j}
+\end{equation}
+
+If you plot $\mu$ versus $\rho$ you find something similar to a reaction coordinate. 
+Each physical phase within your system has a local minimum on the chemical potential landscape, the global minimum is the spontaneous state. 
+
+\subsection{Mixtures}
+A chemical reaction is at equilibrium when the total Gibbs Energy has been minimized wrt. each component within the system. 
+When we start analyzing systems we necessarily have constraints in the system (mass cannot be created or destroyed). 
+The Euler Equation allows us to write 
+\begin{equation}
+    G = \sum_{i=1}^c \mu_in_i
+\end{equation}
+For a 1 component system we have a simple linear relationship G = $\mu n$, so the Euler Equation can be used to relate Gibbs Free Energy and Chemical Potential. 
+The Gibbs Duhem Equation tells us that 
+\begin{equation}
+    0 = SdT -VdP + \sum_{i=1}^cn_id\mu_i \xrightarrow{\Delta (T,P) = 0} 0 = \sum_{i=1}^cn_id\mu_i
+\end{equation}
+This is a constraint on our chemical potentials and amounts of the mixture components. 
+For a 2-component system this reads $n_1d\mu_1 + n_2d\mu_2 = 0$. 
+
+If we are interested in the pressure dependence of a 1-component system we can write (using the Euler relationship we find the chemical potential). 
+\begin{equation}
+    \begin{split}
+        G &= G_0 + nRT\ln\left(\frac{P}{P_0}\right) \\
+        \mu &= \mu_0 + RT\ln\left(\frac{P}{P_0}\right)
+    \end{split}
+\end{equation}
+ Where we have used the Euler relationship to relate chemical potential and Gibbs. 
+
+ If we are assuming everything to be ideal than the mixing process is completely entropic. 
+ From running through the algebra we find for a 2-component system 
+ \begin{equation}
+     \Delta_{mix} G = nRT\left[x_A\ln(x_A) + x_B\ln(x_B)\right]
+ \end{equation}
+For an ideal solution (by definition) $\Delta$ H = 0 therefore 
+\begin{equation}
+    \Delta_{mix}S = -nR\left[x_A\ln(x_A) + x_B\ln(x_B)\right]
+\end{equation}
+
+\subsection{Chemical Reactions}
+When we start looking at chemical reactions we need to account for each species we are considering. 
+We know that conservation of mass constrains our system and we define the extent of reaction to keep track of the chemical species. 
+If we have a 2-component system we would find
+\begin{equation}
+dn_B = d\xi \qquad dn_A = -d\xi
+\end{equation}
+And we can define the change in the Gibbs Free Energy due to the reaction as 
+\begin{equation}
+\Delta_rG \equiv \left(\frac{\partial G}{\partial \xi}\right)_{T,P}
+\end{equation}
+This definition tells us that a plot of G vs $\xi$ has a slope equals the the change in Gibbs during the reaction. 
+If we evaluate the change in Gibbs due to the reaction for our 2-component system we find. 
+\begin{equation}
+    \begin{split}
+        \Delta_rG &= \mu_B - \mu_A = \mu_B^0 - \mu_A^0 + RT\ln\left(Q\right) \\
+        Q &\equiv \frac{P_B}{P_A}
+    \end{split}
+\end{equation}
+Where Q is now referring to the reaction quotient. 
+
+With our sign convention we find that
+\begin{center}
+  \begin{tabular}{ | l | c | r |}
+    \hline
+    $\Delta_rG < 0$ & $\mu_A > \mu_B$ & Spontaneous A $\rightarrow$ B \\ \hline
+     $\Delta_rG > 0$ & $\mu_A < \mu_B$ & Spontaneous A $\leftarrow$ B \\ \hline
+     $\Delta_rG = 0$ & $\mu_A = \mu_B$ & Equilibrium \\
+    \hline
+  \end{tabular}
+\end{center}
+
+\subsubsection*{Equilibrium}
+At equilibrium we know that $\Delta_rG$ = 0 (there is no net reaction occuring at equilibrium). 
+For this special case we replace the reaction quotient with the Equilibrium Coeficient K. 
+\begin{equation}
+    K = Q_{equ} = \frac{P_B^{eq}}{P_A^{eq}}
+\end{equation}
+Including the reference terms and doing the algebra we find at equilibrium
+\begin{equation}
+        K = e^{\frac{-\Delta_rG^0}{RT}}
+\end{equation}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
