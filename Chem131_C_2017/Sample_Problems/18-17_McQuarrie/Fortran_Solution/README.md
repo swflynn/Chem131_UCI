@@ -1,7 +1,7 @@
 # Fortran Soltuion:
-Here is a simple Fortran 90 Program to plot T vs C(T) 
+Here is a simple Fortran 90 Program to plot J and f(J) at 300 and 1000 K.
 
-### 18_9_soln.f90:
+### 18-17_soln.f90:
 The fortran program.
 This file uses the Fortran Programming Language to calculate T and C(T). 
 The output of this program is a data file; data.dat 
