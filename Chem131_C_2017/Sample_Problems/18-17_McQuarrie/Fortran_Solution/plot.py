@@ -1,20 +1,21 @@
-# Comments in Python are made using # character
-# See 18_9_soln.f90 for the Fortran Code that generated the data. 
-
-# This is a python program to take our data in data.dat and plot it. 
-# Our data file has 2 columns T and C_v seperated by a space
+#See 18_17_soln.f90 for the data generation
+#Our data file has 3 columns J, f(J) at 300K and f(J) at 1000K
+# We want to make 2 plots to compare the distributions 
 
 #======================Tell Python to let us make a Graph======================!
-import matplotlib.pyplot as plt     # Python Package for Plotting Data 
+import matplotlib.pyplot as plt        
 
-with open('data.dat') as f:         #open data file to read in data to Python
-    lines = f.readlines()           # read in the data line by line
-    x = [line.split()[0] for line in lines]         #x = 1st number [T]
-    y = [line.split()[1] for line in lines]         #y = 2nd number [C(T)]
 
-#===========================Plot the Data===========================!
-    plt.plot(x,y)                       
-    plt.xlabel('T(K)')
-    plt.ylabel('C_v / R')
-    plt.title ('McQuarre 18-9 Solution')
-    plt.savefig('myfig.png')                #save plot to a file myfig.png
+with open('data.dat') as f:                   #open data file to plot
+    lines = f.readlines()                     # read in line by line
+    x = [line.split()[0] for line in lines]   #x = 1st number
+    y = [line.split()[1] for line in lines]   #y = 2nd number
+    z = [line.split()[2] for line in lines]   #z = 3rd number
+
+    plt.plot(x,y, label='300K')               # plot 300K
+    plt.plot(x,z, label='1000K')              # plot 1000K
+    plt.xlabel('J')
+    plt.ylabel('f(J)')
+    plt.title ('McQuarrie 18-17 Solution')
+    plt.legend()			      # Make a legend for the 2 data sets
+    plt.savefig('myfig.png')                  #save plot to a file
