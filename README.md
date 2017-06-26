@@ -1,13 +1,12 @@
 # Teaching Resources
 Greetings!
 
-Welcome to my Github. 
-Here I will be posting various resources I make during my time as a graduate student at the University of California, Irvine. 
-The resources will include my Lecture Notes (i.e. the notes I take during a given lecture), and comments/reviews of topics I think students may find useful that may not be covered in lecture. 
-You will also find some basic programming (mostly Pythn and Fortran) where I solve various problems taken from textbooks, lecture, and my creation. 
+Here I will make available various resources developed during my time as a graduate student at the University of California, Irvine. 
+The resources will include my Lecture Notes (i.e. the notes I take during a given lecture), and comments/reviews of topics I think students may find useful to better understand the lecture material. 
+You will also find some basic programming (mostly Python and Fortran) where I solve various problems taken from textbooks, lecture, and curiosity.  
 
 I strive to make these materials as accurate as possible, however, I cannot guarantee they will be perfect (or up-to-date). 
-Please use the materials with that in mind, and feel free to contact me if there are any potential mistakes. 
+Please use the materials with that in mind, and feel free to contact me if there are any potential mistakes I can correct. 
 
 ## Author:
 Shane Flynn and contributers, 2016 - UCI
@@ -20,11 +19,12 @@ Lecture notes and problems for the undergraduate Thermodynaimcs Course taught at
 
 `Lecturer: Craig Martens` (cmartens@uci.edu)
 
-Teaching Assistants: Krista Parry` (parryk@uci.edu) and `Shane Flynn` (swflynn@uci.edu)
+Teaching Assistants: `Krista Parry` (parryk@uci.edu) and `Shane Flynn` (swflynn@uci.edu)
 
-The course covers an undergraduate level (junior and senior) introduction to Thermodynamics (chemistry department). 
+This course covers an undergraduate level (junior and senior) introduction to Thermodynamics (Chemistry Department). 
 The course assumes knowledge of basic quantum chemistry and multi-variable calculus, but is essentially self-contained. 
-Topics included are: the laws of Thermodynamics, Thermodynamic Potentials and Fundamental Equations, Statistical Mechanics and it connections to Thermodynamics, and Quantum-Statistical Mechanics connecting partition functions to Quantum Chemistry and Thermodynamics. 
+
+Topics included are: the Laws of Thermodynamics, Thermodynamic Potentials and Fundamental Equations, Statistical Mechanics and it connections to Thermodynamics, and Quantum-Statistical Mechanics connecting partition functions to Quantum Chemistry and Thermodynamics. 
 
 #### Material Usage:
 Please feel free to use and reproduce any of the resources on this page, given you provide proper citation and reference to the material. 
