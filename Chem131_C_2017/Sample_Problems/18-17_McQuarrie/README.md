@@ -1,19 +1,20 @@
 # McQuarrie; Problem 18-9 (Page 757)
 
 ## Problem:
-Plot the vibrational Contribution to the Molar Heat Capacity from (250-1000)K for a diatomic gas.
+Plot the fraction of HBr molecules in various rotational levels at both 300K and 1000K (consider J from 0 to 50). 
 
 ## Answer:
-Using equation 18.26 (P.741) we find C_vib(T) for diatomic molecules. 
+From P.745 McQuarrie (EQU.18.35) we find a fraction of diatomic molecules as a function of J.
 
 ## Code:
 I have written two different programs to solve this problem, one in Fortran and the other in Python. 
 The solutions are the same, this is simply as example of how different programming languages look. 
 
 ### Fortran Solution:
-To solve this problem I have written a simple Fortran program to calculate T and C(T) for a given temperature range. 
+To solve this problem I have written a simple Fortran program to calculate J and f(J) for both T=300K and 1000K. 
 Fortran is not able to plot data internally, so I write the results to a data file (data.dat).
 I then use a simple Python Program to open the data file and plot the data. 
 
 ### Python Solution:
-To solve this problem I have written a simple Python program to calculate T and C(T) and then plot the data (this is all done using 1 python program). 
+To solve this problem I have written a simple Python program to calculate J and f(J) at both 300K and 1000K.
+Then I plot the data and save the figure. 
