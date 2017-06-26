@@ -24,7 +24,7 @@ PROGRAM MQ_18_17
   REAL, PARAMETER :: T=300              
   REAL, PARAMETER :: T2=1000
   Real, Parameter :: increment=1          !Evaluate at every whole number
-  Integer, Parameter :: n = (50-0)/increment
+  Integer, Parameter :: n = (51-0)/increment
   REAL, DIMENSION(1:n) :: j, f, g         !Data to Plot, J and the 2 different T
   INTEGER :: i                            ! Looping Variable
 
