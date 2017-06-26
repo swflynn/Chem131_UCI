@@ -1,13 +1,13 @@
-#Welcome 
-You have found my notes on Thermodynamics, Chem131C at UCI (Spring 2017). 
+# Welcome:
+You have found my notes for Thermodynamics, Chem131C at UCI (Spring 2017). 
 
-## Instructors
-The instructor for the course is `Craig Martens` (cmartens@uci.edu)
+## Instructors:
+The instructor for the course is `Dr. Craig Martens` (cmartens@uci.edu)
 
 Teaching Assistants :
 `Krista Parry` (parryk@uci.edu), and `Shane Flynn` (swflynn@uci.edu).
 
-### Logistics
+### Logistics:
 
 #### Lecture:
 MWF 11:00-11:50 (am) in Humanities Hall 178
