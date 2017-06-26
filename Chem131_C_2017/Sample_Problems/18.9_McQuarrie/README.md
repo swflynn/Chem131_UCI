@@ -11,26 +11,9 @@ I have written two different programs to solve this problem, one in Fortran and 
 The solutions are the same, this is simply as example of how different programming languages look. 
 
 ### Fortran Solution:
-
-To solve this problem I have written a simple Fortran program (fortran_soln.f90).
-The program calculates T and C(T) for a given range. 
+To solve this problem I have written a simple Fortran program to calculate T and C(T) for a given temperature range. 
 Fortran is not able to plot data internally, so I write the results to a data file (data.dat).
-I then wrote a simple Python program to open the data file and plot the data. 
-
-#### fortran_soln.f90
-Fortran code to calculate and write T, C(T) to a file
-
-data.dat : Data file with 2 columns T, C(T)
-
-plot.py : Python code to plot our data, reads in data.dat and outputs myfig.png
-
-myfig.png : The final answer!!!
-
-a.out : This is machine code written by the fortran compiler, !===IGNORE THIS===!
-
-.DS_Store : This is a github maitenance file, !===IGNORE THIS===!
-
-
+I then use a simple Python Program to open the data file and plot the data. 
 
 ### Python Solution:
-
+To solve this problem I have written a simple Python program to calculate T and C(T) and then plot the data (this is all done using 1 python program). 
