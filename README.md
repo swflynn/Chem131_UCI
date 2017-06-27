@@ -27,7 +27,7 @@ The course assumes knowledge of basic quantum chemistry and multi-variable calcu
 Topics included are: the Laws of Thermodynamics, Thermodynamic Potentials and Fundamental Equations, Statistical Mechanics and it connections to Thermodynamics, and Quantum-Statistical Mechanics connecting partition functions to Quantum Chemistry and Thermodynamics. 
 
 ## Material Usage:
-Please feel free to use and reproduce any of the resources on this page, given you provide proper citation and reference to the material. 
+Please feel free to use and reproduce any of the resources on this page, given you provide proper reference and/or citation to the material. 
 All Lecture Notes have been made with permission of the Lecturer, and are my adaptation of the topics covered. 
 Any problems taken/adapted from textbooks will include reference to the book from which it came, I do not claim any rights to these materials. 
 
