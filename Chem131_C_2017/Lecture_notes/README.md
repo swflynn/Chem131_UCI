@@ -1,5 +1,5 @@
 # Lecture Notes
-Greetings Chem131C at UCI, here are my version of the Lecture Notes for the course. 
+Greetings Chem131C at UCI, here are my versions of the Lecture Notes for the course. 
 The notes are split up by week (10 weeks total) with 3 lectures a week (MWF, 1hour). 
 The notes contain a pdf (and the associated LaTex file and figures for compiling the pdf) for each lecture.
 
@@ -9,7 +9,7 @@ Brief overview of the course and what will be covered over the next 10 weeks.
 The Laws of Thermodynamics, Partition Functions, Expectation Values, and Boltzman Statistics. 
 
 ### Lecture 4:
-Ideal Gas, Particle in a Box, Connecting Partition Function to Themral de Broglie Wavelength, and Stirling's Approximation for Factorials.
+Ideal Gas, Particle in a Box, Connecting Partition Function to Thermal de Broglie Wavelength, and Stirling's Approximation for Factorials.
 
 ### Lecture 5:
 The Gamma Function, Stirling's Approximation, and the Start of standard Thermodynamics. 
@@ -21,19 +21,19 @@ The First Law, Free Expansion, Isothermal Processes, Heat Capacity
 Adiabatic Process, New State Functions (Enthalpy, Helmholtz, Gibbs).
 
 ### Lecture 8:
-Entropy, Heat Capacity Example, Reversible Isothermal Expansion Example. 
+Entropy, Heat Capacity Example, Reversible Isothermal Expansion. 
 
 ### Lecture 9:
 Probability Lesson, Multinomial, Probability Generating Function, Probabilistic view of Entropy.
 
 ### Lecture 10:
-Boltzmann Entropy, Shannon entropy and Lagrange Multipliers, Entropy and the Partition Function.
+Boltzmann Entropy, Shannon Entropy and Lagrange Multipliers, Entropy and the Partition Function.
 
 ### Lecture 11:
-Internal Energy Microscopic and Macroscopic, Maxwell's Demon
+Internal Energy; Microscopic and Macroscopic, Maxwell's Demon
 
 ### Lecture 12:
-MAxwell's Demon, Heat Engines, Thermodynamic Efficiency.
+Maxwell's Demon, Heat Engines, Thermodynamic Efficiency.
 
 ### Lecture 13:
 Heat Capacity and Entropy, Coin Flipping, Enthalpy Calculation.
