@@ -1,10 +1,9 @@
 # Python Solution:
-A simple Python 2 Program to calculate and plot both T and C(T)
+A simple Python 2 Program to calculate and plot J and f(J) at 300 and 1000 K.
 
 ### 18_9_soln.py:
 The Python Program.
-This file uses the Python Programming Language to calculate T and C(T). 
-It then plots these two variables and saves the figure as: myfig.png
+This file uses the Python Programming Language to calculate and plot J and f(J) at 300 and 1000 K.
 
 ### myfig.png:
-This is the final result, a graph of T vs C(T)
+This is the final result, a graph of J vs f(J)
