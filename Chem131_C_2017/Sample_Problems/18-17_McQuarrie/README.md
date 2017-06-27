@@ -4,7 +4,7 @@
 Plot the fraction of HBr molecules in various rotational levels at both 300K and 1000K (consider J from 0 to 50). 
 
 ## Answer:
-From P.745 McQuarrie (EQU.18.35) we find a fraction of diatomic molecules as a function of J.
+From P.745 McQuarrie (EQU.18.35) we find the population of diatomic molecules as a function of J.
 
 ## Code:
 I have written two different programs to solve this problem, one in Fortran and the other in Python. 
