@@ -1,6 +1,8 @@
 # Welcome:
 You have found my notes for Thermodynamics, Chem131C at UCI (Spring 2017). 
 
+Topics included are: the Laws of Thermodynamics, Thermodynamic Potentials and Fundamental Equations, Statistical Mechanics and it connections to Thermodynamics, and Quantum-Statistical Mechanics connecting partition functions to Quantum Chemistry and Thermodynamics. 
+
 ## Instructors:
 The instructor for the course is `Dr. Craig Martens` (cmartens@uci.edu)
 
