@@ -20,11 +20,11 @@ The course will 'loosely' follow the textbook, the Lecture Notes are your primar
 The grading is subject to change, however, expect something like 15% homework, 30% Midterm, 55% Final Exam. 
 
 ## Lecture_notes:
-Directory containing all of my typred LEcture Notes for the course. 
+Directory containing all of my typred Lecture Notes for the course. 
 Each lecture is written in a LaTex file (name.tex) and converted to a pdf. 
-If you are familiar with LaTex, feel free to download the Tex file and edit as you like (I have included all of the figures and etc for compiling the Tex file). 
+If you are familiar with LaTex, feel free to download the Tex file and edit as you like (I have included all of the figures and etc. for compiling the Tex file). 
 
 ## Sample_Problems:
 This directory contains a few sample programs as an introduction to programming. 
-Inside you will find Python scripts for answering a few problems from the course.
+Inside you will find Python scripts for answering a few problems from the course (also a few Fortran for those brave enough to try).
 Feel free to use these programs to start learning to code!
