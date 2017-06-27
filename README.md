@@ -35,7 +35,7 @@ To keep the mathematics simple, we only consider the ideal gas law as our system
 ## Material Usage:
 Please feel free to use and reproduce any of the resources on this page, given you provide proper reference and/or citation to the material. 
 All Lecture Notes have been made with permission of the Lecturer, and are my adaptation of the topics covered. 
-Any problems taken/adapted from textbooks will include reference to the book from which it came, I do not claim any rights to these materials. 
+Any problems taken/adapted from textbooks will include reference to the book from which it came, I do not claim any rights to these materials (the solutions/programs are my understadning of the topic).
 
 ## Author:
 Shane Flynn and contributers, 2016 - UCI
