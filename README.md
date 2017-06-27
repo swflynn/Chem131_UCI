@@ -9,9 +9,9 @@ I strive to make these materials as accurate as possible, however, I cannot guar
 Please use the materials with that in mind, and feel free to contact me if there are any potential mistakes I can correct. 
 
 ## Using Github:
-If you are new to github, you can think of this like dropbox.
-Each folder will contain materials that you can look at and download.
-Simly click the files on the left hand side (in blue) at the top of each page, do not use the middle section (gray). 
+If you are new to github, you can think of this as a dropbox, there are files that can be updated dynamically.
+Each folder contains materials that you can look at online, and/or download to your local device.
+Simply click the files on the left hand side (in blue) at the top of each page, do not use the middle section (gray). 
 
 If you are familiar with Github, feel free to use the resources as you wish.
 I am open to collaboration for developing new materials!
@@ -20,7 +20,7 @@ I am open to collaboration for developing new materials!
 Here I provide a brief overview of the contents within each directory. 
 
 ### Chem131_C_2017:
-Lecture notes and problems for the undergraduate Thermodynaimcs Course taught at UCI. 
+Lecture notes and problems for the undergraduate Thermodynamics Course taught at UCI. 
 
 `Lecturer: Craig Martens` (cmartens@uci.edu)
 
@@ -30,6 +30,7 @@ This course covers an undergraduate level (junior and senior) introduction to Th
 The course assumes knowledge of basic quantum chemistry and multi-variable calculus, but is essentially self-contained. 
 
 Topics included are: the Laws of Thermodynamics, Thermodynamic Potentials and Fundamental Equations, Statistical Mechanics and it connections to Thermodynamics, and Quantum-Statistical Mechanics connecting partition functions to Quantum Chemistry and Thermodynamics. 
+To keep the mathematics simple, we only consider the ideal gas law as our system model (van der Walls and virial equations are not covered). 
 
 ## Material Usage:
 Please feel free to use and reproduce any of the resources on this page, given you provide proper reference and/or citation to the material. 
