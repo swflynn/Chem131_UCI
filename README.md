@@ -32,6 +32,19 @@ The course assumes knowledge of basic quantum chemistry and multi-variable calcu
 Topics included are: the Laws of Thermodynamics, Thermodynamic Potentials and Fundamental Equations, Statistical Mechanics and it connections to Thermodynamics, and Quantum-Statistical Mechanics connecting partition functions to Quantum Chemistry and Thermodynamics. 
 To keep the mathematics simple, we only consider the ideal gas law as our system model (van der Walls and virial equations are not covered). 
 
+### Chem132_A_2017:
+Lecture notes and problems for the undergraduate Thermodynamics Course taught at UCI. 
+
+`Lecturer:
+
+Teaching Assistants: 
+
+This course covers an undergraduate level (junior and senior) introduction to Thermodynamics (Chemistry Department). 
+The course provides a standard introduction to thermodynamics without any knowledge of quantum mechanics. 
+
+Topics included are: 
+
+
 ## Material Usage:
 Please feel free to use and reproduce any of the resources on this page, given you provide proper reference and/or citation to the material. 
 All Lecture Notes have been made with permission of the Lecturer, and are my adaptation of the topics covered. 
