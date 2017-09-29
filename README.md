@@ -35,14 +35,15 @@ To keep the mathematics simple, we only consider the ideal gas law as our system
 ### Chem132_A_2017:
 Lecture notes and problems for the undergraduate Thermodynamics Course taught at UCI. 
 
-`Lecturer:
+`Lecturer: John Hemminger` (jchemmin@uci.edu)
 
-Teaching Assistants: 
+Teaching Assistants: `Moises Romero` (moiseser@uci.edu) and `Shane Flynn` (swflynn@uci.edu)
 
 This course covers an undergraduate level (junior and senior) introduction to Thermodynamics (Chemistry Department). 
 The course provides a standard introduction to thermodynamics without any knowledge of quantum mechanics. 
+If you have not studied physical chemistry before, this couse should be your starting place. 
 
-Topics included are: 
+Topics included are: perfect gas, real gas, the Laws of Thermodynamics, mixtures and chemical equilibrium, molecular motion, chemical kinetics, and collision theory. 
 
 
 ## Material Usage:
