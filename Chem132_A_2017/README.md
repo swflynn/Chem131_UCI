@@ -35,12 +35,18 @@ Directory containing all of my typed Lecture Notes for the course.
 Each lecture is written in a LaTex file (name.tex) and converted to a pdf. 
 If you are familiar with LaTex, feel free to download the Tex file and edit as you like (I have included all of the figures and etc. for compiling the Tex file). 
 
-## Sample_Problems:
-This directory contains a few sample programs as an introduction to programming. 
-Programs will be written in Mathematica (Chem 5 software), and Python (a great first programming language). 
+## Discussion_Material:
+This directory constains the problems and solutions covered during the discussion sections of the course. 
+Webassign homework/solutins will not be made available, please continuously check your webassign and email to make sure you complete all of the assignments as they are generated. 
 
+Each week an assignment containing three problems will be generated for students to work on.
+These questions will be more representative of what an exam question will look like (and may be used as inspiration for exam questions). 
+Each assignment will contain one question that will require mathematical software to solve. 
+Solutions to these questions (source code) will also be provided here in terms of a mathematica notebook, and a Python script. 
+Students are encouraged to choose either language, download the solutions, and compile them on their local machine. 
 
+### Resources:
 Feel free to look at the other materials on my github as potential resources. 
-Chem131C contains materials for a thermodynamis course taught at UCI, however, it contains materials involving Quantum Mechanics and Statistical Mechanics as well as Thermodynamics. 
+Chem131C contains materials for a thermodynamis course taught at UCI, however, it covers topics in Quantum Mechanics and Statistical Mechanics as well as Thermodynamics. 
 
 I also have various programming examples for learning Python. 
