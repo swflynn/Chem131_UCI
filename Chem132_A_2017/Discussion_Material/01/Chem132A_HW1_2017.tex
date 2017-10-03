@@ -1,0 +1,156 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Chem132A Discussion 1 Homework}
+\author{Moises Romero (moiseser@uci.edu), Shane Flynn (swflynn@uci.edu) }
+\date{10/1/17}
+
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{braket}
+\usepackage[margin=0.7in]{geometry}
+
+
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\pd}{\partial}
+
+\begin{document}
+
+\maketitle
+
+\section*{Chem132A Discussions and Exams}
+Greetings Chem132A, and welcome to your first discussion section 'homework'. 
+These assignments will not be graded, however, they will be more representative of exam questions than Webassign.
+It is possible that some exam questions will be variations of problems taken from the discussion sections. 
+We highly encourage you to take a look at the problems before discussion, and come to discussion with comments/questions. 
+
+The discussion question may be somewhat mathematically intensive for some of you.
+The language of mathematics is necessary for understanding physical systems, and will be essential for understanding thermodynamics.
+Use these homework assignments to talk with students and instructors to fill any gaps in your mathematics. 
+
+
+\section{Ideal Gas vs Real Gas}
+In chapter 1 the \textbf{Ideal Gas Law} was introduced.
+The Ideal Gas Law assumes that the atoms within the system do not interact (low pressure large volume), but in a real system this is never the case.
+Any equation describing a real gas will need to account for attractions and repulsion's between atoms.
+
+\subsection{Derivatives}
+For the following function solve for $\frac{\pd f(x,y,z)}{\pd x}$, $\frac{\pd f(x,y,z)}{\pd y}$, and $\frac{\pd f(x,y,z)}{\pd z}$
+\be
+f(x,y,z)=x^2y + y^2x
+\ee
+
+\subsection{Ideal Gas Law}
+For 1 mol of Argon gas at T=300K and V=10L calculate $\frac{\pd p}{\pd T}$ and $\frac{\pd p}{\pd V}$  using the ideal gas law:
+\be
+pV=nRT
+\ee
+What does each solution tell us (think about the physical interpretation of a derivative)?
+
+\subsection{Real Gas Law vs Ideal Gas Law}
+ Calculate the pressure exerted by N$_2$ at 300K for the molar volumes of .100 L-mol$^{-1}$ and 250 L-mol$^{-1}$. 
+Use the van der Wall's gas law and the ideal gas law. 
+The parameters for N$_2$ are a =  1.370 bar-dm$^6$-mol$^{-2}$ and b =.0387 dm$^3$-mol$^{-1}$
+\be
+p=\frac{RT}{V_m - b}-\frac{a}{V^2_m}
+\ee
+
+\subsubsection*{}
+What do parameters a and b account for?
+Explain why (physically) we get different results using these two equations? 
+ 
+ \subsubsection*{}
+ What does it mean if:
+ \begin{enumerate}
+ \item $p_{\text{real}}>p_{\text{ideal}}$
+ \item $p_{\text{real}}<p_{\text{ideal}}$
+ \item  $p_{\text{real}}=p_{\text{ideal}}$
+ \end{enumerate}
+ 
+\section{Meeting The Maxwell-Boltzmann Distribution}
+In chapter 1 the \textbf{Kinetic-Molecular Theory} was introduced, and a very important distribution, The \textbf{Maxwell-Boltzmann Distribution} of speeds was presented. 
+The purpose of this question is to understand the expression, and to become familiar with some mathematical machinery useful in thermodynamics (and Quantum Mechanics, and Statistical Mechanics). 
+
+\subsection{Integration By Parts (IBP)}
+Most physical properties (the things you measure in a lab) can be determined by solving an integral. 
+Integrating complicated expressions is an art, and here we will explore one such method.
+
+Consider the function 
+\be
+y(x) = a(x) b(x)
+\ee
+Starting with the right hand side (RHS) of this equation, derive the formula for integration by parts.
+Your answer should be in terms of a(x), b(x) and their associated integrals and/or derivatives. 
+
+\subsection{An Interesting Integral}
+Now that we understand how IBP works, let's use it to compute an interesting integral. 
+\be
+y(x) = \int_0^\infty x^{n}e^{-x}dx 
+\ee
+\textbf{Comment:} Use IBP twice, and then \textbf{STOP}. \\
+Can you see a pattern?
+What function does this look like (if you are confused try doing another IBP)?
+
+\subsection{Finally; The Distribution}
+Let's now look at the Maxwell-Boltzmann Speed Distribution, f($\nu$).
+\be
+f(\nu) = 4\pi \left(\frac{M}{2\pi RT}\right)^{\frac{3}{2}} \nu^2 e^{\frac{-M\nu^2}{2RT}}
+\ee
+The text claims that this distribution can be used to determine the probability of the molecules having a speed in the range $\nu$ to $\nu + d\nu$. 
+To interpret any distribution as a probability, the integral over all of space must be equal to 1.
+Please show that this distribution is normalized. 
+
+\textbf{Hint:} To do this, take the following integral as true (meaning you do not need to prove it, just use it). 
+\be
+\int_0^\infty x^2 e^{-ax^2} dx = \frac{1}{4a}\left(\frac{\pi}{a}\right)^{\frac{1}{2}}
+\ee
+
+\subsection{Kinetic Energy}
+The Maxwell-Boltzmann Distribution can be rewritten in terms of kinetic energy (E$_k$). 
+\be
+f(E_k) = \frac{2\pi}{(\pi RT)^{3/2}} \left(E_k\right)^{\frac{1}{2}} e^{\left(-E_k/RT\right)}
+\ee
+Again show this distribution is normalized.\\
+\textbf{Hint:} The following integral will make your life easier. 
+\be
+\int_0^\infty x^{\frac{1}{2}} e^{-ax} dx = \frac{1}{2a}\left(\frac{\pi}{a}\right)^{\frac{1}{2}}
+\ee
+
+\section{Our First Program}
+For this course (and in real life) you  need to take advantage of computers.
+Each week, we will provide a simple problem that should be done using some form of mathematics software.
+Exams will be done in class and \textbf{ Will NOT} require any form of programming.
+However, the concepts we cover in these questions are still fair game for the exam (so at-least compile and run the solution we provide). 
+
+For this course we suggest you utilize \textbf{Mathematica} (Moises) or \textbf{Python} (Shane) to complete these questions.
+We will provide two solutions, one in each language, and you are welcome to look at either (you do not need to use both).
+You are welcome to use any other programming language you like (C++, Fortran, Matlab, Ruby, etc), but solutions will only be provided for Python and Mathematica. 
+
+\subsubsection*{}
+\textbf{DO NOT} use a spreadsheet (excel), or pen and paper for these calculations. 
+
+\subsubsection*{}
+In question 2 we showed that the Maxwell-Distribution is normalized and can be used as a probability distribution.
+Please compute the expected value, variance, and standard deviation for a population of water molecules at 100$^0$C,
+by integrating over the distribution for all speeds (0 to $\infty$). \\
+\textbf{Comment:} There are other ways of computing these properties, we are asking you to compute them numerically with the following integrals.
+
+\subsection{The Expected Value} 
+\be
+E[\nu] = \int_{\nu_1}^{\nu_2} \nu f(\nu) d\nu 
+\ee
+\textbf{Comment:} The expected value (average value) is just a number!
+
+\subsection{The Variance}
+\be
+Var[\nu] = \int_{\nu_1}^{\nu_2} \left(\nu-E[\nu]\right)^2 f(\nu) d\nu 
+\ee
+
+\subsection{The Standard Deviation}
+\be
+\sigma = \sqrt{Var[\nu]}
+\ee
+
+\end{document}
