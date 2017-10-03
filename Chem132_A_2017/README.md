@@ -7,7 +7,7 @@ Topics included are: Perfect and Real gases, Maxwell-Boltzmann Distribution, the
 The instructor for the course is `Dr. John Hemminger` (jchemmin@uci.edu)
 
 Teaching Assistants: 
-`Moises Romero` (moiseser@uci.edu) and `Shane Flynn` (swflynn@uci.edu)
+`Moises Romero` (moiseser@uci.edu) and `Shane Flynn` (swflynn@uci.edu), Office: NS2 2208
 
 ## Logistics:
 
@@ -28,6 +28,13 @@ The suggested text for the class is `Physical Chemistry Thermodynamics, Structur
 
 #### Grading:
 The grading is subject to change, however, expect something like: 
+
+Midterm1: 20%, Midterm2: 20%, Webassign: 5%, Final: 55%. 
+
+The Final Exam will be Friday December 15, 8am-10am. 
+
+There will be no make-up exams for the course. 
+If an emergency occurs and you are unable to attend an exam you will need to provide documentation to Dr. Hemminger and discuss an alternative. 
 
 
 ## Lecture_notes:
