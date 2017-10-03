@@ -17,7 +17,7 @@ If you have access to a computer, than you can benefit from learning basic progr
 Any person who interacts with data should learn to use basic computaional resources for storing, managing, plotting, and analyzing that data.
 The majority of scientific problems cannot be solved analytically (with pen and paper), computational methods are essential for working on cutting-edge problems.
 
-#### Mathematica
+### Mathematica
 Mathematica is a private mathmatical software, made available for free to students at UCI.
 
 `https://uci.service-now.com/kb_view.do?sysparm_article=KB0010917`
@@ -25,13 +25,14 @@ Mathematica is a private mathmatical software, made available for free to studen
 Chem 5 at UCI requires the use of Mathematica, so we have decided to also use mathematica for the primary software during Chem132A. 
 We will use this software to introduce students to basic computational skills, and solve more interesting problems numerically. 
 
-#### Python
+#### Mathematica Tutorial
+The `Mathematica_Tutorial` contains an example mathematica notebook written by `Alan Robledo` (Furche Group, UCI). 
+This tutorial covers various useful commands available in Mathematica, and was made with Chem132A in mind. 
+
+### Python
 Python is an open-source (free) all-purpose programming language that is heavily used in the scientific community (data science and biolgical sciences for example). 
 Python is one of the easiest programming languages to learn, and can be used for general programming (not just scientific computing). 
 For this reason, we have decided to also prepare solutions using Python for this course.
-
-
-
 
 
 ## Overview
