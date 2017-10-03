@@ -1,0 +1,230 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Ch.1 The Properties of Gases}
+\author{swflynn }
+\date{September 2017}
+
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{braket}
+\usepackage[margin=0.7in]{geometry}
+
+
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+
+\begin{document}
+
+\maketitle
+
+A \textbf{Brief} summary of Chapter 1 in Atkins and Paula: Physical Chemistry. 
+
+\section*{The Perfect Gas}
+In science we make models to describe a physical system. 
+These models are abstractions, they may or may not be physical themselves. 
+The first model we consider in thermodynamics is the perfect (ideal) gas.
+
+Another warning, most equations in thermodynamics are derived with certain assumptions, it is very common for students to try and memorize equations, without understand where the come from. 
+Deriving equations can be challenging, however, it is essential in understanding when the equations are valid to use. 
+For example, an equation derived at constant temperature would be inappropriate to use in a problem where temperature is being changed rapidly. 
+
+Please note, the perfect gas and the ideal gas are semantics for an introductory physical chemistry course.
+Technically a perfect gas sets all of the interactions between particles to 0, while an ideal gas sets them to a constant. 
+These types of interactions are important in mixing problems, and chemical engineers will give them more thought, however, introductory chemistry largely ignores the complication. 
+Feel free to use whichever term is more convenient, unless stated otherwise. 
+
+\subsection*{Variables of State}
+A physical system is defined in terms of physical observables, things like temperature, pressure, volume, and amount of substance. 
+
+In macroscopic terms we think of pressure as the average force exerted by atoms on their container. 
+Classically speaking we can think of atoms as spheres moving at incredibly high speeds with elastic collisions.
+They bounce around their container exerting a force on the container walls with each collision. 
+
+For a system containing two gases and a movable piston (in physical contact but chemically separated) a \textbf{mechanical equilibrium} is established when an equal pressure is exerted by both sides of the piston.
+
+We think of temperature in terms of 'hot' and 'cold', maybe a better description is the average internal energy within a system. 
+We can use the perfect gas approximation to define an absolute temperature scale, that is independent of the material composing the gas (because it is perfect). 
+
+\subsection*{Equations of State}
+It would be convenient to write an equation relating the variables of interest for a chemical system.
+This type of equation is known as an \textbf{Equation of State}. 
+A simple EOS would be 
+\be
+p = f\left(T,V,N\right)
+\ee
+Where we relate the pressure to some function depending on the temperature, volume, and number of atoms (n defines the number of moles, a convenient scaling for chemical systems, because N is typically very large). 
+If we assume an equation of this form we can reduce the number of variables we need to know independently. 
+As we will explore with real gases, the EOS is something we construct, a model, and it will change form based on the system we are considering. 
+Theoretically every substance would need a unique equation of state, we can make assumptions about chemical systems and use generic equations to begin modeling them. 
+
+An extremely common EOS is the perfect gas equation, which assumes a linear proportionality constant to relate terms. 
+\be
+\begin{split}
+pV &= NkT\\
+pV &= nRT
+\end{split}
+\ee
+Where the amount of substance (N=atoms, n=moles) can be related through the constant R or K depending on your amount. 
+
+It is important to realize that thermodynamics was derived before quantum mechanics, and even the concept of the atom. 
+All of the results found in thermodynamics were discovered and then generalized through experiments. 
+\textbf{Statistical Mechanics} uses mathematics and the concept of atoms to derive all of the generalizations found in thermodynamics. 
+
+When formulating thermodynamics, three different expressions, \textbf{Boyle's Law}, \textbf{Charle's Law}, and \textbf{Avogadro's Principle} were all discovered and applied to formulate the perfect gas law. 
+It is important to note that these equations are only true in limiting cases (p=0) however, they are a good first order approximation to any system.
+When you combine these three expressions you generate the perfect gas law. 
+
+When we mix gases together we can define the \textbf{partial pressure}, the pressure exerted by one component of the mixture ($p_j$) as 
+\be
+\begin{split}
+p_j &= x_j p_{tot}\\
+x_j &= \frac{n_j}{n_{tot}}, \qquad n_{tot} = n_1 + n_2 + \cdots + n_j
+\end{split}
+\ee
+Where $x_j$ is the mole fraction taken over the various components in the system. 
+From these equations the sum of the mole fractions must be 1 (when taken over all components in the mixture), and the partial pressures must subsequently add up to the total pressure. 
+\be
+\sum_j p_j = \sum_j x_j p = \left(\sum_j x_j\right)p = \left( \frac{x_1 + x_2 + \cdots x_j}{x_1 + x_2 + \cdots x_j}\right)p = p
+\ee
+This statement is true for all gases. 
+A perfect gas simplifies the picture, the partial pressure as defined above is actual equal to the same amount of gas in an isolated container of the same physical properties as the mixture. 
+In a real gas the atoms in the mixture interact, so the physical properties of the gas will be different than a pure gas.
+
+\section*{The Kinetic Model}
+The Kinetic Molecular Model of gases describes a gas as a set of atoms moving randomly at high speeds. 
+From these basic assumptions various properties about gases can be determined. 
+
+Please note: you will not be expected to derive equations of this caliber, that is left to graduate students.
+You should understand what the equations tell you, and how/when to use them. 
+
+\subsection*{The Model}
+There are three main assumptions defining the kinetic model
+\begin{enumerate}
+\item The gas consists of molecules of mass m in ceaseless random motion obeying the laws of classical mechanics. 
+\item The size of the molecules is negligible, their diameter is much smaller than their travel distance between collisions. 
+\item The molecules only interact during brief, rare, elastic collisions. 
+\end{enumerate}
+It can be shown that these assumptions derive the following equation
+\be
+\begin{split}
+pV &= \frac{1}{3}nM\nu_{rms}^2\\
+M &= mN_A
+\end{split}
+\ee
+RMS stands for root mean square speed. 
+\be
+\nu_{rms} = \sqrt{\braket{\nu^2}}
+\ee
+From the perfect gas equation of state we can solve for the speed. 
+\be
+pV = nRT = \frac{1}{3}nM\nu_{rms}^2 \Rightarrow \nu_{rms} = \sqrt{\left( \frac{3RT}{M} \right)}
+\ee
+
+It is important to note that this expression is for the average speed of a molecule.
+In reality the molecules follow a distribution of speeds, that when averaged give the previous result. 
+This distribution, f, is given by 
+\be
+f(\nu) = 4\pi \left(\frac{M}{2\pi RT}\right)^{\frac{3}{2}} \nu^2 e^{\frac{-M\nu^2}{2RT}}
+\ee
+The function is extremely important and is known as the \textbf{Maxwell-Boltzmann Distribution} of speeds. 
+
+It is important to build an understanding of limits in an equation, here we can guess the behavior of this distribution by the various terms present. 
+
+The presence of the Gaussian (the exponential term) means at large speeds the function is pulled down to 0 at an exponential rate. 
+An exponential scales very heavily, initially this term is small, but add in large values and it rapidly collapses. 
+The squared speed coefficient will initially 'win' against the exponential (it goes to 0 as the speed decreases).
+As we increase speed the squared term increases, however, the exponential will eventually drag the function back down to 0 at larger speeds. 
+
+The mass factor appears both as a coefficient, and as an exponential, the exponential is a stronger function, therefore a larger mass will collapse faster, or a larger mass will have lower speeds. 
+The temperature appears in the denominator, so its effect is opposite, a larger temperature will favor higher speeds. 
+This type of distribution can be used as a probability, therefore the area under the curve (the integral) must be 1 when taken over all of space. 
+This condition is where the strange coefficient comes from. 
+
+Think about the limits:
+\be
+e^{-0} = 1, \qquad 0^2 = 0
+\ee
+
+Using the Maxwell Boltzmann distribution we can compute the mean value for any speeds through integration. 
+From basic probability theory we can determine any power of the average value through integrals of 
+\be
+\braket{x^n} = \int_0^\infty x^n f(x) dx
+\ee
+
+Using this, the average value of the speed for a set of molecules within any two speed a is given by 
+\be
+F(\nu_1,\nu_2) = \int_{\nu_1}^{\nu_2} \nu f(\nu)d\nu
+\ee
+
+Using the distribution you can show that the mean speed and the most probable speed are given by
+\be
+\nu_{mean} = \left(\frac{8RT}{\pi M}\right)^{\frac{1}{2}} \qquad \nu_{mp} = \left(\frac{2RT}{M}\right)^{\frac{1}{2}}
+\ee
+
+\subsection*{Collisions}
+If we think of a gas as a collection of molecules we should be able to calculate the frequency at which a collision occurs, and the distance between the collisions on average. 
+The theory assumes atoms to be points, a collision is defined as the moment when some distance parameter, d, or less exists between the centers of the points. 
+The \textbf{collision frequency}, z, for the perfect gas can be shown to be 
+\be
+\begin{split}
+z = \sigma \nu_{rel}\mathcal{N}\\
+\mathcal{N} = \frac{N}{V}, \qquad \sigma = \pi d^2
+\end{split}
+\ee
+Where $\mathcal{N}$ is the number density and $\sigma$ is the collision cross section of the atom. 
+As expected an increase in temperature will increase the relative speed and therefore the collision frequency. 
+
+The average distance an atom travels before a collision is given by the \textbf{mean free path}, $\lambda$. 
+\be
+\lambda = \frac{\nu_{rel}}{z}
+\ee
+As expected the temperature in a closed container will not affect the mean free path, all of the molecules will be moving faster on average, so their opportunity to collide will not change. 
+This classical approach to dynamics is valid iff d $\leq$ $\lambda$, the limit where the size of the atoms is much smaller than their travel distance, meaning they do not interact much. 
+This should not be a surprise, in nature atoms are quantum mechanical, therefore interactions will have 'interesting' effects we would need to account for. 
+
+\section*{Real Gases}
+A perfect gas only exists in the limit of no pressure (meaning the particles do not interact). 
+While the perfect gas is a convenient model, it cannot explain the nature of real chemical systems quantitatively. 
+Various other equations of state have been developed to account for these systems. 
+
+\subsection*{Deviations from Perfect}
+When atoms/molecules get close to one-another they start to interact. 
+The nature and strength of these interactions will dictate how 'non-perfect' a chemical system is. 
+For example consider mixing water and oil (although these are liquids the equivalent perfect mixture) would not predict that these chemical species do not mix. 
+The nature of their separation is due to the interactions of the atoms. 
+
+As atoms become very close to each-other an exponentially strong repulsion force is generated, as the molecules separated the potential energy between them decreases to a minimum, and then approaches zero at the limit of infinite separation, when the molecules can no longer feel each-other. 
+
+To document these types of deviations from reality we can tabulate certain characteristics.
+The \textbf{Compression Factor}, Z, compares the molar volume of a real gas to its perfect counterpart as a ratio (equal to 1 if the real gas is acting perfectly).
+\be
+PV_m = RTZ, \qquad Z = \frac{V_m}{V_m^0}
+\ee
+
+For systems with large volumes and moderately high temperatures, the deviations from ideality can be approximated as an expansion of quadratic terms.
+This approach is known as the \textbf{Virial Equation of State}
+\be
+\begin{split}
+PV_m &= RT\left( 1+B'p + c'p^2 + \cdots  \right)\\
+PV_m &= RT \left( 1 + \frac{B}{V_m} + \frac{C}{V_m^2} + \cdots \right)
+\end{split}
+\ee
+The first equation is a generic expansion in terms of variable p, the second equation is a convenient form of the expansion, the coefficients in this expression are known as the virial coefficients. 
+We should note that all properties of these 'real' EOS may not be consistent with the perfect gas description (various derivatives for example). 
+Be warned that the perfect EOS is convenient for building intuition, but it is a very special case. 
+
+\subsection*{The van der Walls Equation}
+The van der Walls EOS is a more specific equation than the perfect gas, accounting for the actual volume taken up by atoms (they are not point particles), and the interactions between particles. 
+\be
+\begin{split}
+p &= \frac{nRT}{V-nb} - a\frac{n^2}{V^2} \\
+p &= \frac{RT}{V_m-b} - \frac{a}{V_m^2}
+\end{split}
+\ee
+Where the constants a and b are the van der walls coefficients. 
+
+Note that the virial equation is ultimately a numerical technique, using an analysis of specific materials in specific physical states, the van der Walls equation is an analytic expression, a bit more realistic than the perfect gas EOS. 
+
+\end{document}
