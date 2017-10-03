@@ -1,7 +1,7 @@
 # The Notebook:
-Alan Robledo (Furche Group UCI) developed an extremly useful tutorial for using mathematica.
+Alan Robledo (Furche Group UCI) developed an extremly useful tutorial for using Mathematica.
 This notebook covers everything from formatting and writing in the notebook, to basic mathematics, to plotting, and doing numerical integration. 
-This notebook was made with Cehm132A in mind, and should be your first resource for learning the basics of mathematica!
+This notebook was made with Chem132A in mind, and should be your first resource for learning the basics of mathematica!
 
 The Mathematica software uses a file type called a notebook (nb). 
 If you open the file `mathematica_tutorial.nb` on Github, it will be ~5000 lines. 
