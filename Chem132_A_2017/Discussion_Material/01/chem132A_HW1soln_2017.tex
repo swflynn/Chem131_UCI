@@ -1,0 +1,294 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Chem132A Discussion 1 Solutions}
+\author{swflynn }
+\date{September 2017}
+
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{braket}
+\usepackage[margin=0.7in]{geometry}
+
+
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\pd}{\partial}
+
+\begin{document}
+
+\maketitle
+
+
+\section{Ideal Gas vs Real Gas}
+
+\subsection{Derivatives}
+For the following function solve for $\frac{\pd f(x,y,z)}{\pd x}$, $\frac{\pd f(x,y,z)}{\pd y}$, and $\frac{\pd f(x,y,z)}{\pd z}$
+\be
+f(x,y,z)=x^2y + y^2x
+\ee
+\subsection*{Solution:}
+For $\frac{\pd f(x,y,z)}{\pd x}$ we want to see how the function changes with respect to (wrt) x. Therefore other variables are considered constants and we take the derivative wrt x. 
+\be
+\frac{\pd f(x,y,z)}{\pd x} f(x,y,z)= \frac{\pd}{\pd x}\left(x^2y + y^2x\right) = 2xy + y^2 
+\ee
+For $\frac{\pd f(x,y,z)}{\pd y}$ we want to see how the function changes with respect to y. This time we take the derivative of the y terms as the x terms remain constant.
+\be
+\frac{\pd f(x,y,z)}{\pd y} f(x,y,z)=\frac{\pd}{\pd y}\left(x^2y + y^2x\right) = x^2 + 2yx
+\ee
+For $\frac{\pd f(x,y,z)}{\pd z}$ we want to see how the z terms affect the function, so the x and y terms behave as constants. 
+\be
+\frac{\pd f(x,y,z)}{\pd z} f(x,y,z)=\frac{\pd}{\pd z}\left(x^2y + y^2x\right) = 0
+\ee
+The value here is 0.
+There is no z term within the function and the derivative of a constant is 0. Meaning we should really write f(x,y) as there is no z dependence.
+
+\subsection{Ideal Gas Law}
+For 1 mol of Argon gas at T=300 K and V=10 L, calculate $\frac{\pd p}{\pd T}$ and $\frac{\pd p}{\pd V}$ using the ideal gas law.
+\be
+pV=nRT
+\ee
+What does each solution mean? 
+
+\subsection*{Solution:}
+Because we only have 1 mole of gas (n=1), we can rearrange our equation: 
+\be
+p=\frac{RT}{V}
+\ee
+For $\frac{\pd p}{\pd T}$ : 
+\be
+\frac{\pd p}{\pd T} = \frac{R}{V}
+\ee
+With the knowledge of the derivation we can now plug in values.
+\be
+\frac{\pd}{\pd T} = \frac{R}{V} = \frac{8.314}{10} = .8124 (\text{kPa/K})
+\ee
+This means at conditions of 300 K and 10 L, every 1K increase in temperature increases the pressure by .8124 kPa. \\
+
+For $\frac{\pd p}{\pd V}$
+\be
+\frac{\pd p}{\pd V} = \frac{-RT}{V^2}
+\ee
+Once again we plug in the values given : 
+\be
+\frac{\pd p}{\pd V} = \frac{-RT}{V^2} = \frac{(-8.314)(300)}{10^2} = -24 (\text{kPa /L})
+\ee
+For the conditions of T=300 K and V=10 L; every increase of 1 L causes the pressure to decreases by 24 kPA. 
+
+\subsection{Real Gas Law vs Ideal Gas Law}
+A. Calculate the pressure exerted by N$_2$ at 300K for the molar volumes of 0.100 L-mol$^{-1}$ and 250 L-mol$^{-1}$. 
+Use the  ideal gas law and van der Walls equation. 
+The parameters for N$_2$ are a=1.370 bar-dm$^6$-mol$^{-2}$ and b=0.0387 dm$^3$-mol$^{-1}$.
+\be
+p=\frac{RT}{V_m - b}-\frac{a}{V^2_m}
+\ee
+
+\subsection*{Solution:}
+This problem is meant to show the differences between the two gas laws.
+Remember the molar volume is 
+\be
+V_m = \frac{V}{n}
+\ee
+
+Ideal Gas Law calculations for 
+
+V$_m$ = 0.100 L-mol$^{-1}$ 
+
+\be
+p = \frac{RT}{V_m} = \frac{(8.314 \text{L-bar-mol}^{-1}\text{K}^{-1})(300 \text{K})}{0.100 \text{L/mol}} = 249 \text{bar}
+\ee
+
+V$_m$ = 250 L-mol$^{-1}$ 
+
+\be
+p = \frac{RT}{V_m} = \frac{(8.314\text{L-bar- mol}^{-1}\text{K}^{-1})(300\text{K})}{250\text{L/mol}} = 9.98 \cdot 10^{-2} \text{bar}
+\ee
+
+Real Gas Law calculations for 
+
+V$_m$ = 0.100 L-mol$^{-1}$ 
+\be
+p=\frac{RT}{V_m - b}-\frac{a}{V^2_m} = \frac{(8.314\text{L-bar-mol}^{-1}\text{K}^{-1})(300\text{K})}{0.100\text{L-mol}^{-1} - 0.0387\text{dm}^3\text{mol}^{-1}} - \frac{1.370\text{bar-dm}^6\text{mol}^{-2}}{(0.1\text{L-mol}^{-1})^2} = 270 \text{bar}
+\ee
+
+V$_m$ = 250 L-mol$^{-1}$ 
+\be
+p=\frac{RT}{V_m - b}-\frac{a}{V^2_m} = \frac{(8.314\text{L-bar-mol}^{-1}\text{K}^{-1})(300\text{K})}{250\text{L-mol}^{-1} - 0.0387\text{dm}^3\text{mol}^{-1}} - \frac{1.370\text{bar-dm}^6\text{mol}^{-2}}{(250\text{L-mol}^{-1})^2} = 9.98 \cdot 10^{-2} \text{bar}
+\ee
+Recall that value a corrects for particle interactions and value b corrects for volume. 
+
+Understanding the significance of these values : 
+
+If $p_{\text{real}} > p_{\text{ideal}}$: this suggests that the atoms are repelling one another, generating a larger outward force. 
+With a smaller volume the atoms are much closer to each-other, which will force them to interact more.
+
+If $p_{\text{real}}<p_{\text{ideal}}$:
+this suggests the atoms are attracted to one-another, decreasing the overall outward force.
+At larger distances dispersion forces will dominate and the atoms will exhibit a slight attractive force.
+
+If p$_{\text{real}}$ = p$_{\text{ideal}}$ then the real gas is behaving ideally.
+This suggests the particles are not interacting much.
+We observe this at a molar volume of 250L-mol$^{-1}$. 
+
+At low pressure the atoms simply do not see each-other very often, so their interactions become independent. 
+ 
+\section{Meeting The Maxwell-Boltzmann Distribution}
+
+\subsection{Integration By Parts (IBP)}
+Consider the function
+\be
+y(x) = a(x) b(x)
+\ee
+Starting with the right hand side (RHS) of this equation, derive the formula for integration by parts.
+
+\subsection*{Solution:}
+Integration by parts comes from the product rule for derivatives as we will show below. 
+
+Let's start by taking the derivative of y(x).
+\begin{equation}
+    \frac{d}{dx}\left[a(x)b(x)\right] = a(x)b'(x) + b(x)a'(x)
+\end{equation}
+Now take the anti-derivative of both sides. 
+\begin{equation}
+    \begin{split}
+        \int\frac{d}{dx}\left[a(x)b(x)\right]dx &= \int a(x)b'(x) dx+ \int b(x)a'(x) dx\\
+         \left[a(x)b(x)\right] &= \int a(x)b'(x) dx+ \int b(x)a'(x)dx 
+    \end{split}
+\end{equation}
+The integral and derivative operations are inverses from the fundamental theorem of calculus, allowing us to cancel terms. 
+Now we can simply rearrange our equation to find a formula for our integral of interest. 
+\begin{equation}
+    \int a(x)b'(x) dx =  \left[a(x)b(x)\right] - \int b(x)a'(x) dx
+\end{equation}
+This is our integration by parts formula, a direct result of the product rule of derivatives. 
+It is common for IBP to be written as 
+\be
+\int udv = uv - \int vdu
+\ee
+
+\subsection{An Interesting Integral}
+Compute the following integral.  
+\be
+y(x) = \int_0^\infty x^{n}e^{-x}dx 
+\ee
+\textbf{Hint:} Use IBP twice, and then stop. 
+
+\subsection*{Solution}
+To solve this integral we notice that the exponential will not change in power, but we can reduce the power of the x term. 
+This general format suggests to do integration by parts (IBP), so let: 
+\begin{center}
+  \begin{tabular}{ | l | c | }
+    \hline
+    u = x$^n$ & v = -e$^{-x}$ \\ \hline
+    du = nx$^{n-1}$ dx & dv = e$^{-x}$dx  \\
+    \hline
+  \end{tabular}
+\end{center}
+Using our IBP substitutions we can evaluate this integral (note the uv term goes to 0 when you evaluate both limits).
+\begin{equation}
+\begin{split}
+    \int_0^\infty x^{n}e^{-x}dx &= x^n(-e^{-x}) \Big|_0^\infty - \int_0^\infty -e^{-x}nx^{n-1}dx \\
+    &= n\int_0^\infty x^{n-1}e^{-x}dx
+    \end{split}
+\end{equation}
+And here we start to see something interesting, let's repeat the IBP one more time to better see the pattern.
+\begin{center}
+  \begin{tabular}{ | l | c | }
+    \hline
+    u = x$^{n-1}$ & v = -e$^{-x}$ \\ \hline
+    du = n-1x$^{n-2}$ dx & dv = e$^{-x}$dx  \\
+    \hline
+  \end{tabular}
+\end{center}
+\begin{equation}
+\begin{split}
+n\int_0^\infty x^{n-1}e^{-x}dx &= n\left[ x^{n-1}(-e^{-x})\right]\Big|_0^\infty - n\int_0^\infty (n-1)x^{n-2}e^{-x}dx \\
+n\int_0^\infty x^{n-1}e^{-x}dx & \\ &=n(n-1)\int_0^\infty x^{n-2}e^{-x}dx \\
+\end{split}
+\end{equation}
+We now see the pattern, if we keep repeating this process we will keep integrating out n-i terms n(n-1)(n-2)(n-3)...1
+Which looks just like the factorial function!
+(When you reach the limit (n=n) the last integral will evaluate to 1). 
+\be
+\int_0^\infty e^{-x}dx = 0 - (-1) = 1
+\ee
+
+\subsection{Finally; The Distribution}
+Let's now look at the Maxwell-Boltzmann Speed Distribution, f($\nu$).
+\be
+f(\nu) = 4\pi \left(\frac{M}{2\pi RT}\right)^{\frac{3}{2}} \nu^2 e^{\frac{-M\nu^2}{2RT}}
+\ee
+Please show that this distribution is normalized. 
+
+\textbf{Hint:} To do this, take the following integral as true (meaning you do not need to prove it, just use it). 
+\be
+\int_0^\infty x^2 e^{-ax^2} dx = \frac{1}{4a}\left(\frac{\pi}{a}\right)^{\frac{1}{2}}
+\ee
+
+\subsection*{Solution}
+We need to integrate over all of space, and show this integral is equal to 1. 
+The equation given has already changed the bounds of the integral due to the even nature of the function, so take the integral from 0 to infinity instead. 
+\be
+\int_{-\infty}^\infty f(\nu)d\nu = \int_0^\infty 4\pi \left(\frac{M}{2\pi RT}\right)^{\frac{3}{2}} \nu^2 e^{\frac{-M\nu^2}{2RT}}d\nu = 4\pi \left(\frac{M}{2\pi RT}\right)^{\frac{3}{2}} \int_0^\infty \nu^2 e^{\frac{-M\nu^2}{2RT}}d\nu
+\ee
+Pulling out the constants, the integral we must compute is of the same form as the hint. 
+Let a = $\frac{m}{2RT}$, using this substitution we can then use the integral provided in the hint to solve the problem.
+\be
+= 4\pi \left(\frac{M}{2\pi RT}\right)^{\frac{3}{2}} \frac{1}{4a}\left(\frac{\pi}{a}\right)^{\frac{1}{2}} = 4\pi \left(\frac{M}{2\pi RT}\right)^{\frac{3}{2}}\left(\frac{2RT}{4M}\right)\left(\frac{2\pi RT}{m}\right)^{\frac{1}{2}}
+\ee
+Finally we can use basic exponent manipulations $x^{3/2} = x x^{1/2}$, to expand the first term and do the algebra. 
+\be
+= 4\pi \left(\frac{M}{2\pi RT}\right) \left(\frac{M}{2\pi RT}\right)^{\frac{1}{2}}\left(\frac{2RT}{4M}\right)\left(\frac{2\pi RT}{m}\right)^{\frac{1}{2}} = 1
+\ee
+
+\subsection{Kinetic Energy}
+The Maxwell-Boltzmann Distribution can be rewritten in terms of kinetic energy (E$_k$) not speed. 
+\be
+f(E_k) = \frac{2\pi}{(\pi RT)^{3/2}} \left(E_k\right)^{\frac{1}{2}} e^{\left(-E_k/RT\right)} 
+\ee
+Again show this distribution is normalized.
+\textbf{Hint:} The following integral will make your life easier. 
+\be
+\int_0^\infty x^{\frac{1}{2}} e^{-ax} dx = \frac{1}{2a}\left(\frac{\pi}{a}\right)^{\frac{1}{2}}
+\ee
+
+\subsection*{Solution}
+This problem is extremely similar to the previous one. 
+We start by writing down our integral and pulling out constants. 
+\be
+\int_0^\infty \frac{2\pi}{(\pi RT)^{3/2}} \left(E_k\right)^{\frac{1}{2}} e^{\left(-E_k/RT\right)} dE_k = \frac{2\pi}{(\pi RT)^{3/2}} \int_0^\infty \left(E_k\right)^{\frac{1}{2}} e^{\left(-E_k/RT\right)} dE_k
+\ee
+Letting a = $\frac{1}{RT}$ we can directly substitute in our integral expression provided in the hint and we find. 
+\be
+\int_0^\infty f(E_k)dE_k = \frac{2\pi}{(\pi RT)^{3/2}} \left(\frac{\pi RT}{2}\right) \left(\pi RT\right)^{\frac{1}{2}} = 1
+\ee
+
+\section{Our First Program}
+
+\subsubsection*{}
+Compute the expected value (mean), variance, and standard deviation for a population of water molecules at 100$^0$C,
+by integrating over the distribution for all speeds (0 to $\infty$). \\
+
+\subsection{The Expected Value} 
+\be
+E[\nu] = \int_{\nu_1}^{\nu_2} \nu f(\nu) d\nu 
+\ee
+\textbf{Comment:} The expected value (average value) is just a number!
+
+\subsection{The Variance}
+\be
+Var[\nu] = \int_{\nu_1}^{\nu_2} \left(\nu-E[\nu]\right)^2 f(\nu) d\nu 
+\ee
+
+\subsection{The Standard Deviation}
+\be
+\sigma = \sqrt{Var[\nu]}
+\ee
+
+\subsection*{Solution}
+Please see the github for a solution written in Python and a separate solution written in Mathematica. 
+Please download the file and run it on your local computer to see our solutions. 
+If you are unable or do not know how to do this, please come ask!
+
+\end{document}
