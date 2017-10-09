@@ -1,0 +1,196 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Chem132A: Lecture 02}
+\author{Shane Flynn (swflynn@uci.edu) }
+\date{10/2/17}
+
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{braket}
+\usepackage[margin=0.7in]{geometry}
+\usepackage{hyperref}
+
+
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\benum}{\begin{enumerate}}
+\newcommand{\eenum}{\end{enumerate}}
+\newcommand{\pd}{\partial}
+
+\begin{document}
+
+\maketitle
+
+\section*{Start of Chapter 2}
+There is a separate thermodynamics course in the engineering department. 
+If you are an engineering student you may want to consider the course taught in engineering.
+
+\subsection*{Definitions}
+An \textbf{Extensive Property} is a physical characteristic that depends on the amount of substance. 
+Things like mass, energy, and volume are all extensive (if you add more 'stuff' the value will change). 
+In contrast an \textbf{Intensive Property} is a physical characteristic that does not depend on the amount of the material (things like color, temperature, pressure). 
+We can use things like intensive and extensive quantities to define a physical system. 
+
+\subsubsection*{Heat and Work}
+Much of thermodynamics can be broken down into watching how heat and work move in and out of a system. 
+In previous courses you discussed this topic through concepts such as \textbf{Enthalpy} and the \textbf{Gibbs Free Energy}.
+In this course we intend to formalize this discussion and derive where useful relationship between heat, work, and energy come from.
+
+Intuitively we can think of heat as the transfer of thermal energy from a hotter system to a colder one. 
+In thermodynamics we discuss the transfer of heat (q), being added into the system (+q) or taken out of the system (-q). 
+
+A general definition of work is a bit more confusing, but a simple picture comes from PV work. 
+When a system changes its volume (either increase or decrease) some amount of work must be done. 
+Although there are various kind of work (spring work, shaft work, magnetic work, gravitational work, etc), they usually must be evaluated on a case-by-case system. 
+
+We will define work done \textbf{ON} a system as positive (increasing the total 'energy' of the system), whereas work done \textbf{BY} the system as negative (decreasing the total 'energy' of the system). 
+
+In this convention a gas expanding must do work against its environment to make room for the change in volume. 
+Therefore the gas uses energy to do the expansion and the work is defined to be negative. 
+
+In general I suggest students to assign the sign of a value at the end of their calculations. 
+Do not trust your algebra to always get the correct sign (becuase you will make mistakes), after you finish a calculation ask yourself if the sign should be positive or negative!
+
+\textbf{Be Warned}: this sign convention is not a debate, for this course we use this convention. 
+In the past engineers have used the opposite convention (they are interested in making money), but this sign convention will be marked wrong in this course.
+It may be useful to write a quick note when you answer the question ie. heat is leaving the system, work is done on the system, etc. 
+
+\subsubsection*{Energy}
+There are various types of energy discussed in Thermodynamics. 
+The starting point for the subject is the \textbf{Internal Energy} (U) of a system.
+The internal energy is essentially a sum of the kinetic and potential energy of  all the particles making up a system.
+It is a function of heat and work
+\be
+\Delta U = q + w
+\ee
+As we will see, there are many ways to calculate the internal energy, this first equation is crucial for all of thermodynamics. 
+If we do work on a system, the internal energy of the system increases. 
+If we place heat into a system, the internal energy increases. 
+
+\subsubsection*{State Functions}
+A concept that will continue to occur throughout Thermodynamics is the \textbf{State Function}.
+A state function is a property that does not depend on the path or history of the system. 
+The temperature of a system depends on the average kinetic energy of the molecules in the system. 
+It does not matter how the atoms got their energy, it only matters what their energy is. 
+Likewise the potential energy of a system only depends on your spatial coordinates.
+It does not matter how you got their.
+Meaning you could take the stairs, or an elevator, but your potential energy on the roof of your building will only depend on that height.  
+An \textbf{Equation of State} is a equation that relates several state functions together. 
+A well known equation of state is the ideal gas law
+\be
+PV = nRT
+\ee
+
+\subsection*{Describing a System}
+In Thermodynamics we need to be very precise in describing the physical state of a system. 
+We do this using specialized language. 
+Meaning the 'every-day' meaning of a work, and the thermodynamic meaning of a word may not be the same. 
+
+\benum
+\item Open System: A system that allows for both matter and energy transfer.
+\item Closed System: A system that allows energy transfer but no matter transfer. 
+\item Closed System: A system that does not allow matter or energy transfer. 
+\eenum
+In general we usually do not care about the numerical value of the energy, we care about changes in the energy. 
+Meaning we can take our 0 of energy anywhere that is convenient, and we track the changes that happen to our energy. 
+It is important to realize that the internal energy and the change in the internal energy are not the same thing!
+
+We can also describe some conditions through which a process occurs.
+\benum
+\item Endothermic: A process such that heat is absorbed from the surroundings.
+\item Exothermic: A process such that heat is expelled to the surroundings. 
+\item Isothermal: A process without an associated change in temperature.
+\item Isochoric: A process without an associated change in volume. 
+\item Isobaric: A process without an associated change in pressure.
+\item Adiabatic: A process without an associated heat (or matter) transfer between system and surroundings.
+\eenum
+
+\subsection*{First Law}
+The \textbf{First Law of Thermodynamics} can be stated in various ways (energy is conserved, perpetual motion is impossible). 
+The most common statement is that 
+\be
+\text{The Internal Energy of an Isolated system is constant.}
+\ee
+Mathematically we can write this as 
+\be
+\begin{split}
+&\Delta U = q + w \\
+&\text{for an isolated system q = w = 0}
+\end{split}
+\ee
+This equation states that the internal energy of an isolated system is constant.
+This implies changes in the internal energy are not occurring, it does not imply that the internal energy itself need to be 0. 
+
+Take note of the language, a \textbf{Law} in science is a statement that has been found to be correct for all instances it has been tested. 
+A law has not been 'proven' but we believe it due to its track record. 
+Thermodynamics was completely developed through experiments (before the atom was discovered). 
+It makes very general statements, however, they can only be proven through the mathematical framework developed in Statistical Mechanics. 
+
+If we want to look at differential changes in the internal energy we can write
+\be
+dU = \delta q + \delta w
+\ee
+\textbf{A Note on Notation}: Mathematically speaking we can only write a differential of a state function.
+We cannot write a differential for path dependent functions such as heat and work.
+Therefore we specify the difference with a different symbol ($\delta$).
+For this course we will not worry about this formalism, however, it is an important distinction. 
+
+\subsection*{PV Work}
+In general there are various types of work, all of which have different equations.
+The easiest version is known as PV (pressure-volume) work. 
+From basic physics we know two equations to be true. 
+\be
+\delta w \equiv -F dx, \qquad P_{\text{ext}} = \frac{F}{A}
+\ee
+Here w refers to work, F as a generic force (in any dimension), and dx as the change in distance (in any dimension). 
+Likewise we know pressure (external pressure) is just the ratio of force to area. 
+We can rearrange the equations and substitute to find. 
+\be
+w = \int -F dx = \int -P_{\text{ext}} A dx = \int -P_{\text{ext}} dV
+\ee
+We have used the simple relation that Area times Distance is Volume.
+If we assume the external pressure is constant than we can pull it out of the integral.
+\be
+\begin{split}
+w &= -P_{\text{ext}} \int dV \\
+w &= -P_{\text{ext}} (V_f - V_i)
+\end{split}
+\ee
+Again this minus sign comes from our definition of work for this course. 
+If the gas expands the change in volume is positive, the gas does work to expand and the overall work must therefore be negative. 
+If we compress the gas we are doing work on the gas (the change in volume is negative) and the work for the system is positive. 
+
+\subsection*{Reversible Process}
+A \textbf{Reversible Process} is a process done such that each direction of the process can be changed by an infinitesimal change in some variable. 
+
+An easier definition to understand is a process done so slowly (infinitely slowly) such that each tiny change to the system can reach equilibrium, and then another tiny change is made and you wait for equilibrium. 
+In this way the process is done without ever being out of equilibrium. 
+
+Picture a gas within a piston.
+To expand the gas you infinitesimally move the piston, then let the external pressure and the pressure of the gas reach equilibrium. 
+You then repeat this process over the entire range of the expansion. 
+
+At each point of the expansion (if done reversibly) the pressure of the gas and the external pressure are equal, allowing us to write the following equation. 
+\be
+w_{\text{r}} = -\int P_{\text{ext}} dV = -\int P_{\text{gas}} dV 
+\ee
+We can then assume an equation of state to model the pressure of the gas. 
+If we use the ideal gas law to substitute in the pressure of the gas we find the following (assuming both the temperature and moles of gas to be constant during the expansion). 
+\be
+w_{\text{r}} = - \int \frac{nRT}{V} dV = -nRT \ln \frac{V_f}{V_i}
+\ee
+Because we assume to reach equilibrium at each point during the process we do not waste any energy in completing the process.
+This means a reversible process is an ideally efficient process (we do not waste any work to complete the process). 
+If you were to build an engine, the most efficient engine possible would be a reversible one. 
+
+\subsection*{Heat Capacity}
+If we consider the change in temperature that occurs in a system held at constant volume (no PV work) we define what is known as the \textbf{Heat Capacity}
+\be
+C_V \equiv \left(\frac{\partial U}{\partial T}\right)_V
+\ee
+Physically we are asking how the energy of our system changes with respect to temperature (at constant volume). 
+Intuitively we would expect this dependence to be different for every material, we can investigate this property experimentally!
+
+\end{document}
