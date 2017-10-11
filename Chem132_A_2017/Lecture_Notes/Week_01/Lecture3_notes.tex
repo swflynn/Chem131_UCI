@@ -1,0 +1,194 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Chem132A: Lecture 03}
+\author{Shane Flynn (swflynn@uci.edu) }
+\date{10/4/17}
+
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{braket}
+\usepackage[margin=0.7in]{geometry}
+\usepackage{hyperref}
+
+
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\benum}{\begin{enumerate}}
+\newcommand{\eenum}{\end{enumerate}}
+\newcommand{\pd}{\partial}
+
+\begin{document}
+
+\maketitle
+
+\section*{Summary Previous Lecture}
+During the previous Lecture we discussed the First Law of Thermodynamics; The Internal Energy of an isolated system is constant.
+This Law is commonly referred to as the conservation of energy. 
+
+It is important to understand that Internal Energy (U) is a state function, but the heat (q) and work (w) are not.
+We then discussed various assumptions one can make to simplify the equations for work. 
+
+At the very end of lecture we gave a name to a new partial derivitive we encountered, the \textbf{Constant Volume Heat Capacity}. 
+\be
+C_V \equiv \left(\frac{\pd U}{\pd T}\right)V
+\ee
+Intuitively the heat capacity measures the change in energy experienced by a material with an associated change in temperature. 
+
+\section*{Heat Capacity}
+We can motivate the definition of the constant volume heat capacity as follows.
+Because the Internal Energy is a state function we can write a total differential for it. 
+If we consider U(T,V) the total differential would be 
+\be
+dU = \left(\frac{\pd U}{\pd T}\right)_VdT + \left(\frac{\pd U}{\pd V}\right)_T dV 
+\ee
+If we restrict our system to a constant volume system (no PV work), than this total differential becomes 
+\be
+dU = \left(\frac{\pd U}{\pd T}\right)_VdT \equiv C_v dT
+\ee
+With this definition we can assume a heat capacity that is independent of temperature to simplify the integral. 
+\be
+\Delta U = \int_{T_i}^{T_f} C_V(T) dT = \int_{T_i}^{T_f} C_V dT = C_v\Delta T
+\ee
+Finally if we are assuming a process done at constant volume and no other work besides PV work the First Law will simplify to $\Delta U = q$ and we can write
+\be
+\Delta U = q = C_v\Delta T 
+\ee
+
+\section*{Enthalpy}
+We have seen that the Internal Energy can be used to define useful properties describing a system. 
+We are now going to introduce an new variable called the \textbf{Enthalpy} (H). 
+For this course we will take the following equation to be a definition. 
+\be
+H \equiv U + PV
+\ee
+From inspection we see that U, P, and V are all state functions. 
+It turns out that a function composed of state functions is also a state function.
+
+Meaning H is another state function!
+\textbf{Comment:} This logic is not the entire story. 
+For example we know U = q + w, and neither q nor w are state functions, and yet U is a state function. 
+The reason for this is beyond an undergraduate course, but it is interesting to think about. 
+
+To get familiar with this new equation, consider the enthalpy change for a reaction between ideal gases. 
+The Enthalpy can be expressed as using the ideal gas law as
+\be
+\Delta H = \Delta U + \Delta n_g RT
+\ee
+
+Let's explore this new equation some more. 
+Consider the following.
+\be
+\begin{split}
+H = U + PV \Rightarrow dH &= dU + d(PV) \Rightarrow dH = dU + PdV + VdP \\
+dH &= \delta q + \delta w + PdV + VdP\\
+\end{split}
+\ee
+We have substituted in the First Law, if we consider a process with only PV work we can simplify the expression some more.
+\be
+\begin{split}
+dH &= \delta q + \delta w + PdV + VdP\\
+dH &= \delta q + -PdV + PdV + VdP\\
+dH &= \delta q + VdP\\
+\end{split}
+\ee
+Finally if I assume that the process occurs at a constant pressure we find an interesting relationship. 
+\be
+\begin{split}
+dH &= \delta q + VdP\\
+dH &= \delta q_P \Rightarrow \Delta H = q_P \\
+\end{split}
+\ee
+This result says, given a certain set of assumptions we are able to directly relate heat to the Enthalpy. 
+
+Similar to the process we did with U, consider H(T,P), the total differential would be. 
+\be
+dH = \left(\frac{\pd H}{\pd T}\right)_PdT + \left(\frac{\pd H}{\pd P}\right)_T dP
+\ee
+If we consider a constant pressure process we can define a new heat capacity, at constant pressure this time. 
+\be
+dH = \left(\frac{\pd H}{\pd T}\right)_PdT = C_pdT
+\ee
+Where we now define the constant pressure heat capacity from the total differential as
+\be
+C_p \equiv \left(\frac{\pd H}{\pd T}\right)_PdT 
+\ee
+Again we can assume the heat capacity to be independent of temperature and we find the following. 
+\be
+\begin{split}
+dH &= C_PdT \Rightarrow \\
+\Delta H = \int_{T_i}^{T_f} C_P(T) dT &= \int_{T_i}^{T_f} C_P dT = C_P\Delta T
+\end{split}
+\ee
+
+It would seem that the enthalpy can be useful during a constant pressure process, and the internal energy can be used in a constant volume process. 
+In Thermodynamics we can define any number of equations, it is important to understand why a certain definition may be useful!
+
+\section*{Thermochemistry}
+During general chemistry you should have discussed the Enthalpy, and in general the concept of \textbf{Thermochemistry}. 
+Section 2C in Atkins covers the basics of Thermochemistry, and this information is assumed to be background knowledge for this course. 
+If you are unfamiliar with any of the topics in this section please review them on your own. 
+
+This section covers topic like the enthalpy of reaction ($\Delta_rH $) and the enthalpy of formation ($\Delta_fH $), here $\nu$ defines the stoichometric coefficient for the species. 
+\be
+\Delta_rH = \sum_{\text{product}}\nu \Delta_fH - \sum_{\text{react}}\nu\Delta_fH
+\ee
+
+If we are interested in using tabulated values for the enthalpy to study a reaction we may need to convert between temperatures.
+This is done easily by evaluating the enthalpy at the know temperature and the constant pressure heat capacity. 
+\be
+H(T_2) = H(T_1) + \int_{T_1}^{T_2} C_p(T) dT
+\ee
+
+In the same manner we can construct the enthalpy of reaction at different temperatures by substituting the appropriate terms. 
+\be
+\Delta_rH(T_2) = \Delta_rH(T_1) + \int_{T_1}^{T_2} \Delta_rC_P(T) dT
+\ee
+With the analogous definition for determining heat capacities.
+\be
+\Delta_rC_P(T) = \sum_{\text{product}}\nu  C_P - \sum_{\text{react}}\nu C_P
+\ee
+
+In the future we will compute the enthalpy of a reaction that undergoes a phase change.
+As you can probably guess, you simply add in a term to account for the enthalpy change during the transition itself. 
+As stated above, this section is meant to be a review, please read the book if this summary is not detailed enough.
+
+\section*{Naming Partial Derivatives}
+We have already seen an example where we give an important partial derivative a name (heat capacities). 
+There are various other derivatives that can be written down and calculated using thermodynamics. 
+Engineers may even be able to measure these properties experimentally and tabulate them for you to use. 
+
+We can write a total differential down for any state function, where we simply consider a summation of all of the partial derivatives composing the state function. 
+We can write this summation in any order, because none of the variables depend on their path (meaning they do not depend on their order either).
+If we have an equation of state we can actually reduce the number of variables we need to define our state function.
+For example: Using PV=nRT, we only need to define 3 variables, and we can solve for the fourth. 
+It does not matter which 3 we specify, we can always determine the remaining variable, meaning the variables are not all independent. 
+
+Consider again the total differential of U(T,V). 
+\be
+dU = \left(\frac{\pd U}{\pd T}\right)_VdT + \left(\frac{\pd U}{\pd V}\right)_T dV \equiv C_VdT + \pi_TdV 
+\ee
+We mentioned the heat capacity above, but consider our new definition, the \textbf{Internal Pressure}
+\be
+\pi_T \equiv \left(\frac{\pd U}{\pd V}\right)_T dV 
+\ee
+The internal pressure characterizes the change in energy associated with a change in volume (at constant temperature). 
+
+In general we can write U(P,V,T) (in chemistry we usually consider closed systems so we will set n=1 and ignore it). 
+As stated above, we can use an equation of state to reduce how many variables we need to characterize the system.
+Meaning we could write U(P,V), U(P,T), U(T,V), all of which give the same information. 
+
+As you can guess, we can also write down various partial derivatives associated with these manipulations. 
+
+If we wanted to see how U varies as a function of T we could rearrange our total differential (divide by dT holding P constant). 
+\be
+\left(\frac{\pd U}{\pd T}\right)_P = \pi_T\left(\frac{\pd V}{\pd T}\right)_P + C_V
+\ee
+This manipulation gives a new derivative, which we can define to be the \textbf{Expansion Coefficient}, the change in volume with an associated change in temperature. 
+\be
+\alpha = \frac{1}{V} \left(\frac{\pd V}{\pd T}\right)_P
+\ee
+Where we normalize by volume to make comparisons between materials.
+
+\end{document}
