@@ -1,0 +1,211 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Chem132A: Lecture 06}
+\author{Shane Flynn (swflynn@uci.edu) }
+\date{10/11/17}
+
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{braket}
+\usepackage[margin=0.7in]{geometry}
+\usepackage{hyperref}
+
+
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\benum}{\begin{enumerate}}
+\newcommand{\eenum}{\end{enumerate}}
+\newcommand{\pd}{\partial}
+
+\begin{document}
+
+\maketitle
+
+\section*{What We know}
+We are going to take a minute and recap everything we have covered so far in the course. 
+We began our discussion with the First Law of Thermodynamics, which is concerned with heat, work, and the Internal Energy. 
+\be
+\Delta U = q + w
+\ee
+
+We proposed that the internal energy is a state function, which can be very useful for solving problems. 
+We also introduced the concept of equations of state, which are equations relating state variables. 
+\be
+PV = nRT
+\ee
+
+To evaluate the first law, we developed the concept of work.
+In chemistry we usually only consider PV work which we can write as
+\be
+w_{PV} = -\int_{V_i}^{V_f}P_{ext}dV
+\ee
+We can then make assumptions about a process and the equation of state to write explicit forms of the work done on/by a system. 
+
+We did not really  developed a formal equation to explain heat, however it is intuitive that it is related to Temperature. 
+In this way it seems natural to write U(T,V). 
+
+Because U is a state function we decided to write a total differential
+\be
+dU = \left(\frac{\pd U}{\pd T}\right)_VdT + \left(\frac{\pd U}{\pd V}\right)_T dV 
+\ee
+Some of these partial derivatives seem interesting and we gave them names
+\be
+C_V \equiv \left(\frac{\pd U}{\pd T}\right)_V
+\ee
+With this definition and a few assumptions we were then able to write an equation for heat
+\be
+q = C_V\Delta T
+\ee
+
+In this way we decided the Internal Energy was a useful concept, we were able to say something about heat, and we decided to look for more. 
+
+Next we defined a new equation, the Enthalpy. 
+\be
+H \equiv U + PV
+\ee
+With some more assumptions we decided to write the enthalpy as H(T,P), which developed a new total differential and some new definitions. 
+\be
+C_P \equiv \left(\frac{\pd H}{\pd T}\right)_P
+\ee
+And using a new set of assumptions we were able to express the heat in a different form. 
+\be
+q = C_P\Delta T
+\ee
+
+The first Law ultimately track heat and work, but we are also interested in the spontaneity of things. 
+To get at this concept, we developed the Second Law of Thermodynamics. 
+We gave an equation for defining entropy
+\be
+dS \equiv \frac{\delta q_r}{T} \Rightarrow \Delta S = \int_i^f \frac{\delta q_r}{T}
+\ee
+And we claimed without any justification that Entropy was a state function. 
+We gave a few statements about the second law such as the total entropy of the universe is strictly greater than 0 during a spontaneous process
+
+A more general statement regarding entropy would be the following
+\be
+dS \geq \frac{\delta q}{T}
+\ee
+We get the equality when a process is done reversibly, and irreversible process is inefficient and we get the inequality. 
+
+\section*{More Thermodynamic Potentials}
+It became clear that discussing the entropy can be tricky, you need to account for the entire universe to make accurate statements.
+This can be confusing, so we are going to develop some new Thermodynamic Potentials (new equations like U and H). 
+
+\subsection*{Helmholtz Free Energy}
+Let's start again at the First Law, assuming a closed system with PV work only and constant volume. 
+
+\begin{equation}
+    dU = \delta q
+\end{equation}
+Let's incorporate our Second Law, by substituting in the First Law with our assumptions of constant volume and a closed system.
+\be
+\begin{split}
+    dS &\geq \left(\frac{dU}{T}\right)_V\\
+    TdS &\geq dU \\
+    0 &\geq dU - TdS
+    \end{split}
+\ee
+If the temperature is also constant we can pull it into the differential and write. 
+\begin{equation}
+d(U-TS) \leq 0
+\end{equation}
+Which is true for a constant T,V process.
+This result is very useful, the process as a whole must be negative to be spontaneous (or else we break our inequality). 
+The internal energy, entropy, and temperature in this equation only refer to the system and nothing else!
+
+From this analysis is seems useful to define a new thermodynamic potential 
+\begin{equation}
+A \equiv U - TS
+\end{equation}
+A is known as the Helmholtz Free Energy (sometimes labeled as F), and a negative Helmholtz implies a spontaneous process, because it satisfies our inequality. 
+Essentially this potential is useful because it 'tracks' the  necessary increase in the Entropy of the universe during a process through monitoring the environment. 
+If we consider a constant temperature process we have
+\begin{equation}
+\Delta A = \Delta U - T\Delta S
+\end{equation}
+We know that $\Delta$A must be negative to be spontaneous and you can compensate through negative Internal Energy or positive Entropy. 
+A negative $\Delta$A implies energy enters the environment which will increase its Entropy. 
+
+If we do a process reversibly we get our equality
+\begin{equation}
+    \Delta S_r = \frac{q_r}{T}
+\end{equation}
+We can use this to consider the reversible Helmholtz Equation. 
+\begin{equation}
+    \begin{split}
+        \Delta A_r &= \Delta U_r - T\Delta S_r \\
+        &= \Delta U_r - T\frac{q_r}{T} \\
+        &= \Delta U_r - q_r \\
+        &= q_r + w_r - q_r \\
+        \Delta A_r &= w_r
+    \end{split}
+\end{equation}
+So we see the Helmholtz free energy with constant Temperature done reversibly is equal to the reversible work of the process. 
+The reversible work is by definition the maximum work you can generate from a process, because it is completely efficient. 
+For this reason the Helmholtz Free Energy is sometimes referred to as the work function (Arbeit in German translates to Work). 
+
+To interpret the Helmholtz consider:
+\be
+\Delta A = \Delta U - T\Delta S
+\ee
+For A to be negative (and therefore spontaneous) our change in Internal Energy must account for the systems change in Entropy. 
+If the Entropy of the system decreases, the Internal Energy must be negative.
+A negative change in Internal Energy can be thought of as energy leaving the system.
+This energy enters the environment, increasing the entropy of the environment, satisfying the Second Law. 
+In this way we track the requirements placed by the Second Law, any excess free energy can be harnessed to do useful work, after satisfying the Second Law.
+
+\subsubsection*{Gibbs Free Energy}
+Experimentalists would really like a thermodynamic potential with characteristic variables T and P. 
+This way working in the lab they could easily control the natural variables for the function. 
+
+Consider a constant pressure process, and only PV work.  
+\begin{equation}
+    \delta q = dH 
+\end{equation}
+Assuming a constant temperature we can use our Second Law to write
+\be
+\begin{split}
+dS \geq \frac{\delta q}{T} \Rightarrow dS - \frac{\delta q}{T} \geq 0\\
+TdS - dH \geq 0 \Rightarrow d(H-TS) \leq 0
+\end{split}
+\ee
+
+Just like with the Helmholtz Free Energy, we are able to write a new relationship invoking the entropy of the system.
+\begin{equation}
+    G \equiv H - TS ,\qquad dG \leq 0 \Rightarrow \text{spontaneous}
+\end{equation}
+So the Gibss Free energy is a natural variable of G(P,T) and is negative for a spontaneous process. 
+Where again the direction of spontaneity is ultimately accounting for the Second Law. 
+
+For chemists the Gibbs Free Energy is very convenient for analyzing constant T, P processes. 
+A negative Gibbs implies a spontaneous reaction under these conditions. 
+Knowing this, we can actually think of equilibrium in a chemical reaction occurring when the change in Gibbs is 0. 
+This implies no spontaneous tendency for a reaction to move in either direction, which is what occurs at equilibrium.
+This concept will appear again when we discuss the Chemical Potential ($\mu$).
+
+A similar interpretation of the Gibbs Free Energy exists, such that The Gibbs can be interpreted as the maximum non-expansion work available to a system. 
+If you assume constant Temperature, constant Pressure, and a reversible process you find (Page 135).
+\be
+\begin{split}
+G &= H - TS\\
+H &= U + PV \\
+G &= U + PV - TS\\
+U &= q + w \\
+G &= q + w + PV - TS\\
+\end{split}
+\ee
+Now let's assume an isothermal reversible process.
+Let's take the work to be PV work plus 'other work' (where other means shaft work electric work, magnetic work, etc).
+\be
+\begin{split}
+dG &= \delta q + \delta w + PdV + VdP - TdS\\
+dG &= \delta q -PdV - VdP + \delta w_{non-PV}+ PdV + VdP - TdS\\
+dG_r &= TdS_r -TdS + \delta w_{non-PV} \\
+dG_r &= \delta w_{non-PV}\\
+\end{split}
+\ee
+Just like Helmholtz, with a given set of assumptions the Gibbs Free Energy can be shown to be directly equal to the NON-expansion work occurring in a system. 
+
+\end{document}
