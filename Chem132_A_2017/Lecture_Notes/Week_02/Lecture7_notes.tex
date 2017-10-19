@@ -1,0 +1,109 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Chem132A: Lecture 07}
+\author{Shane Flynn (swflynn@uci.edu) }
+\date{10/13/17}
+
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{braket}
+\usepackage[margin=0.7in]{geometry}
+\usepackage{hyperref}
+
+
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\benum}{\begin{enumerate}}
+\newcommand{\eenum}{\end{enumerate}}
+\newcommand{\pd}{\partial}
+
+\begin{document}
+
+\maketitle
+
+
+The first midterm will cover Chapters 2-4 in the book. 
+The reason for having the exams in the course is to ensure students have some feedback as to where they are in the class.
+Thermodynamics is a challenging subject for many students, it is important that you stay up-to-date with the material. 
+
+\section*{Math Lesson}
+In the Week 3 Discussion homework, you will be asked to derive all of the fundamental equations and all of the Maxwell Relationships.
+See the solutions to that homework for the algebra. 
+
+Consider the Internal Energy Fundamental Equation
+\be
+dU = TdS - PdV
+\ee
+This tells us a change iin U is associated iwth changes in S and V.
+We can therefore construct a total differential of U (because it is a state function) as
+\be
+dU = \left(\frac{\pd U}{\pd S}\right)_V dS + \left(\frac{\pd U}{\pd V}\right)_S dV
+\ee
+
+\subsection*{Exact Differentials}
+An exact differential id a special type of function where the following relationship is true.
+\be
+    \frac{\partial}{\partial y} \left[\left(\frac{\partial f}{\partial x}\right)_y \right]_x =  \frac{\partial}{\partial x} \left[\left(\frac{\partial f}{\partial y}\right)_x \right]_y
+\ee
+Physically speaking this result says the order in which we take our partial derivatives does not matter. 
+This can be interpreted as that pathway in which the process is completed does not matter, which is exactly true for state function. 
+
+\subsubsection*{Quick Example}
+Consider f(x,y) = x$^2$y$^3$, this is a 'separable' function and the second order derivatives will be exact. 
+Let's just plug this into our definition above and show this relationship is true. 
+\be
+\begin{split}
+    \left(\frac{\partial f}{\partial x}\right)_y = 2xy^3 \\
+    \left(\frac{\partial}{\partial y}\right)\left[ \left(\frac{\partial f}{\partial x}\right)_y\right]_x = 6xy^2
+    \end{split}
+\ee
+Now consider the reverse order of the partials
+\be
+\begin{split}
+    \left(\frac{\partial f}{\partial y}\right)_x = 3x^2y^2 \\
+    \left(\frac{\partial}{\partial x}\right)\left[ \left(\frac{\partial f}{\partial y}\right)_x\right]_y = 6xy^2
+    \end{split}
+\ee
+
+This relationship is only true under special conditions, relating to thermodynamics we know the path functions such as heat and work depend on the order.
+We can therefore NOT write an exact differential for a path function. 
+
+\bigskip
+
+\textbf{Comment:}
+Please review the solutions to the third Discussion homework for how to derive all of these relationships wrt. the four Thermodynamic Potentials (U,S,A,G). 
+
+\section*{Gibbs Free Energy and Temperature}
+The Gibbs Free Energy is useful, because the characteristic variables are Temperature and Pressure (things we can easily control). 
+
+The fundamental Equation for Gibbs turns out to be 
+\be
+dG = VdP - SdT 
+\ee
+We also know the definition of G = H - TS therefore S = (H-G)/T.
+The fundamental Equation tells us that
+\be
+\left(\frac{\pd G}{\pd T}\right)_P = -S = \frac{G-H}{T}
+\ee
+Now consider a product rule of the derivative of G/T. 
+\be
+\begin{split}
+\left(\frac{\pd \frac{G}{T}}{\pd T}\right)_P &= \frac{1}{T}\left(\frac{\pd G}{\pd T}\right)_P + G \left(\frac{\pd \frac{1}{T}}{\pd T}\right)_P\\
+&= \frac{1}{T}\left[\left(\frac{\pd G}{\pd T}\right)_P - \frac{G}{T}\right]
+\end{split}
+\ee
+We can simplify this last term in brackets by
+\be
+\left(\frac{\pd G}{\pd T}\right)_P - \frac{G}{T}= \frac{G-H}{T} - \frac{G}{T} = -\frac{H}{T}
+\ee
+Therefore the final relationship is that
+\be
+\left(\frac{\pd \frac{G}{T}}{\pd T}\right)_P = -\frac{dH}{T^2}
+\ee
+This relationship allows us to relate a change in Enthalpy to a change in the Gibbs Free energy (as temperature varies). 
+
+
+
+\end{document}
