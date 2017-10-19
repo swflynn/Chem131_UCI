@@ -1,0 +1,283 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Chem132A Discussion 3 Solutions}
+\author{Moises Romero (moiseser@uci.edu), Shane Flynn (swflynn@uci.edu) }
+\date{10/9/17}
+
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{braket}
+\usepackage[margin=0.7in]{geometry}
+
+
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\pd}{\partial}
+
+\begin{document}
+
+\maketitle
+
+\section{Entropy}
+
+\subsection{Pathway A: Solution}
+Compute the Entropy for: 1 mole of gas traversing pathway A.
+Take path A to be an isothermal expansion. 
+
+First: our equation of state can be simplified: 
+\be
+P = RTx + RTy
+\ee
+Pathway A is an isothermal expansion so dU$_{A}$=0 
+It is a reversible expansion so we can write the following expression:   
+\be 
+0 = q_{r,A} + w_{r,A} \gg  q_{r}=-w_{r} = \int P_{gas}dV = \int ({RTx}+{RTy}) dV
+\ee
+
+Since we have an expression for q$_{rev}$ we can solve for the Entropy of pathway A. 
+\be
+\Delta S_{A} = \frac{\delta q_{r}}{T}= \int \frac{RT(x+y)}{T} dV = R \int x+y dV = R (x\Delta V + y\Delta V )
+\ee
+
+\subsection{Pathway B+C: Solution}
+Next, compute the Entropy for 1 mole of gas traversing pathways B and then C.  
+Take path B to be a reversible adiabatic expansion and path C a reversible isochoric process. 
+
+\textbf{Hint:}
+For pathway B you will need to transform your integral from dT to dP to make a meaningful comparison. 
+
+Pathway B is a reversible adiabatic expansion , so q$_{r,B}$ = 0 therefore : 
+
+\be
+\Delta S_{B} = 0
+\ee
+
+Pathway C is an isochoric process so w$_{r,C}$ = 0 so : 
+
+\be 
+\delta q_{r,C} = dU_C = C_v(T)dT 
+\ee
+
+So the expression for heat is : 
+\be
+q_{r,C} = \int_{T_2}^{T_1} C_v(T)dT
+\ee
+
+So our expression for entropy is : 
+\be
+\Delta S_C = \int_{T_2}^{T_1}\frac{ C_v(T)dT}{T} = -\int_{T_1}^{T_2} \frac{ C_v(T)dT}{T}
+\ee
+
+\textbf{Note:} We reverse the bounds on this integral in order to relate it to the next step. 
+
+With this we can develop an expression for 
+Pathway B + C to reach state 3 : 
+
+\be
+\Delta S_{B+C} = \Delta S_B + \Delta S _C = -\int_{T_1}^{T_2} \frac{ C_v(T)dT}{T}
+\ee
+
+Looking at pathway B again we can relate a change in temperature to a change in volume : 
+\be
+\begin{split}
+\Delta U &= w_{r} \\
+dU &\propto C_V dT\\
+\delta w &\propto -PdV \\ 
+dT &\propto dV
+\end{split}
+\ee
+Using this relationship we can convert our integral for entropy into a similar form found in pathway A.
+
+\be
+\int_{T_1}^{T_2} { C_v(T)dT} = \int_{V_1}^{V_2} -P_{gas}dV = -RT(x\Delta V + y\Delta V )
+\ee
+
+We can then divide this expression by T to create the following : 
+\be
+\int_{T_1}^{T_2} \frac{ C_v(T)dT}{T} =\int_{V_1}^{V_2} \frac{-P_{gas}dV}{T} = -R (x\Delta V + y\Delta V )
+\ee
+
+We Substitute this new expression into our Entropy expression at (11) to get : 
+
+\be
+\Delta S_{B+C} = R (x\Delta V + y\Delta V ) 
+\ee
+
+And we can see that regardless of the heats not being equal we get : 
+
+\be
+\Delta S_{A}= \Delta S_{B+C} 
+\ee
+
+\subsection{Time to be Lazy: Solution}
+
+Because Entropy is a state function it must be equal to that of any pathway with the same start and end conditions. 
+
+\subsection{Entropy of a Free Expansion: Solution}
+
+\be
+\frac{P}{V}=\frac{RTx}{V}+\frac{RTy}{V}
+\ee
+
+The Entropy equation uses reversible heat therefore we need to consider a reversible pathway. 
+Since U is only a function of temperature, dU = 0 therefore : 
+
+\be
+q_{rev}=-w_{r}= \int P_{gas}dV = RT(x\Delta V + y\Delta V) 
+\ee
+
+So we can express the Entropy as : 
+\be
+\Delta S = \frac{RT\int_{V_1}^{V_2} (x+y)(dV)}{T} = R(x\Delta V + y\Delta V) 
+\ee
+
+As expected the entropy needs to increase with the expansion of the gas into the vacuumn. 
+
+\section{Fundamental Equations}
+
+\subsection{Internal Energy and Entropy}
+Consider a closed system, with an ideal gas undergoing a reversible expansion (assume only PV work). 
+
+\subsubsection{New Variables: Solution}
+
+For a reversible process we can write the Entropy as an equality, $dS =\frac{\delta q_r}{t} \rightarrow TdS = \delta q_r$. 
+If we only consider PV work we can write $\delta w = -PdV$. 
+\begin{equation}
+    \begin{split}
+        dU &= \delta q + \delta w \\
+        dU &= TdS - PdV \\
+    \end{split}
+\end{equation}
+This is a general expression combining the first two laws of thermodynamics (it can be generalized to other work and more complications but ignore all that). 
+It tells us that when we are interested in changing the internal energy we 'naturally' make changes in the entropy and volume. 
+
+Notice this equation only contains state functions as variables (the things that are changing).
+This is very important, although we derived the relationship for a reversible process, all the variables changing are state functions, and therefore are path independent. 
+ 
+We have now shown that U $\rightarrow$ U(S,V). 
+
+\subsubsection{Partial Derivatives: Solution}
+
+\begin{equation}
+\begin{split}
+    dU &= \left( \frac{\partial U}{\partial S} \right)_VdS + \left( \frac{\partial U}{\partial V}  \right)_S dV\\
+     dU &= TdS - PdV \\
+    \left( \frac{\partial U}{\partial S} \right)_V &= T \\
+    \left( \frac{\partial U}{\partial V}  \right)_S &= -P
+\end{split}
+\end{equation}
+We know both equations must be true, therefore we simply equate terms. 
+
+\subsubsection{More Math: Solution}
+\begin{equation}
+\begin{split}
+\frac{\partial ^2 U}{\partial S \partial V} &= \frac{\partial ^2 U}{\partial V \partial S} \\
+\frac{\partial }{\partial S}\left[\left(\frac{\partial U}{\partial V}\right)_S\right]_V &= \frac{\partial}{\partial V}\left[\left(\frac{\partial U }{\partial S}\right)_V\right]_S \\
+-\left(\frac{\partial P}{\partial S}\right)_V &= \left(\frac{\partial T}{\partial V}\right)_S
+\end{split}
+\end{equation}
+This final relationship is also know as a \textbf{Maxwell Relationship}.
+All of these math operations can be repeated for each \textbf{Thermodynamic Potential} to produce new relationships. 
+
+I encourage you to understand the process, actually deriving these relationships should only take a few minutes at most. 
+
+\subsection{Enthalpy and The First 2 Laws}
+
+\subsubsection{The Fundamental Equation: Solution}
+\be
+    \begin{split}
+        H &\equiv U + PV \\
+        dH &= dU + d(PV) = dU + PdV + VdP \\
+        dH &= TdS - PdV + PdV + VdP \\
+        dH &= TdS + VdP
+    \end{split}
+\ee
+And again we see that entropy and pressure are natural variables of the entropy: H(S,P). 
+
+\subsubsection{The Total Differential}
+\be
+\begin{split}
+    dH &= \left( \frac{\partial H}{\partial S} \right)_PdS + \left( \frac{\partial H}{\partial P}  \right)_S dP\\
+     dH &= TdS + VdP \\
+    \left( \frac{\partial H}{\partial S} \right)_P &= T \\
+    \left( \frac{\partial H}{\partial P}  \right)_S &= V
+\end{split}
+\ee
+
+\subsubsection{Computing Your Maxwell: Solution}
+
+\be
+\begin{split}
+\frac{\partial ^2 H}{\partial S \partial P} &= \frac{\partial ^2 H}{\partial P \partial S} \\
+\frac{\partial }{\partial S}\left[\left(\frac{\partial H}{\partial P}\right)_S\right]_P &= \frac{\partial}{\partial P}\left[\left(\frac{\partial H }{\partial S}\right)_P\right]_S \\
+ \left(\frac{\partial V}{\partial S}\right)_P &=
+\left(\frac{\partial T}{\partial P}\right)_S
+\end{split}
+\ee
+
+\subsection{Helmholtz and The First 2 Laws}
+
+\subsubsection{The Fundamental Equation: Solution}
+\be
+    \begin{split}
+        A &\equiv  U - TS \\
+        dA &= dU - d(TS) = dU -TdS - SdT \\
+        dA &= TdS - TdS - PdV - SdT \\
+        dA &= -PdV - SdT
+    \end{split}
+\ee
+A(V,T)
+
+\subsubsection{The Total Differential: Solution}
+\be
+\begin{split}
+    dA &= \left( \frac{\partial A}{\partial V} \right)_T dV + \left( \frac{\partial A}{\partial T}  \right)_V dT\\
+     dA &= -PdV -SdT \\
+    \left( \frac{\partial A}{\partial V} \right)_T &= -P \\
+    \left( \frac{\partial A}{\partial T}  \right)_V &= -S
+\end{split}
+\ee
+
+\subsubsection{Computing Your Maxwell}
+\be
+\begin{split}
+\frac{\partial ^2 A}{\partial T \partial V} &= \frac{\partial ^2 A}{\partial V \partial T} \\
+\frac{\partial }{\partial T}\left[\left(\frac{\partial A}{\partial V}\right)_T\right]_V &= \frac{\partial}{\partial V}\left[\left(\frac{\partial A }{\partial T}\right)_V\right]_T \\
+\left(\frac{\partial P}{\partial T}\right)_V &= \left(\frac{\partial S}{\partial V}\right)_T
+\end{split}
+\ee
+
+\subsection{Gibbs as a Double Transformation}
+
+\subsubsection{The Fundamental: Solution}
+\be
+\begin{split}
+G &\equiv A + PV \\
+dG &= dA + PdV + VdP \\
+dG &= -SdT -PdV + PdV + VdP\\
+dG &= -SdT + VdP
+\end{split}
+\ee
+
+\subsubsection{The Total Dif: Solution}
+\be
+\begin{split}
+    dG &= \left( \frac{\partial G}{\partial T} \right)_PdT + \left( \frac{\partial G}{\partial P}  \right)_T dP\\
+     dG &= -SdT + VdP \\
+    \left( \frac{\partial G}{\partial T} \right)_P &= -S \\
+    \left( \frac{\partial G}{\partial P}  \right)_T &= V
+\end{split}
+\ee
+
+\subsubsection{Computing Your Maxwell: Solution}
+\begin{equation}
+\begin{split}
+\frac{\partial ^2 G}{\partial T \partial P} &= \frac{\partial ^2 G}{\partial P \partial T} \\
+\frac{\partial }{\partial T}\left[\left(\frac{\partial G}{\partial P}\right)_T\right]_P &= \frac{\partial}{\partial P}\left[\left(\frac{\partial G }{\partial T}\right)_P\right]_T \\
+\left(\frac{\partial V}{\partial T}\right)_P &= -\left(\frac{\partial S}{\partial P}\right)_T
+\end{split}
+\end{equation}
+
+\end{document}
