@@ -48,8 +48,10 @@ Topics included are: perfect gas, real gas, the Laws of Thermodynamics, mixtures
 
 ## Material Usage:
 Please feel free to use and reproduce any of the resources on this page, given you provide proper reference and/or citation to the material. 
-All Lecture Notes have been made with permission of the Lecturer, and are my adaptation of the topics covered. 
-Any problems taken/adapted from textbooks will include reference to the book from which it came, I do not claim any rights to these materials (the solutions/programs are my understadning of the topic).
+This material is made available for free through my Github and should NOT be reproduced in any form for profit or private use indepedent of the Github repository.
+
+All Lecture Notes have been made with permission of the Lecturer, however, they contain my personal understanding and adaptation of the topics covered and not explicitly the thoughts of the Lecturer. 
+Any problems/figures taken/adapted from textbooks and external sources will include reference to the location from which it came, I do not claim any rights to these materials (the solutions/programs are my understadning of the topic).
 
 ## Author:
 Shane Flynn and contributers, 2016 - UCI
