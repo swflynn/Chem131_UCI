@@ -1,0 +1,149 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Chem132A: Lecture 08}
+\author{Shane Flynn (swflynn@uci.edu) }
+\date{10/16/17}
+
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{braket}
+\usepackage[margin=0.7in]{geometry}
+\usepackage{hyperref}
+
+
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\benum}{\begin{enumerate}}
+\newcommand{\eenum}{\end{enumerate}}
+\newcommand{\pd}{\partial}
+
+\begin{document}
+
+\maketitle
+
+Last lecture reviewed the mathematics associated with the Maxwell Relationships. 
+Please review the solutions to Discussion Homework 3 for details. 
+
+\section*{Gibbs and Pressure}
+Last class we took a look at the Gibbs-Helmholtz equation, let's now consider G(P). 
+
+The fundamental equation for Gibbs is given by
+\be
+dG = VdP - SdT
+\ee
+If we assume a constant temperature process we can easily determine the pressure relationship for Gibbs (we will divide through by moles to get molar Gibbs (G$_m$) 
+\be
+\begin{split}
+dG = VdP \Rightarrow \int dG_m = \int V_mdP \\
+G_m(P_f) = G_m(P_i) + \int_{P_1}^{P_2} V_m dP
+\end{split}
+\ee
+We should expect the volume of a gas to be related to its pressure, so we cannot simply pull it out of the integral. 
+If we assume an equation of state we can solve this integral, for example an ideal gas would give:
+\be
+G_m(P_f) = G_m(P_i) + \int_{P_1}^{P_2} \frac{RT}{P} dP = G_m(P_i) + RT \ln\left(\frac{P_2}{P_1}\right)
+\ee
+
+This process is easy enough conceptually, but once we start trying to use more sophisticated equations of state we may not be able to actually solve the integral. 
+
+\section*{Fugacity}
+If we assume a real gas is similar to an ideal gas, such that some type of correction term could capture the differences, we could try: 
+\be
+G_m^0 = G_m(P_i^0) + RT \ln\left(\frac{f}{P^0}\right)
+\ee
+
+Here f is known as the \textbf{Fugacity}, and it can be through of as a correction term for capturing deviations from ideal behaviour in the pressure. 
+Instead of using a more complicated equation of state to compute our integrals, we simply add a correction term to our ideal EOS results. 
+
+The equation we choose to use to solve for fugacity will depend on how fancy we want to be, the simplest form would be something like:
+\be
+f = \phi P
+\ee
+Here $\phi$ would be the \textbf{Fugacity Coefficient}, and it would capture the deviations from ideality for the chemical species of interest. 
+Here the fugacity is used to approximate some linear correction term when compared to a perfect gas. 
+
+If we plot the Molar Gibbs Free Energy as a function of pressure, for both a prefect gas and a real gas, we would expect to see some differences. 
+If our fugacity approximation is reasonable we would expect the deviations to be relatively small. 
+
+In general we would guess that at lower pressures attractions dominate (because the atoms are farther apart; London Dispersion), and at larger pressures repulsion's will dominate (because the atoms start to repel). 
+These differences would appear in our graph, and could hopefully be approximated by something like the fugacity. 
+
+\section*{Phases}
+We are use to the standard phases associated with a system (solid,liquid, and gas). 
+There are some complications to this simple picture. 
+A solid can actually have different phases based on the crystal packing structure it takes at different physical conditions. 
+There is also another phase called a \textbf{Supercritical Fluid} which occurs after the critical point on a phase diagram. 
+At these larger temperatures and pressures the gas and liquid phases meld together and cannot be readily distinguished. 
+These supercritical phases have very unique chemistry than either a liquid or a gas, for example, supercritical carbon dioxide is used as a unique solvent for certain types of chemistry.
+
+A phase transition is a reversible process.
+At the transition temperature the two phases associated with the transition are in equilibrium. 
+\be
+\begin{split}
+\Delta_{\text{trs}}S = \frac{\Delta_{\text{trs}}H}{T_{\text{trs}}}
+\end{split}
+\ee
+
+From looking at various chemical species it is not surprising to find that similar chemical species have similar Enthalpy and Entropy of transition values. 
+As the chemical species become unique (different charge distributions and size) the values will change. 
+In general we would guess that a transition from the solid phase to the liquid phase would have an associated increase in Entropy due to the number of states available in the liquid phase versus the solid. 
+
+\section*{Chemical Potential}
+We are now going to introduce a new variable, the \textbf{Chemical Potential} ($\mu$).
+For a single component system we will define
+\be
+\mu = G_m
+\ee
+This may seem strange to simply define this variable equal to the Gibbs Free Energy (why bother defining it then if we already know Gibbs), but it will become very useful in multi-component systems when we generalize its definition. 
+
+For example, a system at equilibrium (no matter how many phases exist in the system) will have the same chemical potential throughout the sample (i.e. at equilibrium the chemical potentials must be equal for all of the phases involved). 
+
+\section*{Phase Diagrams}
+A \textbf{Phase Diagram} simply plots the phase of a system wrt. a few key variables. 
+At this point in your education you should be familiar with basic phase diagrams. 
+In this course we will try to understand the origin of these diagrams and what they tell us about a system. 
+
+A basic phase diagram can contain any number of phase lines, which represent the equilibrium between the phases at their interface. 
+You should be familiar with solid-liquid-gas phase lines as the most simplistic phase diagram. 
+
+For a  single component system, the triple point is exactly 1 point where three different phases can exist. 
+Once we enter multi-component systems, the diagrams will become much more complicated. 
+
+It is typical for the solid-liquid transition line to be positive for a single component system. 
+We expect most solids to melt at a higher temperature when we increase the pressure of the system (melting requires atoms to move apart, higher pressure forces them together).
+
+However, water is an important exception to this observation and actually has a negative slope at the solid-liquid phase line due to the hydrogen bond network. 
+The liquid phase of water is actually more 'compact' than the solid phase, because the hydrogen-bond network of the solid forces the atoms apart. 
+
+\subsection*{Phase Rule}
+The \textbf{Phase Rule} is a simple formula that can be used to determine the number of phases available at different locations on a phase diagram. 
+\be
+F = C - P + 2
+\ee
+Where F refers to the degrees of freedom at a specific location in 'phase space', C is the number of components in the system, and P is the number of phases that can coexist at a location. 
+
+For example, consider a single component system with 3 phases in coexistence at once.
+The phase rule tells us there are 0 degrees of freedom, meaning we cannot move at-all in phase space. 
+This means the three phases can only coexist at a single point in space, if you try moving form that point in any way, you will lose a phase. 
+
+\section*{Classifying Phase Transitions}
+In general there are two generic phase transition classifications, a \textbf{First Order Transition}, and a \textbf{Second Order Transition} (aka a continuous transition). 
+A first order phase transition is characterized in a 'jump' or discontinuity that occurs when you plot various variables against temperature before during and after their phase transition. 
+This jump occurs doing the transition itself.
+
+Intuitively think of melting a solid into a liquid. 
+As you increase the temperature there will be a drastic change in the volume of the system when you transition, which will appear as a discontinuity. 
+
+The heat capacity is a very extreme case. 
+During a phase transition all of your energy entering the system is used to cause the physical phase change. 
+Therefore no change in temperature occurs during the heating, and you actually have an infinite heat capacity at the transition temperature. 
+
+All of the above properties apply to first order phase transitions. 
+A second order phase transition is unique in that no discontinuity occurs for most of the properties (the heat capacity goes from being infinite to being discontinuous). 
+Second order phase transitions are not as common in basic chemical systems, but can play an important factor when considering systems through the lens of quantum mechanics. 
+The chemical potential of the second order phase transition is actually continuous which is consistent with the naming convention. 
+
+
+\end{document}
