@@ -1,0 +1,106 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Chem132A: Lecture 09}
+\author{Shane Flynn (swflynn@uci.edu) }
+\date{10/18/17}
+
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{braket}
+\usepackage[margin=0.7in]{geometry}
+\usepackage{hyperref}
+
+
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\benum}{\begin{enumerate}}
+\newcommand{\eenum}{\end{enumerate}}
+\newcommand{\pd}{\partial}
+
+\begin{document}
+
+\maketitle
+
+This is the LAST LECTURE for new material that will be covered on EXAM 1. 
+Any new material discussed in the course before Exam 1, will not be tested until Exam 2!
+
+\section*{Exam Logistics}
+The first exam will be Wednesday October 25!
+The exam will be held in class and will last 45 minutes (the last 5 minutes of lecture will be used to collect the exam). 
+Students are expected to show up to the exam ON TIME. 
+Please bring your student I.D. and a calculator. 
+Finally, a seating chart will be made available the day before the exam.
+You MUST look at the seating chart before taking the exam and sit in the correct place!
+
+The exam is closed book, you will be allowed to bring in a single 8.5 X 11 inch. sheet of paper with HAND-WRITTEN notes (both front and back allowed). 
+You may write whatever you like on the piece of paper. 
+
+Constants associated with the problems will be provided on the exam, however, no equations will be provided unless necessary (such as a unique equation of state we want you to use).
+You must show ALL your work on the exam, simple numerical answers or algebraic expressions without associated work will earn NO points. 
+
+\section*{Phase Boundaries}
+Let's consider how the chemical potential varies with pressure at constant temperature. 
+\be
+dG = VdP - SdT = VdP
+\ee
+Rearranging we find that
+\be
+\left( \frac{\pd G}{\pd P} \right)_T = V
+\ee
+If we simply divide through by the moles we could write this relationship as a molar quantity.
+The molar volume, by definition, must be larger than 0 (what is a negative volume? it has no physical meaning). 
+From intuition we would expect the molar volume of a liquid to be larger than a solid, however, in water this is NOT true, due to the Hydrogen bond network. 
+
+As stated in the previous lecture, at equilibrium the chemical potential for the phases in equilibrium must be the same. 
+\be
+\mu(\alpha) = \mu(\beta)
+\ee
+This means that the chemical potential on the phase line between phases must be equal for the two phases. 
+
+If we consider our definition of the chemical potential for a single component system as $\mu$ = G, we can write the following relationship. 
+Start with the fundamental equation for Gibbs on a phase line, but replace G with $\mu$ (we will consider molar quantities for simplicity). 
+\be
+\begin{split}
+d\mu &= -S_mdT + V_mdP\\
+-S_m(\alpha)dT + V_m(\alpha)dP &= -S_m(\beta)dT + V_m(\beta)dP\\
+\left[ S_m(\beta) - S_m(\alpha) \right]dT &= \left[ V_m(\beta) - V_m(\alpha) \right]dP \\
+\Delta_{\text{trs}}S_mdT  &=  \Delta_{\text{trs}}V_mdP \\
+\frac{dP}{dT} &= \frac{\Delta_{\text{trs}} S}{\Delta_{\text{trs}} V}
+\end{split}
+\ee
+This final equation is known as the \textbf{Clapeyron Equation}.
+
+\subsection*{Liquid-Vapour Boundary}
+Let's apply our new equation to the Liquid-Vapour Boundary. 
+\be
+\Delta S_{\text{vap}} = \left( \frac{\Delta H_{\text{vap}}}{T} \right)
+\ee
+With this we can substitute into the Clapeyron Equation to find
+\be
+\frac{dP}{dT} = \frac{\Delta H_{\text{vap}}}{T\Delta V_{\text{trs}}}
+\ee
+If we now assume that V$_m$(g) $>>$ V$_m$(l) we could say $\Delta_{\text{trs}}$V $\approx$ V$_m$(g). 
+If we then assume an equation of state like the ideal gas we can solve for V$_m$
+Applying this logic we find
+\be
+\frac{dP}{dT} = \frac{\Delta H_{\text{vap}}}{T(RT/P)} =\frac{P\Delta H_{\text{vap}}}{RT^2}
+\ee
+Math aside, $\frac{d}{dx} \ln x$ = $\frac{1}{x}$. This is a very common substitution people use. 
+If we rewrite our LHS as ln P, than our RHS would need to be multiplied by $\frac{1}{P}$. 
+With this logic we can simplify the expression to give the \textbf{Clausius-Clapeyron Equation}.
+\be
+\frac{d\ln P}{dT} = \frac{\Delta H_{\text{vap}}}{RT^2}
+\ee
+Finally we can assume that the Enthalpy of Vaporization is independent of temperature and integrate the Clausius-Clapeyron Equation.
+\be
+\begin{split}
+\int_{\ln P^*}^{\ln P} \ln P &= \frac{\Delta H_{\text{vap}}}{R} \int_{T^*}^T \frac{dT}{T}\\
+\ln \left( \frac{P}{P^*} \right) &=  -\frac{\Delta H_{\text{vap}}}{R} \left( \frac{1}{T} - \frac{1}{T^*} \right)
+\end{split}
+\ee
+This last equation gives us a relationship regarding the change in vapour pressure wrt. T for an ideal gas. 
+Where the vapour pressure is the pressure of gas above a liquid when the gas and liquid are at equilibrium. 
+
+\end{document}
