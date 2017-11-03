@@ -16,11 +16,12 @@ All Lecture Notes have been made with permission of the Lecturer, however, they 
 Any example problems or figures taken/adapted from textbooks and external sources will include reference to the location from which it came.
 I do not claim any rights to these materials (the solutions/programs are my understanding of the topic and not the work of the original material author).
 
-For these reasons I have decided to place the content under (c) Shane Flynn and contributers, licensed under a [Creative Commons Attribution License CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/nc)
+For these reasons I have decided to place the content under (c) Shane Flynn and contributers, with the following understanding:
+
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
 
 Please feel free to share, copy and redistribute the material in any format, and to change and build upon the material. 
-Under the terms of giving appropriate credit (reference the original work and changes made), and you MAY NOT use the material for commercial purposes.
+Under the terms of giving appropriate credit (reference the original work and changes made), adapted work must remain under ShareAlike, and you MAY NOT use the material for commercial purposes.
 
 ## Using Github:
 If you are new to github, you can think of this as a dropbox, there are files that can be updated dynamically.
