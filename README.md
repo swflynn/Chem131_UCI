@@ -8,6 +8,18 @@ You will also find some basic programming (mostly Python and Fortran) where I so
 I strive to make these materials as accurate as possible, however, I cannot guarantee they will be perfect (or up-to-date). 
 Please use the materials with that in mind, and feel free to contact me if there are any potential mistakes I can correct. 
 
+## Material Usage:
+All materials made available here are the product of my interest and understanding of the topic. 
+I am generting these materials as a scholarly pursuit, not for hire, and have decided to make them freely available. 
+All Lecture Notes have been made with permission of the Lecturer, however, they contain my personal understanding and adaptation of the topics covered and not explicitly the thoughts/statements of the Lecturer. 
+Any example problems or figures taken/adapted from textbooks and external sources will include reference to the location from which it came.
+I do not claim any rights to these materials (the solutions/programs are my understanding of the topic and not the work of the original material author).
+
+For this reason I have decided to place the content under (c) Shane Flynn and contributers, licensed under a [Creative Commons Attribution License CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/nc)
+
+Please feel free to share, copy and redistribute the material in any format, and to change and build upon the material. 
+Under the terms of giving appropriate credit (reference the original work and changes made), and you MAY NOT use the material for commercial purposes.
+
 ## Using Github:
 If you are new to github, you can think of this as a dropbox, there are files that can be updated dynamically.
 Each folder contains materials that you can look at online, and/or download to your local device.
@@ -33,7 +45,7 @@ Topics included are: the Laws of Thermodynamics, Thermodynamic Potentials and Fu
 To keep the mathematics simple, we only consider the ideal gas law as our system model (van der Walls and virial equations are not covered). 
 
 ### Chem132_A_2017:
-Lecture notes and problems for the undergraduate Thermodynamics Course taught at UCI. 
+Lecture notes and problems for the undergraduate Physical Chemistry Thermodynamics Course taught at UCI. 
 
 `Lecturer: John Hemminger` (jchemmin@uci.edu)
 
@@ -45,17 +57,9 @@ If you have not studied physical chemistry before, this couse should be your sta
 
 Topics included are: perfect gas, real gas, the Laws of Thermodynamics, mixtures and chemical equilibrium, molecular motion, chemical kinetics, and collision theory. 
 
-
-## Material Usage:
-Please feel free to use and reproduce any of the resources on this page, given you provide proper reference and/or citation to the material. 
-This material is made available for free through my Github and should NOT be reproduced in any form for profit or private use indepedent of the Github repository.
-
-All Lecture Notes have been made with permission of the Lecturer, however, they contain my personal understanding and adaptation of the topics covered and not explicitly the thoughts of the Lecturer. 
-Any problems/figures taken/adapted from textbooks and external sources will include reference to the location from which it came, I do not claim any rights to these materials (the solutions/programs are my understadning of the topic).
-
 ## Author:
 Shane Flynn and contributers, 2016 - UCI
 
 ## Contact:
 For any issues, concerns, or comments please contact me directly at:
-swflynn@uci.edu or sflynn@caltech.edu
+swflynn@uci.edu or shane.flynn001@gmail.com
