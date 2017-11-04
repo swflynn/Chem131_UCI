@@ -1,0 +1,181 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Chem132A Discussion 4 Solutions}
+\author{Moises Romero, Shane Flynn}
+\date{October 2017}
+
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{braket}
+\usepackage[margin=0.7in]{geometry}
+\usepackage[version=4]{mhchem}
+
+
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\pd}{\partial}
+
+\begin{document}
+
+\maketitle
+
+\section{Thermodynamics of Mixtures}
+
+\subsection{Concepts}
+Does a large Henry's Law constant imply a gas is more or less soluble in a liquid (Defend your answer algebraically, and in words)?
+
+\subsection*{Solution}
+Henry's Law is given by the following equation
+\be
+P_a = x_a K
+\ee
+Where P$_a$ is the pressure of molecule a above the solution, and x$_a$ is the associated mole fraction of a dissolved within the solution.
+Consider the following rearrangement. 
+\be
+\frac{x_a}{P_a} = \frac{1}{K}
+\ee
+If we increase K, we must subsequently decrease the mole fraction of a in solution to maintain the same a pressure.
+This suggests that increasing the Henry constant is associated with decreasing the solubility of a in the liquid phase. 
+
+Physically this means a gas with a larger Henry's Law constant is less soluble in liquid. 
+
+\subsection{Concepts Round Two}
+Non-Ideal solutions are usually described through their deviations from Rault's Law. 
+
+\subsection*{Solution}
+By definition, a positive deviation occurs when the pure molecules like themselves more than the mixture. 
+This means that upon mixing the A-B interaction will necessarily be weaker, pushing the molecules apart. 
+The molecules have a weaker attraction and subsequently spend time farther apart increasing the molar volume when compared to the Rault's Law prediction. 
+
+Likewise, if the molecules are weakly attracted upon mixing, it will be easier to completely separate them and the pressure in the gas phase would be larger than predicted by Rault's Law. 
+Both of these results are larger than the ideal system, hence the name positive deviations. 
+
+Negative deviations are the exact inverse of this scenario, the pressure and volume of the mixture will be less than anticipated by Rault's Law. 
+
+\subsection{Derivation time}
+Ideal (non-simple) solutions are generally defined as either
+\be
+\mu_i - \mu_{\text{pure},i} = RT\ln x_i
+\ee
+Or as
+\be
+f_i = x_i f_{\text{pure},i}
+\ee
+
+Show that both of these definitions are consistent (they are the same thing) when I define the fugacity to be:
+\be
+RT\ln\frac{f_i}{f_i^0} = \mu_i - \mu_i^0
+\ee
+
+\subsection*{Solution}
+The non-simple solution definitions are both in terms of the pure components, therefore we should take our reference states for the fugacity to be the associated pure states. 
+\be
+RT\ln\frac{f_i}{f_{\text{pure},i}} = \mu_i - \mu_{\text{pure},i}
+\ee
+If we substitute this into our first definition we find
+\be
+RT\ln\frac{f_i}{f_{\text{pure},i}} =  RT\ln x_i \implies \frac{f_i}{f_{\text{pure},i}} = x_i
+\ee
+Which is exactly equal to the second definition, showing both statements are consistent with this definition of the fugacity. 
+
+\section{Ideal Mixture Calculations}
+Consider the mixing of two samples of different mono-atomic ideal gases at two different
+temperatures, $T_H$(Temperature hot) and $T_C$ (Temperature cold). 
+Initially, one mole of gas A at $T_H$ is enclosed in the left side of a container with volume $\frac{V_a}{2}$. 
+While one mole of gas B at $T_C$ is enclosed in the right side, also with volume $\frac{V_a}{2}$ . 
+The system is separated from the surroundings by rigid adiabatic walls(q=0). 
+The hatch separating the gases is opened and system is allowed to mix. The hatch is then closed.
+\subsection{Calculating $T_f$}
+Calculate the final temperature in terms of $T_H$ and $T_C$. 
+\bigskip
+
+Hint : Recall that for an ideal monoatomic gas : 
+\be
+C_v = \frac{3R}{2}
+\ee
+\textbf{Solution:}
+ This is an adiabatic process therefore q = 0, and we find U = w. 
+ Because the system is closed and we only have ideal gases, the change in internal energy of the system only depends on a change in temperature. 
+ But, no heat transfer is allowed, therefore the overall temperature of the system DOES NOT change (the temperature of the two compartments change but the heat transfer is between them). 
+
+We can then write the internal energy of the two gases mixing as : 
+\be
+\Delta U_{Total}=\Delta U_{A} + \Delta U_{B} = 0 
+\ee
+For an Ideal gas Internal energy is only a function of temperature : 
+\be
+\Delta U = \int C_v dT
+\ee
+We know what $C_v$ is defined as for an ideal gas so we can express equation (6) as follows : 
+\be
+\Delta U = \int ^{T_f}_{T_H} \frac{3R}{2} + \int ^{T_f}_{T_C} \frac{3R}{2} = 0  
+\ee
+We then solve the integrals and get : 
+\be
+\frac{3R}{2}({T_f}-{T_H})  + \frac{3R}{2}({T_f}-{T_C}) = 0 
+\ee
+We then solve expression (9) for the final temperature and get : 
+\be
+T_f = \frac{1}{2}(T_H + T_C )
+\ee
+This result should be intuitive, we would expect the change in temperature to simply be the average. 
+
+\subsection{Calculating the Entropy of the System}
+
+\subsection*{Solution:}
+First lets solve for the disorder associated with the temperature redistribution. 
+The system is closed, therefore the volume of the system is constant (assume the partition is infinitely small). 
+ 
+Our fundamental equation for the internal energy can be used to calculate the entropy. 
+\be
+dU=TdS -PdV => dU=TdS 
+\ee
+Which can be integrated and rearranged as : 
+\be \label{eq:1}
+\Delta S= \frac{\Delta U}{T} 
+\ee
+We then want to calculate the entropy change associated with each gas 
+\be
+\Delta S_{\text{total}}^T = \Delta S_{H} + \Delta S_{C}
+\ee
+
+Using equation \ref{eq:1}, we find:
+\be
+\Delta S^T_{\text{total}} = \frac{\Delta U_H}{T} + \frac{\Delta U_C}{T} = \int^{T_f}_{T_H}{\frac{3R}{2T}}dT + \int^{T_f}_{T_C}{\frac{3R}{2T}}dT = \frac{3R}{2} (\ln\frac{T_f}{T_H} + \ln\frac{T_f}{T_C})
+\ee 
+This is the entropy associated with the changing in temperature, we must now determine the entropy associated with the different combinations of atoms upon mixing. 
+
+To find the entropy due to the physical mixing we use the fact that we know $\Delta$U = 0.
+To calculate entropy we want to consider a reversible pathway (try an isothermal expansion done reversibly): 
+\be
+q_r= -w = \int P_{ext}dV = \int P_{gas}dV = RT \int VdV = RT \ln\frac{V_f}{V_i}
+\ee
+We can write our expression for the disorder due to change in volume with : 
+\be
+\Delta S^V_{\text{total}} = \Delta S_A + \Delta S_B 
+\ee
+Although we close the latch, initially each gas is restricted to half of the box. 
+Once we allow them to mix each gas can occupy the entire box. 
+Opening and closing the latch does not effect this process, each gas is able to double its volume (we are now looking at the two subsystems in the problem). 
+\be
+q_r = -w = RT \ln\frac{V_f}{V_i} = RT \ln\frac{2V_i}{V_i} = RT \ln 2 
+\ee
+This finds us a reversible heat that we can substitute into the definition of Entropy. 
+
+\be
+\Delta S^V_{total} = \frac{RT \ln 2}{T} + \frac{RT \ln 2}{T} = 2R \ln 2
+\ee
+The total disorder is just the sum of the teo pathways we constructed: Temperature and Volume: 
+\be
+\Delta S_{\text{Mixture}} = \Delta S^T_{\text{total}} + \Delta S^V_{\text{total}} = \frac{3R}{2} (\ln\frac{T_f}{T_H} + \ln\frac{T_f}{T_C}) + 2R \ln 2
+\ee
+
+\section{van der Walls Phase Diagram}
+This is a very famous problem, and the values below the critical temperature are non-physical.
+This was addressed by Maxwell (Maxwell Constructions) and can be used to determine the phase diagram for a van der Walls fluid. 
+You will most probably work through the mathematics of determining the critical values given to you above, and the Maxwell construction during your undergraduate quantum mechanics courses. 
+See the github page for the Python and Mathematica solutions. 
+
+\end{document}
