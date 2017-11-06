@@ -1,0 +1,191 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Chem132A Discussion 5 Homework}
+\author{Moises Romero (moiseser@uci.edu), Shane Flynn (swflynn@uci.edu) }
+\date{11/4/17}
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{braket}
+\usepackage[margin=0.7in]{geometry}
+\usepackage[version=4]{mhchem}
+
+
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\pd}{\partial}
+
+\begin{document}
+
+\maketitle
+
+\section{Ionic Solutions}
+In class the \textbf{Debye-Huckel Limiting Law} was introduced as a simple approximation for ionic solution activity coefficients. 
+\be \label{equ1}
+\log \gamma_\pm = -A|z_+z_-|\sqrt{I}
+\ee
+In the text A is given as an arbitrary constant. 
+For aqueous solutions (water) at 25$^0$C; A = 0.509.
+From this we can assume that A depends on both the chemical species (the solvent) and the temperature of the solvent. 
+\be
+I \equiv \frac{1}{2}\sum_i z_i^2\left(\frac{b_i}{b^0}\right)
+\ee
+Here the I term refers to the \textbf{Ionic Strength}. 
+
+\subsection{Units}
+In 1925 Peter Debye and Erich Huckel started their derivation for Equation \textbf{\ref{equ1}} with
+\be \label{equ2}
+\ln \gamma_\pm = \frac{-|z_+z_-|\kappa}{8\pi \epsilon_0 \epsilon_r k_BT}
+\ee
+NOTE: I am using a bit different notation from the textbook!
+
+Because this is a logarithm (the natural log) the dimensionality must cancel (there cannot be any units).
+ Show that this is true. 
+
+\subsubsection*{Hint:}
+In this expression $\kappa$ has units of inverse centimeters, $\epsilon_r$ is unit-less (relative permitivity of the solvent), and  $\epsilon_0$ is the vacuum permitivity.
+
+\subsection{Water}
+If we do some fancy math and massage equation \textbf{\ref{equ2}} we can show that it can be re-written as
+\be \label{equ4}
+\log \gamma_\pm = \frac{-1.8248\times 10^6 \sqrt{\rho_s}}{(D_sT)^{3/2}} |z_+z_-|\sqrt{I}
+\ee
+Show that this equation evaluates to the Debye-Huckel Law presented in class for water at 25$^0$C. 
+
+\subsubsection*{Hint:}
+In this questions $\rho_s$ is the density (kg/L) of the solvent, and D$_s$ is the dielectric constant of the solvent. 
+
+\subsection{Mean Activity}
+Compute the mean activity coefficient ($\gamma_\pm$) for a 0.005 (molal) aqueous solution of AlCl$_3$ (assume complete dissociation) at T = 96.85$^0$C. 
+
+
+\section{Chemical Equilibrium}
+
+\subsection{Real Gases}
+Recall for a non-ideal gas, the fugacity accounts for deviations from ideal behavior. 
+ 
+For a general reaction : 
+\be
+\ce{ v_AA(g) + v_BB(g) <=> v_CC(g)  v_DD(g)} 
+\ee
+We can describe the Gibbs Free Energy as : 
+\be
+\Delta_rG(T) = \Delta_rG^o(T) + RT\ln\frac{f^{(V_C)}_Cf^{(V_D)}_D}{f^{(V_A)}_Af^{(V_B)}_B}
+\ee
+
+At equilibrium $\Delta_rG = $ 0, so the expression for K$_f$(T) can be written as : 
+\be
+\Delta_rG^o(T) = - RTln\frac{f^{(V_C)}_Cf^{(V_D)}_D}{f^{(V_A)}_Af^{(V_B)}_B} \equiv -RT \ln K_f(T)
+\ee
+
+At low pressures we can assume the system will behave somewhat ideally, and replace partial fugacities with partial pressures to define K$_P$(T) in a similar manner. 
+
+\bigskip
+
+ Consider the reaction to make ammonia :
+ \be
+\ce{ \frac{1}{2}N_2(g) + \frac{3}{2}H_2(g) <=> NH_3 (g)}
+ \ee
+ The equilibrium constants of K$p$ and K$_f$ can be related by K$_\gamma$ (this is an equilibrium constant in terms of activity). 
+ Develop an expression for K$_\gamma$ and evaluate it using: 
+ 
+ \begin{center}
+ \begin{tabular}{|c | c | c |} 
+ \hline
+ Total Pressure(Bar) & K$_p(10^{-3})$ & K$_f({10^{-3}})$  \\ [0.5ex] 
+ \hline
+ 10 & 6.59 & 6.55  \\ 
+ \hline
+ 30 & 6.76 & 6.59  \\
+ \hline
+ 50 & 6.90 & 6.50  \\
+ \hline
+ 100 & 7.25 & 6.36  \\
+ \hline
+ 300 & 8.84 & 6.08  \\  
+ \hline
+ 600 & 12.94 & 6.42 \\ 
+ \hline
+\end{tabular}
+\end{center}
+
+\subsubsection*{Hint:}
+Recall the fugacity coefficient can be written as: 
+\be
+\gamma = \frac{f}{P}
+\ee
+
+\subsection{Equilibrium and Activity}
+In general the activity is more fundamental than the fugacity. 
+We can express deviations from ideal behavior for any physical state (solid, liquid, gas) as an activity coefficient. 
+Gases are generally a bit simpler, and their non-ideal behavior is generally related to their pressure.
+Therefore we can replace the activity of a gas with its fugacity.
+
+In this way we can express any chemical system in terms of activity, and we can simplify the expression by substituting in expression for fugacity for any gas species. 
+
+\bigskip
+
+Consider the general reaction : 
+\be
+\ce{v_AA + v_BB <=> v_CC  v_DD}
+\ee
+We could write the Gibbs Free Energy of Reaction in terms of generic activity (i.e. no states specified).
+\be
+\Delta_rG = \Delta_rG^o(T) + RT\ln\frac{a^{(V_C)}_Ca^{(V_D)}_D}{a^{(V_A)}_Aa^{(V_B)}_B}
+\ee
+
+Let's use this model to understand a chemical system. 
+
+\bigskip
+
+Starting from the equation relating chemical potential to activity:
+\be
+\mu_i = \mu^o_i + RT\ln(a_i)
+\ee
+
+Prove the following relationship is true:
+\be
+\ln(a) =  \frac{\bar V}{RT}(P-1)
+\ee
+
+\subsubsection*{Hint:}
+Assume a constant Temperature process and write down the fundamental equation for the Gibbs Free Energy. 
+
+\subsection{Application:}
+The change in standard molar Gibbs Free Energy for the conversion of graphite to diamond is 2.9 kJ-mol$^{-1}$ at 298K. 
+The density for graphite and diamond are 2.27 g-cm$^{-3}$ and 3.52 g-cm$^{-3}$. 
+At what pressure will these two compounds be at equilibrium?
+(Use that equation we just had you prove to solve this question)!
+
+\section{Enthalpy and Equilibrium}
+Consider the chemical reaction
+\be
+\ce{2 Na(g) <=> Na2(g)}
+\ee
+
+The equilibrium constant as a function of temperature has been measured as
+
+\begin{center}
+ \begin{tabular}{|c | c |} 
+ \hline
+ T(Kelvin) & K   \\ 
+ \hline
+ 900 & 1.32   \\
+ \hline
+ 1000 & 0.47  \\
+ \hline
+ 1100 & 0.21  \\
+ \hline
+ 1200 & 0.10   \\  
+ \hline
+\end{tabular}
+\end{center}
+
+From this data estimate the standard Enthalpy of Reaction. 
+
+\subsubsection*{Hint:}
+Look up the Van't Hoff equation and try integrating it!
+
+
+\end{document}
