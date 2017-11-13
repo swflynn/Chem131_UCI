@@ -1,0 +1,114 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Chem132A Discussion 6 Homework}
+\author{Moises Romero (moiseser@uci.edu), Shane Flynn (swflynn@uci.edu) }
+\date{11/4/17}
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{braket}
+\usepackage[margin=0.7in]{geometry}
+\usepackage[version=4]{mhchem}
+
+
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\pd}{\partial}
+
+\begin{document}
+
+\maketitle
+
+\section{Electrochemistry}
+Reactions where electrons are transferred between molecules or atoms are called Redox (oxidation-reduction) reactions. 
+Redox reactions can be expressed as the difference between two half reactions, highlighting the electron transfers occurring in the system. 
+
+\subsection*{Standard Potentials}
+Standard potentials are typically measured relative to the standard hydrogen electrode (SHE), which is assigned a potential of 0. 
+\be
+Pt(s)|H_2(g)|H^+(aq) E^o=0
+\ee
+Electrode notation is read from left to right, $L||R$. Therefore the standard potential for a redox reaction can be calculated as follows: 
+\be
+L||R => E_{cell}^o = E^o (R) - E^o (L)
+\ee
+\subsection*{Nernst Equation}
+We can relate the Gibbs Free Energy to the cell potential:
+\be
+\Delta_r G = -vFE_{cell}
+\ee
+Where $v$ is the stoichiometric coefficient of the half reactions, F is Faraday's Constant = 9.648 x 10$^4$ $\frac{C}{mol}$ . 
+
+Because the Gibbs Free Energy is a thermodynamic potential, we can relate other expressions for G to the Nernst Equation. 
+\be
+\Delta_r G =\Delta_r G^o + RTln(Q) => -vFE_{cell} = -vFE^o_{cell} + RTln(Q) 
+\ee
+We can divide this equation by -vF to get : 
+\be
+E_{cell} = E^o_{cell} - \frac{RT}{vF}ln(Q)
+\ee
+We know G=0 at equilibrium, therefore the potential must also be 0.
+At equilibrium we can therefore write: 
+\be
+\ln(K_{eq}) = \frac{nF}{RT}E^o_{cell}
+\ee
+
+This equation indicates that :
+
+\bigskip
+
+When $K>1 , E^{o}>0$ reaction favors production formation
+
+\bigskip
+When $K<1 , E^{o}<0$ reaction favors production formation
+
+\subsection*{Electrochemical Analysis}
+Consider the cell whose potential is 1.23V :
+\be
+Zn(s)\big|ZnCl_2(.005\small{\frac{mol}{kg}})\big|Hg_2Cl_2(s)\big|Hg(l)
+\ee
+\subsection{The Reaction}
+The first step is to translate the cell notation into a Redox Reaction. 
+You'll want to do this by looking at a table of half reactions. 
+Once you've created your total reaction from the half reactions, determine the standard potential for the reaction and write out the Nernst equation 
+
+\subsection{Calculating Gibbs and K}
+Calculate $\Delta_r G$, $\Delta_r G^o$ , and $K_{eq}$ for this reaction. 
+
+\subsection{Activity}
+Using the measured cell potential calculate the mean ionic activity coefficient and activity coefficient for ZnCl$_2$.
+Calculate the mean ionic activity of ZnCl$_2$ using the Debye-Huckel limiting law 
+
+\subsection{Enthalpy and Disorder}
+Given that :
+\be
+\left(\frac{\pd E_{cell}}{\pd T}\right)_P = -4.52 x 10^{-4} V K^{-1} 
+\ee
+Calculate $\Delta_r S$ and $\Delta_r H$. 
+
+\section{Space}
+Let's assume that interstellar space contains 10 Helium atoms per cubic centimeter, and the average temperature of space is 2.7K. 
+
+\subsection{Pressure}
+Is assuming a gas in space to be ideal a physically reasonable assumption?
+
+Derive an expression for the pressure of a Virial gas up to the second virial coefficient. 
+Use this equation to compute the partial pressure of Helium in interstellar space (in Torr). 
+
+Next do the computation using the ideal gas law.
+
+\subsection{Speed}
+Compute the average speed, most probable speed, and the root mean squared speed for the Helium atoms in space. 
+
+\subsection{Collisions}
+How far will a single Helium atom travel before colliding with another Helium?
+
+\section{Exam Review}
+As with Exam 1, compose a study guide for Exam 2. 
+Note: this course is cumulative by nature, you need to go back and review your study guide for exam 1!
+If you did not make a study guide for exam 1.... go do that too. 
+
+What are the major topics that will potentially be covered on Exam 2?
+
+\end{document}
