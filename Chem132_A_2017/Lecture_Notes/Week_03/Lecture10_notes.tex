@@ -1,0 +1,157 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Chem132A: Lecture 10}
+\author{Shane Flynn (swflynn@uci.edu) }
+\date{10/20/17}
+
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{braket}
+\usepackage[margin=0.7in]{geometry}
+\usepackage{hyperref}
+
+
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\benum}{\begin{enumerate}}
+\newcommand{\eenum}{\end{enumerate}}
+\newcommand{\pd}{\partial}
+
+\begin{document}
+
+\maketitle
+
+\section*{Exam 1 Logistics}
+Exam 1 will be on October 25 (Wednesday)!
+The exam will contain 4-6 questions, you will have 45 minutes to complete the exam.
+Students are allowed a calculator, and a single 8.5 $\times$ 11 in. sheet of paper to write whatever you like (on both sides). 
+There will be a seating chart, and bring your student ID to the exam.
+
+\section*{Exam 2 Material:}
+The following material will mark the beginning of exam 2 material for the course.
+Mixtures WILL NOT be on exam 1. 
+
+\section*{Mixtures}
+For this course we will only discuss binary mixtures (mixtures between two different chemical species).
+Tertiary (and higher) mixtures are more complicated, and require more math, but no new concepts. 
+
+x$_i$ defines the mole fraction of a species. 
+If you are working with a closed system, the sum over all of the mole fractions must add up to 1. 
+For a binary mixture of species A and B this implies. 
+\be
+\begin{split}
+\sum_i x_i = 1\\
+\rightarrow x_A + x_B = 1\\
+\end{split}
+\ee
+
+When studying mixtures it becomes useful to discuss partial molar quantities (quantities in terms of the individual species in the mixture). 
+The partial molar volume is defined as
+\be
+V_i = \left(\frac{\pd V}{\pd n_i}\right)_{P,T, n_j}
+\ee
+When you add a mole of substance A to a mixture, the volume change you measure would be the molar volume of A. 
+
+This is not a simple linear function, if A does not like B, you would expect the change in molar volume to be different than if A does like B. 
+In general you expect molecules that have an unfavorable interaction to want to stay separated (causing a larger increase in volume) whereas molecules with a favorable interaction will be happy to get close. 
+
+We should also guess that partial molar volume is sensitive to concentration. 
+If you add a single atom of molecule A to a solution of B, the A is completely surrounded by B. 
+If there is already some A in solution, the A molecules may be able to pair up.
+If A and B have very different interactions this will have a huge impact on the molar volume as you change the concentration. 
+This means the slope of volume versus moles will most probably not be a linear function. 
+
+For example consider water and ethanol.
+We know water is a bit special, its hydrogen bond network actually forces liquid water to have a larger density than solid water (ice floats). 
+If we consider mixing a small amount of water into ethanol there will be very few hydrogen bonds (ethanol and water cannot hydrogen bond). 
+As the water concentration increases more hydrogen bonds can form, and we would guess the volume of the solution would increase rapidly. 
+
+Mathematically speaking we are considering the volume to be a function of the chemical species in solution. 
+This means we can write down a total differential with respect to composition. 
+\be
+\begin{split}
+dV &= \left(\frac{\pd V}{\pd n_A}\right)_{P,T, n_B} dn_A + \left(\frac{\pd V}{\pd n_B}\right)_{P,T, n_A} dn_B \\
+dV &\equiv V_Adn_A + V_B dn_B \\
+V &= \int_0^{n_A} V_Adn_A + \int_0^{n_B} V_B dn_B \\
+V &= V_A n_A + V_B n_B
+\end{split}
+\ee
+
+\subsection*{Chemical Potential}
+As we discussed previously, the chemical potential turns out to be a useful quantity to discuss in the context of mixtures. 
+For a multi-component system we generalize our definition of the chemical potential too:
+\be
+\mu_i \equiv \left(\frac{\pd G}{\pd n_i}\right)_{P,T,n_j}
+\ee
+With this definition we can treat the operators like algebra and write
+\be
+\begin{split} \label{GD}
+dG &= \sum_i \mu_i dn_i\\
+G &= \int \sum_i \mu_i dn_i\\
+G &= \sum_i \mu_i n_i
+\end{split}
+\ee
+This statement is only true at constant P,T, n$_{i\ne j}$.
+If we allow all of these variables to change we must generalize our definition of the Gibbs Free Energy. 
+\be
+\begin{split}
+& \qquad \qquad G(T,P,n_i) \rightarrow \\
+dG &= \left(\frac{\pd G}{\pd T}\right)_{P,n_i} dT + \left(\frac{\pd G}{\pd P}\right)_{T,n_i} dP+ \sum_i \left(\frac{\pd G}{\pd n_i}\right)_{T,P,n_j} dn_i  
+\end{split}
+\ee
+
+It is important to realize that EVERY thermodynamic potential must be a function of composition (they are all extensive). 
+Taking this general definition of G, you can go back through and substitute it into all of the other thermodynamic potentials.
+The chemical potential term will simply be added on to each expression when you do the algebra. 
+
+Introducing the chemical potential in this way allows us to generalize all of our fundamental equations, now in terms of multi-component systems. 
+\begin{equation}
+\begin{split}
+    dU &= TdS - PdV + \sum_i\mu_i dn_i \implies U\rightarrow U(S,V,n) \\
+    dH &= TdS + VdP + \sum_i\mu_i dn_i \implies H\rightarrow H(S,P,n)\\
+    dA &= -SdT - PdV + \sum_i\mu_i dn_i \implies U\rightarrow A(T,V,n)\\
+    dG &= -SdT + VdP + \sum_i\mu_i dn_i \implies G\rightarrow G(T,P,n)
+\end{split}
+\end{equation}
+
+It is important to realize that EVERY thermodynamic potential must be a function of composition (they are all extensive). 
+
+\subsection*{Gibbs-Duhem Equation}
+Consider our 2 component system, a change in the Gibbs Free Energy then becomes
+\be
+dG = VdP - SdT + \mu_Adn_A + \mu_B dn_B
+\ee
+
+If we assume constant P and T this implies
+\be
+dG = \mu_A dn_A + \mu_B dn_B
+\ee
+
+Now consider Equation \ref{GD} again. 
+We could write down the two component system as.
+\be
+\begin{split}
+G &= \mu_A n_A + \mu_B n_B\\
+dG &= \mu_A dn_A + n_A d\mu_A + \mu_B dn_B + n_B d\mu_B
+\end{split}
+\ee
+We know thermodynamics must be consistent, this imples equating these two expressions for dG. 
+\be
+\begin{split}
+\mu_A dn_A + \mu_B dn_B &= \mu_A dn_A + n_A d\mu_A + \mu_B dn_B + n_B d\mu_B \\
+0 &= n_A d\mu_A + n_B d\mu_B\\
+d\mu_B &= -\frac{n_A}{n_B}d\mu_A
+\end{split}
+\ee
+This final result is known as the \textbf{Gibbs Duhem Equation} (for a two-component system). 
+This equation essentially tells us that the chemical potential of two different species are proportional (wrt the ratio of their amounts). 
+This should make sense, if we change one component of the system it directly impacts the other component. 
+
+This equation is actually extremely useful. 
+In complicated mixing problems (more than 2 components), the Gibbs-Duhem equation relates the species through their chemical potentials. 
+This means all of the components ARE NOT independent, and you can actually reduce the number of variables you need to describe the system. 
+A piece of advice, if you are dealing with a mixing problem write down the Gibbs-Duhem relationship, it can probably help you solve the problem (q\_q)
+
+\end{document}
