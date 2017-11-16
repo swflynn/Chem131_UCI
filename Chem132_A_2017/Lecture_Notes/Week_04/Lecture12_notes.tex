@@ -1,0 +1,114 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Chem132A: Lecture 12}
+\author{Shane Flynn (swflynn@uci.edu) }
+\date{10/27/17}
+
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{braket}
+\usepackage[margin=0.7in]{geometry}
+\usepackage{hyperref}
+
+
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\benum}{\begin{enumerate}}
+\newcommand{\eenum}{\end{enumerate}}
+\newcommand{\pd}{\partial}
+
+\begin{document}
+
+\maketitle
+
+\section*{Exam 1}
+The exam should be graded by next week!
+The exam will be returned electronically (they are scanned and then sent as an email). 
+
+\section*{Mixtures}
+Last lecture we began discussing the binary mixture. 
+When discussing mixtures it is useful to recall the definition of molality (moles solute per kilogram solvent) as it is more commonly used than molarity (moles per liter).
+Also, the term \textbf{Miscible} refers to a solution of different chemicals that can 'mix' at any concentration. 
+If something is miscible, it forms a homogeneous mixture. 
+A miscible solution will not have a phase separation or solubility limit. 
+Unless otherwise stated assume mixtures are miscible at the specified concentration. 
+
+\section*{Thermodynamics of Mixing}
+From intuition we would expect the Entropy to increase upon mixing two different chemical species (more microstates available). 
+We also expect two liquids to spontaneously mix (entropic driving force), therefore we would guess that the Gibbs Free Energy will decrease upon mixing (remember a negative Gibbs is spontaneous). 
+
+If you run through the math, an ideal gas has a Gibbs Free Energy of Mixing as
+\be
+\Delta_{mix}G = nRT\left(x_A \ln(x_A) + x_B \ln(x_B)\right)
+\ee
+Because the mole fraction cannot be larger than 1 by definition, the mixing Gibbs Free Energy for an Ideal Gas System is always negative, consistent with our intuition. 
+
+For an ideal gas, we assume/impose that
+\be
+\Delta_{mix} H = 0
+\ee
+This assumption comes from the fact that ideal gases, by definition, have no interactions. 
+Meaning the A-A interaction is exactly equal to the A-B interaction, and the B-B interaction; they are all 0. 
+If we swap A for B there is no energy change associated with the system (think about making and breaking bonds, it costs some amount of energy to break the bond, if ideal making and breaking these bonds costs nothing). 
+
+Likewise we assume that 
+\be
+\Delta_{mix} V = 0
+\ee
+There is no change in the molar volume upon mixing for ideal systems (again no interactions exist), therefore molecules mix without caring about their partner. 
+
+\subsection*{Ideal Solutions}
+In general we define an ideal solution by (a * indicates a pure state).
+\be
+\mu_i = \mu_i^* + RT\ln(x_i)
+\ee
+If we are interested in a gas we can replace the mole fraction with pressure
+\be
+ \mu_A = \mu_A^* + RT\ln(P_A)
+\ee
+
+\subsection*{Roult's Law}
+If you have a liquid mixture, there will naturally be some molecules with enough energy to escape the liquid and enter the gas phase. 
+
+The partial pressure is related to the total pressure through the mole fraction.
+\be
+P_A = x_A P
+\ee
+
+\textbf{Roult's Law} says
+\be
+P_A = x_A P_A^*
+\ee
+This relationship was discovered empirically, and you should guess it is only reasonable if the interactions between molecules are similar. 
+
+If A and B in the liquid phase repel each-other, this will provide incentive for molecules to enter the gas phase and would not be accounted for by Roult's Law.
+Likewise if the liquids are attracted to each-other, you would expect the vapour pressure to be smaller than predicted by Roult's Law. 
+
+\subsection*{Dilute Solutions}
+\textbf{Henry's Law} is given by
+\be
+P_B = x_B K_B
+\ee
+Where B refers to the solute and is true for dilute solutions (small x$_B$). 
+Here K$_B$ is the Henry's constant, and IS NOT simply the vapour pressure of pure B (as suggested by Roult's Law).
+This implies dilute solutions in general do not obey Roult's Law.
+
+\subsection*{Colligative Properties}
+When we start considering mixtures, there are various properties that can be observed; the lowering of vapour pressure, the elevation of boiling point, and the depression of freezing point are all properties that depend on the number of particles present (not their actual chemical nature). 
+These properties are referred to as \textbf{Colligative Properties}.
+
+An example is (b refers to molality)
+\be
+\Delta T_b = K_b b
+\ee
+These properties are generally observed at lower concentrations, and are simple approximations. 
+
+The colligative properties all originate from the fact that the chemical potential is reduced in the presence of solute. 
+
+If you plot the chemical potential versus temperature (solute-solvent system) for different phases (solid,liquid, gas) the slope changes.
+This result is true for ideal solutions (therefore it is not related to Enthalpy), it is therefore due to Entropy.
+This should not be too surprising, these properties are completely a function of the amount, and entropy is dependent on microstates. 
+
+\end{document}
