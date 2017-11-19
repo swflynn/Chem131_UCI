@@ -1,0 +1,261 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Chem132A Discussion 6 Solutions}
+\author{Moises Romero (moiseser@uci.edu), Shane Flynn (swflynn@uci.edu) }
+\date{11/14/17}
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{braket}
+\usepackage[margin=0.7in]{geometry}
+\usepackage[version=4]{mhchem}
+\usepackage{braket}
+
+
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\pd}{\partial}
+
+\begin{document}
+
+\maketitle
+
+\section{Electrochemistry}
+\subsection{Problem}
+Consider the cell whose potential is 1.23V :
+\be
+Zn(s)\big|ZnCl_2(.005\small{\frac{mol}{kg}})\big|Hg_2Cl_2(s)\big|Hg(l)
+\ee
+\subsection{The Reaction}
+The first step is to translate the cell notation into a redox reaction. 
+You'll want to do this by looking at a table of half reactions and choosing the appropriate ones. 
+Once you've created your reaction determine the standard potential for the reaction and write out the Nernst equation. 
+
+\bigskip
+\textbf{Solution} 
+The two half reactions are as follows : 
+\be
+Zn^{2+} + 2e^- \rightarrow Zn(s) \quad E^o = -.76
+\ee
+\be
+Hg_2Cl_2(s) + 2e \rightarrow 2Hg^+ + 2Cl^- \quad E^o = .27
+\ee
+
+We know that the Zinc standard equation is on the left hand side there fore it can be flipped as : 
+\be
+Zn(s) \rightarrow Zn^{2+} + 2e^- 
+\ee
+Since we flipped this equation so we change the sign so the potential for this half reaction is .76. We then add this half reaction to the second to get : 
+\be
+Zn(s) + Hg_2Cl_2(s) + 2e \rightarrow Zn^{2+} + 2e^- + 2Hg^+ + 2Cl^-
+\ee
+We can then cancel out the electrons and our reaction is : 
+\be
+Zn(s) + Hg_2Cl_2(s) \rightarrow Zn^{2+}(aq) + 2Hg^+(aq) + 2Cl^-(aq)
+\ee
+
+The standard cell potential can be calculated as follows : 
+\be
+E^o = E^o_R - E^o_L = .27 - (-.76) = 1.03
+\ee
+
+The Nernst equation can be expressed as : 
+\be
+E_{cell} = 1.03 - \frac{RT}{vF}ln(Q) = 1.03 - \frac{(8.314)(298)}{v(9.648 \times 10^4)} = 1.03 - \frac{25.693mV}{v}ln(Q)
+\ee
+
+
+\subsection{Calculating Gibbs and K}
+Calculate $\Delta_r G$, $\Delta_r G^o$ , and $K_{eq}$ for this reaction. 
+This conversion factor will be useful 1CV=1J. 
+
+\bigskip
+
+\textbf{Solution}
+\bigskip
+
+Gibbs can be calculated as follows : 
+\be
+\Delta_r G = -vFE_{cell} = -(2)(9.648 \times 10^4 Cmol^{-1})(1.23V)= 238742 {CVmol^{-1}} =  - 238.7 kJmol^{-1} 
+\ee
+
+Standard Gibbs can be calculated as follows : 
+\be
+\Delta_r G^o = -vFE^o_{cell}= -(2)(9.648 \times 10^4)(1.03) = -238 kJmol^{-1}
+\ee
+
+K can be calculated as follows : 
+\be
+ln(K_{eq}) = \frac{vF}{RT}E^o_{cell} = \frac{(2)(9.648 \times 10^4)}{(8.314)(298)}(1.03) => K = e^{80.21} = 6.84 \times 10^{34}
+\ee
+
+\subsection{Activity}
+Using the measured cell potential calculate the mean ionic activity coefficient and activity coefficient for $ZnCl_2$..
+
+Calculate the mean ionic activity of $ZnCl_2$ using the Debye-Huckel limiting law.
+
+\bigskip
+\textbf{Using Measured Cell Potential Solution:}
+First we want to develop an expression for Q, we know from the redox reaction calculated in 1.4, that the two active species are the Zinc ion (Z$^{+2}$) and Chlorine ion (Cl$^-$). So we can write Q as :
+\be
+Q=a(Zn^{+2})a^2(Cl^-)
+\ee
+We know that activity (a) can be expressed as : 
+\be
+a=\gamma_c x = \gamma_c \frac{b}{b^o}
+\ee
+Where subscript c represents the ion charge and x is a mole fraction.
+We subsitite our defintion for activity into our Q value to get : 
+\be
+Q= \left(\gamma_+\frac{b}{b^o}\right)_{Zn^{+2}}\left(\gamma_- \frac{2b}{b^o}\right)^2_{Cl^-}
+\ee
+We multiply the Chlorine concentrations by 2 since there is twice the amount of Chlorine ion than Zinc ion in our products. We can furthr simplify this by setting our refrence state b$^o$ = 1 , and using the following definition : 
+\be
+\gamma_+ \gamma_- = \gamma^2_{\pm}
+\ee
+With this Q is defined as : 
+\be
+Q= 4 \gamma^3_{\pm}b^3
+\ee
+
+We can then express this within our Nernst equation, and we know v=2 since we are subbing in two electrons so it is written as follows : 
+\be
+E_{cell} = 1.03 - \frac{25.693mV}{2}ln(4 \gamma^3_{\pm}b^3)
+\ee
+
+Plugging in our cell potential and given molality this expression is : 
+\be
+1.23V = 1.03V - \frac{25.693mV}{2}ln(4 \gamma^3_{\pm}(.005)^3)
+\ee
+Doing out some of the math and we are left with : 
+\be
+1.23V = 1.03V - .0128Vln((5\times 10^-7) (\gamma^3_{\pm}))
+\ee
+
+We can then subtract and divide the Volt terms and get the following expression: 
+
+
+\be
+-15.625 = ln((5\times 10^-7) (\gamma^3_{\pm}))
+\ee
+
+Activity coefficient can now be expressed as : 
+\be
+\gamma^3_{\pm} = \frac{e^{-15.625}}{5\times 10^-7} = .3274
+\ee
+
+We then take the cube root of this value to get 
+\be
+\gamma_{\pm} \equiv .700
+\ee
+
+\textbf{Debye-Huckel Solution:}
+
+Recall the Debye-Huckel equation is 
+\be
+log\gamma_{\pm} = - A|z_+z_-|\sqrt{I}
+\ee
+and Ionic Strength (I) is calculated as : 
+\be
+I = \frac{1}{2}\sum_i z^2_i\left(\frac{b}{b^o}\right)
+\ee
+Ionic Stregnth is calculated as : 
+\be
+I= \frac{1}{2} [(4)\times (.005)+(.01)]= .015
+\ee
+We then calculate the activity coefficient : 
+\be
+log\gamma_{\pm} = - (.504)|-2|\sqrt{.015} = -.125
+\ee
+\be
+\gamma_{\pm} = 10^{-.125} \equiv .700
+\ee
+
+
+\subsection{Enthalpy and Entropy}
+
+Given that :
+\be
+\left(\frac{\pd E_{cell}}{\pd T}\right)_P = -4.52 x 10^{-4} V K^{-1} 
+\ee
+Calculate $\Delta_r S$ and $\Delta_r H$. 
+
+\textbf{Entropy Solution}
+Using the fundamental equations for Gibbs at constant P we get : 
+\be
+\Delta_rS=-\left(\frac{\pd \Delta_rG}{\pd T}\right)_P
+\ee
+We know that Gibbs can be described as equation (3) for Cell potential , so we can rewrite the Maxwell relation and calculate Entropy(1CV=1K) : 
+\be
+\Delta_rS = vF\left(\frac{\pd E_{cell}}{\pd T}\right)_P= (2)(9.64 \times 10^4 Cmol^{-1})(-4.52 \times 10^{-4}VK^{-1} = 87JK^{-1}mol^{-1}
+\ee
+
+\textbf{Enthalpy Solution:}
+We can now easily calculate enthalpy using : 
+\be
+\Delta_rH=\Delta_rG+T\Delta_rS= (-236kJmol^{-1}) + (298K)(-.087kJK^{-1}mol^{-1}) = -262kJmol^{-1}
+\ee
+
+\section{Space}
+Let's assume that interstellar space contains 10 Helium atoms per cubic centimeter, and the average temperature of space is 2.7K. 
+
+\subsection{Pressure}
+Is assuming a gas in space to be ideal a physically reasonable assumption?
+
+Derive an expression for the pressure of a Virial gas up to the second virial coefficient. 
+Use this equation to compute the partial pressure of Helium in interstellar space (in Torr). 
+
+Next do the computation using the ideal gas law.
+
+\subsection*{Solution}
+Of-course a gas in space can be approximated as an ideal gas (space is almost vacuum!). 
+
+To prove this we will do both calculations. 
+
+For an ideal gas we know that
+\be
+P = \frac{RT}{V_m} = 2.79 \times 10^{-18}\text{torr}
+\ee
+As expected the pressure is extremely small because ya know... space. 
+
+If we repeat the calculation using the Virial equation we find
+\be
+P = \frac{RT}{V_m}\left(1+\frac{B}{V_m}\right) = 2.79 \times 10^{-18}\text{torr}
+\ee
+At 3 Kelvin, the Virial coefficient of helium is -0.141. 
+
+And as expected we ge the same result as the ideal gas equation. 
+\subsection{Speed}
+Compute the average speed, most probable speed, and the root mean squared speed for the Helium atoms in space. 
+
+\subsection*{Solution}
+Nothing special here, we simply use the analytical expressions found in the book for each equation. 
+\be
+\begin{split}
+v_{mp} &= \sqrt{\left(\frac{2RT}{M}\right)} = 105(m/s)\\
+\braket{v} &=\sqrt{\left(\frac{8RT}{\pi M}\right)} = 119(m/s)\\
+v_{rms} &= \sqrt{\left(\frac{3RT}{M}\right)} = 129(m/s)
+\end{split}
+\ee
+
+\subsection{Collisions}
+How far will a single Helium atom travel before colliding with another Helium?
+
+\subsection*{Solution}
+\be
+\lambda = \frac{c_{rel}}{z} = \frac{kT}{\sigma P} = \frac{kT}{\pi d^2 P} = 4.78 \times 10^{11}m
+\ee
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
