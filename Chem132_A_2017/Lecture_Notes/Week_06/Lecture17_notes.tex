@@ -1,0 +1,141 @@
+\documentclass{article}
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{braket}
+\usepackage[margin=0.7in]{geometry}
+\usepackage{hyperref}
+\usepackage[version=4]{mhchem}
+% User-Defined Commands
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\benum}{\begin{enumerate}}
+\newcommand{\eenum}{\end{enumerate}}
+\newcommand{\pd}{\partial}
+% Title Information
+\title{Chem132A: Lecture 17}
+\author{Shane Flynn (swflynn@uci.edu)}
+\date{11/8/17}
+
+\begin{document}
+\maketitle
+
+\section*{Course Content}
+Chapter 6 is mostly a  summary of topics from general chemistry.
+All of this material is assigned for the course, however, we will not lecture on it.
+This marks the end of the topic of Thermodynamics.
+The remainder of the course will cover Chapters 19, 20, 21 (we may not cover all Ch.21). 
+
+\section*{Behavior}
+Thermodynamics studies systems through stability, it determines the most stable system based on the overall energy of the system. 
+This investigation revolves around equilibrium, which can theoretically (and practically) take an infinite amount of time.
+Therefore something could be the thermodynamically favorable state, but never occurs in reality.
+
+The other important consideration is the rate at which a chemical process occurs. 
+This is generally referred to as \textbf{Chemical  Kinetics}.
+
+The classic example of these effects are wrt carbon,  the diamond solid structure  is thermodynamically more favorable, but the rate at which graphite converts to diamond is so slow that you will never spontaneously see graphite convert to diamond. 
+
+\section*{Collisions}
+We will start our adventure in kinetics by discussing collisions in the gas phase.
+If we are thinking Classically about a chemical system (no Quantum Mechanics), it should seem intuitive that a chemical reaction occurs when two different species collide with proper orientation/energy.
+This means the number of chemical reactions that occur depends on the amount of atoms, and the number of 'effective' collisions (i.e. proper energy, orientation, etc). 
+
+\section*{Boltzmann}
+To understand this topic we will need to revisit the Boltzmann Distribution. 
+This material was assigned reading during the summer (before the course started) and the first problem set focused on it.
+Please re-read Foundations B.3 'The Boltzmann Distribution' and Chapter 1B 'Molecular Speeds' if you are unfamiliar with this material. 
+We will do a brief summary this lecture. 
+
+The \textbf{Maxwell-Boltzmann Distribution} essentially describes a probability distribution for the speeds of gasses, based on collisions that can occur. 
+In the lens of Statistical Thermodynamics it can be shown that the ratio of particles in a particular 'microstate' i (versus the entire population) can be related to the energy of the microstates.
+\be
+\frac{N_i}{N} = \frac{e^{-\frac{\epsilon_i}{kT}}}{\displaystyle \sum_j e^{-\frac{\epsilon_j}{kT}}}
+\ee
+We can also write this equation in terms of a ratio between specific states i, k. 
+If we would like to study the energy per mole, and convert to the gas constant we would write
+\be
+\frac{N_i}{N_k} = e^{-\frac{E_i-E_k}{RT}}
+\ee
+Just remember the Maxwell-Boltzmann distribution is a probability distribution for the speed of a population of gas molecules. 
+
+\subsection*{Molecular Speeds}
+In general we expect that the kinetic energy (transnational energy) of a molecule can be separated into three terms 
+\be
+\epsilon = \frac{1}{2}mv_x^2 + \frac{1}{2}mv_y^2 + \frac{1}{2}mv_z^2
+\ee
+Starting from here, and using the magic of Statistical Mechanics, it can be shown that the appropriate \textbf{Distribution Function} for speed is given by 
+\be
+f(\nu) = 4\pi \left(\frac{m}{2\pi kT}\right)^{\frac{3}{2}}\nu^2e^{-\frac{m\nu^2}{2kT}}
+\ee
+We can interpret this speed distribution as a probability distribution (the molecules must be traveling at some speed) therefore we can write
+\be
+\iiint_{-\infty}^\infty f(\nu)d\nu = 1
+\ee
+Where we would integrate over each spatial dimension. 
+
+If we plot various speeds for this distribution it becomes clear that at lower speeds the majority of the molecules travel at similar values (the standard deviation is small and the peak is sharp), at higher speeds the distribution broadens out, and some molecules travel slow some travel fast.
+
+\subsection*{Statistics}
+In probability theory (and therefore statistics) there are various definitions that can be used to understand a distribution.
+The standard 'average' you are aware of is a special case (n=1) of the following integral (here we take the bounds for the integrals to be from 0 to $\infty$ because you cannot have a negative speed).
+\be
+\braket{\nu^n} = \int_0^\infty \nu^n f(\nu) d\nu
+\ee
+The standard deviation is actually given by the second moment (n=2) and you can take higher moments to learn different things about your distribution. 
+
+There are other statistics that turn out to be useful for analyzing these types of distributions, for example the root-mean-squared speed is given by 
+\be
+\nu_{rms} = \sqrt{\int_0^\infty \nu^2 f(\nu) d\nu}
+\ee
+The RMS (aka the quadratic mean) gives you information about how the square of your terms (a non-linear function) evolves.
+Essentially it tells you about the 'magnitude' of the numbers, i.e. are they large or small. 
+
+Another useful statistic is the most probable speed. 
+The most probable speed is found by determining the critical point of your distribution (the peak).
+\be
+\frac{d}{d\nu}f(\nu)|_{\nu_{mp}} = 0
+\ee
+ 
+In general the most probably speed and the average speed are NOT the same (which many people may assume to be true).
+If we actually do the math for our speed distribution it can be shown that
+\be
+\begin{split}
+\braket{\nu} &= \sqrt{\left(\frac{8RT}{\pi M}\right)} \\
+\nu_{rms} &= \sqrt{\left(\frac{3RT}{ M}\right)} \\
+\nu_{mp} &= \sqrt{\left(\frac{2RT}{ M}\right)}
+\end{split}
+\ee
+From looking at these results it should be clear (just run some numbers) that the most probable speed is smaller than the average speed, which is smaller that the root mean square speed. 
+
+\section*{Collisions}
+We should start our discussion of chemical reactions with ideal gases, because we know this is the simplest model we have.
+Unfortunately an ideal gas cannot actually have a collision (no volume and no interactions).
+So we make another assumption, that we have an ideal gas, except the particles are hard spheres. 
+We define a \textbf{Cross Sectional Area} ($\sigma$) for each of the spheres
+\be
+\sigma = \pi d^2
+\ee
+The cross sectional area essentially tells you the area taken up by a molecules as it travels in space. 
+Then from standard kinematics, the \textbf{Collision Frequency} (z) is given by 
+\be
+z = \sigma \nu_{rel} \frac{N}{V}
+\ee
+
+We  should note  that the relative speed measures the speed of molecules as they travel wrt each-other. 
+It can be related to the average speed (as defined above) through
+\be
+\nu_{rel} = \sqrt{2} \braket{\nu}
+\ee
+Because we are discussing molecules colliding it does not make much sense to discuss the average speed, we should talk about the relative speed (if you are both moving at 10m/s but in opposite directions you will never collide, the average value does not tell you your direction). 
+
+We can then discuss the \textbf{Average Distance} ($\lambda$)
+\be
+\lambda = \frac{\nu_{rel}}{z} = \frac{kT}{\sigma P}
+\ee
+(Where we have assumed an ideal gas equation of state). 
+
+A final comment that we will explore, we assume our molecules travel in a straight line until a collision occurs, all collisions are assumed to be elastic (energy and momentum are conserved). 
+
+\end{document}
