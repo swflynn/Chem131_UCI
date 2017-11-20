@@ -1,0 +1,111 @@
+\documentclass{article}
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{braket}
+\usepackage[margin=0.7in]{geometry}
+\usepackage{hyperref}
+% User-Defined Commands
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\benum}{\begin{enumerate}}
+\newcommand{\eenum}{\end{enumerate}}
+\newcommand{\pd}{\partial}
+% Title Information
+\title{Chem132A: Lecture 15}
+\author{Shane Flynn (swflynn@uci.edu)}
+\date{11/3/17}
+
+\begin{document}
+\maketitle
+
+\section*{Activity Coefficient}
+Last lecture we discussed real systems, defining the activity to replace mole fraction.
+We define the activity coefficient out of convenience, it makes all of our equations easy to work with.
+For example 
+\be
+\mu_A = \mu_A^* + RT\ln x_A + RT \ln \gamma_A
+\ee
+The first two terms are simply the results of an ideal assumption, and the last term captures our deviations from an ideal system.
+
+We then discussed the special case of non-ideal systems, ionic solutions.
+In an ionic solution we can model the activity coefficient using the Debye-Huckel Limiting Law.
+A major component of this Law is the ionic strength, which captures how 'strong' an ion effects the system.
+From intuition you would expect this to depend on the charge of the ion and the amount of ions present in solution. 
+For a solution with two types of ions  we could write
+\be
+\begin{split}
+I &= \frac{1}{2}\sum_i z_i^2 \left( \frac{b_i}{b^o}\right) \\
+I &= \frac{1}{2}\frac{\left(b_+z_+^2 + b_-z_-^2\right)}{b^o}
+\end{split}
+\ee
+Remember a solution must be electrically neutral (all the charges balance) the ions must separate into an electrically balanced ratio. 
+Because each ion generates a coulomb force, we would guess that a solution with more ions would be more sensitive to assuming ideal behavior.
+This assumption is not the entire story however, it really depends on the nature of the system.
+The charge density and polarizibility of an ion greatly impact  how non-ideal a certain ion behaves. 
+For example a larger ion may polarize more (the electrons can spread out more), which is not a behavior accounted for by ideal equations. 
+
+\section*{Beyond Debye-Huckel}
+The Debye Huckel Limiting Law is the simplest model for an ionic solution activity.
+It is not extremely accurate for every system, but it is a good place to start.
+The book discusses extensions of the Law, these \textbf{WILL NOT} be part of this course.
+
+\section*{Chemical Equilibrium}
+Changing gears we are now going to discuss the tendencies of chemical systems. 
+
+Consider a simple reaction
+\be
+A \rightleftharpoons B
+\ee
+We can define a new variable, the \textbf{Extent of Reaction} ($\xi$).
+The extent of reaction tracks the conversion of products  and reactants. 
+For example, in a closed system of A and B with no other species present, the extent of reaction for each species is coupled. 
+\be
+dn_A = -d\xi, \qquad \qquad \qquad dn_B = d\xi
+\ee
+Which means that any amount of A lost must be converted into B. 
+
+Because we are considering species in a system changing it should seem natural to discuss the Gibbs Free Energy (think back to phase diagrams). 
+We can define the \textbf{Reaction Gibbs Energy} as 
+\be
+\Delta_rG = \left(\frac{\pd G}{\pd \xi}\right)_{P,T}
+\ee
+Because we are considering a system at constant Temperature and Pressure, the only variables changing are the amounts of the materials.
+This means we can write G as a function of A and B
+\be
+dG = \,u_Adn_A + \mu_Bdn_B = -\mu_Ad\xi + \mu_Bd\xi = (\mu_B-\mu_A) d\xi
+\ee
+Pretending we can treat operators algebraically we then write
+\be
+\left(\frac{\pd G}{\pd \xi}\right)_{P,T} = \mu_B-\mu_A
+\ee
+
+Just as in the case of phase Diagrams, at equilibrium the Gibbs Free Energy must be minimized.
+For a constant T,P system this  implies the net interchange of A and B must be the same (aka the chemical potential of A and B must be the same). 
+Therefore at equilibrium $\Delta_r$G = 0.
+
+Let's expand out our equation for Gibbs in terms  of Ideal Gases A and B.
+\be
+\begin{split}
+\Delta_rG &= \mu_B - \mu_A \\
+&= \mu_B^o + RT\ln\left(\frac{P_B}{P^o}\right) - \mu_A^o + RT\ln\left(\frac{P_A}{P^o}\right) \\
+&= \Delta_rG^o + RT\ln\left(\frac{P_B}{P_A}\right)\\
+\Delta_rG &= \Delta_rG^o + RT \ln(Q)
+\end{split}
+\ee
+
+Where in the above derivation we  have defined a reference Gibbs Free Energy as $\Delta_rG^o \equiv \mu_b^o - \mu_A^o$, and we define the \textbf{Reaction Quotient} (Q) as
+\be
+Q = \frac{P_B}{P_A}
+\ee
+
+Because we know at equilibrium the Gibbs Free Energy is minimized we can define the \textbf{Equilibrium Constant} (K) as the reaction quotient taken at equilibrium and write
+\be
+\Delta_rG^o = -RT\ln(K)
+\ee
+
+It is important to note that the above analysis ignores  the effects  of the mixing process entirely.
+The Gibbs Free Energy as a function of Extent of Reaction looks completely different if we include mixing effects (the Entropy of mixing is very important). 
+
+\end{document}
