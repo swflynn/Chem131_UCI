@@ -1,0 +1,139 @@
+\documentclass{article}
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{braket}
+\usepackage[margin=0.7in]{geometry}
+\usepackage{hyperref}
+% User-Defined Commands
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\benum}{\begin{enumerate}}
+\newcommand{\eenum}{\end{enumerate}}
+\newcommand{\pd}{\partial}
+% Title Information
+\title{Chem132A: Lecture 14}
+\author{Shane Flynn (swflynn@uci.edu)}
+\date{11/1/17}
+
+\begin{document}
+\maketitle
+
+\section*{Mole Fraction}
+For mixtures we are usually interested in the mole fraction of the liquid phase (x$_i$), the mole  fraction of the gas phase (y$_i$), and the total mole fraction in the system  (z$_i$).
+We would define the mole fraction of the system (for a component of the mixture as (n=total moles of the system).
+\be
+z_a = \frac{x_a + y_a}{n}
+\ee
+
+Again in this lecture we discussed various phase diagrams, look  over the  textbook  and the phase diagrams  discussed in lecture when preparing for the exam.
+Be  able to identify what each axis in a plot refers too, and  the story each plot tells. 
+
+\section*{Non-Ideal Systems}
+To begin discussing non-ideal systems we started with the fugacity.
+The motivation for fugacity was that a real gas system may behave like an ideal system, with some correction terms. 
+
+\subsection*{Activity}
+A more general approach to studying real chemical systems would be to  define the \textbf{Activity} (a). 
+While the fugacity was a correction term defined for the gas phase, the activity is a more general definition, capturing non-ideal behavior for any any phase (including the gas phase). 
+
+The equations we generated for ideal systems (Rault's Law for example) are very convenient (simple).
+To preserve this simplicity we define the activity, such that the equations look similar (remember a * implies a pure state).  
+\be
+\mu_i \equiv \mu_i^* + RT \ln(a_i)
+\ee
+The above equation is our definition for the activity of the solvent. 
+This equation is more general, and applies to any system.
+
+Recall for an ideal system (a system obeying Raoult's Law) we wrote the partial pressure as 
+\be
+P_i = x_i P_i^*
+\ee
+And the chemical potential became 
+\be
+\mu_i \equiv \mu_i^* + RT \ln(x_i)
+\ee
+
+For these equations to be consistent, the activity must be defined as 
+\be
+a_i = \frac{P_i}{P_i^*}
+\ee
+In this way the solvent of a system obeying Raoult's Law simplifies to our known results for an ideal system. 
+
+The activity plays a role similar to concentration for the real system. 
+For convention (i.e. writing things in a table) we define the \textbf{Activity Coefficient} ($\gamma$), and this is what you will find  tabulated by engineers.
+\be
+a_i \equiv \gamma_i x_i
+\ee
+It should be clear that as the activity coefficient goes to 1, we reproduce our ideal system (a$_i$ $\rightarrow$ x$_i$. 
+This implies an activity coefficient of 1 represents an ideal system. 
+Using the activity coefficient we can re-write our chemical potential.
+\be
+\begin{split}
+\mu_i &= \mu_i^* + RT \ln(a_i)\\
+&= \mu_i^* + RT \ln(\gamma_i x_i)\\
+\mu_i &= \mu_i^* + RT\ln(x_i) + RT \ln(\gamma_i)
+\end{split}
+\ee
+
+\subsubsection*{Solute}
+The solute can also be defined in a similar manner,  this time using Henry's Law as the Ideal metric to compare with. 
+\be
+\begin{split}
+\mu_j &= \mu_j^* + RT\ln\left(\frac{P_j}{P_j^*}\right)\\
+&= \mu_j^* + RT\ln\left(\frac{K_j}{P_j^*}\right) + RT\ln(x_j)\\
+\mu_j &= \mu_j^o + RT\ln(a_j)
+\end{split}
+\ee
+Where the last line follows form defining our reference state to be
+\be
+\mu_j^o \equiv \mu_j^* + RT\ln\left(\frac{K_j}{P_j^*}\right)
+\ee
+With these definition, an ideal solution has $K_j = P_j^*$ meaning $\mu_j^o = \mu_j^*$. 
+
+\section*{Ionic Solutions}
+In general the ideal assumption breaks down for relatively concentrated solutions. 
+A major exceptions to this occurs for ionic solutions, which show deviations from ideal behavior at relatively small concentrations. 
+The Coulomb Potential (electrostatics) is a long distance interaction, meaning that at even small concentrations the force generated due to electric charges effects your entire system. 
+
+When dealing with an ionic solution, there are both cations and anions in solution. 
+We cannot experimentally separate the effects of either ion, so we choose to define a mean ionic activity coefficient as 
+\be
+\gamma_{\pm} \equiv \sqrt{\gamma_+ \gamma_-}
+\ee
+
+The molar Gibbs Free Energy can then be written as
+\be
+G_m = \mu_+^{ideal} + \mu_-^{ideal} + RT\ln(\gamma_+\gamma_-)
+\ee
+
+We can then express the chemical potential for an ionic solution as
+\be
+\mu_i = \mu_i^{ideal} = RT\ln \gamma_\pm
+\ee
+
+\subsection*{Debye Huckel Limiting Law}
+The simplest model for ionic activities (and the only one you are responsible for knowing) is the \textbf{Debye Huckel Limiting Law}.
+For water at 25 $^0$C, the Law says
+\be
+log_{10}\gamma_\pm = -0.509|z_+z_-|\sqrt{I}
+\ee
+Where the coefficient (0.509) is a function of the temperature and chemical species, the z refers to the charge of the respective ions. 
+The I term is known as the \textbf{Ionic Strength}
+\be
+I = \frac{1}{2}\sum_i z_i^2 \left(\frac{b_i}{b^o}\right)
+\ee
+Remember b is the molality and a superscript $^o$ refers to a reference state of your choosing. 
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
