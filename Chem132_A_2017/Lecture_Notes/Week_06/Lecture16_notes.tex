@@ -1,0 +1,111 @@
+\documentclass{article}
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{braket}
+\usepackage[margin=0.7in]{geometry}
+\usepackage{hyperref}
+\usepackage[version=4]{mhchem}
+% User-Defined Commands
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\benum}{\begin{enumerate}}
+\newcommand{\eenum}{\end{enumerate}}
+\newcommand{\pd}{\partial}
+% Title Information
+\title{Chem132A: Lecture 16}
+\author{Shane Flynn (swflynn@uci.edu)}
+\date{11/6/17}
+
+\begin{document}
+\maketitle
+
+\section*{Logistics}
+There will be no lecture this Friday (11/10/17) due to Veterans Day. 
+There will also be no lecture the following Monday (11/13/17) due to Professor Hemminger traveling. 
+
+Make sure you check your Exam 1 score to see if there were any grading mistakes.
+There are no re-grades for partial credit.
+If the grade was added incorrectly, or an answer was marked wrong (but is correct) please contact the TAs or Professor. 
+The Second Midterm will be Wednesday 11/22/17 (the day before Thanksgiving). 
+
+Please note: all exams must be taken unless an excused absence (with supporting documentation i.e. sickness) is granted.
+If a student misses an exam without any excused reason, they will receive a 0 on the exam, and they will not be allowed to 'drop' this exam.
+Although Professor Hemminger will re-calculate your grade with and without your lowest score, if you receive a 0 on an exam without proper reason, you \textbf{Will Not} be allowed to drop the score (i.e. your grade \textbf{WILL NOT} be calculated with one dropped exam). 
+
+Exam 2 will cover Chapters 1-6 and Chapter 19. 
+The exam is cumulative by nature, expect at-least one question to come from material that was covered  before Exam 1.
+
+\subsection*{Ionic Solutions}
+The Debye-Huckel Limiting Law would predict the log  $\gamma_i$ to be linearly proportional to the square root of ionic  strength.
+This is not always true, as shown in the Lecture figure, which suggests the Limiting Law is not a perfect representation of ionic solutions, only an approximation. 
+
+\subsection*{Phase Rule}
+A final comment, we discussed the Gibbs Phase Rule  when introducing phase diagrams.
+\be
+F = C - P + 2
+\ee
+Where the Degrees of Freedom (F) is equal to the number of components (C) minus the number of phases (P) minus 2. 
+For a 2-component system we find that F = 4-P.
+These phase diagrams are not as simple as before, and the Gibbs Phase Rule can help you understand the chemical species present at different conditions. 
+
+\section*{Chemical Equilibria}
+Chapter 6 is the last chapter of standard Thermodynamics covered in this course (we will study Chemical Kinetics next). 
+
+As we started discussing last lecture, the mixing effects associated with the extent of reaction completely change the nature of the Thermodynamic Potentials. 
+For an ideal system the Enthalpy of Mixing is 0, therefore the Gibbs Free Energy of Mixing must depend solely on the Entropy. 
+However, in a non-ideal scenario the Enthalpy of mixing is not necessarily zero. 
+
+\subsection*{Equilibrium Constant}
+In General Chemistry you were taught the Equilibrium Coefficient should be the ratio of products over reactants (concentration).
+It would be more accurate to define the ratio in terms of activity.
+Consider the chemical reaction $\ce{A + B <=> C + D}$
+\be
+K \equiv \frac{a_Ca_D}{a_Aa_B}
+\ee
+We can relate the activity to amount, if we wish to use mole fraction we would substitute in $a_i = \gamma_i \frac{b_i}{b^o}$. 
+Substituting in this equation we find
+\be
+K = \frac{\gamma_C\gamma_D}{\gamma_A\gamma_B}\frac{b_Cb_D}{b_Ab_B} \equiv K_\gamma K_b
+\ee
+
+\subsection*{Temperature Dependence of K}
+At equilibrium we were able to write
+\be
+\Delta_rG^o = -RT\ln K
+\ee
+If we are interested in the Temperature dependence of K, we can simply re-arrange this equation and take a derivative wrt. T. 
+\be
+\begin{split}
+\ln K = -\frac{\Delta_rG^o}{RT} \implies& \frac{d}{dT}\left(\ln K\right) = -\frac{1}{R} \frac{d}{dT}\left(\frac{\Delta_rG^o}{T}\right)\\
+&= -\frac{1}{R} \frac{d}{dT}\left(\frac{\Delta_rH^o - T\Delta_rS^o}{T}\right)\\
+\frac{d}{dT} \ln K & = \frac{\Delta_rH^o}{RT^2}
+\end{split}
+\ee
+Note: in this derivation we are taking derivatives of reference states, we assume these reference states are not functions of temperature. 
+
+Using this result we can make a simple substitution
+\be
+\frac{d}{dT}\left(\frac{1}{T}\right) = -\frac{1}{T^2}
+\ee
+Using this substitution we can express the last line  of the previous derivation as
+\be
+\frac{d}{d (1/T)}\ln (K) = -\frac{\Delta_rH^o}{R}
+\ee
+Finally if we integrate this last expression we find
+\be
+\ln K_2 - \ln K_1 = -\frac{\Delta_rH^o}{R}\left(\frac{1}{T_2} - \frac{1}{T_1}\right)
+\ee
+(See the discussion homework for a problem regarding this derivation).
+
+\section*{The Rest of Chapter 6 $_{\cdots}$}
+The remainder of the chapter covers topics that should have been taught in General Chemistry (Le Chatelier's Principle, and Electro-Chemistry). 
+This material will not be covered in lecture, however, it is fair game for exams and is part of this course.
+If you are unfamiliar with any of the topics covered in these sections please review them (potentially reference your General Chemistry Textbook). 
+
+This is the end of Thermodynamics, the remainder of the course will shift gears towards Chemical Kinetics.
+We will start with a discussion of Chapter 19 next lecture (Molecules in Motion). 
+
+
+\end{document}
