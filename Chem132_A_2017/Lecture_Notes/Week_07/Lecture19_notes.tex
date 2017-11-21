@@ -1,0 +1,85 @@
+\documentclass{article}
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{braket}
+\usepackage[margin=0.7in]{geometry}
+\usepackage{hyperref}
+\usepackage[version=4]{mhchem}
+% User-Defined Commands
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\benum}{\begin{enumerate}}
+\newcommand{\eenum}{\end{enumerate}}
+\newcommand{\pd}{\partial}
+% Title Information
+\title{Chem132A: Lecture 19}
+\author{Shane Flynn (swflynn@uci.edu)}
+\date{11/17/17}
+
+\begin{document}
+\maketitle
+
+\section*{Transport Coefficients}
+For each of the transport properties we discussed last lecture, we can define a \textbf{Transport Coefficient}.
+The transport coefficients are approximate expressions that can be used to gain a qualitative understanding of the transport in your system. 
+\be
+\begin{split}
+D &= \frac{1}{3}\lambda \braket{\nu} \qquad \text{Diffusion}\\
+\kappa &= \frac{1}{3}f\braket{\nu} \qquad \text{Thermal Conductivity}\\
+\eta &= \frac{1}{3} \braket{\nu} \lambda mN \qquad \text{Viscosity}
+\end{split}
+\ee
+In practice actually modeling transport properties is a very difficult mathematical problem, thees properties are usually measured experimentally and tabulated. 
+
+For a real system we cannot measure 'energy' flux we actually measure a temperature.
+It is important to realize energy is a bit more complicated, it involves the heat capacity of the material, as well as the chemical structure of the compounds. 
+For example a linear molecule can store energy in its bonds (i.e. the bond vibrates faster) and in its rotations (i.e. the molecule spins about an axis faster) as the energy increases.
+Compare this to a single atom, there is no way to really 'store' energy (no rotations, no vibrations) so this system does not divert some of its energy into these motions. 
+
+\subsection*{Ion Mobilities}
+If we discuss ions, the ionic \textbf{Mobility} (u) is described by
+\be 
+S = uE
+\ee
+Where S defines the drift speed and E is the applied electric field. 
+The drift speed
+\be
+s = \frac{zeE}{f}
+\ee
+truly dictates the mobility of ions in solution. 
+A larger mobility implies the ion moves faster in solution.
+Again this is a bit more complicated, in water we see that the Hydrogen cation has a much larger ionic mobility than other ions.
+This is most probably due to the fact that hydrogen can simple complete a proton transfer with each water it bumps into rapidly increasing the rate it can move in solution. 
+
+In general we would assume the mobility of an ion in water would depend on the hydration shell that surrounds the ion (how many water molecules are attracted to the charge through their dipole). 
+And how tight does the specific ion hold onto that hydration shell. 
+Classically speaking, if you have a large water-shell, you need to displace more water while moving, which costs energy. 
+
+\section*{Diffusion Equation}
+As we discussed, the driving 'force' for diffusion is a concentration gradient of some kind. 
+This concentration gradient makes the chemical potential become dependent on position (are you near the concentrated region or not?).
+
+With this logic, if we are thinking in terms of  Newtonian mechanics, there must be a 'force' that pushes and pulls the molecules through the gradient; [c] represents concentration.
+\be
+F = -\left(\frac{\pd}{\pd x}\mu\right)_{T,P} = -RT\left(\frac{\pd}{\pd x}\ln a\right)_{T,P} = -\frac{RT}{[c]}\left(\frac{\pd}{\pd x}[c]\right)_{T,P} 
+\ee
+Note we have another equation that looks like Fick's Law, a derivative wrt spatial coordinates. 
+
+This course does not require differential equations, so we will skip the math. 
+You can write down a differential equation (an equation relating derivatives not variables) for diffusion and discover. 
+\be
+\frac{\pd}{\pd t}[c](x,t) = D\frac{\pd^2}{\pd^2x}[c](x,t)
+\ee
+And with appropriate boundary conditions it can be shown that the solutions (simple 1D diffusion without convection i.e. no stirring)
+\be
+[c](x,t) = \frac{n_0}{A\sqrt{(\pi Dt)}}e^{-\frac{x^2}{4Dt}}
+\ee
+The moral of the story is not the mathematics, but that diffusion by pure mixing (no stirring) is actually very slow when you evaluate this equitation. 
+Experimentally speaking, if you do not mix your solutions you truly need to ask yourself if your solutions are actually mixed!
+
+This is the end of material for \textbf{EXAM 2}!
+
+
+\end{document}
