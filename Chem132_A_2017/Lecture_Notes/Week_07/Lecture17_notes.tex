@@ -1,0 +1,77 @@
+\documentclass{article}
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{braket}
+\usepackage[margin=0.7in]{geometry}
+\usepackage{hyperref}
+\usepackage[version=4]{mhchem}
+% User-Defined Commands
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\benum}{\begin{enumerate}}
+\newcommand{\eenum}{\end{enumerate}}
+\newcommand{\pd}{\partial}
+% Title Information
+\title{Chem132A: Lecture 17}
+\author{Shane Flynn (swflynn@uci.edu)}
+\date{11/15/17}
+
+\begin{document}
+\maketitle
+
+\section*{Flux}
+We ended last lecture by claiming that our model of an 'ideal gas' for chemical reactions, defines the gas atoms to be hard spheres.
+There spheres randomly travel in straight lines in space and have elastic collisions. 
+
+The \textbf{Flux} measures the amount of 'stuff' passing through a given area in a given amount of time. 
+
+The flux of matter through a given area is referred to \textbf{Diffusion}.
+Flux does not need to be matter, you can measure the flux of any 'thing' through an area in time.
+
+\subsection*{Fick's Law}
+Empirically the flux is usually approximated as the spatial derivative of some property.
+For example \textbf{Fick's First Law} (of diffusion) is given by
+\be
+J(matter) \approx \frac{d}{dz}N
+\ee
+If you want, we can convert this to  a single spatial dimension, and consider mass transport in terms of concentration of species i; [i].
+\be
+Flux \approx \frac{d}{dx}[i]
+\ee
+We should note; by construction the flux is an average quantity, its dimensions are $\frac{\text{property}}{\text{distance}^2 \text{time}}$. 
+The net flux is a function of concentration, things tend to go from high concentration to low concentration via diffusion. 
+
+We can make the approximate statement above an equation using a linear approximation 
+\be
+J(matter) = -D\frac{d}{dz}N
+\ee
+Where D is the \textbf{Diffusion Coefficient}.
+Consider the dimensions of this equation.
+Given our units for the flux, the diffusion coefficient must have units of $\frac{m^2}{s}$.
+While these units are correct, they may not seem intuitive!
+
+We could also consider the movement of energy down a Temperature gradient and define a thermal motion diffusion equation. 
+\be
+J(thermal \quad energy) = -\kappa \frac{d}{dz}T
+\ee
+Here $\kappa$ is know as the \textbf{Thermal Conductivity}, and has units of $\frac{W}{m-K}$. 
+Thermal transport is important in experimental work.
+When you heat something in a laboratory, you are usually using a heating block, and this means the heat must travel throughout the system, this is dictated by the thermal flux. 
+
+\subsection*{Viscosity}
+Another transport property of interest is the viscosity. 
+We know from intuition that viscosity measures the stickiness' of a solution, how hard it is to move through it (i.e. syrup is more viscous than water). 
+Viscosity in the context of transport measures the transfer of linear momentum in your system. 
+\be
+J(momentum) = -\eta \frac{d v_x}{dz}
+\ee
+Where $\eta$ is the \textbf{Coefficient of Viscosity}. 
+
+We can think of viscosity as the flux of linear momentum. 
+The idea is that a fluid is flowing through some region of space.
+If you are close to a stationary wall, than static friction exists between the wall and the closest fluid, which causes the layers close to the wall to have a lower rate. 
+When you move between a region of low momentum to a region of higher momentum you must conserve energy.
+
+\end{document}
