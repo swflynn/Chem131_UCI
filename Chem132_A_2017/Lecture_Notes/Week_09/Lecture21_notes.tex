@@ -1,0 +1,187 @@
+\documentclass{article}
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{braket}
+\usepackage[margin=0.7in]{geometry}
+\usepackage{hyperref}
+\usepackage[version=4]{mhchem}
+% User-Defined Commands
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\benum}{\begin{enumerate}}
+\newcommand{\eenum}{\end{enumerate}}
+\newcommand{\pd}{\partial}
+% Title Information
+\title{Chem132A: Lecture 21}
+\author{Shane Flynn (swflynn@uci.edu)}
+\date{11/27/17}
+
+\begin{document}
+\maketitle
+
+\section*{2 Weeks Left}
+The course is nearly over, in the last two weeks we will cover all of Chapter 20, and select sections in Chapter 21.
+The Final Exam is the last day of finals (Friday), 8am-10am. 
+
+\section{Reaction Kinetics}
+Most of Chapter 20 should be review material from general chemistry (if not please read the book in detail). 
+We are leaving the realm of thermodynamics to begin studying kinetics. 
+
+From intuition (classical mechanics) we expect the frequency or rate of a chemical reaction to depend on the number of times molecules/atoms collide, their orientation and speed during collision, and the concentration of species involved. 
+
+We define the \textbf{Reaction Rate} as the number of chemical reactions occurring in the system per reaction volume per time (mol L$^{-1}$s$^{-1}$). 
+\be
+\ce{A -> B}
+\ee
+For the above chemical reaction, the Reaction Rate is the number of mol/L of A molecules converted into B every second (this is a strictly positive number). 
+Physically we know our system is decreasing wrt the concentration of A therefore we define the \textbf{Rate} as
+\be
+\text{rate} = -\frac{d}{dt}[A]
+\ee
+Likewise we understand that the concentration of B increases therefore we define the rate of change of B wrt time as 
+\be
+\text{rate} = \frac{d}{dt}[B]
+\ee
+
+In this way we can make a general definition for the rate of a reaction as
+\be
+\begin{split}
+\ce{aA + bB ->& eE + fF} \\
+rate = -\frac{1}{a}\frac{d}{dt}[A] = -\frac{1}{b}\frac{d}{dt}[B] =& \frac{1}{e}\frac{d}{dt}[E] = \frac{1}{f}\frac{d}{dt}[F] 
+\end{split}
+\ee
+
+The rate of a reaction is not a constant (and the average rate may not be a very useful statistic). 
+As the reactants/products concentrations change the dynamics change (think Le Chatelier Principle).
+
+\section{Rate Law}
+Clearly, the rate must depend on concentration.
+The \textbf{Rate Law} examines how the rate of a reaction depends on concentration. 
+In reality the true 'rate law' for a reaction will depend on the specifics of the reaction (quantum mechanics). 
+We will start to approach this topic with a simple model, the \textbf{Elementary Step}.
+When we talk about an elementary step, we assume the two species simply collide with one-another. If it is a simple collision than the rate should be  linearly proportional to the concentration and we write
+\be
+A + B \ce{->} C, \qquad \qquad \text{Rate} = k[A][B]
+\ee
+Elementary reactions usually contain collisions between two things only, it is possible to get three things to collide at the same time, but more than that is really improbable. 
+
+\section{Determining the Rate Law}
+We need to be careful when discussing a general reaction, unless the reaction is an elementary step it is not possible to construct a rate law simply from stoichometry. 
+Usually the rate law for a real reaction is determined  experimentally, by watching concentration  changes as a function of time. 
+
+Consider a generic chemical reaction that IS NOT an elementary step
+\be
+A \ce{->} Products
+\ee
+This is still an extremely simple scenario (only one reactant). 
+We can guess a few specific scenarios (Rate Laws).
+\be
+\begin{split}
+\text{Rate} &= k[A]^0 \quad (\text{Zeroth Order Rate Law})\\
+\text{Rate} &= k[A] \quad (\text{First Order Rate Law})\\
+\text{Rate} &= k[A]^2 \quad (\text{Second Order Rate Law})
+\end{split}
+\ee
+In general we expect the chemical equation $\ce{aA + bB -> cC + dD}$ to have a rate  of
+\be
+\text{Rate} = k[A]^m[B]^n
+\ee
+Where m and n are some constant (could be  fraction negative etc) and ARE NOT simply the stoichometric coefficients.
+
+We need to know the mechanics of a reaction (or model a mechanism) to construct a rate law. 
+Generally we break this mechanism into elementary steps and construct the rate law  from there. 
+
+Note: all of these rate laws are written in terms  of concentration, but concentration is a function of time (it is not  a constant). 
+Therefore we can talk about things like initial rates for the analysis.
+Or we could make some type of time-dependent measurements and talk about averages or the rate during certain time intervals of a reaction.
+
+\section{Integrated Rate Laws}
+We can integrate the 'Order Rate Laws' from above (this is very similar to standard methods used in differential equations). 
+Consider The First Order Rate Law.
+\be
+\begin{split}
+\frac{d}{dt}[A] &= -k[A]\\
+d[A] \frac{1}{[A]} &= -kdt \\
+\int_{[A]_0}^{[A]} d[A] \frac{1}{[A]} &= \int_0^t-kdt \\
+\ln \frac{[A]}{[A]_0} &= -kt\\
+[A] &= [A]_0 e^{-kt}
+\end{split}
+\ee
+In the same way we can solve for the integrated rate law for a second order process. 
+Recall: $\int \frac{-1}{x} = \frac{1}{x^2}$. 
+\be
+\begin{split}
+\text{Rate} &= k[A]^2 \\
+-\frac{d}{dt}[A] &= k[A]^2\\
+\int_0^t \frac{d[A]}{[A]^2} &= \int_0^t -kdt \\
+\int_0^t \frac{1}{[A]^2}d[A] &= -k\int_0^t dt \\
+\frac{1}{A}\Bigr|_0^t &= kt\Bigr|_0^t\\
+\frac{1}{[A]_t} &= \frac{1}{[A]_0} + kt
+\end{split}
+\ee
+
+\section{Half Life}
+The \textbf{Half-Life} (t$_{1/2}$) is defined as the time required for reactant concentration to decrease by a factor of 2.
+Using the first  order integrated rate law we see. 
+\be
+\begin{split}
+\ln\left(\frac{[A]}{[A]_0}\right) &= -kt \\
+\ln\left(\frac{[A]_0/2}{[A]_0}\right) &= -kt_{1/2}\\
+\ln\left(\frac{1}{2}\right) &= -kt_{1/2}\\
+\ln(2) &= kt_{1/2}
+\end{split}
+\ee
+This half-life can easily be tabulated in books because it  only depends on k. 
+In fact, radioactive decay is a first order process. 
+
+For the second order reaction we complete the same process. 
+\be
+\begin{split}
+\frac{1}{[A]_t} &= \frac{1}{[A]_0} + kt\\
+\frac{2}{[A]_0} - \frac{1}{[A]_0} &=  kt_{1/2}\\
+\frac{1}{[A]_0}  &= kt_{1/2}
+\end{split}
+\ee
+This half-life is not  as useful (not tabulated in books) because it depends on the initial concentration.
+
+As shown in the lecture, there are some other known rate-laws, and they become very mathematically complicated. 
+In reality these types of things are simply determined experimentally not analytically. 
+
+\section{Arrhenius}
+If we are interested in the rate of a reaction, we know the number of collisions (which depend on the temperature and concentration) must be related to the rate.
+However, not every collision is sufficient for a reaction (orientation and energy must be correct). 
+
+If we focus in on the effect of Temperature on reaction rate (essentially all reactions are a function of temperature) we arrive at the work of Svante Arrhenius, and the \textbf{Arrhenius Equation}. 
+\be
+k = Ae^{\frac{-E_a}{RT}}
+\ee
+Here A is the 'Arrhenius constant',  and E$_a$ is the \textbf{Activation Energy}. 
+From general chemistry the concept of an activation energy or an activation barrier should be familiar. 
+Although thermodynamics predicts the most stable state, the activation energy may be too high and that state cannot be realized. 
+The Arrhenius equation is useful, because any temperature dependent  process  can  probably be approximated by it (as a first approximation). 
+
+As we increase the temperature of our molecules, the Boltzmann Distribution shifts to having higher energy atoms more probable.
+This means at higher temperature more atoms are able to overcome the activation energy.
+
+We can start to guess what the Arrhenius factor looks like analytically
+\be
+k = A e^{\frac{-E_a}{RT}} \equiv pze^{\frac{-E_a}{RT}}
+\ee
+In this case we can define the \textbf{Orientation Factor} (p) and the \textbf{Collision Frequency} (z).
+The orientation factor  accounts for proper alignment during the collision, and the collision frequency is naturally a function of temperature.
+However, this  should be roughly linear wrt temperature, the exponential term also has a temperature dependence which will 'overpower' the collision frequency temperature dependence. 
+Therefore we can approximate the collision frequency as temperature independent if we are being lazy. 
+
+\section{Controlling Reaction Rate}
+Clearly the temperature can be used as a parameter for controlling reaction rate, but a different mechanism is also available. 
+A \textbf{Catalyst} is a species that changes the rate  of  reaction by providing a different mechanism to complete the reaction.
+A useful catalyst would provide a mechanism that has a lower activation energy than without the catalyst, therefore increasing the rate of the reaction. 
+It is crucial to understand the  the catalyst does not 'change the rate' is changes the mechanism, and the new mechanism will have a different rate.
+Also note, the mechanism may be different, but if the final reactants and products are the same, the thermodynamics must not change (remember state functions). 
+
+
+
+ 
+\end{document}
