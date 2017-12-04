@@ -1,0 +1,146 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Chem132A Discussion  Homework}
+\author{Moises Romero (moiseser@uci.edu), Shane Flynn (swflynn@uci.edu) }
+\date{12/3/17}
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{braket}
+\usepackage[margin=0.7in]{geometry}
+\usepackage[version=4]{mhchem}
+
+
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\ben}{\begin{equation*}}
+\newcommand{\een}{\end{equation*}}
+\newcommand{\pd}{\partial}
+
+\begin{document}
+
+\maketitle
+
+\section{Chemical Kinetics}
+Chemical Kinetics is the study of reaction rates.
+The mathematics and experimental findings associated with chemical reactions can be combined to better understand potential mechanisms through which the reaction can occur. 
+
+\subsection*{Reaction to Consider}
+The reaction for the decomposition of F$_2$O is : 
+
+\be
+2F_2O(g) \rightarrow 2F_2(g) + O_2(g)
+\ee
+
+After various experiments, the following reaction mechanism was published : 
+\ben
+(1) \quad F_2O + F_2O \rightarrow  F + OF F_2O \quad k_a 
+\een
+\ben
+(2) \quad F + F_2O \rightarrow F_2 + OF \quad k_b 
+\een
+\ben
+(3) \quad OF + OF \rightarrow O_2 + F + F \quad k_c
+\een
+\ben
+(4) \quad F + F + F_2O \rightarrow F_2 + F_2O \quad k_d
+\een
+
+\subsection{Steady-State Approximation}
+
+Using the steady-state approximation show that the mechanism follows the experimental rate law of : 
+\be
+\frac{-d[F_2O]}{dt} = k_r[F_2O]^2 + k'_r[F_2O]^{\frac{3}{2}}
+\ee
+
+Recall: the steady state approximation assumes that the intermediate, \textbf{I} , has a constant concentration:
+\be
+\frac{d[I]}{dt} = 0 
+\ee
+
+\textbf{Hint}: For the decomposition, the intermediate products are F and OF. 
+
+\subsection{Arrhenius Equation}
+The Arrhenius equation allows us to determine the activation energies of elementary reactions. 
+\be
+\ln k_r = \ln A -\frac{E_a}{RT}
+\ee
+For the decomposition determine the activation energy for equation 2 in the provided mechanism. 
+
+The experimentally determined Arrhenius parameters are as follows (for the temperature range 501-583 K): 
+
+\bigskip
+
+For k$_r$ A=7.8 x 10$^{13}$dm$^3$mol$^{-1}$s$^{-1}$ and $\frac{E_a}{R}$ = 1.935 x 10$^4$K. 
+
+\bigskip
+
+For k'$_r$ A=2.3 x 10$^{10}$dm$^3$mol$^{-1}$s$^{-1}$ and $\frac{E_a}{R}$ = 1.691 x 10$^4$K. 
+
+\section{Michaelis-Menten}
+Some of the most important biological reaction are the class of \textbf{Enzyme-Catalyzed Reactions}. 
+Experimentally it has been shown that these reactions usually follow a rate law of the form
+\be
+-\frac{d}{dt}[S] = \frac{k[S]}{K + [S]}
+\ee
+In 1913, Leonor Michaelis and Maude Menten showed that  a simple mechanism could account for this rate law (in terms of as Enzyme, a Product, and a Substrate). 
+\be\label{MM}
+E + S \underset{k_{-1}}{\stackrel{k_1}{\rightleftharpoons}} ES \underset{k_{-2}}{\stackrel{k_2}{\rightleftharpoons}} E + P
+\ee
+
+In this question we will explore this model to understand biochemistry. 
+
+\subsection{Traditional Equation}
+To start, we will derive the traditional M-M Equation. 
+
+\subsubsection{Dissociation}
+What reaction will give the following rate constant, and what does it represent physically?
+\be
+k_d = \frac{[E][S]}{[ES]}
+\ee
+
+\subsubsection{Rate-Determining step}
+Assuming the Enzyme-Substrate complex forming the product is the rate determining step, what is the rate of product formation?
+
+\subsubsection{Enzyme Conservation}
+Determine the concentration of the enzyme-substrate complex by assuming total amount of enzyme [E]$_T$ is conserved. 
+
+\subsubsection{Simplify}
+Show that the rate of product formation (r$_p$) is given by 
+\be
+r_p = \frac{v_{max}[S]}{[S] + k_d}
+\ee
+Where v$_{max}$ is defined to be k$_2$[E]$_T$. 
+
+\subsection{Uncompetitive Inhibition}
+We will now investigate a simple twist to the model, to account for an inhibitor.
+In general an inhibitor is a molecule that can bind to an enzyme and decrease its activity. 
+An \textbf{Uncompetitive Inhibitor}  is a molecule that can only bind to an Enzyme-Substrate complex. 
+
+\subsubsection{Mechanism}
+Add a new equation to account for the Inhibitor.
+Assuming it establishes an equilibrium, write down the dissociation constant for the inhibitor complex (k$_I$). 
+
+\subsubsection{Enzyme Concentration}
+Find an expression for the enzyme concentration.
+State all assumptions along the way. 
+
+\subsubsection{Product Formation Rate}
+Show the rate of formation of the products simplifies to:
+\be
+r_p = \frac{v_{max}[S]}{k_d + [S]\left(1+\frac{[I]}{k_i}\right)}
+\ee
+
+Does your result make sense when compared to the original M-M product formation rate?
+
+\section{Final Exam}
+At this point you should start preparing for the final exam.
+Expect $\approx$ $\frac{1}{3}$ of the final to be essentially the same material as previous exams and homework. 
+Also expect the exam to be roughly evenly distributed over the course material (i.e. Exam 1, Exam  2, and post-Exam 2). 
+
+A final problem set and solution covering  material in Chapter 21 will be  posted \textbf{NEXT WEEK}. 
+We are waiting  to see how much material is covered in lecture before making the set. 
+This final problem  set \textbf{IS} part of the course and may appear again of the final. 
+
+\end{document}
