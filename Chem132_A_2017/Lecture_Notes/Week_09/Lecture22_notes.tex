@@ -1,0 +1,146 @@
+\documentclass{article}
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{braket}
+\usepackage[margin=0.7in]{geometry}
+\usepackage{hyperref}
+\usepackage[version=4]{mhchem}
+% User-Defined Commands
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\benum}{\begin{enumerate}}
+\newcommand{\eenum}{\end{enumerate}}
+\newcommand{\pd}{\partial}
+% Title Information
+\title{Chem132A: Lecture 22}
+\author{Shane Flynn (swflynn@uci.edu)}
+\date{11/29/17}
+
+\begin{document}
+\maketitle
+
+\section{Catalyst}
+If we compare the effects of a catalyst to the Arrhenius equation, the catalyst seems to either decrease the activation energy, or increasing the A parameter. 
+
+An aside comment; the activation energy can also be negative.
+For example, an ion interacting with a neutral atom may require a  negative activation energy.
+If the molecules are going to fast there may not be time to interact through the Coulombic force.
+
+\subsection*{Catalytic Converter}
+In a combustion engine (your car) the exhaust output can be toxic.
+These  outputs interact with a \textbf{Catalytic Converter}, which is a device that causes a Redox Reaction to generate less-toxic output gases. 
+Un-burned hydrocarbons (CxHy), CO, and NOx are the main outputs we want to remove (the toxic gases).  
+The Hydrocarbons and carbon monoxide are oxidized inside the catalytic converter.
+\be
+\begin{split}
+\ce{C_xH_y + O2 &-> CO2 + H2O}\\
+\ce{CO + \frac{1}{2}O2 &-> CO2}
+\end{split}
+\ee
+The nitrogen-oxides are then reduced
+\be
+\ce{2NO + H2 -> N2 + H2O}
+\ee
+This process is done using a Pt/Rh catalyst on an oxide scaffold.
+This is a very complicated process (hence catalytic converters are very expensive).
+The air-fuel ratio effects the oxidation and reduction pathways,  and the catalyst can be poisoned easily (made useless) by lead and sulfur. 
+The reason gasoline no longer has lead is because of this catalyst. 
+\section{No Longer Elementary}
+We want to understand the relationship between a rate law and  a reaction mechanism, when the overall reaction is not just an elementary step. 
+
+To approach this problem consider a reaction mechanism containing two steps.
+The first step is slow and the second is fast. 
+\be
+\begin{split}
+    \textbf{Overall Reaction:}&\\
+    \ce{NO2 + CO &-> NO + CO2}\\
+    \textbf{Mechanism:}&\\
+    \ce{NO2 + NO2 &-> NO3 + NO}  \qquad \textbf{Slow}\\
+    \ce{NO3 + CO &-> NO2 + CO2} \qquad \textbf{Fast}
+\end{split}
+\ee
+The first step is slow (and only in 1 direction) therefore it controls  the overall rate of the process; Rate = k[NO$_2$]$^2$. 
+
+\subsection*{Reaction Intermediates}
+An \textbf{Intermediate} is a chemical species that is formed and subsequently used during the reaction (it does not appear in the overall reaction). 
+
+If we consider a different reaction and mechanism we find the following. 
+\be
+\begin{split}
+    \textbf{Overall Reaction:}&\\
+    \ce{2H2 + 2NO &-> 2H2O + N2}\\
+    \textbf{Mechanism:}&\\
+    \ce{2NO &<=>[k_1][k_{-1}] N2O2}  \qquad \textbf{Fast Equilibrium}\\
+    \ce{H2 + N2O2 &->[k_2] H2O + N2O}  \qquad \textbf{Slow}\\
+    \ce{N2O + H2 &->[k_3] N2 + H2O} \qquad \textbf{Fast}
+\end{split}
+\ee
+The overall rate for this mechanism is still just based on the slowest step in the mechanism. 
+\be
+\text{Rate} = k_2[H_2][N_2O_2]
+\ee
+However, this rate is in terms of an intermediate which is not convenient for experimental results (we want to measure our reactants and products). 
+
+To deal with this first, consider part 1  of the mechanism. 
+Because the forward and reverse reactions are in equilibrium we can  write
+\be
+\begin{split}
+\textbf{Rate} &= k_1[NO]^2 = k_{-1}[N_2O_2] \rightarrow \\
+\textbf{Rate} &= \frac{k_1}{k_{-1}}[NO]^2 \equiv k'[NO]^2 \\
+&\text{Substitute this into the slow-step rate from above}\\
+\textbf{Rate} &= k_2[H_2]k'[NO]^2 \equiv k[H_2][NO]^2 \\
+\end{split}
+\ee
+
+This process required knowledge about which step in the mechanism is fast or slow. 
+If we are unaware of the fast/slow steps we can use the \textbf{Steady State Approximation}. 
+The steady state approximation assumes the overall rate of change of an intermediate is 0.
+Therefore you sum over all the rates making and using your intermediate, and set them equal to zero.
+This will allow you to express intermediate concentrations in terms of the other chemical species. 
+In the above mechanism we have two different intermediates, $N_2O_2$ and $N_2O$. 
+The intermediate $N_2O$ appears in step 2 (where it is generated; +) and step 3 (where is is consumed; -).
+Using the steady state approximation we then write
+\be
+\frac{d}{dt}[N_2O}] = 0 = k_2[H_2][N_2O_2] - k_3[N_2O][H_2] \rightarrow [N_2O] = \frac{k_2}{k_3}[N_2O_2]
+\ee
+Using the first reaction in the mechanism we can substitute in the concentration of $N_2O_2$ and find. 
+\be
+[N_2O] = \frac{k_1}{k_{-1}}\frac{k_2}{k_3}[NO]^2
+\ee
+
+\subsection{Mechanisms and Kinetics}
+Be warned! Multiple mechanisms can give you the same rate law. 
+Kinetics cannot prove a rate law, it can just show a mechanism is consistent with the rate law. 
+
+Consider the following overall reaction
+\be
+\ce{2NO + O2 -> 2NO2}
+\ee
+One proposed mechanism for this reaction could be 
+\be
+\begin{split}
+    \ce{NO + NO <=> N2O2}& \qquad \text{fast}\\
+        \ce{N2O2 + O2 -> NO2}& \qquad \text{slow}\\
+\end{split}
+\ee
+If we use the steady state approximation this yields
+\be
+\textbf{Rate} = \frac{k_2k_1}{k_{-1}}[NO]^2[O_2]
+\ee
+
+However another proposed mechanism for this reaction is
+\be
+\begin{split}
+    \ce{NO + O2 <=> NO3}& \qquad \text{fast}\\
+    \ce{NO + NO3 -> 2NO2}& \qquad \text{slow}\\
+\end{split}
+\ee
+If we use the steady state approximation this yields
+\be
+\textbf{Rate} = k[NO]^2[O_2]
+\ee
+On the course website is an example problem and solution for an HBr mechanism that students should review. 
+ 
+\end{document}
