@@ -1,0 +1,95 @@
+\documentclass{article}
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{braket}
+\usepackage[margin=0.7in]{geometry}
+\usepackage{hyperref}
+\usepackage[version=4]{mhchem}
+% User-Defined Commands
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\benum}{\begin{enumerate}}
+\newcommand{\eenum}{\end{enumerate}}
+\newcommand{\pd}{\partial}
+% Title Information
+\title{Chem132A: Lecture 23}
+\author{Shane Flynn (swflynn@uci.edu)}
+\date{12/1/17}
+
+\begin{document}
+\maketitle
+
+\section*{Final Exam}
+The final exam will be on Friday, December 15 from 8am-10am. 
+
+ \section*{Uni-Molecular Reactions}
+ Consider some simple reaction like A $\ce{->}$ P. 
+ We do not know if this is an elementary reaction.
+ One proposed mechanism is the \textbf{Lindemann-Hinshelwood Mechanism}.
+ \be
+ \begin{split}
+     A + A \ce{->} A^*  + A& \qquad \qquad \frac{
+     d}{dt}[A^*] = k_a [A]^2 \\
+     A + A^* \ce{->} A + A& \qquad \qquad \frac{
+     d}{dt}[A^*] = -k_a' [A][A^*] \\
+     A^* \ce{->} P& \qquad \qquad \frac{
+     d}{dt}[A^*] = -k_b [A^*] \\
+ \end{split}
+ \ee
+ 
+ Applying our steady state approximation to the intermediate A$^*$ we find
+ \be
+ \begin{split}
+ \frac{
+     d}{dt}[A^*] = 0 &= k_a [A]^2 + -k_a' [A][A^*]  + -k_b [A^*]\\
+     [A^*] &= \frac{k_a[A]^2}{kb + k_a'[A]}
+ \end{split}
+ \ee
+ We can then substitute in the intermediate concentration at steady state to our product formation rate and find. 
+\be
+\frac{d}{dt}[P] = k_b[A^*] = \frac{k_ak_b[A]^2}{k_b+k_a'[A]}
+\ee
+ If we assume the decay of A$^*$ to P is the slow step in the- mechanism than we could write $k_a'[A][A^*] > k_b[A^*]$. 
+ We can use this to simplify our product rate equation. 
+ \be
+ \frac{d}{dt}[P] = k_b[A^*] = \frac{k_ak_b[A]^2}{k_b+k_a'[A]} \approx \frac{k_ak_b[A]}{k_a'} \equiv k_r[A]
+ \ee
+ In this limit (slow step assumption) we see that the reaction would look first order wrt A. 
+ 
+ \section*{Collision Theory}
+ Using \textbf{Collision Theory} we can try to predict the rate of a reaction via probability. 
+ Consider a bi-molecular reaction
+ \be
+ A + B \ce{->} P
+ \ee
+ We would assume that the rate of this reaction is proportional to the number of collisions that occur between A and B molecules (assuming no complicated underlying mechanism but a simple elementary reaction). 
+ \be
+ \textbf{Rate} = k_r[A][B]
+ \ee
+ From intuition, if we assume a reaction occurs through a collision, we need  some type of cross section associated with the sizes of the atoms ($\sigma$).
+ We also know the average velocities must be accounted for.
+ From Maxwell-Boltzmann Statistics we know the dependence is $\braket{V} \propto \sqrt{\frac{T}{M}}$.
+ If we stick in an exponential activation energy dependence and a \textbf{Steric Factor} to account for proper orientation upon collision we find
+ \be
+ k \approx P\sigma \sqrt{\frac{T}{M}}e^{-\frac{E_a}{RT}}
+ \ee
+ 
+ \subsubsection*{Gas Collisions}
+ Recall from our previous discussions, the collision rate for a gas is given by. 
+ \be
+ \begin{split}
+     Z_{AB} = \sigma \sqrt{\left(\frac{8k_BT}{\pi \mu}\right)}N_A^2[A][B]\\
+     \sigma = \pi d^2\\
+     d = \frac{1}{2}(d_A+ d_B)
+ \end{split}
+ \ee
+ We have also defined the reduced mass $\mu$ which essentially replaced the two different masses with an average value (so we do not need to keep track of both). 
+ \be
+ \mu \equiv \frac{m_Am_B}{m_A+m_B}
+ \ee
+ 
+ Next class we will further elaborate this model, we will propose the cross section is a function of energy $\sigma$(E) with an intrinsic \textbf{Collision Energy} (associated with the collision) that must be overcome by the collision if a reaction is to occur. 
+ 
+\end{document}
