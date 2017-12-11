@@ -1,0 +1,98 @@
+\documentclass{article}
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{braket}
+\usepackage[margin=0.7in]{geometry}
+\usepackage{hyperref}
+\usepackage[version=4]{mhchem}
+% User-Defined Commands
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\benum}{\begin{enumerate}}
+\newcommand{\eenum}{\end{enumerate}}
+\newcommand{\pd}{\partial}
+% Title Information
+\title{Chem132A: Lecture 24}
+\author{Shane Flynn (swflynn@uci.edu)}
+\date{12/4/17}
+
+\begin{document}
+\maketitle
+
+\section*{Collision Theory}
+ At the end of last lecture we developed an intuitive model for the rate of a gas phase reaction (A+B $\ce{->}$ P). 
+ \be
+ k \propto P\sigma \sqrt{\left(\frac{T}{M}\right)}e^{-\frac{E_a}{RT}}
+ \ee
+ 
+ We ended by defining an energy dependent cross section for the atoms, which evaluates to 0 unless the energy of the collision is above some threshold. 
+ From our study of gas phase reactions we can write the (this math is a bit involved for this course, the book gives a hand-wavy argument) \textbf{Collision Rate as}
+ \be
+ Z_{AB} = \sigma \sqrt{\left(\frac{8k_BT}{\pi\mu}\right)}e^{-\frac{E_a}{RT}}N^2_A[A][B]
+ \ee
+ 
+ With collisions happening we will be interested in the change in concentration of our reactants. 
+ The math works out to be
+ \be
+ \frac{d}{dt}[A] = -\sigma(E) \nu_{\text{rel}} N_A[A][B]
+ \ee
+ To understand this equation we need to choose an energy dependence for the cross section. 
+ If we assume the energy of the molecules are distributed according to the Boltzmann Energy Distribution (similar to the speed distribution) we need to integrate over  all of the possible energies an atom can have. 
+ \be
+ \frac{d}{dt}[A] = -\left[\int_o^\infty \sigma(E) \nu_{\text{rel}} f(E)dE \right] N_A[A][B]
+ \ee
+ To evaluate this integral we need to make some assumptions and do some math. 
+ We will define the rate constant (out of convenience) as
+ \be
+ k_r \equiv \left[\int_o^\infty \sigma(E) \nu_{\text{rel}} f(E)dE \right] N_A
+ \ee
+ Taking the Maxwell-Boltzmann Speed distribution, we can convert to energy using
+ \be
+ \begin{split}
+     E &= \frac{1}{2}\mu\nu^2 \quad \Rightarrow\\
+     f(E)dE &= 2\pi \left(\frac{\mu}{2\pi kT}\right)^{3/2} \sqrt{E} e^{-\frac{E}{k_BT}}dE
+ \end{split}
+ \ee
+ At this point we would need to chug through some math (you would not be expected to reproduce this at the undergraduate level). 
+ We will assume that the energy-dependent $\sigma$ has a value of 0 for all energies below the \textbf{Activation Energy} $E_A$. 
+ Atkins gives some math and some hand-waving, claiming that adding in the Steric Factor, assuming a form for the energy dependence of the cross sections (above E$_a$) and doing the math we get a rate of 
+ \be
+ k_r = P\sigma N_A \sqrt{\left(\frac{8k_BT}{\pi \mu}\right)}e^{-\frac{E_a}{k_BT}}
+ \ee
+ At this point do not worry too much about the math (take a Statistical Mechanics Course if you want to prove these relationships). 
+ Ultimately we introduce a steric factor (as a fitting factor) to get experimental and theory results to add up. 
+ Different forms of the dependence and models can be used to define these factors, but this is well beyond an undergraduate course. 
+ 
+ \section*{Diffusion Controlled Reactions}
+ Changing gears, think about a reaction left completely to diffusion.
+ Recall in our previous conversation on mixing that molecules do not diffuse very far.
+ This process  is slow because the molecules  are too busy bumping into each-other than showing net movement. 
+ One way of thinking about this is that the reactants are not moving far because they are always colliding with solvent. 
+ IF A and B molecule end up close to each-other however, they will stay close for a very long time. 
+ We can approximate this by assuming IF two molecules are close together, they will have to react before separating. 
+ 
+ The paradigm for these types of reactions are
+ \be
+ \begin{split}
+     A + B \ce{->} AB &\qquad \qquad Rate = k_d[A][B]\\
+    AB \ce{->} A + B &\qquad \qquad Rate = k_d'[AB]\\
+     AB \ce{->} P &\qquad \qquad Rate = k_a[AB]\\
+ \end{split}
+ \ee
+ Making the steady state approximation on the AB intermediate we find the following concentration dependence. 
+ \be
+ [AB] = \frac{k_d[A][B]}{k_a+k_d'}
+ \ee
+ Substituting this into our rate of product formation we see that
+ \be
+ \frac{d}{dt}[P] = \frac{k_dk_a}{k_a+k_d'}[A][B]
+ \ee
+ The diffusion controlled limit assumes k'$_d <<$ k$_a$ (when reactants come together they will react) we find
+ \be
+  \frac{d}{dt}[P] = \frac{k_dk_a}{k_a+k_d'}[A][B] \approx k_d[A][B]
+ \ee
+ And we would define the rate of the overall reaction as $k_r \equiv k_d$. 
+ 
+\end{document}
