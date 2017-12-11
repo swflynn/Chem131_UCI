@@ -1,0 +1,89 @@
+\documentclass{article}
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{braket}
+\usepackage[margin=0.7in]{geometry}
+\usepackage{hyperref}
+\usepackage[version=4]{mhchem}
+% User-Defined Commands
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\benum}{\begin{enumerate}}
+\newcommand{\eenum}{\end{enumerate}}
+\newcommand{\pd}{\partial}
+% Title Information
+\title{Chem132A: Lecture 25}
+\author{Shane Flynn (swflynn@uci.edu)}
+\date{12/6/17}
+
+\begin{document}
+\maketitle
+
+\section*{Final Lecture}
+ This will be the final lecture notes for the course (Friday will be a review).
+ \textbf{NOTE:} This lecture is very heavily influenced by Quantum Mechanics.
+ If these topics are not familiar to you, do not worry (you will have two terms of this stuff)!
+ We are \textbf{NOT} going to ask questions on the exam such as (define a triplet state, ISC, Phosphorescence, etc).
+ Understand the concept but do not worry about the specifics on the quantum mechanics. 
+
+ 
+ \section*{Photochemistry}
+ Please Note: This lecture is a brief (crude) summary of Quantum Mechanics.
+ All of the comments here are over-simplifications to introduce the topic.
+ The details will be discussed in future courses. 
+ 
+ Until now we have been thinking of chemical reactions as function of temperature, with collisions. 
+ Another way of initiating a chemical reaction is through light. 
+ \textbf{Photochemistry} is the branch of chemistry that investigates chemical properties and light. 
+ We can hit a molecule with a photon (a light packet) an excite that molecule to a new energy state.
+ This excited state is then able to react. 
+ \be
+ E = h\nu
+ \ee
+ Absorbing a photon occurs instantaneously and gives a large amount of energy into your molecule. 
+ 
+ There are tons of different reactions that occur via photon excitation. 
+ This types of behaviors will be explored in the remainder of the Physical Chemistry course sequence (Quantum Mechanics). 
+ Foreshadowing to the Chem132B, we usually think of molecules existing in a low energy \textbf{Ground State}. 
+ When a molecule absorbs  a  photon it  must store that energy somewhere (conservation of energy) and usually an electron is excited from a ground state to a higher energy state (an excited state). 
+ 
+ An important property of particles (that will be discussed in quantum mechanics) is the concept of \textbf{Spin}.
+ A simple intuition is that your particle contains something called  a spin, and it can be either up or down.
+ Due to the mathematics of Quantum Mechanics, we classify electrons as \textbf{Fermions}.
+ Fermions are particles that cannot occupy the same Quantum State (whatever a Quantum State is). 
+ For reference \textbf{Bosons} are particle that can have the same quantum spin states, photons are Bosons!
+ 
+ Before the molecule is hit with light it may be in a quantum state such that all the electrons are within the ground state and all have various up and down spins.
+ Upon absorbing the photon a single electron may be kicked to a higher energy excited state. 
+ The most probable way an electron is excited is such that its spin DOES NOT change. 
+ This type of excitation is known as a \textbf{Singlet Excited State}.
+ In contrast, a \textbf{Triplet Excited State} would have the  excited electron not only change energy levels, but also change its spin. 
+ Notice that a triplet excitation has an overall net spin in the molecule versus the singlet. 
+ 
+ If we make a \textbf{Potential Energy Diagram} (potential Energy of your molecule versus spatial coordinates). 
+ Think of a diatomic bond, and as you stretch and compress the bond the energy changes. 
+ The ground state energy of our molecule is a collection of various energies as a function of the bond distance. 
+ 
+ When the molecule absorbs a photon, the overall energy of the molecule changes, and the energy as a function of bond-coordinate must also change. 
+ 
+ The transition can occur in various different ways. 
+ \textbf{Fluorescence} refers to a molecule absorbing light, and then emitting it (can be a lower energy emitted).
+ The process of \textbf{Phosphorescence} is similar to fluorescence, however it  also has a spin change associated with it. 
+ For example, \textbf{Inter-System Crossing} refers to a molecule absorbing light, to a singlet state, and then flipping the excited electrons spin to make a triplet state). 
+ These processes with spin changes occur over longer time intervals (it is not probable to have spin changes, therefore the events occur over longer times waiting for the probability to be realized). 
+ 
+ \section*{Quantum Yield}
+ The quantum yield is a simple concept for tracking how important quantum event are in  your system.
+ For photochemistry you could imagine tracking the number of photons absorbed by a system (could be useful in solar  panels for example). 
+ You would want to just consider  some ratio of 
+ \be
+ \phi = \frac{\text{\# of Events}}{\text{\# of Photons Absorbed}}
+ \ee
+ We could tunnel in farther and talk about the process of absorbing and release to define an individual quantum yield too. 
+ 
+ Interpret this lecture as more of a personal interest lecture. 
+ I would note stress this material for the exam, you will have other courses that teach you quantum mechanics and its interconnection with chemical systems!
+ 
+\end{document}
