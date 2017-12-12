@@ -1,0 +1,309 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Chem132A Discussion 7 Solutions}
+\author{Moises Romero, Shane Flynn}
+\date{November 2017}
+
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{braket}
+\usepackage[margin=0.7in]{geometry}
+\usepackage[version=4]{mhchem}
+
+
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\pd}{\partial}
+
+\begin{document}
+
+\maketitle
+\section{Chemical Kinetics}
+\subsection*{Reaction to Consider}
+The reaction for the decomposition of F$_2$O is : 
+
+\be
+2F_2O(g) \rightarrow 2F_2(g) + O_2(g)
+\ee
+
+After various experiments, the following reaction mechanism was published :  
+
+\be
+(1) \quad F_2O + F_2O \rightarrow  F + OF + F_2O \quad k_a 
+\ee
+
+\be
+(2) \quad F + F_2O \rightarrow F_2 + OF \quad k_b 
+\ee
+
+\be 
+(3) \quad OF + OF \rightarrow O_2 + F + F \quad k_c
+\ee
+
+\be
+(4) \quad F + F + F_2O \rightarrow F_2 + F_2O \quad k_d
+\ee
+
+\subsection{Steady-State Approximation}
+
+Using the steady-state approximation show that the mechanism follows the experimental rate law of : 
+\be
+\frac{-d[F_2O]}{dt} = k_r[F_2O]^2 + k'_r[F_2O]^{\frac{3}{2}}
+\ee
+
+Recall that the steady state approximation assumes that intermediate, \textbf{I} , has a constant concentration.   
+\be
+\frac{d[I]}{dt} = 0 
+\ee
+
+\textbf{Hint}: For the decomposition the intermediate products are F and OF. 
+
+\subsection*{Solution:}
+I will start by writing down all of the rates associated with each step in the mechanism. 
+Because the mechanism is written with only forward arrows, we can simply define the rates in terms of the products. 
+\be
+\begin{split}
+    \text{Rate}_1 &= k_a[F_2O]^2\\
+    \text{Rate}_2 &= k_b[F][F_2O] \\
+    \text{Rate}_3 &= k_c[OF]^2 \\
+    \text{Rate}_4 &= k_d[F]^2[F_2O] \\
+\end{split}
+\ee
+
+The overall problem is to determine the rate law for F$_2$O, to do this we can look at all of the steps within the mechanism that generate/consume F$_2$O. 
+
+\bigskip
+
+\textbf{RECALL}: This is the overall rate of a molecule in the original equation. 
+We can use any reactant or product to define the overall rate, but we must account for the stoichometry in this step!
+For example: if the reaction were A + 2B $\ce{->}$ 3C + D, then we know
+\be
+\frac{1}{3}\frac{d}{dt}[C] = \frac{d}{dt}[D] = -\frac{d}{dt}[A] = -\frac{1}{2}\frac{d}{dt}[C]
+\ee
+In the same way we will write the overall rate in terms of F$_2$O. 
+\be
+\frac{1}{2}\frac{d}{dt}[F_2O] = -k_a[F_2O]^2 - k_b[F][F_2O] 
+\ee
+Where step 1 of the mechanism is overall negative wrt F$_2$O and step 4 is overall neutral and does not play a factor in the rate. 
+Again the RHS (the individual rates) do not have any stoichometry included it is accounted for by the rate law itself (raising the concentrations to various powers). 
+This result looks similar to the rate law we are trying to prove, however, it is in terms of the intermediate F.
+
+To remove this intermediate dependence we make a steady state approximation and write down the rate of formation of the intermediates in a similar manner. 
+Please note: we are no longer writing rates of an overall reaction, these are rates associated with the mechanism, therefore no coefficients are used, simply the rate law. 
+
+From the mechanism we see that F is formed in steps 1/3 , and F is consumed in steps 2/4. 
+\be
+\frac{d[F]}{dt} = 0 = k_a [F_2O]^2 - k_b[F][F_2O] + k_c[OF]^2 -k_d[F]^2[F_2O]
+\ee
+
+We will then write down the steady state approximation for the other intermediate in the same way. 
+\be
+\frac{d[OF]}{dt} = 0 = k_a[F_2O]^2 + k_b[F][F_2O] - k_c[OF]^2 
+\ee
+
+Remember, our goal was to remove the [F] intermediate in our overall rate of F$_2$O.
+But the intermediate F and the intermediate OF both depend on the same variables.
+We can therefore take the equations and combine them to reduce the overall number of variables (we have 2 intermediates, we therefore need 2 equations to solve). 
+
+If we add each intermediate equation together we see some nice cancellations! 
+\be
+2k_a[F_2O]^2 - k_d[F]^2[F_2O] = 0 
+\ee
+
+We will solve this equation for [F], so that we can substitute into our overall rate law. 
+\be
+[F] = \left(2\frac{k_a}{k_d}[F_2O]\right)^{\frac{1}{2}}
+\ee
+
+Finally we substitute in our expression for [F] into the overall rate law of F$_2$O.  
+Doing the algebra I find:
+\be
+\begin{split}
+\frac{1}{2}\frac{d}{dt}[F_2O] &= -k_a[F_2O]^2 - k_b\left(2\frac{k_a}{k_d}[F_2O]\right)^{\frac{1}{2}} [F_2O] \\
+-\frac{d}{dt}[F_2O] &= 2k_a[F_2O]^2 + 2k_b\left(2\frac{k_a}{k_d}\right)^{\frac{1}{2}} [F_2O]^{3/2} \\
+\end{split}
+\ee
+
+\subsection{Arrhenius Equation}
+The Arrhenius equation allows us to determine the activation energies of elementary reactions. 
+\be
+\ln k = \ln A -\frac{E}{RT}
+\ee
+For the decomposition determine the activation energy for elementary equation 2 in the provided mechanism. 
+ The experimentally determined Arrhenius parameters are as follows for the temperature range 501-583K: 
+
+\bigskip
+
+For k$_r$ A=7.8 x 10$^{13}$dm$^3$mol$^{-1}$s$^{-1}$ and E$_a$ = 1.935 x 10$^4$KR. 
+
+\bigskip
+
+For k'$_r$ A=2.3 x 10$^{10}$dm$^3$mol$^{-1}$s$^{-1}$ and E$_a$ = 1.691 x 10$^4$KR. 
+
+Where R is the gas constant.  
+For the k$_d$ term in the Arrhenius equation can be ignored as step 4 in the reaction mechanics is termolecular. This term means a reaction involving three molecules colliding which has a much smaller probability of occurring than two molecules colliding. Thus this term can be ignored. 
+\subsection*{Solution:}
+We want to solve for E$_b$ , so we will want solve for k$_b$. We know the expression for k'$_r$ contains k$_b$. 
+We will want to take that expression and multiply by ln , and then  separate our logs to simplify more..
+\be
+\ln k'_r = \ln \left[k_b\left(\frac{k_a}{k_d}\right)\right] = \ln k_b +\frac{1}{2}\ln k_a - \frac{1}{2}\ln k_d 
+\ee
+Recall that step 4 of the mechanism is termolecular(probability of 3 compounds colliding is very small) therefore k$_d$ term can be ignored. From our derivation in the first problem we know k$_r$ = k$_a$. So the expression is now : 
+\be
+\ln k'_r = \ln k_b +\frac{1}{2}\ln k_r
+\ee
+We can rewrite using the Arrhenius equation as : 
+\be
+\ln A_r'- \frac{E_r'}{RT}=\ln A_b - \frac{E_b}{RT} + \frac{1}{2}\ln A_r - \frac{1}{2}\frac{E_r}{RT}
+\ee
+We can take the derivative with respect to Temperature to get the activation energies. 
+\be
+\frac{E_r'}{RT^2}=\frac{E_b}{RT^2} +   \frac{1}{2}\frac{E_r}{RT^2}
+\ee
+
+We can multiply through by RT$^2$ and rearrange to solve for E$_b$
+\be
+E_b = E'_r - \frac{1}{2}E_r = 1.691 \times 10^4\text{K}R-(\frac{1}{2})1.935 \times 10^4\text{K}R = 7235K(R) = (7235K)(.008314\text{kJmol}K^{-1}) = 60\text{kJmol}^{-1} 
+\ee
+
+
+\section{Michaelis-Menten}
+Some of the most important biological reaction are the class of \textbf{Enzyme-Catalyzed Reactions}. 
+Experimentally it has been shown that these reactions usually follow a rate law of the form
+\be
+-\frac{d}{dt}[S] = \frac{k[S]}{K + [S]}
+\ee
+In 1913, Leonor Michaelis and Maude Menten showed that  a simple mechanism could account for this rate law (in terms of as Enzyme, and a Substrate). 
+\be\label{MM}
+E + S \underset{k_{-1}}{\stackrel{k_1}{\rightleftharpoons}} ES \underset{k_{-2}}{\stackrel{k_2}{\rightleftharpoons}} E + P
+\ee
+
+In this question we will explore various applications of the model to understand biochemistry. 
+
+\subsection{Traditional Equation}
+To start, we will derive the traditional M-M Equation. 
+
+\subsubsection{Dissociation}
+What reaction will give the following rate constant, and what doe sit represent physically?
+\be
+k_d = \frac{[E][S]}{[ES]}
+\ee
+
+\subsubsection*{Solution}
+We know that our rates are written in terms of products divided by reactions, therefore. 
+\be
+ES \rightleftharpoons E + S
+\ee
+This is simply the reverse reaction in step 1 of Equation \ref{MM}.
+This reaction is the  dissociation of the enzyme-substrate complex into separate enzyme and substrate (ie. k$_d$ = k$_{-1}$).
+
+\subsubsection{Rate-Determining step}
+Assuming the Enzyme-Substrate Generating product is the rate determining step, what is the rate of product formation?
+
+\subsubsection*{Solution}
+If we assume the second half of equation \ref{MM} is the rate-determining step (i.e. it is irreversible), than the rate of product formation is simply controlled by this equation. 
+\be
+r_p = k_2[ES]
+\ee
+
+\subsubsection{Enzyme Conservation}
+Determine the concentration of the enzyme-substrate complex by assuming total amount of enzyme [E]$_T$ is conserved. 
+
+\subsubsection*{Solution}
+If the total  amount of enzyme is conserved, and  the enzyme can only be part of the complex or alone we can write
+\be
+[E]_T = [E] + [ES]
+\ee
+Now using the dissociation process above we can substitute in an expression for [E].
+\be
+\begin{split}
+[E]_T &= \frac{k_d[ES]}{[S]} + [ES] = [ES] \left(\frac{k_d}{[S]}+1\right)\\
+[ES] &= \frac{[E]_T}{\frac{k_d}{[S]}+1}
+\end{split}
+\ee
+
+\subsubsection{Simplify}
+Show that the rate of product formation (r$_p$) is given by 
+\be
+r_p = \frac{v_{max}[S]}{[S] + k_d}
+\ee
+Where v$_{max}$ is defined to be k$_2$[E]$_T$. 
+
+\subsubsection*{Solution}
+We just need to substitute in our previous result for r$_p$ and solve.
+\be
+\begin{split}
+r_p &= k_2 \left(\frac{[E]_T}{\frac{k_d}{[S]}+1}\right) = \frac{v_{max}}{\frac{k_d}{[S]}+1}\\
+r_p &= \frac{v_{max}[S]}{k_d + [S]}
+\end{split}
+\ee
+
+\subsection{Uncompetitive Inhibition}
+We will now investigate a simple twist to the model, to account for an inhibitor.
+In general an inhibitor is a molecule that can bind to an enzyme and decrease its activity. 
+An \textbf{Uncompetitive Inhibitor}  is a molecule that can only bind to an Enzyme-Substrate complex. 
+
+\subsubsection{Mechanism}
+Add a new equation to account for the Inhibitor, assuming it establishes an equilibrium, write down the dissociation constant for the inhibitor (k$_i$). 
+
+\subsubsection*{Solution}
+As stated, the inhibitor only interacts with the ES complex, therefore 
+\be
+[ES] + [I] \rightleftharpoons [ESI]
+\ee
+We can then write the dissociation of the complex as 
+\be
+k_I = \frac{[ES][I]}{[ESI]}
+\ee
+
+\subsubsection{Enzyme Concentration}
+Find an expression for the enzyme concentration.
+State all assumptions along the way. 
+
+\subsubsection*{Solution}
+If we assume a low concentration of the product concentration, than the rate-determining step becomes irreversible. 
+If we then assume the total enzyme concentration is conserved we can write.
+\be
+[E]_T = [E] + [ES] + [ESI]
+\ee
+We can now substitute in our dissociation expression.
+\be
+\begin{split}
+[E]_T &= [E] + [ES] + [ESI]\\
+[E]_T &= [E] + \frac{[E][S]}{k_d} + \frac{[ES][I]}{k_I}\\
+[E]_T &= [E] + \frac{[E][S]}{k_d} + \frac{[E][S][I]}{k_I}\\
+\end{split}
+\ee
+Finally we can factor out terms and solve for the concentration of the enzyme. 
+\be
+\begin{split}
+[E]_T &= [E]\left(1+\frac{[S]}{k_d} + \frac{[S][I]}{k_dk_I}\right)\\
+[E] &= \frac{[E]_T}{\left(1+\frac{[S]}{k_d} + \frac{[S][I]}{k_dk_I}\right)}
+\end{split}
+\ee
+
+\subsubsection{Product Formation Rate}
+Determine the rate of formation of the products (simplify as much as possible).
+
+\subsubsection*{Solution}
+Again we start with r$_p$ and simplify.
+\be
+\begin{split}
+r_p &= k_2[ES] \\
+&= k_2\frac{[E][S]}{k_d}\\
+&= k_2\left[\frac{[E]_T[S]}{k_d \left(1+\frac{[S]}{k_d} + \frac{[S][I]}{k_dk_I}\right)}\right]\\
+r_p &= \frac{v_{max}[S]}{k_d + [S]\left(1+\frac{[I]}{k_i}\right)}
+\end{split}
+\ee
+
+And if we compare this to our original M-M expression for the rate, the inhibitor will make this process slower.
+
+
+
+
+
+
+
+\end{document}
